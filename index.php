@@ -36,14 +36,7 @@ include("../update_wakazi/__screens/__headers/header.php")
                     <button style="font-size: 1.2em;"><a href="#collection">Discover more</a></button>
                 </div>
             </div>
-            <!-- <div class="carousel-item" data-bs-interval="5000">
-                <video src="{{ asset('images/Abstract.mp4') }}" class="d-block h-20 w-100" autoplay muted loop></video>
-                <div class="carousel-caption">
-                    <h1 class="heading-h1" style="color: #d2c71a;">Queen of all sciences.</h1>
-                    <p style="color: #d2c71a;">Art is the queen of all sciences communicating knowledge to all the generations of the world." </p>
-                    <button style="font-size: 1.2em;"><a href="#collection">Discover more</a></button>
-                </div>
-            </div> -->
+        
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -55,49 +48,7 @@ include("../update_wakazi/__screens/__headers/header.php")
         </button>
     </div>
 
-    <!-- Mashead header-->
-    <!-- <header class="masthead">
-            <div class="container px-5">
-                <div class="row gx-5 align-items-center">
-                    <div class="col-lg-6">
-                        
-                        <div class="mb-5 mb-lg-0 text-center text-lg-start">
-                            <h1 class="display-1 lh-1 mb-3" style="color: purple;">Wakazi Ecommerce</h1>
-                            <p class="lead fw-normal text-muted mb-5">Empowering creativity</p>
-                            <div class="d-flex flex-column flex-lg-row align-items-center">
-                                <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge" src="{{ asset('images/google-play-badge.svg') }}" alt="..." /></a>
-                                <a href="#!"><img class="app-badge" src="{{ asset('images/app-store-badge.svg') }}" alt="..." /></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        
-                        <div class="masthead-device-mockup">
-                            <svg class="circle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                                <defs>
-                                    <linearGradient id="circleGradient" gradientTransform="rotate(45)">
-                                        <stop class="gradient-start-color" offset="0%"></stop>
-                                        <stop class="gradient-end-color" offset="100%"></stop>
-                                    </linearGradient>
-                                </defs>
-                                <circle cx="50" cy="50" r="50"></circle></svg>
-                                <svg class="shape-1 d-none d-sm-block" viewBox="0 0 240.83 240.83" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="-32.54" y="78.39" width="305.92" height="84.05" rx="42.03" transform="translate(120.42 -49.88) rotate(45)"></rect>
-                                <rect x="-32.54" y="78.39" width="305.92" height="84.05" rx="42.03" transform="translate(-49.88 120.42) rotate(-45)"></rect></svg
-                            ><svg class="shape-2 d-none d-sm-block" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"></circle></svg>
-                            <div class="device-wrapper">
-                                <div class="device" data-device="iPhoneX" data-orientation="portrait" data-color="black">
-                                    <div class="screen bg-black">
-                                        
-                                        <video muted="muted" autoplay="" loop="" style="max-width: 100%; height: 100%"><source src="{{ asset('images/demo-screen.mp4') }}" type="video/mp4" /></video>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header> -->
+    
 
     <!-- Collections -->
     <div class="collection-container" id="collection">
@@ -106,25 +57,25 @@ include("../update_wakazi/__screens/__headers/header.php")
         <div class="row">
             <div class="collection-col col-12 col-md mx-3">
                 <h4> Jewellery</h4>
-                <a href="#"><img src="{{ asset('images/jewellery.webp') }}" alt="..." /></a>
+                <a href="#"><img src="" alt="..." /></a>
             </div>
             <div class="collection-col col-12 col-md mx-3">
                 <h4> Home and Decor</h4>
-                <a href="#"><img src="{{ asset('images/decor.jpg') }}" alt="..." /></a>
+                <a href="#"><img src="" alt="..." /></a>
             </div>
             <div class="collection-col col-12 col-md mx-3">
                 <h4> Bags and Purses</h4>
-                <a href="#"><img src="{{ asset('images/bag.webp') }}" alt="..." /></a>
+                <a href="#"><img src="" alt="..." /></a>
             </div>
             <div class="collection-col col-12 col-md mx-3">
                 <h4> Art and Collectibles</h4>
-                <a href="#"><img src="{{ asset('images/art.avif') }}" alt="..." /></a>
+                <a href="#"><img src="" alt="..." /></a>
             </div>
         </div>
         <div class="row">
             <div class="collection-col col-12 col-md mx-3">
                 <h4> Books, Movies and Music</h4>
-                <a href="#"><img src="{{ asset('images/books.jpg') }}" alt="..." /></a>
+                <a href="#"><img src="" alt="..." /></a>
             </div>
             <div class="collection-col col-12 col-md mx-3">
                 <h4> Electronics</h4>
