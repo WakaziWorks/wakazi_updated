@@ -61,8 +61,8 @@
                                         <p>Please login to your account</p>
 
                                         <div class="form-outline mb-4">
-                                            <input type="email" id="form2Example11" name="username" class="form-control" placeholder="Phone number or email address" />
-                                            <label class="form-label" for="form2Example11">Username</label>
+                                        <input type="email" id="form2Example11" name="email" class="form-control" placeholder="Phone number or email address" />
+                                        <label class="form-label" for="form2Example11">Email</label>
                                         </div>
 
                                         <div class="form-outline mb-4">
@@ -79,11 +79,7 @@
                                             <p class="mb-0 me-2">Don't have an account?</p>
                                             <a href="signup.php" class="btn btn-outline-danger">Create new</a>
                                         </div>
-                                        <?php if (isset($_GET['error'])) : ?>
-                                            <div class="alert alert-danger" role="alert">
-                                                <?= htmlspecialchars($_GET['error']); ?>
-                                            </div>
-                                        <?php endif; ?>
+                                       
                                     </form>
 
 
