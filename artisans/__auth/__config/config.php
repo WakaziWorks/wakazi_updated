@@ -1,21 +1,17 @@
 <?php
 // Database configuration settings
-define('DB_SERVER', 'localhost');   // Database server, typically 'localhost'
-define('DB_USERNAME', 'root');      // Database username, 'root' is the default for localhost
-define('DB_PASSWORD', '');          // Database password, empty for development environment
+define('DB_SERVER', 'localhost');   // Database server
+define('DB_USERNAME', 'root');      // Database username
+define('DB_PASSWORD', '');          // Database password
 define('DB_NAME', 'wakaziworks');   // Database name
 
 // Attempt to connect to MySQL database
-try {
-    $pdo = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME, DB_USERNAME, DB_PASSWORD);
-    // Set the PDO error mode to exception
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-    die("ERROR: Could not connect. " . $e->getMessage());
+$mysqli = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+
+// Check connection
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
 }
 
-// Function to close the database connection
-function closeConnection($pdo) {
-    $pdo = null;
-}
-?>
+// Optionally set the charset to utf8mb4
+$mysqli->set_charset("utf8mb4");
