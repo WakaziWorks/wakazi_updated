@@ -7,6 +7,6 @@ $_SESSION = [];
 session_destroy();
 
 // Redirect to login page or home page
-header('Location: ../update_wakazi/__auth/__accounts/login.php');
+header('Location: ../.php');
 exit;
 ?>
