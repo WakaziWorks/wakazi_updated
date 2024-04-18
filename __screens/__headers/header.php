@@ -127,14 +127,42 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
             </div>
         </div>
     </nav>
-    <!-- Additional Navigation Row -->
-    <div class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
-        <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ route('products') }}">Products</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ route('collections') }}">Collections</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ route('features') }}">Features</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ route('blog') }}">Blog</a></li>
-        </ul>
+   <!-- Additional Navigation Row -->
+<div class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <!-- Brand/logo if needed -->
+        <!-- <a class="navbar-brand" href="#">Logo</a> -->
+
+        <!-- Toggler button for mobile view -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navigation items -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
+                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{ route('products') }}">Products</a></li>
+                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{ route('collections') }}">Collections</a></li>
+                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{ route('features') }}">Features</a></li>
+                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{ route('blog') }}">Blog</a></li>
+                
+                <!-- Dropdown Menu for smaller screens -->
+                <li class="nav-item dropdown d-lg-none">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Menu
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="{{ route('home') }}">Home</a></li>
+                        <li><a class="dropdown-item" href="{{ route('products') }}">Products</a></li>
+                        <li><a class="dropdown-item" href="{{ route('collections') }}">Collections</a></li>
+                        <li><a class="dropdown-item" href="{{ route('features') }}">Features</a></li>
+                        <li><a class="dropdown-item" href="{{ route('blog') }}">Blog</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
+</div>
+
 </header>
