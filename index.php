@@ -1,6 +1,6 @@
 
 <?php
-include("../update_wakazi/__screens/__headers/header.php")
+include("__screens/__headers/header.php")
 ?>
 
 
