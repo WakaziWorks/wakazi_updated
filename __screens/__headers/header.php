@@ -140,11 +140,11 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
         <!-- Navigation items -->
         <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
             <ul class="navbar-nav">
-                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
-                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{ route('products') }}">Products</a></li>
-                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{ route('collections') }}">Collections</a></li>
-                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{ route('features') }}">Features</a></li>
-                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{ route('blog') }}">Blog</a></li>
+                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../index.html">Home</a></li>
+                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../index.html">Products</a></li>
+                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../index.html">Collections</a></li>
+                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../index.html">Features</a></li>
+                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../index.html">Blog</a></li>
                 
                 <!-- Dropdown Menu for smaller screens -->
                 <li class="nav-item dropdown d-lg-none">
