@@ -76,7 +76,6 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Menu
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="#">Jewellery</a>
@@ -116,11 +115,11 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                     </a>
                 <?php else: ?>
                     <!-- Links to show when the user is not logged in -->
-                    <a href="../update_wakazi/__auth/__accounts/login.php" class="nav-link" id="popup-trigger">
+                    <a href="../../__auth/__accounts/login.php" class="nav-link" id="popup-trigger">
                         <i class="bi bi-person-check"></i> Account
                     </a>
                     <br>
-                    <a href="#" class="nav-link">
+                    <a href="faq.php" class="nav-link">
                         <i class="bi bi-patch-question-fill"></i> Help
                     </a>
                 <?php endif; ?>
@@ -139,7 +138,7 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
         </button>
 
         <!-- Navigation items -->
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
                 <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{ route('products') }}">Products</a></li>
@@ -150,14 +149,14 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                 <!-- Dropdown Menu for smaller screens -->
                 <li class="nav-item dropdown d-lg-none">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Menu
+                        
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="{{ route('home') }}">Home</a></li>
-                        <li><a class="dropdown-item" href="{{ route('products') }}">Products</a></li>
-                        <li><a class="dropdown-item" href="{{ route('collections') }}">Collections</a></li>
-                        <li><a class="dropdown-item" href="{{ route('features') }}">Features</a></li>
-                        <li><a class="dropdown-item" href="{{ route('blog') }}">Blog</a></li>
+                        <li><a class="dropdown-item" href="index.php">Home</a></li>
+                        <li><a class="dropdown-item" href="index.html">Products</a></li>
+                        <li><a class="dropdown-item" href="index.html">Collections</a></li>
+                        <li><a class="dropdown-item" href="index.html">Features</a></li>
+                        <li><a class="dropdown-item" href="index.html">Blog</a></li>
                     </ul>
                 </li>
             </ul>
