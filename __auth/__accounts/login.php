@@ -14,10 +14,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
     <!-- MDB -->
     <link rel="stylesheet" href="assets/css/bootstrap-login-form.min.css" />
-</head>
-
-<body>
-    <!-- Start your project here-->
 
     <style>
         .gradient-custom-2 {
@@ -44,6 +40,11 @@
             }
         }
     </style>
+</head>
+
+<body>
+    <!-- Start your project here-->
+
 <section class="vh-100">
   <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
