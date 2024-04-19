@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if (password_verify($password, $fetched_password)) {
                     $_SESSION['logged_in'] = true; // Set the session variable
                     $_SESSION['email'] = $email; // Store the email in session data
-                    echo '<script>window.location.href = "../../__dashboard/index.php";</script>';
+                    echo '<script>window.location.href = "../../index.php";</script>';
                     exit();
                 } else {
                     // Password does not match
