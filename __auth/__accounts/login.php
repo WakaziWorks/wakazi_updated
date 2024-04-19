@@ -54,7 +54,7 @@
                                 <div class="card-body p-md-5 mx-md-4">
 
                                     <div class="text-center">
-                                        <h4 class="mt-1 mb-5 pb-1"> <img src="assets/img/logo.png" style="width: 185px;" alt="logo"> Artisans</h4>
+                                        <h4 class="mt-1 mb-5 pb-1"> <img src="assets/img/logo.png" style="width: 185px;" alt="logo"> Customers</h4>
                                     </div>
 
                                     <form action="../__accounts/__verifications/verifycust.php" method="POST">
