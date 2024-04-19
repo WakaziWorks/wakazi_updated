@@ -143,7 +143,7 @@ $result->close();
                         </a>
                     <?php else : ?>
                         <!-- Links to show when the user is not logged in -->
-                        <a href="../update_wakazi/__auth/__accounts/login.php" class="nav-link" id="popup-trigger">
+                        <a href="../../__auth/__accounts/login.php" class="nav-link" id="popup-trigger">
                             <i class="bi bi-person-check" style="padding: 2px;"></i> Account
                         </a>
                         <br>
