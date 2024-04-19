@@ -60,7 +60,7 @@ $result->close();
 
     <!-- CSS files loading here -->
     <!-- <link rel="stylesheet" href="../update_wakazi/ -->
-    <link rel="stylesheet" href="../update_wakazi/static/css/styles.css">
+    <link rel="stylesheet" href="../../static/css/styles.css">
     <style>
         .navbar-nav {
             margin-bottom: 0;
