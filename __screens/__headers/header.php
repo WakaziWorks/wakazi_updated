@@ -1,9 +1,34 @@
-
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 session_start(); // Start the session at the beginning of the script
 
 // Check if the user is logged in
 $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
+
+include_once('__config/app/config.php');
+
+$query = "SELECT p.ProductID, p.ProductName, c.CategoryName 
+          FROM Products p 
+          JOIN Categories c ON p.CategoryID = c.CategoryID 
+          WHERE p.is_featured = TRUE;";  // Make sure your tables and columns are correctly named
+
+$result = $mysqli->query($query);
+
+$featuredProducts = [];
+$productsByCategory = [];
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $featuredProducts[] = $row;
+        $productsByCategory[$row['category_name']][] = $row;  // Organize products by category
+    }
+} else {
+    echo "";
+}
+
+// Close result set
+$result->close();
 ?>
 
 <!DOCTYPE html>
@@ -35,133 +60,131 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
 
     <!-- CSS files loading here -->
     <!-- <link rel="stylesheet" href="../update_wakazi/ -->
-    <link rel="stylesheet" href="../../static/css/styles.css">
+    <link rel="stylesheet" href="../update_wakazi/static/css/styles.css">
     <style>
         .navbar-nav {
-    margin-bottom: 0;
-}
+            margin-bottom: 0;
+        }
 
-.navbar-light .navbar-nav .nav-link {
-    padding: 8px 10px; /* Reduced padding to bring items closer */
-}
+        .navbar-light .navbar-nav .nav-link {
+            padding: 8px 10px;
+            /* Reduced padding to bring items closer */
+        }
 
-.navbar {
-    padding-top: 0;
-    padding-bottom: 0;
-}
+        .navbar {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
 
-.container-fluid {
-    padding-left: 0;
-    padding-right: 0;
-}
+        .container-fluid {
+            padding-left: 0;
+            padding-right: 0;
+        }
 
-/* Reducing space specifically between the search section and the navigation row */
-.navbar-expand-lg + .navbar {
-    margin-top: -10px; /* Pulls the second navbar up closer to the first */
-}
-</style>
+        /* Reducing space specifically between the search section and the navigation row */
+        .navbar-expand-lg+.navbar {
+            margin-top: -10px;
+            /* Pulls the second navbar up closer to the first */
+        }
+    </style>
 </head>
 
 <body id="page-top">
 
-<header class="header fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <!-- Dropdown for mobile and other small devices -->
-            <div class="dropdown">
+    <header class="header fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <!-- Dropdown for mobile and other small devices -->
+                <div class="dropdown">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Menu
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Jewellery</a>
+                                    <a class="dropdown-item" href="#">Bags & purses</a>
+                                    <a class="dropdown-item" href="#">Home & decor</a>
+                                    <a class="dropdown-item" href="#">Accessories</a>
+                                    <a class="dropdown-item" href="#">Art & collectibles</a>
+                                    <a class="dropdown-item" href="#">Craft supplies & tools</a>
+                                    <a class="dropdown-item" href="#">Books, Movies, Music</a>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a class="navbar-brand fw-bold" id="logo" href="#">
+                    <img src="static/images/WhatsApp_Image_2024-02-28_at_15.48.15-removebg-preview.png" height="90px" width="110px">
+                </a>
+                <!-- Search Section -->
+                <div class="mx-auto" style="width: 50%;">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="I am looking for..." aria-label="Search">
+                        <button class="btn btn-outline-success text-white" style="background-color: #6D008FDF;" type="submit">Search</button>
+                    </form>
+                </div>
+                <!-- Icons for cart, account, and help -->
+                <div class="d-flex">
+                    <?php if ($isLoggedIn) : ?>
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-cart4" style="padding: 2px;"></i> Cart
+                        </a>
+                        <!-- Display user info and logout link -->
+                        <a href="#" class="nav-link" id="user-info">
+                            <i class="bi bi-person-check"></i> <?= $_SESSION['user_name']; ?>
+                        </a>
+                        <a href="../../__logout/__logout.php" class="nav-link">
+                            <i class="bi bi-box-arrow-right"></i> Logout
+                        </a>
+                    <?php else : ?>
+                        <!-- Links to show when the user is not logged in -->
+                        <a href="../update_wakazi/__auth/__accounts/login.php" class="nav-link" id="popup-trigger">
+                            <i class="bi bi-person-check" style="padding: 2px;"></i> Account
+                        </a>
+                        <br>
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-patch-question-fill" style="padding: 4px;"></i> Help
+                        </a>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </nav>
+        <!-- Additional Navigation Row -->
+        <div class="navbar navbar-expand-lg navbar-light bg-light">
+
+            <div class="container-fluid">
+                <!-- Toggler button for mobile view -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <div class="collapse navbar-collapse navbar-light bg-light justify-content-center" id="navbarNavDropdown">
                     <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
+                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="index.php">Home</a></li>
+                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="__superadmin__/index.html">Products</a></li>
+                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="__superadmin__/index.html">Collections</a></li>
+                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="__superadmin__/index.html">Features</a></li>
+                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="__superadmin__/index.html">Blog</a></li>
+                        <li class="nav-item dropdown d-lg-none">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Menu
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Jewellery</a>
-                                <a class="dropdown-item" href="#">Bags & purses</a>
-                                <a class="dropdown-item" href="#">Home & decor</a>
-                                <a class="dropdown-item" href="#">Accessories</a>
-                                <a class="dropdown-item" href="#">Art & collectibles</a>
-                                <a class="dropdown-item" href="#">Craft supplies & tools</a>
-                                <a class="dropdown-item" href="#">Books, Movies, Music</a>
+                                <li><a class="dropdown-item" href="index.php">Home</a></li>
+                                <li><a class="dropdown-item" href="__superadmin__/index.html">Products</a></li>
+                                <li><a class="dropdown-item" href="__superadmin__/index.html">Collections</a></li>
+                                <li><a class="dropdown-item" href="__superadmin__/index.html">Features</a></li>
+                                <li><a class="dropdown-item" href="__superadmin__/index.html">Blog</a></li>
                             </ul>
                         </li>
                     </ul>
                 </div>
             </div>
-            <a class="navbar-brand fw-bold" id="logo" href="#">
-                <img src="static/images/WhatsApp_Image_2024-02-28_at_15.48.15-removebg-preview.png" height="90px" width="110px">
-            </a>
-            <!-- Search Section -->
-            <div class="mx-auto" style="width: 50%;">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="I am looking for..." aria-label="Search">
-                    <button class="btn btn-outline-success" style="background-color: purple;" type="submit">Search</button>
-                </form>
-            </div>
-            <!-- Icons for cart, account, and help -->
-            <div class="d-flex">
-                <?php if ($isLoggedIn): ?>
-                    <a href="#" class="nav-link">
-                        <i class="bi bi-cart4"></i> Cart
-                    </a>
-                    <!-- Display user info and logout link -->
-                    <a href="#" class="nav-link" id="user-info">
-                        <i class="bi bi-person-check"></i> <?= $_SESSION['user_name']; ?>
-                    </a>
-                    <a href="logout.php" class="nav-link">
-                        <i class="bi bi-box-arrow-right"></i> Logout
-                    </a>
-                <?php else: ?>
-                    <!-- Links to show when the user is not logged in -->
-                    <a href="../../__auth/__accounts/login.php" class="nav-link" id="popup-trigger">
-                        <i class="bi bi-person-check"></i> Account
-                    </a>
-                    <br>
-                    <a href="faq.php" class="nav-link">
-                        <i class="bi bi-patch-question-fill"></i> Help
-                    </a>
-                <?php endif; ?>
-            </div>
         </div>
-    </nav>
-   <!-- Additional Navigation Row -->
-<div class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <!-- Brand/logo if needed -->
-        <!-- <a class="navbar-brand" href="#">Logo</a> -->
 
-        <!-- Toggler button for mobile view -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Navigation items -->
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../index.html">Home</a></li>
-                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../index.html">Products</a></li>
-                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../index.html">Collections</a></li>
-                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../index.html">Features</a></li>
-                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../index.html">Blog</a></li>
-                
-                <!-- Dropdown Menu for smaller screens -->
-                <li class="nav-item dropdown d-lg-none">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="index.php">Home</a></li>
-                        <li><a class="dropdown-item" href="index.html">Products</a></li>
-                        <li><a class="dropdown-item" href="index.html">Collections</a></li>
-                        <li><a class="dropdown-item" href="index.html">Features</a></li>
-                        <li><a class="dropdown-item" href="index.html">Blog</a></li>
-                    </ul>
-                </li>
-            </ul>
         </div>
-    </div>
-</div>
-
-</header>
+    </header>
