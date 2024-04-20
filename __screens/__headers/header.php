@@ -135,7 +135,7 @@ $result->close();
                             <i class="bi bi-cart4" style="padding: 2px;"></i> Cart
                         </a>
                         <!-- Display user info and logout link -->
-                        <a href="#" class="nav-link" id="user-info">
+                        <a href="__superadmin__/index.html" class="nav-link" id="user-info">
                             <i class="bi bi-person-check"></i> <?= $_SESSION['email']; ?>
                         </a>
                         <a href="__logout/__logout.php" class="nav-link">
