@@ -30,20 +30,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $role = 'c'; // Role 'a' for customers
 
         // Call the stored procedure
-        $query = "CALL UpdateOrInsertUser('$email', '$username', '$password', '$role')";
-        $result = $mysqli->query($query);
-
-        if (!$result) {
-            echo "Error: " . $mysqli->error;
-        }
-        // Attempt to execute the prepared statement
-        if ($stmt->execute()) {
-            // Redirect to login page
-            header("Location: ../__accounts/login.php");
+        // $query = "CALL UpdateOrInsertUser('$email', '$username', '$password', '$role')";
+        if ($stmt = $mysqli->prepare("CALL UpdateOrInsertUser(?, ?, ?, ?)")) {
+            $stmt->bind_param("ssss", $email, $username, $password, $role);
+            if ($stmt->execute()) {
+                header("Location: ../__accounts/login.php");
+            } else {
+                echo "Something went wrong. Please try again later.";
+            }
+            $stmt->close();
         } else {
-            echo "Something went wrong. Please try again later.";
+            echo "Error preparing statement: " . $mysqli->error;
         }
-
+        
         // Close statement
         $stmt->close();
     }
