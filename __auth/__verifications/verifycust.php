@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 session_start(); // Start the session
 
-require 'config.php'; // Include configuration file
+require '../../__config/app/config.php'; // Include configuration file
 
 // Check if the form data is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
