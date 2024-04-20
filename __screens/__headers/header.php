@@ -6,7 +6,7 @@ session_start(); // Start the session at the beginning of the script
 // Check if the user is logged in
 $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
 
-include_once('__config/app/config.php');
+include_once('../../__config/app/config.php');
 
 $query = "SELECT p.ProductID, p.ProductName, c.CategoryName 
           FROM Products p 
