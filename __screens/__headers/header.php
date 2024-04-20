@@ -138,7 +138,7 @@ $result->close();
                         <a href="#" class="nav-link" id="user-info">
                             <i class="bi bi-person-check"></i> <?= $_SESSION['email']; ?>
                         </a>
-                        <a href="../../__logout/__logout.php" class="nav-link">
+                        <a href="__logout/__logout.php" class="nav-link">
                             <i class="bi bi-box-arrow-right"></i> Logout
                         </a>
                     <?php else : ?>
