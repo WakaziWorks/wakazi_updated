@@ -168,7 +168,7 @@ $result->close();
                         <li class="nav-item d-none d-lg-block"><a class="nav-link" href="__superadmin__/index.html">Products</a></li>
                         <li class="nav-item d-none d-lg-block"><a class="nav-link" href="__superadmin__/index.html">Collections</a></li>
                         <li class="nav-item d-none d-lg-block"><a class="nav-link" href="__superadmin__/index.html">Features</a></li>
-                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="__superadmin__/index.html">Blog</a></li>
+                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="__elements/blog/blog.php">Blog</a></li>
                         <li class="nav-item dropdown d-lg-none">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Menu
