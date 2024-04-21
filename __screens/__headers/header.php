@@ -119,7 +119,7 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                     </div>
                 </div>
                 <a class="navbar-brand fw-bold" id="logo" href="#">
-                    <img src="static/images/WhatsApp_Image_2024-02-28_at_15.48.15-removebg-preview.png" height="90px" width="110px">
+                    <img src="../../static/images/WhatsApp_Image_2024-02-28_at_15.48.15-removebg-preview.png" height="90px" width="110px">
                 </a>
                 <!-- Search Section -->
                 <div class="mx-auto" style="width: 50%;">
