@@ -233,7 +233,7 @@ include("__screens/__headers/header.php")
         </div>
     </section> -->
 <!-- App badge section-->
-<section class="" id="download" style="background-color:#A318CE">
+<section class="" id="download" style="background-color:#8A3BA1">
     <div class="container px-5">
         <h2 class="text-center text-purple font-alt mb-4">Get the app now!</h2>
         <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center">
@@ -242,7 +242,7 @@ include("__screens/__headers/header.php")
         </div>
     </div>
 </section>
-<section class="footer-top" id="footer-1" style="background-color: #7F4192DF;">
+<section class="footer-top" id="footer-1" style="background-color: #C03FE7DF;">
     <div class="container text-center">
         <div class="row align-items-center flex-column flex-sm-row">
             <div class="col">
@@ -251,7 +251,7 @@ include("__screens/__headers/header.php")
                 <p class="col-p">We offer competitive prices on our product range.</p>
             </div>
             <div class="col">
-                <img src="{{ asset('images/credit-card-2-front-fill.svg') }}" />
+                <img src="static/images/credit-card-2-front-fill.svg" />
                 <h5>Safe Payment</h5>
                 <p class="col-p">Pay with the world’s most popular and secure payment methods.</p>
             </div>
@@ -340,72 +340,72 @@ include("__screens/__headers/header.php")
     </div>
 </section>
 <!-- Footer-->
-<section class="footer">
+<section class="footer" style="background-color: #AA12B8; border: bottom 0;">
     <footer class="main-footer text-center ">
         <div class="container-fluid">
             <div class="row">
                 <div class="col">
                     <h3 style="text-align: left; color: #FAFAFA;">Shopping Guide</h3>
-                    <a href="#">
+                    <a href="__superadmin__/index.html">
                         <p style="text-align: left; color: white;">How do I pay on wakazi?</p>
                     </a>
-                    <a href="#">
+                    <a href="__superadmin__/index.html">
                         <p style="text-align: left; color: white;">How long does my order arrive?</p>
                     </a>
-                    <a href="#">
+                    <a href="__superadmin__/index.html">
                         <p style="text-align: left; color: white;">How to shop on wakazi?</p>
                     </a>
-                    <a href="#">
+                    <a href="__superadmin__/index.html">
                         <p style="text-align: left; color: white;">Forgot password?</p>
                     </a>
                 </div>
                 <div class="col">
                     <h3 style="text-align: left; color: #F8F1F8;">Customer Help</h3>
-                    <a href="#">
+                    <a href="__superadmin__/index.html">
                         <p style="text-align: left; color: white;">Privacy Policy</p>
                     </a>
-                    <a href="#">
+                    <a href="__superadmin__/index.html">
                         <p style="text-align: left; color: white;">Terms and Conditions</p>
                     </a>
-                    <a href="#">
+                    <a href="__superadmin__/index.html">
                         <p style="text-align: left; color: white;">Account Settings</p>
                     </a>
-                    <a href="#">
+                    <a href="__superadmin__/index.html">
                         <p style="text-align: left; color: white;">Delivery and Shipping</p>
                     </a>
-                    <a href="#">
+                    <a href="__superadmin__/index.html">
                         <p style="text-align: left; color: white;">FAQ Center</p>
                     </a>
                 </div>
                 <div class="col">
-                    <h3 style="text-align: left; color: #800080;">Business</h3>
-                    <a href="#">
+                    <h3 style="text-align: left; color: #FFFFFF;">Business</h3>
+                    <a href="__superadmin__/index.html">
                         <p style="text-align: left; color: white;">Want to be a Seller?</p>
                     </a>
-                    <a href="#">
+                    <a href="__superadmin__/index.html">
                         <p style="text-align: left; color: white;">Seller Center</p>
                     </a>
-                    <a href="#">
+                    <a href="__superadmin__/index.html">
                         <p style="text-align: left; color: white;">Wakazi Shop</p>
                     </a>
                 </div>
                 <div class="col">
-                    <h3 style="align-items: start; color: #C214C2;">Stay Connected</h3>
-                    <a href="https://www.youtube.com/@WakaziWorks" target="blank" style="padding-right: 20px;"><img src="static/images/youtube.svg') }}" /></i></a>
+                    <h3 style="align-items: start; color: #FFFFFF;">Stay Connected</h3>
+                    <a href="https://www.youtube.com/@WakaziWorks" target="blank" style="padding-right: 20px;"><img src="static/images/youtube.svg" /></i></a>
                     <a href="https://ke.linkedin.com/company/wakazi-works-platform" target="blank" style="padding-right: 20px;"><img src="static/images/linkedin.svg" /></a>
                     <a href="https://twitter.com/wakaziworks" target="blank" style="padding-right: 20px;"><img src="static/images/twitter-x.svg" /></i></a>
                     <a href="https://www.instagram.com/wakazi_works/" target="blank"><img src="static/images/instagram.svg" /></i></a>
                 </div>
             </div>
         </div>
-        <div class="bottom-footer" style="background-color: #52133E;">
+        <div class="bottom-footer" style="background-color: #831470;">
             <div>
-                <div class="mb-2">&copy; Wakazi Works 2024</div>
-                <a href="#!">Privacy</a>
+                <div class="mb-2" style="color: white;">&copy; Wakazi Works 2024</div>
+                <a href="__superadmin__/index.html">Privacy</a>
                 <span class="mx-2">&middot;</span>
-                <a href="#!">Terms</a>
+                <a href="__superadmin__/index.html">Terms</a>
                 <span class="mx-2">&middot;</span>
-                <a href="#!">FAQ</a>
+                <a href="__superadmin__/index.html">FAQ</a>
             </div>
         </div>
     </footer>
