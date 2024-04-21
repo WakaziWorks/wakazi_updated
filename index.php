@@ -97,7 +97,7 @@ include("__screens/__headers/header.php")
 <section id="products" class="py-5">
     <div class="container">
         <h2 class="text-center font-alt mb-5">Featured Products</h2>
-        <?php foreach ($productsByCategory as $category => $products) : ?>
+        <!-- <?php foreach ($productsByCategory as $category => $products) : ?>
             <h3><?php echo htmlspecialchars($category); ?></h3>
             <div class="row g-4">
                 <?php foreach ($products as $product) : ?>
@@ -113,7 +113,7 @@ include("__screens/__headers/header.php")
                     </div>
                 <?php endforeach; ?>
             </div>
-        <?php endforeach; ?>
+        <?php endforeach; ?> -->
     </div>
 </section>
 
@@ -184,7 +184,7 @@ include("__screens/__headers/header.php")
                             <div class="screen bg-black">
 
                                 <video muted="muted" autoplay="" loop="" style="max-width: 100%; height: 100%">
-                                    <source src="{{ asset('images/demo-screen.mp4') }}" type="video/mp4" />
+                                    <source src="static/images/demo-screen.mp4" type="video/mp4" />
                                 </video>
                             </div>
                         </div>
@@ -237,8 +237,8 @@ include("__screens/__headers/header.php")
     <div class="container px-5">
         <h2 class="text-center text-purple font-alt mb-4">Get the app now!</h2>
         <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center">
-            <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge" src="{{ asset('images/google-play-badge.svg') }}" alt="..." /></a>
-            <a href="#!"><img class="app-badge" src="{{ asset('images/app-store-badge.svg') }}" alt="..." /></a>
+            <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge" src="static/images/google-play-badge.svg" alt="..." /></a>
+            <a href="#!"><img class="app-badge" src="static/images/app-store-badge.svg" alt="..." /></a>
         </div>
     </div>
 </section>
@@ -246,7 +246,7 @@ include("__screens/__headers/header.php")
     <div class="container text-center">
         <div class="row align-items-center flex-column flex-sm-row">
             <div class="col">
-                <img src="{{ asset('images/x-diamond-fill.svg') }}" />
+                <img src="static/images/x-diamond-fill.svg" />
                 <h5>Great Value</h5>
                 <p class="col-p">We offer competitive prices on our product range.</p>
             </div>
@@ -256,12 +256,12 @@ include("__screens/__headers/header.php")
                 <p class="col-p">Pay with the world’s most popular and secure payment methods.</p>
             </div>
             <div class="col">
-                <img src="{{ asset('images/shield-lock-fill.svg') }}" />
+                <img src="static/images/shield-lock-fill.svg" />
                 <h5>Shop with Confidence</h5>
                 <p class="col-p">Our Buyer Protection covers your purchase from click to delivery</p>
             </div>
             <div class="col">
-                <img src="{{ asset('images/question-circle-fill.svg') }}" />
+                <img src="static/images/question-circle-fill.svg" />
                 <h5>24/7 Help Center</h5>
                 <p class="col-p">Round-the-clock assistance for a smooth shopping experience.</p>
             </div>
@@ -321,7 +321,7 @@ include("__screens/__headers/header.php")
                                 <div class="fw-bolder">Form submission successful!</div>
                                 To activate this form, sign up at
                                 <br />
-                                <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                                <!-- <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a> -->
                             </div>
                         </div>
                         <!-- Submit error message-->
@@ -345,7 +345,7 @@ include("__screens/__headers/header.php")
         <div class="container-fluid">
             <div class="row">
                 <div class="col">
-                    <h3 style="text-align: left; color: #800080;">Shopping Guide</h3>
+                    <h3 style="text-align: left; color: #FAFAFA;">Shopping Guide</h3>
                     <a href="#">
                         <p style="text-align: left; color: white;">How do I pay on wakazi?</p>
                     </a>
@@ -360,7 +360,7 @@ include("__screens/__headers/header.php")
                     </a>
                 </div>
                 <div class="col">
-                    <h3 style="text-align: left; color: #800080;">Customer Help</h3>
+                    <h3 style="text-align: left; color: #F8F1F8;">Customer Help</h3>
                     <a href="#">
                         <p style="text-align: left; color: white;">Privacy Policy</p>
                     </a>
@@ -390,15 +390,15 @@ include("__screens/__headers/header.php")
                     </a>
                 </div>
                 <div class="col">
-                    <h3 style="align-items: start; color: #800080;">Stay Connected</h3>
-                    <a href="https://www.youtube.com/@WakaziWorks" target="blank" style="padding-right: 20px;"><img src="{{ asset('images/youtube.svg') }}" /></i></a>
-                    <a href="https://ke.linkedin.com/company/wakazi-works-platform" target="blank" style="padding-right: 20px;"><img src="{{ asset('images/linkedin.svg') }}" /></a>
-                    <a href="https://twitter.com/wakaziworks" target="blank" style="padding-right: 20px;"><img src="{{ asset('images/twitter-x.svg') }}" /></i></a>
-                    <a href="https://www.instagram.com/wakazi_works/" target="blank"><img src="{{ asset('images/instagram.svg') }}" /></i></a>
+                    <h3 style="align-items: start; color: #C214C2;">Stay Connected</h3>
+                    <a href="https://www.youtube.com/@WakaziWorks" target="blank" style="padding-right: 20px;"><img src="static/images/youtube.svg') }}" /></i></a>
+                    <a href="https://ke.linkedin.com/company/wakazi-works-platform" target="blank" style="padding-right: 20px;"><img src="static/images/linkedin.svg" /></a>
+                    <a href="https://twitter.com/wakaziworks" target="blank" style="padding-right: 20px;"><img src="static/images/twitter-x.svg" /></i></a>
+                    <a href="https://www.instagram.com/wakazi_works/" target="blank"><img src="static/images/instagram.svg" /></i></a>
                 </div>
             </div>
         </div>
-        <div class="bottom-footer" style="background-color: #E1AFD1;">
+        <div class="bottom-footer" style="background-color: #52133E;">
             <div>
                 <div class="mb-2">&copy; Wakazi Works 2024</div>
                 <a href="#!">Privacy</a>
