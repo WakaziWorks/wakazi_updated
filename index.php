@@ -270,7 +270,7 @@ include("__screens/__headers/header.php")
 </section>
 
 <!-- Feedback Modal-->
-<section>
+<section style="border: bottom 0;">
     <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -398,7 +398,7 @@ include("__screens/__headers/header.php")
                 </div>
             </div>
         </div>
-        <div class="bottom-footer" style="background-color: #831470;">
+        <div class="bottom-footer" style="background-color: #831470; border: bottom 0;">
             <div>
                 <div class="mb-2" style="color: white;">&copy; Wakazi Works 2024</div>
                 <a href="__superadmin__/index.html">Privacy</a>
