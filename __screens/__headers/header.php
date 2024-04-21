@@ -6,29 +6,29 @@ session_start(); // Start the session at the beginning of the script
 // Check if the user is logged in
 $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
 
-include_once('../../__config/app/config.php');
+// require ('../../__config/app/config.php');
 
-$query = "SELECT p.ProductID, p.ProductName, c.CategoryName 
-          FROM Products p 
-          JOIN Categories c ON p.CategoryID = c.CategoryID 
-          WHERE p.is_featured = TRUE;";  // Make sure your tables and columns are correctly named
+// $query = "SELECT p.ProductID, p.ProductName, c.CategoryName 
+//           FROM Products p 
+//           JOIN Categories c ON p.CategoryID = c.CategoryID 
+//           WHERE p.is_featured = TRUE;";  // Make sure your tables and columns are correctly named
 
-$result = $mysqli->query($query);
+// $result = $mysqli->query($query);
 
-$featuredProducts = [];
-$productsByCategory = [];
+// $featuredProducts = [];
+// $productsByCategory = [];
 
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $featuredProducts[] = $row;
-        $productsByCategory[$row['category_name']][] = $row;  // Organize products by category
-    }
-} else {
-    echo "";
-}
+// if ($result->num_rows > 0) {
+//     while ($row = $result->fetch_assoc()) {
+//         $featuredProducts[] = $row;
+//         $productsByCategory[$row['category_name']][] = $row;  // Organize products by category
+//     }
+// } else {
+//     echo "";
+// }
 
 // Close result set
-$result->close();
+// $result->close();
 ?>
 
 <!DOCTYPE html>
@@ -135,10 +135,10 @@ $result->close();
                             <i class="bi bi-cart4" style="padding: 2px;"></i> Cart
                         </a>
                         <!-- Display user info and logout link -->
-                        <a href="__superadmin__/index.html" class="nav-link" id="user-info">
+                        <a href="../../__superadmin__/index.html" class="nav-link" id="user-info">
                             <i class="bi bi-person-check"></i> <?= $_SESSION['email']; ?>
                         </a>
-                        <a href="__logout/__logout.php" class="nav-link">
+                        <a href="../../__logout/__logout.php" class="nav-link">
                             <i class="bi bi-box-arrow-right"></i> Logout
                         </a>
                     <?php else : ?>
@@ -168,7 +168,7 @@ $result->close();
                         <li class="nav-item d-none d-lg-block"><a class="nav-link" href="__superadmin__/index.html">Products</a></li>
                         <li class="nav-item d-none d-lg-block"><a class="nav-link" href="__superadmin__/index.html">Collections</a></li>
                         <li class="nav-item d-none d-lg-block"><a class="nav-link" href="__superadmin__/index.html">Features</a></li>
-                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="__elements/blog/blog.php">Blog</a></li>
+                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../__elements/blog/blog.php">Blog</a></li>
                         <li class="nav-item dropdown d-lg-none">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Menu
