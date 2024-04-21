@@ -175,10 +175,10 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="index.php">Home</a></li>
-                                <li><a class="dropdown-item" href="__superadmin__/index.html">Products</a></li>
-                                <li><a class="dropdown-item" href="__superadmin__/index.html">Collections</a></li>
-                                <li><a class="dropdown-item" href="__superadmin__/index.html">Features</a></li>
-                                <li><a class="dropdown-item" href="__superadmin__/index.html">Blog</a></li>
+                                <li><a class="dropdown-item" href="../../__superadmin__/index.html">Products</a></li>
+                                <li><a class="dropdown-item" href="../../__superadmin__/index.html">Collections</a></li>
+                                <li><a class="dropdown-item" href="../../__superadmin__/index.html">Features</a></li>
+                                <li><a class="dropdown-item" href="../../__superadmin__/index.html">Blog</a></li>
                             </ul>
                         </li>
                     </ul>
