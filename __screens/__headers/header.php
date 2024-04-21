@@ -164,7 +164,7 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                 </button>
                 <div class="collapse navbar-collapse navbar-light bg-light justify-content-center" id="navbarNavDropdown">
                     <ul class="navbar-nav">
-                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="index.php">Home</a></li>
+                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../index.php">Home</a></li>
                         <li class="nav-item d-none d-lg-block"><a class="nav-link" href="__superadmin__/index.html">Products</a></li>
                         <li class="nav-item d-none d-lg-block"><a class="nav-link" href="__superadmin__/index.html">Collections</a></li>
                         <li class="nav-item d-none d-lg-block"><a class="nav-link" href="__superadmin__/index.html">Features</a></li>
