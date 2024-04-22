@@ -55,41 +55,76 @@ include("__screens/__headers/header.php")
     <hr />
     <div class="row">
         <div class="collection-col col-12 col-md mx-3">
-            <h4> Jewellery</h4>
-            <a href="#"><img src="static/images/jewellery.webp" alt="..." /></a>
+            <h4>Jewellery</h4>
+            <a href="#" onclick="redirectToCategory('jewellery')"><img src="static/images/jewellery.webp" alt="Jewellery" /></a>
         </div>
         <div class="collection-col col-12 col-md mx-3">
-            <h4> Home and Decor</h4>
-            <a href="#"><img src="static/images/decor.jpg" alt="..." /></a>
+            <h4>Home and Decor</h4>
+            <a href="#" onclick="redirectToCategory('home_decor')"><img src="static/images/decor.jpg" alt="Home and Decor" /></a>
         </div>
         <div class="collection-col col-12 col-md mx-3">
-            <h4> Bags and Purses</h4>
-            <a href="#"><img src="static/images/bag.webp" alt="..." /></a>
+            <h4>Bags and Purses</h4>
+            <a href="#" onclick="redirectToCategory('bags_purses')"><img src="static/images/bag.webp" alt="Bags and Purses" /></a>
         </div>
         <div class="collection-col col-12 col-md mx-3">
-            <h4> Art and Collectibles</h4>
-            <a href="#"><img src="static/images/art2.jpg" alt="..." /></a>
+            <h4>Art and Collectibles</h4>
+            <a href="#" onclick="redirectToCategory('art_collectibles')"><img src="static/images/art2.jpg" alt="Art and Collectibles" /></a>
         </div>
     </div>
     <div class="row">
         <div class="collection-col col-12 col-md mx-3">
-            <h4> Books, Movies and Music</h4>
-            <a href="#"><img src="static/images/books.jpg" alt="..." /></a>
+            <h4>Books, Movies and Music</h4>
+            <a href="#" onclick="redirectToCategory('books_movies_music')"><img src="static/images/books.jpg" alt="Books, Movies and Music" /></a>
         </div>
         <div class="collection-col col-12 col-md mx-3">
-            <h4> Electronics</h4>
-            <a href="#"><img src="static/images/electronics.jpg" alt="..." /></a>
+            <h4>Electronics</h4>
+            <a href="#" onclick="redirectToCategory('electronics')"><img src="static/images/electronics.jpg" alt="Electronics" /></a>
         </div>
         <div class="collection-col col-12 col-md mx-3">
-            <h4> Accesories</h4>
-            <a href="#"><img src="static/images/accesories.jpg" alt="..." /></a>
+            <h4>Accessories</h4>
+            <a href="#" onclick="redirectToCategory('accessories')"><img src="static/images/accessories.jpg" alt="Accessories" /></a>
         </div>
         <div class="collection-col col-12 col-md mx-3">
-            <h4> Craft supplies and Tools</h4>
-            <a href="#"><img src="static/images/craft.jpg" alt="..." /></a>
+            <h4>Craft supplies and Tools</h4>
+            <a href="#" onclick="redirectToCategory('craft_supplies_tools')"><img src="static/images/craft.jpg" alt="Craft supplies and Tools" /></a>
         </div>
     </div>
 </div>
+
+<script>
+    function redirectToCategory(category) {
+        switch (category) {
+            case 'jewellery':
+                window.location.href = 'products/jewellery.html';
+                break;
+            case 'home_decor':
+                window.location.href = 'products/home_decor.html';
+                break;
+            case 'bags_purses':
+                window.location.href = 'products/bags_purses.html';
+                break;
+            case 'art_collectibles':
+                window.location.href = 'products/art_collectibles.html';
+                break;
+            case 'books_movies_music':
+                window.location.href = 'products/books_movies_music.html';
+                break;
+            case 'electronics':
+                window.location.href = 'products/electronics.html';
+                break;
+            case 'accessories':
+                window.location.href = 'products/accessories.html';
+                break;
+            case 'craft_supplies_tools':
+                window.location.href = 'products/craft_supplies_tools.html';
+                break;
+            default:
+                window.location.href = 'products.html';
+        }
+    }
+</script>
+
+
 
 
 
