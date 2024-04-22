@@ -124,10 +124,6 @@ include("__screens/__headers/header.php")
     }
 </script>
 
-
-
-
-
 <!-- Product Section -->
 <section id="products" class="py-5">
     <div class="container">
