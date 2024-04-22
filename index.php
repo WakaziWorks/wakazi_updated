@@ -82,7 +82,7 @@ include("__screens/__headers/header.php")
         </div>
         <div class="collection-col col-12 col-md mx-3">
             <h4>Accessories</h4>
-            <a href="#" onclick="redirectToCategory('accessories')"><img src="static/images/accessories.jpg" alt="Accessories" /></a>
+            <a href="#" onclick="redirectToCategory('accessories')"><img src="static/images/accesories.jpg" alt="Accessories" /></a>
         </div>
         <div class="collection-col col-12 col-md mx-3">
             <h4>Craft supplies and Tools</h4>
@@ -95,31 +95,31 @@ include("__screens/__headers/header.php")
     function redirectToCategory(category) {
         switch (category) {
             case 'jewellery':
-                window.location.href = 'products/jewellery.html';
+                window.location.href = 'products/jewellery.php';
                 break;
             case 'home_decor':
-                window.location.href = 'products/home_decor.html';
+                window.location.href = 'products/home_decor.php';
                 break;
             case 'bags_purses':
-                window.location.href = 'products/bags_purses.html';
+                window.location.href = 'products/bags_purses.php';
                 break;
             case 'art_collectibles':
-                window.location.href = 'products/art_collectibles.html';
+                window.location.href = 'products/art_collectibles.php';
                 break;
             case 'books_movies_music':
-                window.location.href = 'products/books_movies_music.html';
+                window.location.href = 'products/books_movies_music.php';
                 break;
             case 'electronics':
-                window.location.href = 'products/electronics.html';
+                window.location.href = 'products/electronics.php';
                 break;
             case 'accessories':
-                window.location.href = 'products/accessories.html';
+                window.location.href = 'products/accessories.php';
                 break;
             case 'craft_supplies_tools':
-                window.location.href = 'products/craft_supplies_tools.html';
+                window.location.href = 'products/craft_supplies_tools.php';
                 break;
             default:
-                window.location.href = 'products.html';
+                window.location.href = 'products.php';
         }
     }
 </script>
