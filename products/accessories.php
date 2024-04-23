@@ -1,3 +1,6 @@
+<?php
+include("../__screens/__headers/header.php")
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +9,7 @@
     <title>Shopping Cart</title>
 </head>
 <body>
+
     <div id="product-list">
         <h2>Product List</h2>
         <button onclick="addToCart('Product 1', 10)">Add Product 1 to Cart</button>
