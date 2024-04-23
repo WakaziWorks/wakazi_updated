@@ -53,7 +53,7 @@ include("__screens/__headers/header.php")
 <div class="collection-container justify-content-center" id="collection">
     <h1>Shop by collections</h1>
     <hr />
-    <div class="row" style="height: 250px">
+    <div class="row">
         <div class="collection-col col-12 col-md mx-3">
             <h4>Jewellery</h4>
             <a href="#" onclick="redirectToCategory('jewellery')"><img src="static/images/jewellery.webp" alt="Jewellery" /></a>
@@ -71,7 +71,7 @@ include("__screens/__headers/header.php")
             <a href="#" onclick="redirectToCategory('art_collectibles')"><img src="static/images/art2.jpg" alt="Art and Collectibles" /></a>
         </div>
     </div>
-    <div class="row" style="height: 250px">
+    <div class="row">
         <div class="collection-col col-12 col-md mx-3">
             <h4>Books, Movies and Music</h4>
             <a href="#" onclick="redirectToCategory('books_movies_music')"><img src="static/images/books.jpg" alt="Books, Movies and Music" /></a>
