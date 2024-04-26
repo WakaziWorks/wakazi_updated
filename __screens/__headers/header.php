@@ -70,10 +70,12 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
         .navbar-nav {
             margin-bottom: 0;
         }
-        #navbar-nav a{
+
+        #navbar-nav a {
             color: #ff00ff;
         }
-        #navbar-nav a:hover{
+
+        #navbar-nav a:hover {
             color: #fff;
             background: #ff00ff;
             border-radius: 15px;
@@ -99,8 +101,31 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
             margin-top: -10px;
             /* Pulls the second navbar up closer to the first */
         }
+
+        .content {
+            min-height: calc(100vh - 100px);
+            /* Adjust based on footer height */
+            padding: 20px;
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            transition: transform 0.3s ease;
+        }
+
+        .footer.hidden {
+            transform: translateY(100%);
+        }
     </style>
 </head>
+
 <body id="page-top">
     <header class="header fixed-top">
         <nav class="nav navbar navbar-expand-lg navbar-light">
@@ -201,7 +226,7 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                         <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="">Products</a></li>
                         <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="">Collections</a></li>
                         <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="">Features</a></li>
-                        <li class="nav-item d-none d-lg-block" ><a class="nav-link" href="../../blog/index.php">Blog</a></li>
+                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../blog/index.php">Blog</a></li>
                         <li class="nav-item dropdown d-lg-none">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Menu
@@ -232,16 +257,17 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
             let dropdownContent = dropdown.querySelector(".dropdown-content");
             let dropdownButton = dropdown.querySelector("button");
             let closeButton = dropdown.querySelector(".close-button");
-                
+
             let isClickedInsideDropdown = dropdown.contains(event.target);
 
             if (!isClickedInsideDropdown) {
                 dropdownContent.style.display = "none";
             }
         });
-        function toggleDropdown(){
+
+        function toggleDropdown() {
             let dropDownContent = document.getElementById("dropdownContent");
-            dropdownContent.style.display = dropdownContent.style.display === "block" ? "none": "block";
+            dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
         }
 
 
@@ -273,5 +299,3 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
             }
         });
     </script>
-</body>
-</html>
