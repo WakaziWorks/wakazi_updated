@@ -14,7 +14,7 @@ include("__screens/__headers/header.php")
         <div class="carousel-item active" data-bs-interval="5000">
             <video src="static/images/Universe.mp4" class="d-block h-20 w-100" autoplay muted loop></video>
             <div class="carousel-caption">
-                <h1 class="heading-h1">Artisans are the Alchemists.</h1>
+                <h1 class="heading-h2">Artisans are the Alchemists.</h1>
                 <p>Artisans are the alchemists of our time, turning ordinary materials into works of wonder.</p>
                 <button style="font-size: 1.2em;"><a href="#collection">Discover more</a></button>
             </div>
@@ -22,7 +22,7 @@ include("__screens/__headers/header.php")
         <div class="carousel-item" data-bs-interval="5000">
             <video src="static/images/Pottery.mp4" class="d-block h-20 w-100" autoplay muted loop></video>
             <div class="carousel-caption">
-                <h1 class="heading-h1">The true Artisan.</h1>
+                <h1 class="heading-h2">The true Artisan.</h1>
                 <p>The true artisan is a seeker of beauty and truth, a philosopher of the tangible.</p>
                 <button style="font-size: 1.2em;"><a href="#collection">Discover more</a></button>
             </div>
@@ -30,7 +30,7 @@ include("__screens/__headers/header.php")
         <div class="carousel-item" data-bs-interval="5000">
             <video src="static/images/Handtools.mp4" class="d-block h-20 w-100" autoplay muted loop></video>
             <div class="carousel-caption">
-                <h1 class="heading-h1">The silent Philosophers.</h1>
+                <h1 class="heading-h2">The silent Philosophers.</h1>
                 <p>Artisans are the silent philosophers of society, shaping the world with their hands and minds. </p>
                 <button style="font-size: 1.2em;"><a href="#collection">Discover more</a></button>
             </div>
