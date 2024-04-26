@@ -7,14 +7,43 @@ require ("../../__config/app/config.php");
     <!-- Jewellery details -->
     <div class="row">
         <?php
-
-
+        // Start session (if not already started)
+      
+        
+        // Function to get user's email from session data
+        function getUserEmail() {
+            // Check if user is logged in (you might have your own method for this)
+            if (isset($_SESSION['user_email'])) {
+                // Return user's email from session data
+                return $_SESSION['user_email'];
+            } else {
+                // Return null or handle the case where user is not logged in
+                return null;
+            }
+        }
+        
+        // Example usage:
+        $userEmail = getUserEmail();
+        if ($userEmail) {
+            echo "User's email: " . $userEmail;
+        } else {
+            echo "User is not logged in.";
+        }
+        
+        
         // Fetch jewellery products from the database
         $sql = "SELECT * FROM products WHERE category = 'jewellery'";
         $result = $mysqli->query($sql);
 
-        // Display jewellery products
-        if ($result->num_rows > 0) {
+        // Check for errors
+        if (!$result) {
+            // If there's an error, display an error message
+            echo "Error: " . $mysqli->error;
+        } elseif ($result->num_rows == 0) {
+            // If no products are found, display a message
+            echo "No jewellery products found.";
+        } else {
+            // Display jewellery products
             while ($row = $result->fetch_assoc()) {
                 echo '<div class="col-md-4 mb-4">';
                 echo '<div class="card">';
@@ -27,8 +56,6 @@ require ("../../__config/app/config.php");
                 echo '</div>';
                 echo '</div>';
             }
-        } else {
-            echo "No jewellery products found.";
         }
 
         // Close database connection
@@ -36,6 +63,7 @@ require ("../../__config/app/config.php");
         ?>
     </div>
 </div>
+
 
 <script>
     function addToCart(product) {
