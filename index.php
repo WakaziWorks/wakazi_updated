@@ -35,7 +35,7 @@ include("__screens/__headers/header.php")
                 <button style="font-size: 1.2em;"><a href="#collection">Discover more</a></button>
             </div>
         </div>
-        
+
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -125,10 +125,10 @@ include("__screens/__headers/header.php")
 </script>
 
 <!-- Product Section -->
-<!-- <section id="products" class="py-5">
+<section id="products" class="py-5">
     <div class="container">
         <h2 class="text-center font-alt mb-5">Featured Products</h2>
-        <?php foreach ($productsByCategory as $category => $products) : ?>
+        <!-- <?php foreach ($productsByCategory as $category => $products) : ?>
             <h3><?php echo htmlspecialchars($category); ?></h3>
             <div class="row g-4">
                 <?php foreach ($products as $product) : ?>
@@ -144,13 +144,13 @@ include("__screens/__headers/header.php")
                     </div>
                 <?php endforeach; ?>
             </div>
-        <?php endforeach; ?>
+        <?php endforeach; ?> -->
     </div>
-</section> -->
+</section>
 
 
 <!-- App features section-->
-<section id="features" id="features">
+<section id="features" id="features" style="background: #e6cbee;">
     <div class="container px-5">
         <div class="row gx-5 align-items-center">
             <div class="col-lg-8 order-lg-1 mb-5 mb-lg-0">
@@ -241,11 +241,8 @@ include("__screens/__headers/header.php")
     <div class="container px-5">
         <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
             <div class="col-12 col-lg-5">
-                <h2 class="display-4 lh-1 mb-4">Renaissance fuses Avant-Garde </h2>
-                <p class="lead fw-normal text-muted mb-5 mb-lg-0">
-                    In the vibrant tapestry of artistic expression, where the Renaissance meets the avant-garde, lies a fusion of tradition and innovation that ignites the senses. 
-                    <a href="#">contiue reading.</a>
-                </p>
+                <h2 class="display-4 lh-1 mb-4">Enter a new age of web design</h2>
+                <p class="lead fw-normal text-muted mb-5 mb-lg-0">This section is perfect for featuring some information about your application, why it was built, the problem it solves, or anything else! There's plenty of space for text here, so don't worry about writing too much.</p>
             </div>
             <div class="col-sm-8 col-md-6">
                 <div class="px-5 px-sm-0"><img class="img-fluid rounded-circle" src="https://source.unsplash.com/u8Jn2rzYIps/900x900" alt="..." /></div>
@@ -267,102 +264,41 @@ include("__screens/__headers/header.php")
         </div>
     </section> -->
 <!-- App badge section-->
-<section class="" id="download">
+<section class="" id="download" style="background-color:#8A3BA1">
     <div class="container px-5">
-        <h2 class="text-center text-purple font-alt mb-4" style="color: black;">Get the app now!</h2>
+        <h2 class="text-center text-purple font-alt mb-4">Get the app now!</h2>
         <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center">
             <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge" src="static/images/google-play-badge.svg" alt="..." /></a>
             <a href="#!"><img class="app-badge" src="static/images/app-store-badge.svg" alt="..." /></a>
         </div>
     </div>
 </section>
-
-<section class="footer-top" id="footer-1" style="background-color: #e868f0;">
-
 <section class="footer" id="footer-1" style="background-color: #C03FE7DF;">
-
     <div class="container text-center">
         <div class="row align-items-center flex-column flex-sm-row">
-            <div class="col footer-col">
+            <div class="col">
                 <img src="static/images/x-diamond-fill.svg" />
-                <h5 style="color: #000; font-weight: normal;">Great Value</h5>
-                <p class="col-p text-light">We offer competitive prices on our product range.</p>
+                <h5>Great Value</h5>
+                <p class="col-p">We offer competitive prices on our product range.</p>
             </div>
-            <div class="col footer-col">
+            <div class="col">
                 <img src="static/images/credit-card-2-front-fill.svg" />
-                <h5 style="color: #000; font-weight: normal;">Safe Payment</h5>
-                <p class="col-p text-light">Pay with the world’s most popular and secure payment methods.</p>
+                <h5>Safe Payment</h5>
+                <p class="col-p">Pay with the world’s most popular and secure payment methods.</p>
             </div>
-            <div class="col footer-col">
+            <div class="col">
                 <img src="static/images/shield-lock-fill.svg" />
-                <h5 style="color: #000; font-weight: normal;">Shop with Confidence</h5>
-                <p class="col-p text-light">Our Buyer Protection covers your purchase from click to delivery</p>
+                <h5>Shop with Confidence</h5>
+                <p class="col-p">Our Buyer Protection covers your purchase from click to delivery</p>
             </div>
-            <div class="col footer-col">
+            <div class="col">
                 <img src="static/images/question-circle-fill.svg" />
-                <h5 style="color: #000; font-weight: normal;">24/7 Help Center</h5>
-                <p class="col-p text-light">Round-the-clock assistance for a smooth shopping experience.</p>
+                <h5>24/7 Help Center</h5>
+                <p class="col-p">Round-the-clock assistance for a smooth shopping experience.</p>
             </div>
         </div>
     </div>
 
-
-
-<!-- Footer-->
-    <section class="footer" style="background-color: #c837d1;">
-        <div class="container-fluid">
-            <div class="row" style="margin-left: 7em;">
-                <div class="col terms-section">
-                    <h4>Shopping Guide</h4>
-                    <a href="__superadmin__/index.html">
-                        <p class="text-light">How do I pay on wakazi?</p>
-                    </a>
-                    <a href="__superadmin__/index.html">
-                        <p class="text-light">How long does my order arrive?</p>
-                    </a>
-                    <a href="__superadmin__/index.html">
-                        <p class="text-light">How to shop on wakazi?</p>
-                    </a>
-                    <a href="__superadmin__/index.html">
-                        <p class="text-light">Forgot password?</p>
-                    </a>
-                </div>
-                <div class="col terms-section">
-                    <h4>Customer Help</h4>
-                    <a href="__superadmin__/index.html">
-                        <p class="text-light">Privacy Policy</p>
-                    </a>
-                    <a href="__superadmin__/index.html">
-                        <p class="text-light">Terms and Conditions</p>
-                    </a>
-                    <a href="__superadmin__/index.html">
-                        <p class="text-light">Account Settings</p>
-                    </a>
-                    <a href="__superadmin__/index.html">
-                        <p class="text-light">Delivery and Shipping</p>
-                    </a>
-                    <a href="__superadmin__/index.html">
-                        <p class="text-light">FAQ Center</p>
-                    </a>
-                </div>
-                <div class="col terms-section">
-                    <h4>Business</h4>
-                    <a href="__superadmin__/index.html">
-                        <p class="text-light">Want to be a Seller?</p>
-                    </a>
-                    <a href="__superadmin__/index.html">
-                        <p class="text-light">Seller Center</p>
-                    </a>
-                    <a href="__superadmin__/index.html">
-                        <p class="text-light">Wakazi Shop</p>
-                        </a>
-                </div>
-                <div class="col terms-section">
-                    <h4>Stay Connected</h4>
-                    <a href="https://www.youtube.com/@WakaziWorks" target="blank"><i class="bi bi-youtube text-light"></i></a>
-                    <a href="https://ke.linkedin.com/company/wakazi-works-platform" target="blank"><i class="bi bi-linkedin text-light"></i></a>
-                    <a href="https://twitter.com/wakaziworks" target="blank"><i class="bi bi-twitter text-light"></i></i></a>
-                    <a href="https://www.instagram.com/wakazi_works/" target="blank"><i class="bi bi-instagram text-light"></i></a>
 
     <!-- Remove the container if you want to extend the Footer to full width. -->
     <div class="my-5">
@@ -483,7 +419,6 @@ include("__screens/__headers/header.php")
                         <!-- Grid column -->
                     </div>
                     <!-- Grid row -->
-
                 </div>
             </section>
             <!-- Section: Links  -->
@@ -493,32 +428,6 @@ include("__screens/__headers/header.php")
                 © 2024 Copyright:
                 <a class="text-white" href="https://wakazi.co.ke/">Wakazi Works</a>
             </div>
-
-        </div>
-    </section>
-    <div class="bottom-footer" style="background: #7d1a86">
-        <div>
-            <div class="mb-2 text-light">&copy; Wakazi Works 2024</div>
-            <a href="__superadmin__/index.html">Privacy</a>
-            <span class="mx-2 text-light">&middot;</span>
-            <a href="__superadmin__/index.html">Terms</a>
-            <span class="mx-2 text-light">&middot;</span>
-            <a href="__superadmin__/index.html">FAQ</a>
-        </div>
-    </div>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <!-- * *                               SB Forms JS                               * *-->
-    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    </body>
-    </html>
-
             <!-- Copyright -->
         </footer>
         <!-- Footer -->
@@ -540,4 +449,3 @@ include("__screens/__headers/header.php")
 </body>
 
 </html>
-
