@@ -6,12 +6,7 @@ include("../__screens/__headers/header.php")
     <!-- Jewellery details -->
     <div class="row">
         <?php
-      
 
-        // Check connection
-        if ($mysqli->connect_error) {
-            die("Connection failed: " . $mysqli->connect_error);
-        }
 
         // Fetch jewellery products from the database
         $sql = "SELECT * FROM products WHERE category = 'jewellery'";
@@ -45,7 +40,7 @@ include("../__screens/__headers/header.php")
     function addToCart(product) {
         // Check if user is logged in and get user's email (pseudo code)
         var userEmail = getUserEmail(); // Implement this function
-        
+
         // If user is logged in, update cart table with product info
         if (userEmail) {
             // AJAX request to update cart table with product info and user's email
@@ -58,7 +53,10 @@ include("../__screens/__headers/header.php")
                     console.log("Product added to cart for user: " + userEmail);
                 }
             };
-            var data = JSON.stringify({email: userEmail, product: product});
+            var data = JSON.stringify({
+                email: userEmail,
+                product: product
+            });
             xhr.send(data);
         } else {
             // User is not logged in, handle accordingly (redirect to login page, show message, etc.)
