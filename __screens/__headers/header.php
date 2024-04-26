@@ -42,7 +42,7 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Wakazi Works</title>
-    <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="../../static/assets/favicon.ico" />
 
     <!-- Bootstrap icons-->
 
