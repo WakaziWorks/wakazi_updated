@@ -10,7 +10,7 @@ include("../__screens/__headers/header.php")
 
         // Check connection
         if ($mysqli->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
+            die("Connection failed: " . $mysqli->connect_error);
         }
 
         // Fetch jewellery products from the database
@@ -36,7 +36,7 @@ include("../__screens/__headers/header.php")
         }
 
         // Close database connection
-        $conn->close();
+        $mysqli->close();
         ?>
     </div>
 </div>
