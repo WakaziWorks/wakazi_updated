@@ -301,88 +301,307 @@ include("__screens/__headers/header.php")
 </section>
 
 
-<!-- Footer-->
-<section class="footer" style="background-color: #AA12B8; border: bottom 0;">
-    <footer class="main-footer text-center ">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col">
-                    <h3 style="text-align: left; color: #FAFAFA;">Shopping Guide</h3>
-                    <a href="__superadmin__/index.html">
-                        <p style="text-align: left; color: white;">How do I pay on wakazi?</p>
-                    </a>
-                    <a href="__superadmin__/index.html">
-                        <p style="text-align: left; color: white;">How long does my order arrive?</p>
-                    </a>
-                    <a href="__superadmin__/index.html">
-                        <p style="text-align: left; color: white;">How to shop on wakazi?</p>
-                    </a>
-                    <a href="__superadmin__/index.html">
-                        <p style="text-align: left; color: white;">Forgot password?</p>
-                    </a>
-                </div>
-                <div class="col">
-                    <h3 style="text-align: left; color: #F8F1F8;">Customer Help</h3>
-                    <a href="__superadmin__/index.html">
-                        <p style="text-align: left; color: white;">Privacy Policy</p>
-                    </a>
-                    <a href="__superadmin__/index.html">
-                        <p style="text-align: left; color: white;">Terms and Conditions</p>
-                    </a>
-                    <a href="__superadmin__/index.html">
-                        <p style="text-align: left; color: white;">Account Settings</p>
-                    </a>
-                    <a href="__superadmin__/index.html">
-                        <p style="text-align: left; color: white;">Delivery and Shipping</p>
-                    </a>
-                    <a href="__superadmin__/index.html">
-                        <p style="text-align: left; color: white;">FAQ Center</p>
-                    </a>
-                </div>
-                <div class="col">
-                    <h3 style="text-align: left; color: #FFFFFF;">Business</h3>
-                    <a href="__superadmin__/index.html">
-                        <p style="text-align: left; color: white;">Want to be a Seller?</p>
-                    </a>
-                    <a href="__superadmin__/index.html">
-                        <p style="text-align: left; color: white;">Seller Center</p>
-                    </a>
-                    <a href="__superadmin__/index.html">
-                        <p style="text-align: left; color: white;">Wakazi Shop</p>
-                    </a>
-                </div>
-                <div class="col">
-                    <h3 style="align-items: start; color: #FFFFFF;">Stay Connected</h3>
-                    <a href="https://www.youtube.com/@WakaziWorks" target="blank" style="padding-right: 20px;"><img src="static/images/youtube.svg" /></i></a>
-                    <a href="https://ke.linkedin.com/company/wakazi-works-platform" target="blank" style="padding-right: 20px;"><img src="static/images/linkedin.svg" /></a>
-                    <a href="https://twitter.com/wakaziworks" target="blank" style="padding-right: 20px;"><img src="static/images/twitter-x.svg" /></i></a>
-                    <a href="https://www.instagram.com/wakazi_works/" target="blank"><img src="static/images/instagram.svg" /></i></a>
-                </div>
+
+
+<!-- Remove the container if you want to extend the Footer to full width. -->
+<div class="container my-5">
+
+    <!-- Footer -->
+    <footer class="text-center text-lg-start text-white" style="background-color: #1c2331">
+        <!-- Section: Social media -->
+        <section class="d-flex justify-content-between p-4" style="background-color: #6351ce">
+            <!-- Left -->
+            <div class="me-5">
+                <span>Get connected with us on social networks:</span>
             </div>
-        </div>
-        <div class="bottom-footer" style="background-color: #831470; border: bottom 0;">
+            <!-- Left -->
+
+            <!-- Right -->
             <div>
-                <div class="mb-2" style="color: white;">&copy; Wakazi Works 2024</div>
-                <a href="__superadmin__/index.html">Privacy</a>
-                <span class="mx-2">&middot;</span>
-                <a href="__superadmin__/index.html">Terms</a>
-                <span class="mx-2">&middot;</span>
-                <a href="__superadmin__/index.html">FAQ</a>
+                <a href="" class="text-white me-4">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="" class="text-white me-4">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="" class="text-white me-4">
+                    <i class="fab fa-google"></i>
+                </a>
+                <a href="" class="text-white me-4">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="" class="text-white me-4">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="" class="text-white me-4">
+                    <i class="fab fa-github"></i>
+                </a>
             </div>
+            <!-- Right -->
+        </section>
+        <!-- Section: Social media -->
+
+        <!-- Section: Links  -->
+        <section class="">
+            <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase fw-bold">Company name</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
+                        <p>
+                            Here you can use rows and columns to organize your footer
+                            content. Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit.
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Footer-->
+                    <section class="footer" style="background-color: #AA12B8; border: bottom 0;">
+                        <footer class="main-footer text-center ">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col">
+                                        <h3 style="text-align: left; color: #FAFAFA;">Shopping Guide</h3>
+                                        <a href="__superadmin__/index.html">
+                                            <p style="text-align: left; color: white;">How do I pay on wakazi?</p>
+                                        </a>
+                                        <a href="__superadmin__/index.html">
+                                            <p style="text-align: left; color: white;">How long does my order arrive?</p>
+                                        </a>
+                                        <a href="__superadmin__/index.html">
+                                            <p style="text-align: left; color: white;">How to shop on wakazi?</p>
+                                        </a>
+                                        <a href="__superadmin__/index.html">
+                                            <p style="text-align: left; color: white;">Forgot password?</p>
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <h3 style="text-align: left; color: #F8F1F8;">Customer Help</h3>
+                                        <a href="__superadmin__/index.html">
+                                            <p style="text-align: left; color: white;">Privacy Policy</p>
+                                        </a>
+                                        <a href="__superadmin__/index.html">
+                                            <p style="text-align: left; color: white;">Terms and Conditions</p>
+                                        </a>
+                                        <a href="__superadmin__/index.html">
+                                            <p style="text-align: left; color: white;">Account Settings</p>
+                                        </a>
+                                        <a href="__superadmin__/index.html">
+                                            <p style="text-align: left; color: white;">Delivery and Shipping</p>
+                                        </a>
+                                        <a href="__superadmin__/index.html">
+                                            <p style="text-align: left; color: white;">FAQ Center</p>
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <h3 style="text-align: left; color: #FFFFFF;">Business</h3>
+                                        <a href="__superadmin__/index.html">
+                                            <p style="text-align: left; color: white;">Want to be a Seller?</p>
+                                        </a>
+                                        <a href="__superadmin__/index.html">
+                                            <p style="text-align: left; color: white;">Seller Center</p>
+                                        </a>
+                                        <a href="__superadmin__/index.html">
+                                            <p style="text-align: left; color: white;">Wakazi Shop</p>
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <h3 style="align-items: start; color: #FFFFFF;">Stay Connected</h3>
+                                        <a href="https://www.youtube.com/@WakaziWorks" target="blank" style="padding-right: 20px;"><img src="static/images/youtube.svg" /></i></a>
+                                        <a href="https://ke.linkedin.com/company/wakazi-works-platform" target="blank" style="padding-right: 20px;"><img src="static/images/linkedin.svg" /></a>
+                                        <a href="https://twitter.com/wakaziworks" target="blank" style="padding-right: 20px;"><img src="static/images/twitter-x.svg" /></i></a>
+                                        <a href="https://www.instagram.com/wakazi_works/" target="blank"><img src="static/images/instagram.svg" /></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bottom-footer" style="background-color: #831470; border: bottom 0;">
+                                <div>
+                                    <div class="mb-2" style="color: white;">&copy; Wakazi Works 2024</div>
+                                    <a href="__superadmin__/index.html">Privacy</a>
+                                    <span class="mx-2">&middot;</span>
+                                    <a href="__superadmin__/index.html">Terms</a>
+                                    <span class="mx-2">&middot;</span>
+                                    <a href="__superadmin__/index.html">FAQ</a>
+                                </div>
+                            </div>
+                        </footer>
+
+
+
+</div>
+
+
+<!-- Remove the container if you want to extend the Footer to full width. -->
+<div class="container my-5">
+
+  <!-- Footer -->
+  <footer
+          class="text-center text-lg-start text-white"
+          style="background-color: #431B63"
+          >
+    <!-- Section: Social media -->
+    <section
+             class="d-flex justify-content-between p-4"
+             style="background-color: #433595"
+             >
+      <!-- Left -->
+      <div class="me-5">
+        <span>Get connected with us on social networks:</span>
+      </div>
+      <!-- Left -->
+
+      <!-- Right -->
+      <div>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold">Business
+            </h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+                <p>
+              <a href="#!" class="text-white">Want to be a seller</a>
+            </p>
+            <p>
+              <a href="#!" class="text-white">Wakazi Shop</a>
+            </p>
+            <p>
+              <a href="#!" class="text-white">Terms and Conditions</a>
+            </p>
+            <p>
+              <a href="#!" class="text-white">FAQ Center
+              </a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">Products</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p>
+              <a href="#!" class="text-white">Seller Center</a>
+            </p>
+            <p>
+              <a href="#!" class="text-white">Privacy Policy</a>
+            </p>
+            <p>
+              <a href="#!" class="text-white">Terms and Conditions</a>
+            </p>
+            <p>
+              <a href="#!" class="text-white">FAQ Center
+              </a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">Useful links</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p>
+              <a href="#!" class="text-white">Your Account</a>
+            </p>
+            <p>
+              <a href="#!" class="text-white">Become an Affiliate</a>
+            </p>
+            <p>
+              <a href="#!" class="text-white">Shipping Rates</a>
+            </p>
+            <p>
+              <a href="#!" class="text-white">Help</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">Contact</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p><i class="fas fa-home mr-3"></i> Nairobi, Kenya</p>
+            <p><i class="fas fa-envelope mr-3"></i> hexanetsystems@gmail.com</p>
+            <p><i class="fas fa-print mr-3"></i> +254 705 02 7335</p>
+            <p><i class="fas fa-print mr-3"></i> +254 705 02 7335</p>
+          </div>
+          <!-- Grid column -->
         </div>
-    </footer>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
 
-</section>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <!-- * *                               SB Forms JS                               * *-->
-    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    </body>
+    <!-- Copyright -->
+    <div
+         class="text-center p-3"
+         style="background-color: #C435E8"
+         >
+      © 2024 Copyright:
+      <a class="text-white" href="https://wakazi.co.ke/"
+         >Wakazi Works</a
+        >
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
 
-    </html>
+</div>
+<!-- End of .container -->
+<!-- End of .container -->
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<!-- * *                               SB Forms JS                               * *-->
+<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
+
+</html>
