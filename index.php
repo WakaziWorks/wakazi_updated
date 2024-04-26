@@ -243,7 +243,7 @@ include("__screens/__headers/header.php")
         <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
             <div class="col-12 col-lg-5">
                 <h2 class="display-4 lh-1 mb-4">Renaissance fuses Avant-Garde </h2>
-                <p>In the vibrant tapestry of artistic expression, where the Renaissance meets the avant-garde, lies a fusion of tradition and innovation that ignites the senses. </p>
+                <p class="lead fw-normal text-muted mb-5 mb-lg-0">In the vibrant tapestry of artistic expression, where the Renaissance meets the avant-garde, lies a fusion of tradition and innovation that ignites the senses. </p>
                 <p class="lead fw-normal text-muted mb-5 mb-lg-0" id="paragraph">
                     
 
