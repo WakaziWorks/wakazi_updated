@@ -164,7 +164,7 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                             <i class="bi bi-cart4" style="padding: 2px;"></i> Cart
                         </a>
                         <!-- Display user info and logout link -->
-                        <a href="../../__superadmin__/index.html" class="nav-link" id="user-info">
+                        <a href="" class="nav-link" id="user-info">
                             <i class="bi bi-person-check"></i> <?= $_SESSION['email']; ?>
                         </a>
                         <a href="../../__logout/__logout.php" class="nav-link">
@@ -198,20 +198,20 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
                     <ul class="navbar-nav" id="navbar-nav">
                         <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="../../index.php">Home</a></li>
-                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="../../__superadmin__/index.html">Products</a></li>
-                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="../../__superadmin__/index.html">Collections</a></li>
-                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="../../__superadmin__/index.html">Features</a></li>
-                        <li class="nav-item d-none d-lg-block" ><a class="nav-link" href="../../__superadmin__/index.html">Blog</a></li>
+                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="">Products</a></li>
+                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="">Collections</a></li>
+                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="">Features</a></li>
+                        <li class="nav-item d-none d-lg-block" ><a class="nav-link" href="../../blog/index.php">Blog</a></li>
                         <li class="nav-item dropdown d-lg-none">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Menu
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="index.php">Home</a></li>
-                                <li><a class="dropdown-item" href="../../__superadmin__/index.html">Products</a></li>
-                                <li><a class="dropdown-item" href="../../__superadmin__/index.html">Collections</a></li>
-                                <li><a class="dropdown-item" href="../../__superadmin__/index.html">Features</a></li>
-                                <li><a class="dropdown-item" href="../../__superadmin__/index.html">Blog</a></li>
+                                <li><a class="dropdown-item" href="">Products</a></li>
+                                <li><a class="dropdown-item" href="">Collections</a></li>
+                                <li><a class="dropdown-item" href="">Features</a></li>
+                                <li><a class="dropdown-item" href="../../blog/index.php">Blog</a></li>
                             </ul>
                         </li>
                     </ul>
