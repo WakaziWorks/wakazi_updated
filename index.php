@@ -54,9 +54,10 @@ include("__screens/__headers/header.php")
     <h1>Shop by collections</h1>
     <hr />
     <div class="row">
-        <div class="collection-col col-12 col-md mx-3">
+    <div class="collection-col col-12 col-md mx-3">
             <h4>Jewellery</h4>
             <a href="#" onclick="redirectToCategory('jewellery')"><img src="static/images/jewellery.webp" alt="Jewellery" /></a>
+            <button onclick="addToCart('jewellery')">Add to Cart</button>
         </div>
         <div class="collection-col col-12 col-md mx-3">
             <h4>Home and Decor</h4>
