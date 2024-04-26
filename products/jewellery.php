@@ -1,5 +1,6 @@
 <?php
-include("../__screens/__headers/header.php")
+include("../__screens/__headers/header.php");
+require ("../../__config/app/config.php");
 ?>
 <!-- Jewellery Page -->
 <div class="container">
