@@ -70,6 +70,14 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
         .navbar-nav {
             margin-bottom: 0;
         }
+        #navbar-nav a{
+            color: #ff00ff;
+        }
+        #navbar-nav a:hover{
+            color: #fff;
+            background: #ff00ff;
+            border-radius: 15px;
+        }
 
         .navbar-light .navbar-nav .nav-link {
             padding: 8px 10px;
@@ -93,11 +101,9 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
         }
     </style>
 </head>
-
 <body id="page-top">
-
     <header class="header fixed-top">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="nav navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <!-- Dropdown for mobile and other small devices -->
                 <div class="dropdown">
@@ -107,17 +113,35 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Menu
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div class="menu-toggle1" onclick="toggleMenu()">
+                                        <div class="dash"></div>
+                                        <div class="dash"></div>
+                                        <div class="dash"></div>
+                                    </div>
+                                </a> -->
+                                <div class="menu-toggle1" onclick="toggleMenu()">
+                                    <div class="dash"></div>
+                                    <div class="dash"></div>
+                                    <div class="dash"></div>
+                                </div>
+                                <ul class="dropdown-content dropdown-menu" id="dropdownContent" aria-labelledby="navbarDropdownMenuLink">
+                                    <img src="../../static/images/WhatsApp_Image_2024-02-28_at_15.48.15-removebg-preview.png" alt="Wakazi" id="dropdown-logo">
+                                    <span class="close-button" onclick="toggleDropdown()">&times;</span>
+                                    <hr />
                                     <a class="dropdown-item" href="#">Jewellery</a>
-                                    <a class="dropdown-item" href="#">Bags & purses</a>
-                                    <a class="dropdown-item" href="#">Home & decor</a>
+                                    <a class="dropdown-item" href="#">Weddings</a>
+                                    <a class="dropdown-item" href="#">Clothings</a>
                                     <a class="dropdown-item" href="#">Accessories</a>
-                                    <a class="dropdown-item" href="#">Art & collectibles</a>
+                                    <a class="dropdown-item" href="#">Pet supplies</a>
+                                    <a class="dropdown-item" href="#">Home and decor</a>
+                                    <a class="dropdown-item" href="#">Bags and purses</a>
+                                    <a class="dropdown-item" href="#">Bath and beauty</a>
+                                    <a class="dropdown-item" href="#">Art and collectibles</a>
+                                    <a class="dropdown-item" href="#">Baby, Gifts and Shoes</a>
                                     <a class="dropdown-item" href="#">Craft supplies & tools</a>
-                                    <a class="dropdown-item" href="#">Books, Movies, Music</a>
+                                    <a class="dropdown-item" href="#">Books, Movies and Music</a>
+                                    <a class="dropdown-item" href="#">Paper and party supplies</a>
                                 </ul>
                             </li>
                         </ul>
@@ -130,11 +154,11 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                 <div class="mx-auto" style="width: 50%;">
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="I am looking for..." aria-label="Search">
-                        <button class="btn btn-outline-success text-white" style="background-color: #6D008FDF;" type="submit">Search</button>
+                        <button class="btn btn-outline-success text-white" style="background-color: #ff00ff; border: none; outline: none;" type="submit">Search</button>
                     </form>
                 </div>
                 <!-- Icons for cart, account, and help -->
-                <div class="d-flex">
+                <div class="d-flex accounts-nav">
                     <?php if ($isLoggedIn) : ?>
                         <a href="#" class="nav-link">
                             <i class="bi bi-cart4" style="padding: 2px;"></i> Cart
@@ -149,11 +173,15 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                     <?php else : ?>
                         <!-- Links to show when the user is not logged in -->
                         <a href="../../__auth/__accounts/login.php" class="nav-link" id="popup-trigger">
-                            <i class="bi bi-person-check" style="padding: 2px;"></i> Account
+                            <i class="bi bi-person-check"></i> Account
                         </a>
+                        <ul id="popup-buttons" style="display: none;">
+                            <li type="button" class="btn btn-primary"><a href="../../__auth/__accounts/signup.php" style="text-decoration: none; color: white;">Sign Up</a></li>
+                            <li type="button" class="btn btn-secondary"><a href="../../__auth/__accounts/login.php" style="text-decoration: none; color: white;">Sign In</a></li>
+                        </ul>
                         <br>
                         <a href="#" class="nav-link">
-                            <i class="bi bi-patch-question-fill" style="padding: 4px;"></i> Help
+                            <i class="bi bi-patch-question-fill" style="font-size: 20px;"></i> Help
                         </a>
                     <?php endif; ?>
                 </div>
@@ -167,13 +195,13 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse navbar-light bg-light justify-content-center" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../index.php">Home</a></li>
-                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../__superadmin__/index.html">Products</a></li>
-                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../__superadmin__/index.html">Collections</a></li>
-                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../__superadmin__/index.html">Features</a></li>
-                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../__superadmin__/index.html">Blog</a></li>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+                    <ul class="navbar-nav" id="navbar-nav">
+                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="../../index.php">Home</a></li>
+                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="../../__superadmin__/index.html">Products</a></li>
+                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="../../__superadmin__/index.html">Collections</a></li>
+                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="../../__superadmin__/index.html">Features</a></li>
+                        <li class="nav-item d-none d-lg-block" ><a class="nav-link" href="../../__superadmin__/index.html">Blog</a></li>
                         <li class="nav-item dropdown d-lg-none">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Menu
@@ -190,6 +218,60 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                 </div>
             </div>
         </div>
-
         </div>
     </header>
+    <script>
+        // Toggle visibility of collection's dropdown menu
+        function toggleMenu() {
+            var dropdownContent = document.querySelector('.dropdown-content');
+            dropdownContent.style.display === 'block' ? dropdownContent.style.display = 'none' : dropdownContent.style.display = 'block';
+        }
+        //Hide visibility of collection's dropdown when "x" is clicked
+        document.addEventListener("click", function(event) {
+            let dropdown = document.querySelector(".dropdown");
+            let dropdownContent = dropdown.querySelector(".dropdown-content");
+            let dropdownButton = dropdown.querySelector("button");
+            let closeButton = dropdown.querySelector(".close-button");
+                
+            let isClickedInsideDropdown = dropdown.contains(event.target);
+
+            if (!isClickedInsideDropdown) {
+                dropdownContent.style.display = "none";
+            }
+        });
+        function toggleDropdown(){
+            let dropDownContent = document.getElementById("dropdownContent");
+            dropdownContent.style.display = dropdownContent.style.display === "block" ? "none": "block";
+        }
+
+
+        // Get the account link and the popup buttons
+        const accountLink = document.getElementById('popup-trigger');
+        const popupButtons = document.getElementById('popup-buttons');
+
+        // Add click event listener to the account link
+        accountLink.addEventListener('click', function(event) {
+            // Prevent the default behavior of the link
+            event.preventDefault();
+            // Toggle the visibility of the popup buttons
+            if (popupButtons.style.display === 'none') {
+                popupButtons.style.display = 'block';
+            } else {
+                popupButtons.style.display = 'none';
+            }
+        });
+
+        // Add click event listener to the document to handle clicks outside of the buttons
+        document.addEventListener('click', function(event) {
+            const target = event.target;
+            // Check if the click target is outside of the popup buttons and the account link
+            if (target !== popupButtons && target !== accountLink) {
+                // Hide the popup buttons if they are currently visible
+                if (popupButtons.style.display === 'block') {
+                    popupButtons.style.display = 'none';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
