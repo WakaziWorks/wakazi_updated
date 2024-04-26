@@ -65,6 +65,14 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
         .navbar-nav {
             margin-bottom: 0;
         }
+        #navbar-nav a{
+            color: #ff00ff;
+        }
+        #navbar-nav a:hover{
+            color: #fff;
+            background: #ff00ff;
+            border-radius: 15px;
+        }
 
         .navbar-light .navbar-nav .nav-link {
             padding: 8px 10px;
@@ -115,7 +123,6 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                                 <ul class="dropdown-content dropdown-menu" id="dropdownContent" aria-labelledby="navbarDropdownMenuLink">
                                     <img src="../../static/images/WhatsApp_Image_2024-02-28_at_15.48.15-removebg-preview.png" alt="Wakazi" id="dropdown-logo">
                                     <span class="close-button" onclick="toggleDropdown()">&times;</span>
-                                    <!-- <span class="close-button" id="dropdownContent" onclick="toggleDropdown()">&times;</span> -->
                                     <hr />
                                     <a class="dropdown-item" href="#">Jewellery</a>
                                     <a class="dropdown-item" href="#">Weddings</a>
@@ -142,7 +149,7 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                 <div class="mx-auto" style="width: 50%;">
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="I am looking for..." aria-label="Search">
-                        <button class="btn btn-outline-success text-white" style="background-color: #6D008FDF;" type="submit">Search</button>
+                        <button class="btn btn-outline-success text-white" style="background-color: #ff00ff; border: none; outline: none;" type="submit">Search</button>
                     </form>
                 </div>
                 <!-- Icons for cart, account, and help -->
@@ -163,6 +170,10 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                         <a href="../../__auth/__accounts/login.php" class="nav-link" id="popup-trigger">
                             <i class="bi bi-person-check"></i> Account
                         </a>
+                        <ul id="popup-buttons" style="display: none;">
+                            <li type="button" class="btn btn-primary"><a href="../../__auth/__accounts/signup.php" style="text-decoration: none; color: white;">Sign Up</a></li>
+                            <li type="button" class="btn btn-secondary"><a href="../../__auth/__accounts/login.php" style="text-decoration: none; color: white;">Sign In</a></li>
+                        </ul>
                         <br>
                         <a href="#" class="nav-link">
                             <i class="bi bi-patch-question-fill" style="font-size: 20px;"></i> Help
@@ -181,11 +192,11 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                 </button>
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
                     <ul class="navbar-nav" id="navbar-nav">
-                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../index.php">Home</a></li>
-                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../__superadmin__/index.html">Products</a></li>
-                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../__superadmin__/index.html">Collections</a></li>
-                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../__superadmin__/index.html">Features</a></li>
-                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../__superadmin__/index.html">Blog</a></li>
+                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="../../index.php">Home</a></li>
+                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="../../__superadmin__/index.html">Products</a></li>
+                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="../../__superadmin__/index.html">Collections</a></li>
+                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="../../__superadmin__/index.html">Features</a></li>
+                        <li class="nav-item d-none d-lg-block" ><a class="nav-link" href="../../__superadmin__/index.html">Blog</a></li>
                         <li class="nav-item dropdown d-lg-none">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Menu
@@ -227,6 +238,35 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
             let dropDownContent = document.getElementById("dropdownContent");
             dropdownContent.style.display = dropdownContent.style.display === "block" ? "none": "block";
         }
+
+
+        // Get the account link and the popup buttons
+        const accountLink = document.getElementById('popup-trigger');
+        const popupButtons = document.getElementById('popup-buttons');
+
+        // Add click event listener to the account link
+        accountLink.addEventListener('click', function(event) {
+            // Prevent the default behavior of the link
+            event.preventDefault();
+            // Toggle the visibility of the popup buttons
+            if (popupButtons.style.display === 'none') {
+                popupButtons.style.display = 'block';
+            } else {
+                popupButtons.style.display = 'none';
+            }
+        });
+
+        // Add click event listener to the document to handle clicks outside of the buttons
+        document.addEventListener('click', function(event) {
+            const target = event.target;
+            // Check if the click target is outside of the popup buttons and the account link
+            if (target !== popupButtons && target !== accountLink) {
+                // Hide the popup buttons if they are currently visible
+                if (popupButtons.style.display === 'block') {
+                    popupButtons.style.display = 'none';
+                }
+            }
+        });
     </script>
 </body>
 </html>

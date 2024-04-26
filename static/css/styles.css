@@ -11136,15 +11136,6 @@ section.cta:before {
   margin: 0;
   padding: 0;
 }
-#navbar-nav a{
-  color: #ba3ce3;
-  font-weight: bold;
-}
-#navbar-nav a:hover{
-  background-color: #d493e9;
-  border-radius: 5px;
-  color: #fff;
-}
 .accounts-nav{
   justify-content: center;
   align-items: center;
@@ -11289,7 +11280,7 @@ section.cta:before {
 .dash {
   width: 25px;
   height: 3px;
-  background-color: #7f2c95;
+  background-color: #ff00ff;
   border-radius: 5px;
   margin: 5px 0;
 }
