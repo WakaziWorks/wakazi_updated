@@ -57,7 +57,7 @@ include("__screens/__headers/header.php")
     <div class="collection-col col-12 col-md mx-3">
             <h4>Jewellery</h4>
             <a href="#" onclick="redirectToCategory('jewellery')"><img src="static/images/jewellery.webp" alt="Jewellery" /></a>
-            <button onclick="addToCart('jewellery')">Add to Cart</button>
+            <button class="button" onclick="addToCart('jewellery')">Add to Cart</button>
         </div>
         <div class="collection-col col-12 col-md mx-3">
             <h4>Home and Decor</h4>
@@ -242,8 +242,15 @@ include("__screens/__headers/header.php")
     <div class="container px-5">
         <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
             <div class="col-12 col-lg-5">
-                <h2 class="display-4 lh-1 mb-4">Enter a new age of web design</h2>
-                <p class="lead fw-normal text-muted mb-5 mb-lg-0">This section is perfect for featuring some information about your application, why it was built, the problem it solves, or anything else! There's plenty of space for text here, so don't worry about writing too much.</p>
+                <h2 class="display-4 lh-1 mb-4">Renaissance fuses Avant-Garde </h2>
+                <p class="lead fw-normal text-muted mb-5 mb-lg-0" id="paragraph">
+                    In the vibrant tapestry of artistic expression, where the Renaissance meets the avant-garde, lies a fusion of tradition and innovation that ignites the senses. 
+
+                    Picture the sun-drenched landscapes of sub-Saharan Africa, where rhythms pulse through the earth and colors dance upon the canvas of existence. Here, amidst the ancient rhythms of tribal drums and the intricate beadwork of cultural heritage, emerges a new Renaissance—a rebirth of creativity that transcends boundaries. 
+
+                    In this eclectic convergence, traditional motifs intertwine with modern techniques, birthing a kaleidoscope of expression that challenges the norms of convention. This is where the echoes of history harmonize with the avant-garde spirit, where every brushstroke whispers tales of resilience and every melody carries the heartbeat of a continent.
+                </p>
+                <a class="btn btn-primary mt-3" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="readMoreBtn">Read More</a>
             </div>
             <div class="col-sm-8 col-md-6">
                 <div class="px-5 px-sm-0"><img class="img-fluid rounded-circle" src="https://source.unsplash.com/u8Jn2rzYIps/900x900" alt="..." /></div>
@@ -251,6 +258,26 @@ include("__screens/__headers/header.php")
         </div>
     </div>
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Hide the paragraph initially
+        document.getElementById('paragraph').classList.add('collapse');
+
+        // Toggle collapse state when Read More button is clicked
+        document.getElementById('readMoreBtn').addEventListener('click', function() {
+            const paragraph = document.getElementById('paragraph');
+            if (paragraph.classList.contains('show')) {
+                paragraph.classList.remove('show');
+                document.getElementById('readMoreBtn').innerText = 'Read More';
+            } else {
+                paragraph.classList.add('show');
+                document.getElementById('readMoreBtn').innerText = 'Read Less';
+            }
+        });
+    });
+</script>
+
 <!-- Call to action section-->
 <!-- <section class="cta">
         <div class="cta-content">
