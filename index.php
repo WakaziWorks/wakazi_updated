@@ -57,7 +57,7 @@ include("__screens/__headers/header.php")
     <div class="collection-col col-12 col-md mx-3">
             <h4>Jewellery</h4>
             <a href="#" onclick="redirectToCategory('jewellery')"><img src="static/images/jewellery.webp" alt="Jewellery" /></a>
-            <button class="button" onclick="addToCart('jewellery')">Add to Cart</button>
+            <!-- <button class="button" onclick="addToCart('jewellery')">Add to Cart</button> -->
         </div>
         <div class="collection-col col-12 col-md mx-3">
             <h4>Home and Decor</h4>
