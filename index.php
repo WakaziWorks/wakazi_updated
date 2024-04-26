@@ -273,7 +273,7 @@ include("__screens/__headers/header.php")
         </div>
     </div>
 </section>
-<section class="footer-top" id="footer-1" style="background-color: #C03FE7DF;">
+<section class="footer" id="footer-1" style="background-color: #C03FE7DF;">
     <div class="container text-center">
         <div class="row align-items-center flex-column flex-sm-row">
             <div class="col">
@@ -298,9 +298,7 @@ include("__screens/__headers/header.php")
             </div>
         </div>
     </div>
-</section>
 
-<section class="footer-bottom">
 
     <!-- Remove the container if you want to extend the Footer to full width. -->
     <div class="my-5">
