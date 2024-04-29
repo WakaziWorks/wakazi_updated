@@ -1,5 +1,5 @@
 <?php
-include("__screens/__headers/header.php")
+include("_screens/_headers/header.php")
 ?>
 
 
@@ -12,37 +12,37 @@ include("__screens/__headers/header.php")
     </div>
     <div class="carousel-inner ratio ratio-21x9">
         <div class="carousel-item active" data-bs-interval="5000">
-            <video src="static/images/Universe.mp4" class="d-block h-26 w-100" autoplay muted loop></video>
+            <video src="static/images/Universe.mp4" class="d-block h-20 w-100" autoplay muted loop></video>
             <div class="carousel-caption">
-                <h1 class="heading-h2">Artisans are the Alchemists.</h1>
+                <h1 class="heading-h1">Artisans are the Alchemists.</h1>
                 <p>Artisans are the alchemists of our time, turning ordinary materials into works of wonder.</p>
-                <button style="font-size: 1.0em;"><a href="#collection">Discover more</a></button>
+                <button style="font-size: 1.2em; background: #ff00ff;"><a href="#collection">Discover more</a></button>
             </div>
         </div>
         <div class="carousel-item" data-bs-interval="5000">
-            <video src="static/images/Pottery.mp4" class="d-block h-26 w-100" autoplay muted loop></video>
+            <video src="static/images/Pottery.mp4" class="d-block h-20 w-100" autoplay muted loop></video>
             <div class="carousel-caption">
-                <h1 class="heading-h2">The true Artisan.</h1>
+                <h1 class="heading-h1">The true Artisan.</h1>
                 <p>The true artisan is a seeker of beauty and truth, a philosopher of the tangible.</p>
-                <button style="font-size: 1.0em;"><a href="#collection">Discover more</a></button>
+                <button style="font-size: 1.2em; background: #ff00ff;"><a href="#collection">Discover more</a></button>
             </div>
         </div>
         <div class="carousel-item" data-bs-interval="5000">
-            <video src="static/images/Handtools.mp4" class="d-block h-26 w-100" autoplay muted loop></video>
+            <video src="static/images/Handtools.mp4" class="d-block h-20 w-100" autoplay muted loop></video>
             <div class="carousel-caption">
-                <h1 class="heading-h2">The silent Philosophers.</h1>
+                <h1 class="heading-h1">The silent Philosophers.</h1>
                 <p>Artisans are the silent philosophers of society, shaping the world with their hands and minds. </p>
-                <button style="font-size: 1.0em;"><a href="#collection">Discover more</a></button>
+                <button style="font-size: 1.2em; background: #ff00ff;"><a href="#collection">Discover more</a></button>
             </div>
         </div>
-
+        
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="carousel-control-prev-icon" aria-hidden="true" style="color: #ff00ff;"></span>
         <span class="visually-hidden">Previous</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="carousel-control-next-icon" aria-hidden="true" style="color: #ff00ff;"></span>
         <span class="visually-hidden">Next</span>
     </button>
 </div>
@@ -51,13 +51,12 @@ include("__screens/__headers/header.php")
 
 <!-- Collections -->
 <div class="collection-container justify-content-center" id="collection">
-    <h1>Shop by collections</h1>
+    <h1 style="color: #ff00ff;">Shop by collections</h1>
     <hr />
     <div class="row">
-    <div class="collection-col col-12 col-md mx-3">
+        <div class="collection-col col-12 col-md mx-3">
             <h4>Jewellery</h4>
             <a href="#" onclick="redirectToCategory('jewellery')"><img src="static/images/jewellery.webp" alt="Jewellery" /></a>
-            <!-- <button class="button" onclick="addToCart('jewellery')">Add to Cart</button> -->
         </div>
         <div class="collection-col col-12 col-md mx-3">
             <h4>Home and Decor</h4>
@@ -126,10 +125,10 @@ include("__screens/__headers/header.php")
 </script>
 
 <!-- Product Section -->
-<section id="products" class="py-5">
+<!-- <section id="products" class="py-5">
     <div class="container">
         <h2 class="text-center font-alt mb-5">Featured Products</h2>
-        <!-- <?php foreach ($productsByCategory as $category => $products) : ?>
+        <?php foreach ($productsByCategory as $category => $products) : ?>
             <h3><?php echo htmlspecialchars($category); ?></h3>
             <div class="row g-4">
                 <?php foreach ($products as $product) : ?>
@@ -145,13 +144,13 @@ include("__screens/__headers/header.php")
                     </div>
                 <?php endforeach; ?>
             </div>
-        <?php endforeach; ?> -->
+        <?php endforeach; ?>
     </div>
-</section>
+</section> -->
 
 
 <!-- App features section-->
-<section id="features" id="features" style="background: #e6cbee;">
+<section id="features" id="features">
     <div class="container px-5">
         <div class="row gx-5 align-items-center">
             <div class="col-lg-8 order-lg-1 mb-5 mb-lg-0">
@@ -162,7 +161,7 @@ include("__screens/__headers/header.php")
                             <div class="text-center">
                                 <i class="bi-phone icon-feature text-gradient d-block mb-3"></i>
                                 <h3 class="font-alt">Product Sales</h3>
-                                <p class="text-muted mb-0">Extremem product fucntionalities </p>
+                                <p class="text-muted mb-0">Extreme product fucntionalities </p>
                             </div>
                         </div>
                         <div class="col-md-6 mb-5">
@@ -251,7 +250,7 @@ include("__screens/__headers/header.php")
 
                     In this eclectic convergence, traditional motifs intertwine with modern techniques, birthing a kaleidoscope of expression that challenges the norms of convention. This is where the echoes of history harmonize with the avant-garde spirit, where every brushstroke whispers tales of resilience and every melody carries the heartbeat of a continent.
                 </p>
-                <a class="btn btn-primary mt-3" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="readMoreBtn">Read More</a>
+                <a class="btn btn-primary mt-3" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="readMoreBtn" style="background: #ff00ff; border: none; outline: none;">Read More</a>
             </div>
             <div class="col-sm-8 col-md-6">
                 <div class="px-5 px-sm-0"><img class="img-fluid rounded-circle" src="https://source.unsplash.com/u8Jn2rzYIps/900x900" alt="..." /></div>
@@ -259,7 +258,6 @@ include("__screens/__headers/header.php")
         </div>
     </div>
 </section>
-
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Hide the paragraph initially
@@ -278,7 +276,6 @@ include("__screens/__headers/header.php")
         });
     });
 </script>
-
 <!-- Call to action section-->
 <!-- <section class="cta">
         <div class="cta-content">
@@ -293,170 +290,122 @@ include("__screens/__headers/header.php")
         </div>
     </section> -->
 <!-- App badge section-->
-<section class="" id="download" style="background-color:#8A3BA1">
+<section class="" id="download">
     <div class="container px-5">
-        <h2 class="text-center text-purple font-alt mb-4">Get the app now!</h2>
+        <h2 class="text-center text-purple font-alt mb-4" style="color: black;">Get the app now!</h2>
         <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center">
             <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge" src="static/images/google-play-badge.svg" alt="..." /></a>
             <a href="#!"><img class="app-badge" src="static/images/app-store-badge.svg" alt="..." /></a>
         </div>
     </div>
 </section>
-<section class="footer" id="footer-1" style="background-color: #C03FE7DF;">
+
+<section class="footer-top" id="footer-1" style="background-color: #e868f0;">
     <div class="container text-center">
         <div class="row align-items-center flex-column flex-sm-row">
-            <div class="col">
+            <div class="col footer-col">
                 <img src="static/images/x-diamond-fill.svg" />
-                <h5>Great Value</h5>
-                <p class="col-p">We offer competitive prices on our product range.</p>
+                <h5 style="color: #000; font-weight: normal;">Great Value</h5>
+                <p class="col-p text-light">We offer competitive prices on our product range.</p>
             </div>
-            <div class="col">
+            <div class="col footer-col">
                 <img src="static/images/credit-card-2-front-fill.svg" />
-                <h5>Safe Payment</h5>
-                <p class="col-p">Pay with the world’s most popular and secure payment methods.</p>
+                <h5 style="color: #000; font-weight: normal;">Safe Payment</h5>
+                <p class="col-p text-light">Pay with the world’s most popular and secure payment methods.</p>
             </div>
-            <div class="col">
+            <div class="col footer-col">
                 <img src="static/images/shield-lock-fill.svg" />
-                <h5>Shop with Confidence</h5>
-                <p class="col-p">Our Buyer Protection covers your purchase from click to delivery</p>
+                <h5 style="color: #000; font-weight: normal;">Shop with Confidence</h5>
+                <p class="col-p text-light">Our Buyer Protection covers your purchase from click to delivery</p>
             </div>
-            <div class="col">
+            <div class="col footer-col">
                 <img src="static/images/question-circle-fill.svg" />
-                <h5>24/7 Help Center</h5>
-                <p class="col-p">Round-the-clock assistance for a smooth shopping experience.</p>
+                <h5 style="color: #000; font-weight: normal;">24/7 Help Center</h5>
+                <p class="col-p text-light">Round-the-clock assistance for a smooth shopping experience.</p>
             </div>
         </div>
     </div>
-
-
-    <!-- Remove the container if you want to extend the Footer to full width. -->
-    <div class="my-5">
-
-        <!-- Footer -->
-        <footer class="text-center text-lg-start text-white" style="background-color: #431B63">
-            <!-- Section: Social media -->
-            <section class="d-flex justify-content-between p-4" style="background-color: #433595">
-                <!-- Left -->
-                <div class="me-5">
-                    <span>Get connected with us on social networks:</span>
-                </div>
-                <!-- Left -->
-
-                <!-- Right -->
-                <div>
-                    <a href="" class="text-white me-4">
-                        <i class="fab fa-facebook-f"></i>
+</section>
+<!-- Footer-->
+    <section class="footer" style="background-color: #c837d1;">
+        <div class="container-fluid">
+            <div class="row" style="margin-left: 7em;">
+                <div class="col terms-section">
+                    <h4>Shopping Guide</h4>
+                    <a href="_superadmin_/index.html">
+                        <p class="text-light">How do I pay on wakazi?</p>
                     </a>
-                    <a href="" class="text-white me-4">
-                        <i class="fab fa-twitter"></i>
+                    <a href="_superadmin_/index.html">
+                        <p class="text-light">How long does my order arrive?</p>
                     </a>
-                    <a href="" class="text-white me-4">
-                        <i class="fab fa-google"></i>
+                    <a href="_superadmin_/index.html">
+                        <p class="text-light">How to shop on wakazi?</p>
                     </a>
-                    <a href="" class="text-white me-4">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="" class="text-white me-4">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="" class="text-white me-4">
-                        <i class="fab fa-github"></i>
+                    <a href="_superadmin_/index.html">
+                        <p class="text-light">Forgot password?</p>
                     </a>
                 </div>
-                <!-- Right -->
-            </section>
-            <!-- Section: Social media -->
-
-            <!-- Section: Links  -->
-            <section class="">
-                <div class="container text-center text-md-start mt-5">
-                    <!-- Grid row -->
-                    <div class="row mt-3">
-                        <!-- Grid column -->
-                        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                            <!-- Content -->
-                            <h6 class="text-uppercase fw-bold">Business
-                            </h6>
-                            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
-                            <p>
-                                <a href="#!" class="text-white">Want to be a seller</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-white">Wakazi Shop</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-white">Terms and Conditions</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-white">FAQ Center
-                                </a>
-                            </p>
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                            <!-- Links -->
-                            <h6 class="text-uppercase fw-bold">Products</h6>
-                            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
-                            <p>
-                                <a href="#!" class="text-white">Seller Center</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-white">Privacy Policy</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-white">Terms and Conditions</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-white">FAQ Center
-                                </a>
-                            </p>
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                            <!-- Links -->
-                            <h6 class="text-uppercase fw-bold">Useful links</h6>
-                            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
-                            <p>
-                                <a href="#!" class="text-white">Your Account</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-white">Become an Affiliate</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-white">Shipping Rates</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-white">Help</a>
-                            </p>
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                            <!-- Links -->
-                            <h6 class="text-uppercase fw-bold">Contact</h6>
-                            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
-                            <p><i class="fas fa-home mr-3"></i> Nairobi, Kenya</p>
-                            <p><i class="fas fa-envelope mr-3"></i> hexanetsystems@gmail.com</p>
-                            <p><i class="fas fa-print mr-3"></i> +254 705 02 7335</p>
-                            <p><i class="fas fa-print mr-3"></i> +254 705 02 7335</p>
-                        </div>
-                        <!-- Grid column -->
-                    </div>
-                    <!-- Grid row -->
+                <div class="col terms-section">
+                    <h4>Customer Help</h4>
+                    <a href="_superadmin_/index.html">
+                        <p class="text-light">Privacy Policy</p>
+                    </a>
+                    <a href="_superadmin_/index.html">
+                        <p class="text-light">Terms and Conditions</p>
+                    </a>
+                    <a href="_superadmin_/index.html">
+                        <p class="text-light">Account Settings</p>
+                    </a>
+                    <a href="_superadmin_/index.html">
+                        <p class="text-light">Delivery and Shipping</p>
+                    </a>
+                    <a href="_superadmin_/index.html">
+                        <p class="text-light">FAQ Center</p>
+                    </a>
                 </div>
-            </section>
-            <!-- Section: Links  -->
+                <div class="col terms-section">
+                    <h4>Business</h4>
+                    <a href="_superadmin_/index.html">
+                        <p class="text-light">Want to be a Seller?</p>
+                    </a>
+                    <a href="_superadmin_/index.html">
+                        <p class="text-light">Seller Center</p>
+                    </a>
+                    <a href="_superadmin_/index.html">
+                        <p class="text-light">Wakazi Shop</p>
+                        </a>
+                </div>
+                <div class="col terms-section">
+                    <h4>Stay Connected</h4>
+                    <a href="https://www.youtube.com/@WakaziWorks" target="blank"><i class="bi bi-youtube text-light"></i></a>
+                    <a href="https://ke.linkedin.com/company/wakazi-works-platform" target="blank"><i class="bi bi-linkedin text-light"></i></a>
+                    <a href="https://twitter.com/wakaziworks" target="blank"><i class="bi bi-twitter text-light"></i></i></a>
+                    <a href="https://www.instagram.com/wakazi_works/" target="blank"><i class="bi bi-instagram text-light"></i></a>
+                </div>
+    </section>
+    <div class="bottom-footer" style="background: #7d1a86">
+        <div>
+            <div class="mb-2 text-light">&copy; Wakazi Works 2024</div>
+            <a href="_superadmin_/index.html">Privacy</a>
+            <span class="mx-2 text-light">&middot;</span>
+            <a href="_superadmin_/index.html">Terms</a>
+            <span class="mx-2 text-light">&middot;</span>
+            <a href="_superadmin_/index.html">FAQ</a>
+        </div>
+    </div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+    </html>
 
-            <!-- Copyright -->
-            <div class="text-center p-3" style="background-color: #C435E8">
-                © 2024 Copyright:
-                <a class="text-white" href="https://wakazi.co.ke/">Wakazi Works</a>
-            </div>
             <!-- Copyright -->
         </footer>
         <!-- Footer -->
