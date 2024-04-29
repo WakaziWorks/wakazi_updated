@@ -70,12 +70,10 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
         .navbar-nav {
             margin-bottom: 0;
         }
-
-        #navbar-nav a {
+        #navbar-nav a{
             color: #ff00ff;
         }
-
-        #navbar-nav a:hover {
+        #navbar-nav a:hover{
             color: #fff;
             background: #ff00ff;
             border-radius: 15px;
@@ -101,27 +99,29 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
             margin-top: -10px;
             /* Pulls the second navbar up closer to the first */
         }
-
-        .content {
-            min-height: calc(100vh - 100px);
-            /* Adjust based on footer height */
-            padding: 20px;
+        #popup-buttons {
+            padding: 0.5em;
+            position: absolute;
+            top: 80%;
+            right: 2%;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            z-index: 100;
         }
-
-        .footer {
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            transition: transform 0.3s ease;
+        .account-nav-link{
+            position: relative;
+            color: #000;
+            font-size: large;
         }
-
-        .footer.hidden {
-            transform: translateY(100%);
+        .account-nav-link:hover + #popup-buttons {
+            display: block;
+        }
+        .account-nav-link .bi{
+            color: inherit;
+        }
+        .account-nav-link:hover{
+            color: #ff00ff;
         }
     </style>
 </head>
