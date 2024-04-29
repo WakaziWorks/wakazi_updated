@@ -1,5 +1,5 @@
 <?php
-include("../__screens/__headers/header.php");
+include("../screens/headers/header.php");
 ?>
 
 
