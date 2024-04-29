@@ -1,5 +1,5 @@
 <?php
-require '../__config/config.php'; // Ensure your DB connection settings are correct
+require '../config/config.php'; // Ensure your DB connection settings are correct
 
 if (isset($_POST['email'])) {
     $email = $_POST['email'];
