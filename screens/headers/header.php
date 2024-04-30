@@ -69,10 +69,12 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
         .navbar-nav {
             margin-bottom: 0;
         }
-        #navbar-nav a{
+
+        #navbar-nav a {
             color: #ff00ff;
         }
-        #navbar-nav a:hover{
+
+        #navbar-nav a:hover {
             color: #fff;
             background: #ff00ff;
             border-radius: 15px;
@@ -98,6 +100,7 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
             margin-top: -10px;
             /* Pulls the second navbar up closer to the first */
         }
+
         #popup-buttons {
             padding: 0.5em;
             position: absolute;
@@ -108,18 +111,22 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
             border-radius: 4px;
             z-index: 100;
         }
-        .account-nav-link{
+
+        .account-nav-link {
             position: relative;
             color: #000;
             font-size: large;
         }
-        .account-nav-link:hover + #popup-buttons {
+
+        .account-nav-link:hover+#popup-buttons {
             display: block;
         }
-        .account-nav-link .bi{
+
+        .account-nav-link .bi {
             color: inherit;
         }
-        .account-nav-link:hover{
+
+        .account-nav-link:hover {
             color: #ff00ff;
         }
     </style>
@@ -184,12 +191,41 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                 <!-- Icons for cart, account, and help -->
                 <div class="d-flex accounts-nav">
                     <?php if ($isLoggedIn) : ?>
-                        <a href="#" class="nav-link">
-                            <i class="bi bi-cart4" style="padding: 2px;"></i> Cart
+                        <!-- User dropdown menu -->
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" id="navbarUserDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person-check"></i> <?= $_SESSION['name']; ?>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarUserDropdown">
+                                <li><a class="dropdown-item" href="../../auth/accounts/my_profile.php">My Profile</a></li>
+                                <li><a class="dropdown-item" href="../../auth/accounts/my_orders.php">My Orders</a></li>
+                                <li><a class="dropdown-item" href="../../auth/accounts/my_saved_items.php">Saved Items</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="../../__logout/__logout.php">Logout</a></li>
+                            </ul>
+                        </div>
+                    <?php else : ?>
+                        <!-- Links to show when the user is not logged in -->
+                        <a href="../../_auth/_accounts/login.php" class="nav-link account-nav-link">
+                            <i class="bi bi-person-check"></i> Account
                         </a>
+                    <?php endif; ?>
+                    <a href="#" class="nav-link account-nav-link">
+                        <i class="bi bi-patch-question-fill" style="font-size: 20px;"></i> Help
+                    </a>
+                    <a href="#" class="nav-link">
+                        <i class="bi bi-cart4" style="padding: 2px;"></i> Cart
+                    </a>
+                </div>
+
+                <div class="d-flex accounts-nav">
+                    <?php if ($isLoggedIn) : ?>
+
                         <!-- Display user info and logout link -->
                         <a href="" class="nav-link" id="user-info">
-                            <i class="bi bi-person-check"></i> <?= $_SESSION['email']; ?>
+                            <i class="bi bi-person-check"></i> <?= $_SESSION['name']; ?>
                         </a>
                         <a href="../../__logout/__logout.php" class="nav-link">
                             <i class="bi bi-box-arrow-right"></i> Logout
