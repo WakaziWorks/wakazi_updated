@@ -187,7 +187,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
 
 
             <!-- Product Overview Start -->
-            <div class="container-fluid pt-4 px-4">
+            <!-- <div class="container-fluid pt-4 px-4">
                 <div class="bg-light text-center rounded p-4">
                     <h6 class="mb-0">Your Products</h6>
                     <table class="table table-hover">
@@ -227,7 +227,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </div> -->
             <!-- Product Overview End -->
 
 
