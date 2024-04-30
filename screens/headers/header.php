@@ -196,7 +196,6 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                         </a>
                     <?php else : ?>
                         <!-- Links to show when the user is not logged in -->
-                        <!-- Links to show when the user is not logged in -->
                         <a href="../../_auth/_accounts/login.php" class="nav-link account-nav-link" id="popup-trigger">
                             <i class="bi bi-person-check"></i> Account
                         </a>
