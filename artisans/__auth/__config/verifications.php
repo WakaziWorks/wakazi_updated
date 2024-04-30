@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $_SESSION['name'] = $fetched_name; // Store artisan's name
                     // $_SESSION['role'] = $fetched_role; // Store the artisan's role
 
-                    echo '<script>window.location.href = "../__dashboard/index.php";</script>';
+                    echo '<script>window.location.href = "../../__dashboard/index.php";</script>';
                     exit();
                 } else {
                     // Password does not match
