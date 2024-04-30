@@ -62,29 +62,11 @@
                         window.location.href = 'login.php'; // Redirect to the login page</script>";
                         exit;
                     }
-                    include_once "../__auth/__config/config.php";
-                    // Retrieve the artisan's name based on their email
-                    $email = $_SESSION['email']; // Assuming email is stored in session
-
-                    // Prepare and execute the SQL query
-                    $stmt = $pdo->prepare("SELECT name FROM artisans WHERE email = ?");
-                    $stmt->execute([$email]);
-
-                    // Fetch the result
-                    $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-                    // Check if user exists
-                    if ($user) {
-                        $artisanName = $user['name'];
-                    } else {
-                        // Handle case where user is not found
-                        $artisanName = "Unknown";
-                    }
-                    ?>
+                    
                     ?>
 
                     <div class="ms-3">
-                        <h6 class="mb-0"><?php echo $artisanName; ?></h6> <!-- Display username from session -->
+                        <h6 class="mb-0"><?php echo $_SESSION['email']; ?></h6> <!-- Display username from session -->
                         <span><?php echo $_SESSION['role']; ?></span>
                     </div>
                 </div>
@@ -113,7 +95,7 @@
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="" class="dropdown-item">Manage Products</a>
                             <a href="" class="dropdown-item">Add products</a>
-
+                     
                         </div>
                     </div>
                 </div>
@@ -137,14 +119,12 @@
                     <input class="form-control border-0" type="search" placeholder="Search">
                 </form>
                 <div class="navbar-nav align-items-center ms-auto">
-
-
+                   
+                    
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">
-                                <h6 class="mb-0"><?php echo $artisanName; ?>
-                            </span>
+                            <span class="d-none d-lg-inline-flex"><h6 class="mb-0"><?php echo $_SESSION['name']; ?></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="profile.php" class="dropdown-item">My Profile</a>
@@ -218,7 +198,7 @@
                         <a href="">Show All</a>
                     </div>
                     <div class="table-responsive">
-
+                        
                     </div>
                 </div>
             </div>
@@ -234,7 +214,7 @@
                                 <h6 class="mb-0">Messages</h6>
                                 <a href="">Show All</a>
                             </div>
-
+                            
                         </div>
                     </div>
                 </div>
@@ -242,7 +222,7 @@
             <!-- Widgets End -->
 
 
-
+           
             <!-- Footer End -->
         </div>
         <!-- Content End -->
