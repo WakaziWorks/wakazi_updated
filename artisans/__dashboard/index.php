@@ -42,70 +42,143 @@
         <!-- Spinner End -->
 
 
-        <!-- Sidebar Start -->
-        <div class="sidebar pe-4 pb-3">
-            <nav class="navbar bg-light navbar-light">
-                <a href="index.html" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary">Artisans | Wakazi</h3>
+       
+
+        <header class="header fixed-top">
+        <nav class="nav navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                
+                <a class="navbar-brand fw-bold" id="logo" href="#">
+                    <img src="../../static/images/WhatsApp_Image_2024-02-28_at_15.48.15-removebg-preview.png" height="90px" width="110px">
                 </a>
-                <!-- User Display Section -->
-                <div class="d-flex align-items-center ms-4 mb-4">
-                    <div class="position-relative">
-                        <img class="rounded-circle" src="<?php echo 'uploads/' . $_SESSION['profile_image']; ?>" alt="User" style="width: 40px; height: 40px;">
-                    </div>
-
-                    <?php
-                    session_start();
-
-                    if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
-                        echo "<script>alert('You are not logged in. Please log in to continue.');
-                        window.location.href = 'login.php'; // Redirect to the login page</script>";
-                        exit;
-                    }
-                    ?>
-
-                    <div class="ms-3">
-                        <h6 class="mb-0"><?php echo $_SESSION['email']; ?></h6> <!-- Display username from session -->
-                        <span><?php echo $_SESSION['role']; ?></span>
-                    </div>
+                <!-- Search Section -->
+                <div class="mx-auto" style="width: 50%;">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="I am looking for..." aria-label="Search">
+                        <button class="btn btn-outline-success text-white" style="background-color: #ff00ff; border: none; outline: none;" type="submit">Search</button>
+                    </form>
                 </div>
+                <!-- Icons for cart, account, and help -->
+                <div class="d-flex accounts-nav">
+                    <?php if ($isLoggedIn) : ?>
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-cart4" style="padding: 2px;"></i> Cart
+                        </a>
+                        <!-- Display user info and logout link -->
+                        <a href="" class="nav-link" id="user-info">
+                            <i class="bi bi-person-check"></i> <?= $_SESSION['email']; ?>
+                        </a>
+                        <a href="../../__logout/__logout.php" class="nav-link">
+                            <i class="bi bi-box-arrow-right"></i> Logout
+                        </a>
+                    <?php else : ?>
+                        <!-- Links to show when the user is not logged in -->
+                        <!-- Links to show when the user is not logged in -->
+                        <a href="../../_auth/_accounts/login.php" class="nav-link account-nav-link" id="popup-trigger">
+                            <i class="bi bi-person-check"></i> Account
+                        </a>
+                        <ul id="popup-buttons" style="display: none; list-style: none;">
+                            <li type="button" class="btn" style="background: #ff00ff; width: 100%; margin-bottom: 5px;"><a href="../../auth/accounts/signup.php" style="text-decoration: none; color: white; padding: 5px;">Sign Up</a></li>
+                            <li type="button" class="btn" style="background: #ff00ff; width: 100%;"><a href="../../auth/accounts/login.php" style="text-decoration: none; color: white; padding: 5px;">Sign In</a></li>
+                            <hr />
+                            <li style="text-align: left; margin-bottom: 7px;"><a href="#" style="text-decoration: none; color: #000;"><i class="bi bi-person-check" style="color: #000;"></i> My Account</a></li>
+                            <li style="text-align: left; margin-bottom: 7px;"><a href="#" style="text-decoration: none; color: #000;"><i class="bi bi-box2-heart" style="color: #000; font-size: 20px;"></i></i> Orders</a></li>
+                            <li style="text-align: left; margin-bottom: 7px;"><a href="#" style="text-decoration: none; color: #000;"><i class="bi bi-chat-left-heart" style="color: #000; font-size: 20px;"></i></i> Saved items</a></li>
+                        </ul>
+                        <script>
+                            // Get the account link and the popup buttons
+                            const accountLink = document.getElementById('popup-trigger');
+                            const popupButtons = document.getElementById('popup-buttons');
 
-                <!-- Sidebar Navigation -->
-                <div class="navbar-nav w-100">
-                    <a href="dashboard.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-
-                    <?php if ($_SESSION['role'] == 'admin') : ?>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-box-open me-2"></i>Products</a>
-                            <div class="dropdown-menu bg-transparent border-0">
-                                <a href="manage_products.html" class="dropdown-item">Manage Products</a>
-                                <a href="add_product.html" class="dropdown-item">Add Product</a>
-                            </div>
-                        </div>
+                            // Add click event listener to the account link
+                            accountLink.addEventListener('click', function(event) {
+                                // Prevent the default behavior of the link
+                                event.preventDefault();
+                                // Toggle the visibility of the popup buttons
+                                if (popupButtons.style.display === 'none') {
+                                    popupButtons.style.display = 'block';
+                                } else {
+                                    popupButtons.style.display = 'none';
+                                }
+                            });
+                        </script>
+                        <br>
+                        <a href="#" class="nav-link account-nav-link">
+                            <i class="bi bi-patch-question-fill" style="font-size: 20px;"></i> Help
+                        </a>
                     <?php endif; ?>
-
-
-                    <a href="orders.html" class="nav-item nav-link"><i class="fa fa-shopping-cart me-2"></i>Orders</a>
-
-                    <a href="account.html" class="nav-item nav-link"><i class="fa fa-user-circle me-2"></i>Manage Account</a>
-
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Products</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="" class="dropdown-item">Manage Products</a>
-                            <a href="" class="dropdown-item">Add products</a>
-
-                        </div>
-                    </div>
                 </div>
+            </div>
+        </nav>
+        <!-- Additional Navigation Row -->
+        <div class="navbar navbar-expand-lg navbar-light bg-light">
 
-            </nav>
+            <div class="container-fluid">
+                <!-- Toggler button for mobile view -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+                    <ul class="navbar-nav" id="navbar-nav">
+                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="../__dashboard/index.php">My Home</a></li>
+                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="">My Products</a></li>
+                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="">My Collections</a></li>
+                        <!-- <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="../../features/index.php">Features</a></li> -->
+                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../blog/index.php">Blog</a></li>
+                        <li class="nav-item dropdown d-lg-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Menu
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="index.php">Home</a></li>
+                                <li><a class="dropdown-item" href="">Products</a></li>
+                                <li><a class="dropdown-item" href="">Collections</a></li>
+                                <li><a class="dropdown-item" href="">Features</a></li>
+                                <li><a class="dropdown-item" href="../../blog/index.php">Blog</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <!-- Sidebar End -->
+        </div>
+    </header>
+    <script>
+        // Toggle visibility of collection's dropdown menu
+        function toggleMenu() {
+            var dropdownContent = document.querySelector('.dropdown-content');
+            dropdownContent.style.display === 'block' ? dropdownContent.style.display = 'none' : dropdownContent.style.display = 'block';
+        }
+        //Hide visibility of collection's dropdown when "x" is clicked
+        document.addEventListener("click", function(event) {
+            let dropdown = document.querySelector(".dropdown");
+            let dropdownContent = dropdown.querySelector(".dropdown-content");
+            let dropdownButton = dropdown.querySelector("button");
+            let closeButton = dropdown.querySelector(".close-button");
 
-        <?php
-                    include ("../__screens/__headers/header.php");
-                    ?>
+            let isClickedInsideDropdown = dropdown.contains(event.target);
+
+            if (!isClickedInsideDropdown) {
+                dropdownContent.style.display = "none";
+            }
+        });
+
+        function toggleDropdown() {
+            let dropDownContent = document.getElementById("dropdownContent");
+            dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
+        }
+        // Add click event listener to the document to handle clicks outside of the buttons
+        document.addEventListener('click', function(event) {
+            const target = event.target;
+            // Check if the click target is outside of the popup buttons and the account link
+            if (target !== popupButtons && target !== accountLink) {
+                // Hide the popup buttons if they are currently visible
+                if (popupButtons.style.display === 'block') {
+                    popupButtons.style.display = 'none';
+                }
+            }
+        });
+    </script>
         <!-- Content Start -->
         <div class="content">
             <!-- Navbar Start -->
