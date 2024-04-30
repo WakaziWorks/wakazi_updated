@@ -81,14 +81,23 @@ include("../screens/headers/header.php");
         <!-- Advanced search section -->
         <div class="advanced-search" style="text-align: center;">
             <h1>For more advanced searches...</h1>
-            <div class="input-group" style="width: 70%; margin: 0 auto;"> <!-- Adjust max-width as needed -->
+            <div class="input-group" style="width: 70%; margin: 0 auto;">
                 <input type="text" class="form-control" placeholder="Search your item here..." style="border-top-right-radius: 0; border-bottom-right-radius: 0;">
-                <span class="btn" style="background: #ff00ff; color: #000; font-weight: bold; border-top-left-radius: 0; border-bottom-left-radius: 0; padding: 10px;"> <!-- Adjust padding as needed -->
+                <span class="btn" style="background: #ff00ff; color: #000; font-weight: bold; border-top-left-radius: 0; border-bottom-left-radius: 0; padding: 10px;">
                     <i class="bi bi-search"></i>
                 </span>
             </div>
             <h5 style="margin-top: 2em; margin-bottom: 2em;">Don't know where to start?</h5>
             <button>Explore Products</button>
+        </div>
+        <div class="bottom">
+            <p>Send me exclusive offers, personalized tips for shopping and how to sell on Wakazi.</p>
+            <div class="input-group" style="width: 50%; margin: 0 auto; border: 1px solid purple; border-radius: 30px;">
+                <input type="text" class="form-control" placeholder="Enter your Email." style="border-top-left-radius: 30px; border-bottom-left-radius: 30px;">
+                <span class="btn" style="background: transparent; font-weight: bold;">
+                    Subscribe
+                </span>
+            </div>
         </div>
     </div>
     <?php
