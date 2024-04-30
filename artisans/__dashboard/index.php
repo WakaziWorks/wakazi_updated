@@ -62,6 +62,8 @@
                         window.location.href = 'login.php'; // Redirect to the login page</script>";
                         exit;
                     }
+                    require '../__auth/__config/config.php'; // Ensure correct path
+
 
                     ?>
 
@@ -200,12 +202,7 @@
             </thead>
             <tbody>
                 <?php
-                require '../__auth/__config/config.php'; // Ensure correct path
-                session_start();
-                if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
-                    echo "<script>alert('Please log in to view products.'); window.location.href='login.php';</script>";
-                    exit;
-                }
+               
                 $artisanID = $_SESSION['artisan_id'];
                 $query = "SELECT * FROM Products WHERE ArtisanID = ?";
                 if ($stmt = $mysqli->prepare($query)) {
