@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,22 +54,22 @@
                         <img class="rounded-circle" src="<?php echo 'uploads/' . $_SESSION['profile_image']; ?>" alt="User" style="width: 40px; height: 40px;">
                     </div>
                     <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-session_start();
+                    error_reporting(E_ALL);
+                    ini_set('display_errors', 1);
+                    session_start();
 
-if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
-    echo "<script>alert('You are not logged in. Please log in to continue.');
+                    if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
+                        echo "<script>alert('You are not logged in. Please log in to continue.');
                         window.location.href = 'login.php'; // Redirect to the login page</script>";
-    exit;
-}
+                        exit;
+                    }
 
-?>
+                    ?>
 
 
                     <div class="ms-3">
                         <h6 class="mb-0"><?php echo $_SESSION['email']; ?></h6> <!-- Display username from session -->
-                        <span><?php echo $_SESSION['role']; ?></span>
+
                     </div>
                 </div>
 
@@ -153,103 +152,111 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                                 <div class="ms-3">
                                     <p class="mb-2">Add Product</p>
                                 </div>
-                                <a href="add_product.php" class="text-decoration-none">
-                                    <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                                        <i class="fa fa-plus-circle fa-3x text-primary"></i>
-                                        <div class="ms-3">
-                                            <p class="mb-2">Add Product</p>
-                                        </div>
-                                    </div>
-                                </a>
+                            </div>
                         </a>
                     </div>
                     <div class="col-sm-6 col-xl-3">
-                        <a href="check_order_details.php" class="text-decoration-none">
+                        <a href="add_product.php" class="text-decoration-none">
                             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                                <i class="fa fa-clipboard-list fa-3x text-primary"></i>
+                                <i class="fa fa-plus-circle fa-3x text-primary"></i>
                                 <div class="ms-3">
-                                    <p class="mb-2">Check Order Details</p>
+                                    <p class="mb-2">Add Product</p>
                                 </div>
-                                <a href="check_order_details.php" class="text-decoration-none">
-                                    <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                                        <i class="fa fa-clipboard-list fa-3x text-primary"></i>
-                                        <div class="ms-3">
-                                            <p class="mb-2">Check Order Details</p>
-                                        </div>
-                                    </div>
-                                </a>
+                            </div>
                         </a>
                     </div>
-                    <!-- Add more cards for other functionalities if needed -->
                 </div>
-            </div>
-
-
-          
-
-
-
-
-            <div class="container-fluid pt-4 px-4">
-                <div class="bg-light  rounded p-4">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Add Product</h6>
-                    </div>
-                    <div class="container mt-5">
-                        <form method="post">
-                            <div class="form-group">
-                                <label for="productName">Product Name:</label>
-                                <input type="text" class="form-control" id="productName" name="productName" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="supplierID">Supplier ID:</label>
-                                <input type="text" class="form-control" id="supplierID" name="supplierID">
-                            </div>
-                            <div class="form-group">
-                                <label for="categoryID">Category ID:</label>
-                                <input type="text" class="form-control" id="categoryID" name="categoryID">
-                            </div>
-                            <div class="form-group">
-                                <label for="unit">Unit:</label>
-                                <input type="text" class="form-control" id="unit" name="unit">
-                            </div>
-                            <div class="form-group">
-                                <label for="price">Price:</label>
-                                <input type="text" class="form-control" id="price" name="price" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <!-- Widgets Start -->
-            <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
-                    <div class="col-sm-12 col-md-6 col-xl-4">
-                        <div class="h-100 bg-light rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-2">
-                                <h6 class="mb-0">Messages</h6>
-                                <a href="">Show All</a>
+                    <div class="col-sm-6 col-xl-3">
+                        <a href="add_product.php" class="text-decoration-none">
+                            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                                <i class="fa fa-plus-circle fa-3x text-primary"></i>
+                                <div class="ms-3">
+                                    <p class="mb-2">Add Product</p>
+                                </div>
                             </div>
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <a href="add_product.php" class="text-decoration-none">
+                            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                                <i class="fa fa-plus-circle fa-3x text-primary"></i>
+                                <div class="ms-3">
+                                    <p class="mb-2">Add Product</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- Add more cards for other functionalities if needed -->
+            </div>
+      
 
+
+
+
+
+
+        <div class="container-fluid pt-4 px-4">
+            <div class="bg-light  rounded p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="mb-0">Add Product</h6>
+                </div>
+                <div class="container mt-5">
+                    <form method="post">
+                        <div class="form-group">
+                            <label for="productName">Product Name:</label>
+                            <input type="text" class="form-control" id="productName" name="productName" required>
                         </div>
+                        <div class="form-group">
+                            <label for="supplierID">Supplier ID:</label>
+                            <input type="text" class="form-control" id="supplierID" name="supplierID">
+                        </div>
+                        <div class="form-group">
+                            <label for="categoryID">Category ID:</label>
+                            <input type="text" class="form-control" id="categoryID" name="categoryID">
+                        </div>
+                        <div class="form-group">
+                            <label for="unit">Unit:</label>
+                            <input type="text" class="form-control" id="unit" name="unit">
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Price:</label>
+                            <input type="text" class="form-control" id="price" name="price" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Widgets Start -->
+        <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+                <div class="col-sm-12 col-md-6 col-xl-4">
+                    <div class="h-100 bg-light rounded p-4">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <h6 class="mb-0">Messages</h6>
+                            <a href="">Show All</a>
+                        </div>
+
                     </div>
                 </div>
             </div>
-            <!-- Widgets End -->
-
-
-
-            <!-- Footer End -->
         </div>
-        <!-- Content End -->
+        <!-- Widgets End -->
 
 
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+        <!-- Footer End -->
+    </div>
+    <!-- Content End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
     <!-- JavaScript Libraries -->
