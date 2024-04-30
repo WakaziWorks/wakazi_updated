@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate input
     if (empty(trim($_POST['name'])) || empty(trim($_POST['email'])) || empty(trim($_POST['password'])) || ($_POST['password'] != $_POST['confirm_password'])) {
         // Handle error - incomplete form or passwords do not match
-        header("Location: ../__accounts/signup.php?error=Invalid input");
+        header("Location: ../accounts/signup.php?error=Invalid input");
         exit();
     }
 
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt = $mysqli->prepare("CALL UpdateOrInsertUser(?, ?, ?, ?)")) {
             $stmt->bind_param("ssss", $email, $username, $password, $role);
             if ($stmt->execute()) {
-                header("Location: ../__accounts/login.php");
+                header("Location: ../accounts/login.php");
             } else {
                 echo "Something went wrong. Please try again later.";
             }

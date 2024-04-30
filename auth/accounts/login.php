@@ -57,7 +57,7 @@
                                         <h4 class="mt-1 mb-5 pb-1"> <img src="assets/img/logo.png" style="width: 185px;" alt="logo"> Customers</h4>
                                     </div>
 
-                                    <form action="../__verifications/verifycust.php" method="POST">
+                                    <form action="../verifications/verifycust.php" method="POST">
                                         <p>Please login to your account</p>
 
                                         <div class="form-outline mb-4">
