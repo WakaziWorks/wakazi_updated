@@ -77,7 +77,6 @@
                 <div class="navbar-nav w-100">
                     <a href="dashboard.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
 
-                    <?php if ($_SESSION['role'] == 'a') : ?>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-box-open me-2"></i>Products</a>
                             <div class="dropdown-menu bg-transparent border-0">
@@ -87,7 +86,7 @@
                                 </a>
                             </div>
                         </div>
-                    <?php endif; ?>
+                    
 
 
                     <a href="orders.html" class="nav-item nav-link"><i class="fa fa-shopping-cart me-2"></i>Orders</a>
@@ -203,7 +202,7 @@
                     <h6 class="mb-0">Add Product</h6>
                 </div>
                 <div class="container mt-5">
-                    <form method="post">
+                <form method="post" action="add_product.php">
                         <div class="form-group">
                             <label for="productName">Product Name:</label>
                             <input type="text" class="form-control" id="productName" name="productName" required>
