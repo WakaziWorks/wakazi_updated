@@ -62,7 +62,7 @@
                         window.location.href = 'login.php'; // Redirect to the login page</script>";
                         exit;
                     }
-                    
+
                     ?>
 
                     <div class="ms-3">
@@ -80,7 +80,9 @@
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-box-open me-2"></i>Products</a>
                             <div class="dropdown-menu bg-transparent border-0">
                                 <a href="manage_products.html" class="dropdown-item">Manage Products</a>
-                                <a href="add_product.html" class="dropdown-item">Add Product</a>
+                                <a href="javascript:void(0);" onclick="showAddProductForm();" class="nav-item nav-link">
+                                    <i class="fa fa-plus-circle me-2"></i>Add Product
+                                </a>
                             </div>
                         </div>
                     <?php endif; ?>
@@ -95,7 +97,7 @@
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="" class="dropdown-item">Manage Products</a>
                             <a href="" class="dropdown-item">Add products</a>
-                     
+
                         </div>
                     </div>
                 </div>
@@ -119,12 +121,14 @@
                     <input class="form-control border-0" type="search" placeholder="Search">
                 </form>
                 <div class="navbar-nav align-items-center ms-auto">
-                   
-                    
+
+
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex"><h6 class="mb-0"><?php echo $_SESSION['name']; ?></span>
+                            <span class="d-none d-lg-inline-flex">
+                                <h6 class="mb-0"><?php echo $_SESSION['email']; ?>
+                            </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="profile.php" class="dropdown-item">My Profile</a>
@@ -190,19 +194,18 @@
             <!-- Sales Chart End -->
 
 
-            <!-- Recent Sales Start -->
             <div class="container-fluid pt-4 px-4">
-                <div class="bg-light text-center rounded p-4">
+                <div class="bg-light text-center rounded p-4 recent-sales-card">
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Recent Salse</h6>
+                        <h6 class="mb-0">Recent Sales</h6>
                         <a href="">Show All</a>
                     </div>
                     <div class="table-responsive">
-                        
+                        <!-- Default content goes here -->
                     </div>
                 </div>
             </div>
-            <!-- Recent Sales End -->
+
 
 
             <!-- Widgets Start -->
@@ -214,7 +217,7 @@
                                 <h6 class="mb-0">Messages</h6>
                                 <a href="">Show All</a>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -222,7 +225,7 @@
             <!-- Widgets End -->
 
 
-           
+
             <!-- Footer End -->
         </div>
         <!-- Content End -->
