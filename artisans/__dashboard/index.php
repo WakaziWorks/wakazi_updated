@@ -168,63 +168,55 @@
             </div>
 
 
-            <!-- Sales & Revenue Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-light text-center rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Products Overview</h6>
-                                <a href="">Show All</a>
-                            </div>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Product ID</th>
-                                        <th>Name</th>
-                                        <th>Price</th>
-                                        <th>Category</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    require '../__auth/__config/config.php'; // Ensure you have the correct path to your config file
+            <!-- Product Overview Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="bg-light text-center rounded p-4">
+        <h6 class="mb-0">Your Products</h6>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                require '../__auth/__config/config.php'; // Ensure correct path
+                session_start();
+                if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
+                    echo "<script>alert('Please log in to view products.'); window.location.href='login.php';</script>";
+                    exit;
+                }
+                $artisanID = $_SESSION['artisan_id'];
+                $query = "SELECT * FROM Products WHERE ArtisanID = ?";
+                if ($stmt = $mysqli->prepare($query)) {
+                    $stmt->bind_param("i", $artisanID);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td>" . htmlspecialchars($row['ProductID']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['ProductName']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['Price']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['CategoryID']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['ApprovalStatus']) . "</td>";
+                        echo "<td><a href='edit_product.php?id=" . htmlspecialchars($row['ProductID']) . "'>Edit</a> | <a href='delete_product.php?id=" . htmlspecialchars($row['ProductID']) . "' onclick='return confirm(\"Are you sure?\");'>Delete</a></td>";
+                        echo "</tr>";
+                    }
+                    $stmt->close();
+                }
+                $mysqli->close();
+                ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- Product Overview End -->
 
-                                    // Check if the user is logged in and has an artisan ID
-                                    if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true || !isset($_SESSION['artisan_id'])) {
-                                        echo "<script>alert('Please log in to view products.'); window.location.href='login.php';</script>";
-                                        exit;
-                                    }
-
-                                    $artisanID = $_SESSION['artisan_id'];
-                                    $query = "SELECT * FROM Products WHERE ArtisanID = ?";
-                                    if ($stmt = $mysqli->prepare($query)) {
-                                        $stmt->bind_param("i", $artisanID);
-                                        $stmt->execute();
-                                        $result = $stmt->get_result();
-
-                                        while ($row = $result->fetch_assoc()) {
-                                            echo "<tr>";
-                                            echo "<td>" . htmlspecialchars($row['ProductID']) . "</td>";
-                                            echo "<td>" . htmlspecialchars($row['ProductName']) . "</td>";
-                                            echo "<td>" . htmlspecialchars($row['Price']) . "</td>";
-                                            echo "<td>" . htmlspecialchars($row['CategoryID']) . "</td>";
-                                            echo "<td><a href='edit_product.php?id=" . htmlspecialchars($row['ProductID']) . "'>Edit</a> | <a href='delete_product.php?id=" . htmlspecialchars($row['ProductID']) . "'>Delete</a></td>";
-                                            echo "</tr>";
-                                        }
-
-                                        $stmt->close();
-                                    }
-                                    $mysqli->close();
-                                    ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Sales & Revenue End -->
 
 
 
