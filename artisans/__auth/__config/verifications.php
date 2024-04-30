@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $password = $_POST['password']; // No need to escape passwords
 
         // Create SQL query to fetch user from database
-        $query = "SELECT artisan_id, email, password, name, role FROM artisans WHERE email = ?";
+        $query = "SELECT artisan_id, email, password, name FROM artisans WHERE email = ?";
 
         // Prepare the statement to avoid SQL injection
         if ($stmt = $mysqli->prepare($query)) {
@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $_SESSION['email'] = $fetched_email; // Store the email in session data
                     $_SESSION['artisan_id'] = $fetched_artisan_id; // Store artisan ID
                     $_SESSION['name'] = $fetched_name; // Store artisan's name
-                    $_SESSION['role'] = $fetched_role; // Store the artisan's role
+                    // $_SESSION['role'] = $fetched_role; // Store the artisan's role
 
                     echo '<script>window.location.href = "index.php";</script>';
                     exit();
