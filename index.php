@@ -59,7 +59,7 @@ include("screens/headers/header.php")
             <a href="#" onclick="redirectToCategory('jewellery')"><img src="static/images/jewellery.webp" alt="Jewellery" /></a>
         </div>
         <div class="collection-col col-12 col-md mx-3">
-            <h4>Home and Decor</h4>
+            <h4>Home Decors</h4>
             <a href="#" onclick="redirectToCategory('home_decor')"><img src="static/images/decor.jpg" alt="Home and Decor" /></a>
         </div>
         <div class="collection-col col-12 col-md mx-3">

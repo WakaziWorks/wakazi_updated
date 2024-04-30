@@ -158,13 +158,13 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                                     <a class="dropdown-item" href="#">Clothings</a>
                                     <a class="dropdown-item" href="#">Accessories</a>
                                     <a class="dropdown-item" href="#">Pet supplies</a>
-                                    <a class="dropdown-item" href="#">Home and decor</a>
+                                    <a class="dropdown-item" href="#">Home decors</a>
                                     <a class="dropdown-item" href="#">Bags and purses</a>
                                     <a class="dropdown-item" href="#">Bath and beauty</a>
                                     <a class="dropdown-item" href="#">Art and collectibles</a>
                                     <a class="dropdown-item" href="#">Baby, Gifts and Shoes</a>
                                     <a class="dropdown-item" href="#">Craft supplies & tools</a>
-                                    <a class="dropdown-item" href="#">Books, Movies and Music</a>
+                                    <!-- <a class="dropdown-item" href="#">Books, Movies and Music</a> -->
                                     <a class="dropdown-item" href="#">Paper and party supplies</a>
                                 </ul>
                             </li>
@@ -244,9 +244,9 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
                     <ul class="navbar-nav" id="navbar-nav">
                         <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="../../index.php">Home</a></li>
-                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="">Products</a></li>
-                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="">Collections</a></li>
-                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="">Features</a></li>
+                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="../../products/index.php">Products</a></li>
+                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="../../collection/index.php">Collections</a></li>
+                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="../../features/index.php">Features</a></li>
                         <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../blog/index.php">Blog</a></li>
                         <li class="nav-item dropdown d-lg-none">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
