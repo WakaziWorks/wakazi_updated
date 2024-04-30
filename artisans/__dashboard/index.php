@@ -1,3 +1,17 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+session_start();
+
+if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
+    echo "<script>alert('You are not logged in. Please log in to continue.');
+                        window.location.href = 'login.php'; // Redirect to the login page</script>";
+    exit;
+}
+require '../__auth/__config/config.php'; // Ensure correct path
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,20 +68,7 @@
                         <img class="rounded-circle" src="<?php echo 'uploads/' . $_SESSION['profile_image']; ?>" alt="User" style="width: 40px; height: 40px;">
                     </div>
 
-                    <?php
-                    error_reporting(E_ALL);
-                    ini_set('display_errors', 1);
-                    session_start();
 
-                    if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
-                        echo "<script>alert('You are not logged in. Please log in to continue.');
-                        window.location.href = 'login.php'; // Redirect to the login page</script>";
-                        exit;
-                    }
-                    require '../__auth/__config/config.php'; // Ensure correct path
-
-
-                    ?>
 
                     <div class="ms-3">
                         <h6 class="mb-0"><?php echo $_SESSION['email']; ?></h6> <!-- Display username from session -->
@@ -154,14 +155,14 @@
                                 <div class="ms-3">
                                     <p class="mb-2">Add Product</p>
                                 </div>
-                        <a href="add_product.php" class="text-decoration-none">
-                            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                                <i class="fa fa-plus-circle fa-3x text-primary"></i>
-                                <div class="ms-3">
-                                    <p class="mb-2">Add Product</p>
-                                </div>
-                            </div>
-                        </a>
+                                <a href="add_product.php" class="text-decoration-none">
+                                    <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                                        <i class="fa fa-plus-circle fa-3x text-primary"></i>
+                                        <div class="ms-3">
+                                            <p class="mb-2">Add Product</p>
+                                        </div>
+                                    </div>
+                                </a>
                         </a>
                     </div>
                     <div class="col-sm-6 col-xl-3">
@@ -171,14 +172,14 @@
                                 <div class="ms-3">
                                     <p class="mb-2">Check Order Details</p>
                                 </div>
-                        <a href="check_order_details.php" class="text-decoration-none">
-                            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                                <i class="fa fa-clipboard-list fa-3x text-primary"></i>
-                                <div class="ms-3">
-                                    <p class="mb-2">Check Order Details</p>
-                                </div>
-                            </div>
-                        </a>
+                                <a href="check_order_details.php" class="text-decoration-none">
+                                    <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                                        <i class="fa fa-clipboard-list fa-3x text-primary"></i>
+                                        <div class="ms-3">
+                                            <p class="mb-2">Check Order Details</p>
+                                        </div>
+                                    </div>
+                                </a>
                         </a>
                     </div>
                     <!-- Add more cards for other functionalities if needed -->
@@ -188,48 +189,48 @@
 
 
             <!-- Product Overview Start -->
-<div class="container-fluid pt-4 px-4">
-    <div class="bg-light text-center rounded p-4">
-        <h6 class="mb-0">Your Products</h6>
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>Product ID</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Category</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-               
-                $artisanID = $_SESSION['artisan_id'];
-                $query = "SELECT * FROM Products WHERE ArtisanID = ?";
-                if ($stmt = $mysqli->prepare($query)) {
-                    $stmt->bind_param("i", $artisanID);
-                    $stmt->execute();
-                    $result = $stmt->get_result();
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<tr>";
-                        echo "<td>" . htmlspecialchars($row['ProductID']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['ProductName']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['Price']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['CategoryID']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['ApprovalStatus']) . "</td>";
-                        echo "<td><a href='edit_product.php?id=" . htmlspecialchars($row['ProductID']) . "'>Edit</a> | <a href='delete_product.php?id=" . htmlspecialchars($row['ProductID']) . "' onclick='return confirm(\"Are you sure?\");'>Delete</a></td>";
-                        echo "</tr>";
-                    }
-                    $stmt->close();
-                }
-                $mysqli->close();
-                ?>
-            </tbody>
-        </table>
-    </div>
-</div>
-<!-- Product Overview End -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-light text-center rounded p-4">
+                    <h6 class="mb-0">Your Products</h6>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Product ID</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Category</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+
+                            $artisanID = $_SESSION['artisan_id'];
+                            $query = "SELECT * FROM Products WHERE ArtisanID = ?";
+                            if ($stmt = $mysqli->prepare($query)) {
+                                $stmt->bind_param("i", $artisanID);
+                                $stmt->execute();
+                                $result = $stmt->get_result();
+                                while ($row = $result->fetch_assoc()) {
+                                    echo "<tr>";
+                                    echo "<td>" . htmlspecialchars($row['ProductID']) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row['ProductName']) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row['Price']) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row['CategoryID']) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row['ApprovalStatus']) . "</td>";
+                                    echo "<td><a href='edit_product.php?id=" . htmlspecialchars($row['ProductID']) . "'>Edit</a> | <a href='delete_product.php?id=" . htmlspecialchars($row['ProductID']) . "' onclick='return confirm(\"Are you sure?\");'>Delete</a></td>";
+                                    echo "</tr>";
+                                }
+                                $stmt->close();
+                            }
+                            $mysqli->close();
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Product Overview End -->
 
 
 
