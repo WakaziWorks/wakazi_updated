@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION['artisan_id'])) {
     $unit = $_POST['unit'] ?? NULL;
     $price = $_POST['price'];
 
-    $query = "INSERT INTO ArtisanProducts (ArtisanID, ProductName, SupplierID, CategoryID, Unit, Price) VALUES (?, ?, ?, ?, ?, ?)";
+    $query = "INSERT INTO ArtisanProducts (artisan_id, ProductName, SupplierID, CategoryID, Unit, Price) VALUES (?, ?, ?, ?, ?, ?)";
 
     if ($stmt = $mysqli->prepare($query)) {
         $stmt->bind_param("isiiis", $artisanID, $productName, $supplierID, $categoryID, $unit, $price);
