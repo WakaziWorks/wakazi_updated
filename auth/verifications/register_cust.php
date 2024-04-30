@@ -8,45 +8,31 @@ session_start(); // Start the session
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate input
     if (empty(trim($_POST['name'])) || empty(trim($_POST['email'])) || empty(trim($_POST['password'])) || ($_POST['password'] != $_POST['confirm_password'])) {
-        // Handle error - incomplete form or passwords do not match
-        header("Location: ../accounts/signup.php?error=Invalid input");
+        echo "<script>setTimeout(function() { window.location.href = '../accounts/signup.php?error=Invalid input'; }, 2000);</script>";
         exit();
     }
 
-    // Prepare an insert statement
-    $sql = "INSERT INTO customers (name, email, password) VALUES (?, ?, ?)";
+    $email = $mysqli->real_escape_string($_POST['email']);
+    $username = $mysqli->real_escape_string($_POST['name']);
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash password
+    $role = 'c'; // Role 'c' for customers
 
-    if ($stmt = $mysqli->prepare($sql)) {
-        // Bind variables to the prepared statement as parameters
-        $stmt->bind_param("sss", $param_name, $param_email, $param_password);
-
-        // Set parameters
-        $param_name = $_POST['name'];
-        $param_email = $_POST['email'];
-        $param_password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Creates a password hash
-        $email = $mysqli->real_escape_string($_POST['email']);
-        $username = $mysqli->real_escape_string($_POST['name']); // or another username field
-        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $role = 'c'; // Role 'a' for customers
-
-        // Call the stored procedure
-        // $query = "CALL UpdateOrInsertUser('$email', '$username', '$password', '$role')";
-        if ($stmt = $mysqli->prepare("CALL UpdateOrInsertUser(?, ?, ?, ?)")) {
-            $stmt->bind_param("ssss", $email, $username, $password, $role);
-            if ($stmt->execute()) {
-                header("Location: ../accounts/login.php");
-            } else {
-                echo "Something went wrong. Please try again later.";
-            }
-            $stmt->close();
+    // Call the stored procedure to insert or update user details
+    if ($stmt = $mysqli->prepare("CALL UpdateOrInsertUser(?, ?, ?, ?)")) {
+        $stmt->bind_param("ssss", $email, $username, $password, $role);
+        if ($stmt->execute()) {
+            echo "<script>setTimeout(function() { window.location.href = '../accounts/login.php'; }, 2000);</script>";
         } else {
-            echo "Error preparing statement: " . $mysqli->error;
+            echo "<script>alert('Something went wrong. Please try again later.'); setTimeout(function() { window.history.back(); }, 2000);</script>";
         }
-        
-        // Close statement
         $stmt->close();
+    } else {
+        echo "<script>alert('Error preparing statement: " . $mysqli->error . "'); setTimeout(function() { window.history.back(); }, 2000);</script>";
     }
-
+    
     // Close connection
     $mysqli->close();
+} else {
+    echo "<script>setTimeout(function() { window.location.href = '../accounts/signup.php?error=Access denied'; }, 2000);</script>";
 }
+?>
