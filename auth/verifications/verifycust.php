@@ -8,6 +8,12 @@ require '../../config/app/config.php'; // Include configuration file
 // Check if the form data is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['email']) && isset($_POST['password'])) {
+        // Ensure the database connection is successful
+        if ($mysqli->connect_errno) {
+            echo "Failed to connect to MySQL: " . $mysqli->connect_error;
+            exit();
+        }
+
         $email = mysqli_real_escape_string($mysqli, $_POST['email']); // Sanitize the email
         $password = $_POST['password']; // No need to escape passwords
 
@@ -33,17 +39,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     exit();
                 } else {
                     // Password does not match
-                    echo '<script>alert("No do something."); window.location.href = "../accounts/login.php";</script>';
+                    echo '<script>alert("Incorrect password."); window.location.href = "../accounts/login.php";</script>';
                     exit();
                 }
             } else {
                 // No user found with that email
-                echo '<script>alert("Invalid email or password."); window.location.href = "../accounts/login.php";</script>';
+                echo '<script>alert("No account exists with that email."); window.location.href = "../accounts/login.php";</script>';
                 exit();
             }
             $stmt->close(); // Close statement
         } else {
-            echo '<script>alert("Something went wrong with the SQL statement."); window.location.href = "../accounts/login.php";</script>';
+            echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
             exit();
         }
     } else {
