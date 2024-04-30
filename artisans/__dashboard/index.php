@@ -197,11 +197,32 @@
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-light text-center rounded p-4 recent-sales-card">
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Recent Sales</h6>
-                        <a href="">Show All</a>
+                        <h6 class="mb-0">Add Product</h6>
                     </div>
-                    <div class="table-responsive">
-                        <!-- Default content goes here -->
+                    <div class="container mt-5">
+                        <form method="post">
+                            <div class="form-group">
+                                <label for="productName">Product Name:</label>
+                                <input type="text" class="form-control" id="productName" name="productName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="supplierID">Supplier ID:</label>
+                                <input type="text" class="form-control" id="supplierID" name="supplierID">
+                            </div>
+                            <div class="form-group">
+                                <label for="categoryID">Category ID:</label>
+                                <input type="text" class="form-control" id="categoryID" name="categoryID">
+                            </div>
+                            <div class="form-group">
+                                <label for="unit">Unit:</label>
+                                <input type="text" class="form-control" id="unit" name="unit">
+                            </div>
+                            <div class="form-group">
+                                <label for="price">Price:</label>
+                                <input type="text" class="form-control" id="price" name="price" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
                     </div>
                 </div>
             </div>
