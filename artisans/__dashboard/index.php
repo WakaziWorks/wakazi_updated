@@ -62,11 +62,12 @@
                         window.location.href = 'login.php'; // Redirect to the login page</script>";
                         exit;
                     }
+                    include_once "../__auth/__config/config.php";
                     // Retrieve the artisan's name based on their email
                     $email = $_SESSION['email']; // Assuming email is stored in session
 
                     // Prepare and execute the SQL query
-                    $stmt = $pdo->prepare("SELECT name FROM users WHERE email = ?");
+                    $stmt = $pdo->prepare("SELECT name FROM artisans WHERE email = ?");
                     $stmt->execute([$email]);
 
                     // Fetch the result
