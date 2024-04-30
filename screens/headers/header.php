@@ -208,9 +208,17 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                         </div>
                     <?php else : ?>
                         <!-- Links to show when the user is not logged in -->
-                        <a href="../../auth/accounts/login.php" class="nav-link account-nav-link">
-                            <i class="bi bi-person-check"></i> First
+                        <a href="../../_auth/_accounts/login.php" class="nav-link account-nav-link" id="popup-trigger">
+                            <i class="bi bi-person-check"></i> Account
                         </a>
+                        <ul id="popup-buttons" style="display: none; list-style: none;">
+                            <li type="button" class="btn" style="background: #ff00ff; width: 100%; margin-bottom: 5px;"><a href="../../auth/accounts/signup.php" style="text-decoration: none; color: white; padding: 5px;">Sign Up</a></li>
+                            <li type="button" class="btn" style="background: #ff00ff; width: 100%;"><a href="../../auth/accounts/login.php" style="text-decoration: none; color: white; padding: 5px;">Sign In</a></li>
+                            <hr />
+                            <li style="text-align: left; margin-bottom: 7px;"><a href="#" style="text-decoration: none; color: #000;"><i class="bi bi-person-check" style="color: #000;"></i> My Account</a></li>
+                            <li style="text-align: left; margin-bottom: 7px;"><a href="#" style="text-decoration: none; color: #000;"><i class="bi bi-box2-heart" style="color: #000; font-size: 20px;"></i></i> Orders</a></li>
+                            <li style="text-align: left; margin-bottom: 7px;"><a href="#" style="text-decoration: none; color: #000;"><i class="bi bi-chat-left-heart" style="color: #000; font-size: 20px;"></i></i> Saved items</a></li>
+                        </ul>
                     <?php endif; ?>
                     <a href="#" class="nav-link account-nav-link">
                         <i class="bi bi-patch-question-fill" style="font-size: 20px;"></i> Help
@@ -232,17 +240,7 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                         </a>
                     <?php else : ?>
                         <!-- Links to show when the user is not logged in -->
-                        <a href="../../_auth/_accounts/login.php" class="nav-link account-nav-link" id="popup-trigger">
-                            <i class="bi bi-person-check"></i> Account
-                        </a>
-                        <ul id="popup-buttons" style="display: none; list-style: none;">
-                            <li type="button" class="btn" style="background: #ff00ff; width: 100%; margin-bottom: 5px;"><a href="../../auth/accounts/signup.php" style="text-decoration: none; color: white; padding: 5px;">Sign Up</a></li>
-                            <li type="button" class="btn" style="background: #ff00ff; width: 100%;"><a href="../../auth/accounts/login.php" style="text-decoration: none; color: white; padding: 5px;">Sign In</a></li>
-                            <hr />
-                            <li style="text-align: left; margin-bottom: 7px;"><a href="#" style="text-decoration: none; color: #000;"><i class="bi bi-person-check" style="color: #000;"></i> My Account</a></li>
-                            <li style="text-align: left; margin-bottom: 7px;"><a href="#" style="text-decoration: none; color: #000;"><i class="bi bi-box2-heart" style="color: #000; font-size: 20px;"></i></i> Orders</a></li>
-                            <li style="text-align: left; margin-bottom: 7px;"><a href="#" style="text-decoration: none; color: #000;"><i class="bi bi-chat-left-heart" style="color: #000; font-size: 20px;"></i></i> Saved items</a></li>
-                        </ul>
+                        
                         <script>
                             // Get the account link and the popup buttons
                             const accountLink = document.getElementById('popup-trigger');
@@ -261,9 +259,9 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                             });
                         </script>
                         <br>
-                        <a href="#" class="nav-link account-nav-link">
+                        <!-- <a href="#" class="nav-link account-nav-link">
                             <i class="bi bi-patch-question-fill" style="font-size: 20px;"></i> Help
-                        </a>
+                        </a> -->
                     <?php endif; ?>
                 </div>
             </div>
