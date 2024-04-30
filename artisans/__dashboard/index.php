@@ -229,7 +229,74 @@
                 </div>
             </div>
 
+            <script>
+                // Assuming jQuery is included
+                $('.edit-btn').click(function() {
+                    var productId = $(this).data('id');
+                    var productName = $(this).data('name');
+                    var price = $(this).data('price');
 
+                    // Set the values in the modal inputs
+                    $('#editProductId').val(productId);
+                    $('#editProductName').val(productName);
+                    $('#editPrice').val(price);
+
+                    // Show the modal
+                    $('#editProductModal').modal('show');
+                });
+                $('#editProductForm').on('submit', function(e) {
+                    e.preventDefault();
+
+                    var formData = $(this).serialize(); // Serialize the form data
+
+                    $.ajax({
+                        url: 'edit_product_processing.php', // PHP file to process the form
+                        type: 'POST',
+                        data: formData,
+                        success: function(response) {
+                            alert('Product updated successfully!');
+                            $('#editProductModal').modal('hide');
+                            // Optionally refresh part of your page or re-fetch the products list
+                        },
+                        error: function() {
+                            alert('Something went wrong. Please try again.');
+                        }
+                    });
+                });
+            </script>
+
+
+            <!-- Edit Product Modal -->
+            <div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editProductModalLabel">Edit Product</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form id="editProductForm">
+                            <div class="modal-body">
+                                <input type="hidden" id="editProductId" name="productId">
+                                <div class="form-group">
+                                    <label for="editProductName">Product Name:</label>
+                                    <input type="text" class="form-control" id="editProductName" name="productName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="editPrice">Price:</label>
+                                    <input type="text" class="form-control" id="editPrice" name="price" required>
+                                </div>
+                                <!-- Add other fields as necessary -->
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
             <!-- Widgets Start -->
             <div class="container-fluid pt-4 px-4">
@@ -291,38 +358,6 @@
 
 
 
-            <!-- Edit Product Modal -->
-            <div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="editProductModalLabel">Edit Product</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <form id="editProductForm">
-                            <div class="modal-body">
-                                <input type="hidden" id="editProductId" name="productId">
-                                <div class="form-group">
-                                    <label for="editProductName">Product Name:</label>
-                                    <input type="text" class="form-control" id="editProductName" name="productName" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="editPrice">Price:</label>
-                                    <input type="text" class="form-control" id="editPrice" name="price" required>
-                                </div>
-                                <!-- Add other fields as necessary -->
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save Changes</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
 
             <!-- Footer End -->
         </div>
@@ -346,41 +381,7 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <script>
-        // Assuming jQuery is included
-$('.edit-btn').click(function() {
-    var productId = $(this).data('id');
-    var productName = $(this).data('name');
-    var price = $(this).data('price');
 
-    // Set the values in the modal inputs
-    $('#editProductId').val(productId);
-    $('#editProductName').val(productName);
-    $('#editPrice').val(price);
-
-    // Show the modal
-    $('#editProductModal').modal('show');
-});
-$('#editProductForm').on('submit', function(e) {
-    e.preventDefault();
-
-    var formData = $(this).serialize(); // Serialize the form data
-
-    $.ajax({
-        url: 'edit_product_processing.php', // PHP file to process the form
-        type: 'POST',
-        data: formData,
-        success: function(response) {
-            alert('Product updated successfully!');
-            $('#editProductModal').modal('hide');
-            // Optionally refresh part of your page or re-fetch the products list
-        },
-        error: function() {
-            alert('Something went wrong. Please try again.');
-        }
-    });
-});
-</script?
 
 </body>
 
