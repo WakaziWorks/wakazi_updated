@@ -1,7 +1,7 @@
 <?php
- error_reporting(E_ALL);
- ini_set('display_errors', 1);
-require '../__auth/__config/config.php';  // Ensure the path is correct
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+require '../__auth/__config/config.php'; // Ensure the path is correct
 session_start();
 
 // Check if the user is logged in
@@ -18,6 +18,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION['artisan_id'])) {
     $unit = $_POST['unit'] ?? NULL;
     $price = $_POST['price'];
 
+    // Check the database connection
+    if ($mysqli->connect_error) {
+        die("Connection failed: " . $mysqli->connect_error);
+    }
+
     $query = "INSERT INTO ArtisanProducts (artisan_id, ProductName, SupplierID, CategoryID, Unit, Price) VALUES (?, ?, ?, ?, ?, ?)";
 
     if ($stmt = $mysqli->prepare($query)) {
@@ -25,12 +30,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION['artisan_id'])) {
         if ($stmt->execute()) {
             echo "<script>alert('Product submitted successfully and awaits approval.'); window.location.href='dashboard.php';</script>";
         } else {
-            echo "<script>alert('Error submitting product.'); window.location.href='add_product.php';</script>";
+            // Provide a more detailed error message
+            echo "<script>alert('Error submitting product: " . htmlspecialchars($stmt->error) . "'); window.location.href='add_product.php';</script>";
         }
         $stmt->close();
     } else {
-        echo "<script>alert('Database error.'); window.location.href='add_product.php';</script>";
+        // Provide a more detailed error message
+        echo "<script>alert('Database preparation error: " . htmlspecialchars($mysqli->error) . "'); window.location.href='add_product.php';</script>";
     }
     $mysqli->close();
+} else {
+    // Log or alert if POST data is not set
+    echo "<script>alert('Required data is missing.'); window.location.href='add_product.php';</script>";
 }
 ?>
