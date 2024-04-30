@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     exit();
                 } else {
                     // Password does not match
-                    echo '<script>alert("Invalid email or password."); window.location.href = "../accounts/login.php";</script>';
+                    echo '<script>alert("No do something."); window.location.href = "../accounts/login.php";</script>';
                     exit();
                 }
             } else {
