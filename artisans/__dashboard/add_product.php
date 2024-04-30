@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-require '../_auth/__config/config.php'; // Include database configuration
+require '../__auth/__config/config.php'; // Include database configuration
 
 session_start(); // Start the session
 
