@@ -3,12 +3,14 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require '../__auth/__config/config.php'; // Include database configuration
 
-
 // Check if the user is logged in
 if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
     header("Location: login.php");
     exit;
 }
+
+// Retrieve session data from index.php
+$artisanID = $_SESSION['artisan_id'];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate input
