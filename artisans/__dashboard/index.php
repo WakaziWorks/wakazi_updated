@@ -156,7 +156,7 @@
             let dropdownButton = dropdown.querySelector("button");
             let closeButton = dropdown.querySelector(".close-button");
 
-<<<<<<< HEAD
+
             let isClickedInsideDropdown = dropdown.contains(event.target);
 
             if (!isClickedInsideDropdown) {
@@ -180,9 +180,9 @@
             }
         });
     </script>
-=======
 
->>>>>>> ba857b2ca148cca1dfcd1f4ddfdb12e8810e2e34
+
+
         <!-- Content Start -->
         <div class="content">
             <!-- Navbar Start -->
