@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Check if we have exactly one user with this email
             if ($stmt->num_rows == 1) {
-                $stmt->bind_result($fetched_artisan_id, $fetched_email, $fetched_password, $fetched_name, $fetched_role); // Bind the result variables
+                $stmt->bind_result($fetched_artisan_id, $fetched_email, $fetched_password, $fetched_name); // Bind the result variables
                 $stmt->fetch(); // Fetch the values
 
                 // Verify the password (assuming the stored password is hashed)
