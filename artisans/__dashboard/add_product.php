@@ -10,13 +10,34 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
     exit;
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION['artisan_id'])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (!isset($_SESSION['artisan_id'])) {
+        echo "<script>alert('Session does not have artisan identification.'); window.location.href='dashboard.php';</script>";
+        exit;
+    }
+
+    $errors = [];
     $artisanID = $_SESSION['artisan_id'];
-    $productName = $_POST['productName'];
-    $supplierID = $_POST['supplierID'] ?? NULL;  // Use NULL for optional fields
-    $categoryID = $_POST['categoryID'] ?? NULL;
-    $unit = $_POST['unit'] ?? NULL;
-    $price = $_POST['price'];
+    $productName = $_POST['productName'] ?? null;
+    $supplierID = $_POST['supplierID'] ?? null; // Use NULL for optional fields
+    $categoryID = $_POST['categoryID'] ?? null;
+    $unit = $_POST['unit'] ?? null;
+    $price = $_POST['price'] ?? null;
+
+    // Validate required fields
+    if (empty($productName)) {
+        $errors[] = "Product Name";
+    }
+    if (empty($price)) {
+        $errors[] = "Price";
+    }
+
+    // Check for any errors
+    if (!empty($errors)) {
+        $missingFields = implode(', ', $errors);
+        echo "<script>alert('Required data is missing: $missingFields'); window.location.href='add_product.php';</script>";
+        exit;
+    }
 
     // Check the database connection
     if ($mysqli->connect_error) {
@@ -30,17 +51,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION['artisan_id'])) {
         if ($stmt->execute()) {
             echo "<script>alert('Product submitted successfully and awaits approval.'); window.location.href='dashboard.php';</script>";
         } else {
-            // Provide a more detailed error message
             echo "<script>alert('Error submitting product: " . htmlspecialchars($stmt->error) . "'); window.location.href='add_product.php';</script>";
         }
         $stmt->close();
     } else {
-        // Provide a more detailed error message
         echo "<script>alert('Database preparation error: " . htmlspecialchars($mysqli->error) . "'); window.location.href='add_product.php';</script>";
     }
     $mysqli->close();
 } else {
-    // Log or alert if POST data is not set
-    echo "<script>alert('Required data is missing.'); window.location.href='add_product.php';</script>";
+    echo "<script>alert('No data submitted.'); window.location.href='add_product.php';</script>";
 }
 ?>
