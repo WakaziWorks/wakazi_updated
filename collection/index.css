@@ -108,3 +108,11 @@ body{
     border: 1px solid #ff00ff;
     background: #fff;
 }
+.bottom{
+    background: #f7d3f7;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}

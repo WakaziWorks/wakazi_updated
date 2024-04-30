@@ -150,7 +150,14 @@
                                 <div class="ms-3">
                                     <p class="mb-2">Add Product</p>
                                 </div>
+                        <a href="add_product.php" class="text-decoration-none">
+                            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                                <i class="fa fa-plus-circle fa-3x text-primary"></i>
+                                <div class="ms-3">
+                                    <p class="mb-2">Add Product</p>
+                                </div>
                             </div>
+                        </a>
                         </a>
                     </div>
                     <div class="col-sm-6 col-xl-3">
@@ -160,9 +167,17 @@
                                 <div class="ms-3">
                                     <p class="mb-2">Check Order Details</p>
                                 </div>
+                        <a href="check_order_details.php" class="text-decoration-none">
+                            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                                <i class="fa fa-clipboard-list fa-3x text-primary"></i>
+                                <div class="ms-3">
+                                    <p class="mb-2">Check Order Details</p>
+                                </div>
                             </div>
                         </a>
+                        </a>
                     </div>
+                    <!-- Add more cards for other functionalities if needed -->
                     <!-- Add more cards for other functionalities if needed -->
                 </div>
             </div>
