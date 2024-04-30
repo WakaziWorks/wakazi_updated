@@ -8,8 +8,6 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                         window.location.href = 'login.php'; // Redirect to the login page</script>";
     exit;
 }
-require '../__auth/__config/config.php'; // Ensure correct path
-
 
 ?>
 <!DOCTYPE html>
