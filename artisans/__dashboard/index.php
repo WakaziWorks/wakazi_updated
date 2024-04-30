@@ -254,12 +254,7 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
-                                        echo "<script>alert('Please log in.'); window.location.href='login.php';</script>";
-                                        exit;
-                                    }
-
-                                    // Assuming you have a database connection $mysqli from your config file
+                                                                       // Assuming you have a database connection $mysqli from your config file
                                     $query = "SELECT ProductID, ProductName, Price, CategoryID, Unit, ApprovalStatus FROM ArtisanProducts WHERE artisan_id = ?";
                                     if ($stmt = $mysqli->prepare($query)) {
                                         $stmt->bind_param("i", $_SESSION['artisan_id']);
