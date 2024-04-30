@@ -17,7 +17,7 @@
         cursor: pointer;
     }
     .footer-col p:hover{
-        color: #000;
+        color: black;
         cursor: pointer;
     }
 </style>
@@ -26,22 +26,22 @@
     <div class="container text-center">
         <div class="row align-items-center flex-column flex-sm-row">
             <div class="col footer-col">
-                <img src="static/images/x-diamond-fill.svg" />
+                <img src="../../static/images/x-diamond-fill.svg" />
                 <h5 style="color: #000; font-weight: normal;">Great Value</h5>
                 <p class="col-p">We offer competitive prices on our product range.</p>
             </div>
             <div class="col footer-col">
-                <img src="static/images/credit-card-2-front-fill.svg" />
+                <img src="../../static/images/credit-card-2-front-fill.svg" />
                 <h5 style="color: #000; font-weight: normal;">Safe Payment</h5>
                 <p class="col-p">Pay with the world’s most popular and secure payment methods.</p>
             </div>
             <div class="col footer-col">
-                <img src="static/images/shield-lock-fill.svg" />
+                <img src="../../static/images/shield-lock-fill.svg" />
                 <h5 style="color: #000; font-weight: normal;">Shop with Confidence</h5>
                 <p class="col-p">Our Buyer Protection covers your purchase from click to delivery</p>
             </div>
             <div class="col footer-col">
-                <img src="static/images/question-circle-fill.svg" />
+                <img src="../../static/images/question-circle-fill.svg" />
                 <h5 style="color: #000; font-weight: normal;">24/7 Help Center</h5>
                 <p class="col-p">Round-the-clock assistance for a smooth shopping experience.</p>
             </div>
