@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $password = $_POST['password']; // No need to escape passwords
 
         // Create SQL query to fetch user from database
-        $query = "SELECT email, password FROM artisans WHERE email = ?";
+        $query = "SELECT artisan_id, email, password, name, role FROM artisans WHERE email = ?";
 
         // Prepare the statement to avoid SQL injection
         if ($stmt = $mysqli->prepare($query)) {
@@ -22,32 +22,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Check if we have exactly one user with this email
             if ($stmt->num_rows == 1) {
-                $stmt->bind_result($fetched_email, $fetched_password); // Bind the result variables
+                $stmt->bind_result($fetched_artisan_id, $fetched_email, $fetched_password, $fetched_name, $fetched_role); // Bind the result variables
                 $stmt->fetch(); // Fetch the values
 
                 // Verify the password (assuming the stored password is hashed)
                 if (password_verify($password, $fetched_password)) {
                     $_SESSION['logged_in'] = true; // Set the session variable
-                    $_SESSION['email'] = $email; // Store the email in session data
-                    echo '<script>window.location.href = "../../__dashboard/index.php";</script>';
+                    $_SESSION['email'] = $fetched_email; // Store the email in session data
+                    $_SESSION['artisan_id'] = $fetched_artisan_id; // Store artisan ID
+                    $_SESSION['name'] = $fetched_name; // Store artisan's name
+                    $_SESSION['role'] = $fetched_role; // Store the artisan's role
+
+                    echo '<script>window.location.href = "index.php";</script>';
                     exit();
                 } else {
                     // Password does not match
-                    echo '<script>alert("Invalid email or password."); window.location.href = "../artisanapp/login.php";</script>';
+                    echo '<script>alert("Invalid email or password."); window.location.href = "login.php";</script>';
                     exit();
                 }
             } else {
                 // No user found with that email
-                echo '<script>alert("Invalid email or password."); window.location.href = "../artisanapp/login.php";</script>';
+                echo '<script>alert("Invalid email or password."); window.location.href = "login.php";</script>';
                 exit();
             }
             $stmt->close(); // Close statement
         } else {
-            echo '<script>alert("Something went wrong with the SQL statement."); window.location.href = "../artisanapp/login.php";</script>';
+            echo '<script>alert("Something went wrong with the SQL statement."); window.location.href = "login.php";</script>';
             exit();
         }
     } else {
-        echo '<script>alert("Please fill in all required fields."); window.location.href = "../artisanapp/login.php";</script>';
+        echo '<script>alert("Please fill in all required fields."); window.location.href = "login.php";</script>';
         exit();
     }
 }
