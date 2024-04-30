@@ -129,48 +129,7 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
     <header class="header fixed-top">
         <nav class="nav navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
-                <!-- Dropdown for mobile and other small devices -->
-                <div class="dropdown">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul class="navbar-nav">
-                            <li class="nav-item dropdown">
-                                <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <div class="menu-toggle1" onclick="toggleMenu()">
-                                        <div class="dash"></div>
-                                        <div class="dash"></div>
-                                        <div class="dash"></div>
-                                    </div>
-                                </a> -->
-                                <div class="menu-toggle1" onclick="toggleMenu()">
-                                    <div class="dash" style="background: #ff00ff;"></div>
-                                    <div class="dash" style="background: #ff00ff;"></div>
-                                    <div class="dash" style="background: #ff00ff;"></div>
-                                </div>
-                                <ul class="dropdown-content dropdown-menu" id="dropdownContent" aria-labelledby="navbarDropdownMenuLink">
-                                    <img src="../../static/images/WhatsApp_Image_2024-02-28_at_15.48.15-removebg-preview.png" alt="Wakazi" id="dropdown-logo">
-                                    <span class="close-button" onclick="toggleDropdown()">&times;</span>
-                                    <hr />
-                                    <a class="dropdown-item" href="#">Jewellery</a>
-                                    <a class="dropdown-item" href="#">Weddings</a>
-                                    <a class="dropdown-item" href="#">Clothings</a>
-                                    <a class="dropdown-item" href="#">Accessories</a>
-                                    <a class="dropdown-item" href="#">Pet supplies</a>
-                                    <a class="dropdown-item" href="#">Home decors</a>
-                                    <a class="dropdown-item" href="#">Bags and purses</a>
-                                    <a class="dropdown-item" href="#">Bath and beauty</a>
-                                    <a class="dropdown-item" href="#">Art and collectibles</a>
-                                    <a class="dropdown-item" href="#">Baby, Gifts and Shoes</a>
-                                    <a class="dropdown-item" href="#">Craft supplies & tools</a>
-                                    <!-- <a class="dropdown-item" href="#">Books, Movies and Music</a> -->
-                                    <a class="dropdown-item" href="#">Paper and party supplies</a>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                
                 <a class="navbar-brand fw-bold" id="logo" href="#">
                     <img src="../../static/images/WhatsApp_Image_2024-02-28_at_15.48.15-removebg-preview.png" height="90px" width="110px">
                 </a>
@@ -243,10 +202,10 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                 </button>
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
                     <ul class="navbar-nav" id="navbar-nav">
-                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="../../index.php">Home</a></li>
-                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="../../products/index.php">Products</a></li>
-                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="../../collection/index.php">Collections</a></li>
-                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="../../features/index.php">Features</a></li>
+                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="../__dashboard/index.php">My Home</a></li>
+                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="">My Products</a></li>
+                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="">My Collections</a></li>
+                        <!-- <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="../../features/index.php">Features</a></li> -->
                         <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../blog/index.php">Blog</a></li>
                         <li class="nav-item dropdown d-lg-none">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
