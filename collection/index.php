@@ -91,5 +91,8 @@ include("../screens/headers/header.php");
             <button>Explore Products</button>
         </div>
     </div>
+    <?php
+        include("../screens/footer/footer.php");
+    ?>
 </body>
 </html>
