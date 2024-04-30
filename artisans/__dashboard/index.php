@@ -160,19 +160,19 @@
                             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                                 <i class="fa fa-plus-circle fa-3x text-primary"></i>
                                 <div class="ms-3">
-                                    <p class="mb-2">Add Product</p>
+                                    <p class="mb-2">Manage Products</p>
                                 </div>
                             </div>
                         </a>
                     </div>
-                </div>
-                <div class="row g-4">
+                
+                
                     <div class="col-sm-6 col-xl-3">
                         <a href="add_product.php" class="text-decoration-none">
                             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                                 <i class="fa fa-plus-circle fa-3x text-primary"></i>
                                 <div class="ms-3">
-                                    <p class="mb-2">Add Product</p>
+                                    <p class="mb-2">Products</p>
                                 </div>
                             </div>
                         </a>
@@ -182,7 +182,7 @@
                             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                                 <i class="fa fa-plus-circle fa-3x text-primary"></i>
                                 <div class="ms-3">
-                                    <p class="mb-2">Add Product</p>
+                                    <p class="mb-2">Order Details</p>
                                 </div>
                             </div>
                         </a>
