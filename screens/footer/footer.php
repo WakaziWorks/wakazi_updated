@@ -13,7 +13,7 @@
         
     }
     .footer-col p{
-        color: #fff;
+        color: black;
         cursor: pointer;
     }
     .footer-col p:hover{
