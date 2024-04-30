@@ -103,7 +103,9 @@
         </div>
         <!-- Sidebar End -->
 
-
+        <?php
+                    include ("../__screens/__headers/header.php");
+                    ?>
         <!-- Content Start -->
         <div class="content">
             <!-- Navbar Start -->
@@ -118,9 +120,7 @@
                     <input class="form-control border-0" type="search" placeholder="Search">
                 </form>
                 <div class="navbar-nav align-items-center ms-auto">
-                    <?php
-                    include ("../__screens/__headers/header.php");
-                    ?>
+                    
                   
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
