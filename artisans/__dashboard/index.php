@@ -274,7 +274,7 @@
                                             echo "<td>" . htmlspecialchars($row['CategoryID']) . "</td>";  // Consider converting CategoryID to name if needed
                                             echo "<td>" . htmlspecialchars($row['Unit']) . "</td>";
                                             echo "<td>" . htmlspecialchars($row['ApprovalStatus']) . "</td>";
-                                            echo "<td><a href='edit_product.php?id=" . $row['ProductID'] . "'>Edit</a> | <a href='delete_product.php?id=" . $row['ProductID'] . "' onclick='return confirm(\"Are you sure?\");'>Delete</a></td>";
+                                            echo "<td><a href='#' class='edit-btn' data-toggle='modal' data-target='#editProductModal' data-id='" . htmlspecialchars($row['ProductID']) . "' data-name='" . htmlspecialchars($row['ProductName']) . "' data-price='" . htmlspecialchars($row['Price']) . "'>Edit</a> | <a href='delete_product.php?id=" . htmlspecialchars($row['ProductID']) . "' onclick='return confirm(\"Are you sure?\");'>Delete</a></td>";
                                             echo "</tr>";
                                         }
                                         $stmt->close();
