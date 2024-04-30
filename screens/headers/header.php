@@ -228,42 +228,25 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                     </a>
                 </div>
 
-                <div class="d-flex accounts-nav">
-                    <?php if ($isLoggedIn) : ?>
+                <script>
+                    // Get the account link and the popup buttons
+                    const accountLink = document.getElementById('popup-trigger');
+                    const popupButtons = document.getElementById('popup-buttons');
 
-                        <!-- Display user info and logout link -->
-                        <a href="" class="nav-link" id="user-info">
-                            <i class="bi bi-person-check"></i> <?= $_SESSION['name']; ?>
-                        </a>
-                        <a href="../../__logout/__logout.php" class="nav-link">
-                            <i class="bi bi-box-arrow-right"></i> Logout
-                        </a>
-                    <?php else : ?>
-                        <!-- Links to show when the user is not logged in -->
-                        
-                        <script>
-                            // Get the account link and the popup buttons
-                            const accountLink = document.getElementById('popup-trigger');
-                            const popupButtons = document.getElementById('popup-buttons');
+                    // Add click event listener to the account link
+                    accountLink.addEventListener('click', function(event) {
+                        // Prevent the default behavior of the link
+                        event.preventDefault();
+                        // Toggle the visibility of the popup buttons
+                        if (popupButtons.style.display === 'none') {
+                            popupButtons.style.display = 'block';
+                        } else {
+                            popupButtons.style.display = 'none';
+                        }
+                    });
+                </script>
+                <br>
 
-                            // Add click event listener to the account link
-                            accountLink.addEventListener('click', function(event) {
-                                // Prevent the default behavior of the link
-                                event.preventDefault();
-                                // Toggle the visibility of the popup buttons
-                                if (popupButtons.style.display === 'none') {
-                                    popupButtons.style.display = 'block';
-                                } else {
-                                    popupButtons.style.display = 'none';
-                                }
-                            });
-                        </script>
-                        <br>
-                        <!-- <a href="#" class="nav-link account-nav-link">
-                            <i class="bi bi-patch-question-fill" style="font-size: 20px;"></i> Help
-                        </a> -->
-                    <?php endif; ?>
-                </div>
             </div>
         </nav>
         <!-- Additional Navigation Row -->
