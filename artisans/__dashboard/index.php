@@ -68,7 +68,7 @@
 
 
                     <div class="ms-3">
-                        <h6 class="mb-0"><?php echo $_SESSION['email']; ?></h6> <!-- Display username from session -->
+                        <h6 class="mb-0"><?php echo $_SESSION['name']; ?></h6> <!-- Display username from session -->
 
                     </div>
                 </div>
@@ -77,16 +77,16 @@
                 <div class="navbar-nav w-100">
                     <a href="dashboard.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
 
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-box-open me-2"></i>Products</a>
-                            <div class="dropdown-menu bg-transparent border-0">
-                                <a href="manage_products.html" class="dropdown-item">Manage Products</a>
-                                <a href="javascript:void(0);" onclick="showAddProductForm();" class="nav-item nav-link">
-                                    <i class="fa fa-plus-circle me-2"></i>Add Product
-                                </a>
-                            </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-box-open me-2"></i>Products</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="manage_products.html" class="dropdown-item">Manage Products</a>
+                            <a href="javascript:void(0);" onclick="showAddProductForm();" class="nav-item nav-link">
+                                <i class="fa fa-plus-circle me-2"></i>Add Product
+                            </a>
                         </div>
-                    
+                    </div>
+
 
 
                     <a href="orders.html" class="nav-item nav-link"><i class="fa fa-shopping-cart me-2"></i>Orders</a>
@@ -128,7 +128,7 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                             <span class="d-none d-lg-inline-flex">
-                                <h6 class="mb-0"><?php echo $_SESSION['email']; ?>
+                                <h6 class="mb-0"><?php echo $_SESSION['name']; ?>
                             </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
@@ -164,8 +164,8 @@
                             </div>
                         </a>
                     </div>
-                
-                
+
+
                     <div class="col-sm-6 col-xl-3">
                         <a href="add_product.php" class="text-decoration-none">
                             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
@@ -189,73 +189,116 @@
                 </div>
                 <!-- Add more cards for other functionalities if needed -->
             </div>
-      
 
 
 
 
 
 
-        <div class="container-fluid pt-4 px-4">
-            <div class="bg-light  rounded p-4">
-                <div class="d-flex align-items-center justify-content-between mb-4">
-                    <h6 class="mb-0">Add Product</h6>
-                </div>
-                <div class="container mt-5">
-                <form method="post" action="add_product.php">
-                        <div class="form-group">
-                            <label for="productName">Product Name:</label>
-                            <input type="text" class="form-control" id="productName" name="productName" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="supplierID">Supplier ID:</label>
-                            <input type="text" class="form-control" id="supplierID" name="supplierID">
-                        </div>
-                        <div class="form-group">
-                            <label for="categoryID">Category ID:</label>
-                            <input type="text" class="form-control" id="categoryID" name="categoryID">
-                        </div>
-                        <div class="form-group">
-                            <label for="unit">Unit:</label>
-                            <input type="text" class="form-control" id="unit" name="unit">
-                        </div>
-                        <div class="form-group">
-                            <label for="price">Price:</label>
-                            <input type="text" class="form-control" id="price" name="price" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
 
-
-
-        <!-- Widgets Start -->
-        <div class="container-fluid pt-4 px-4">
-            <div class="row g-4">
-                <div class="col-sm-12 col-md-6 col-xl-4">
-                    <div class="h-100 bg-light rounded p-4">
-                        <div class="d-flex align-items-center justify-content-between mb-2">
-                            <h6 class="mb-0">Messages</h6>
-                            <a href="">Show All</a>
-                        </div>
-
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-light  rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0">Add Product</h6>
+                    </div>
+                    <div class="container mt-5">
+                        <form method="post" action="add_product.php">
+                            <div class="form-group">
+                                <label for="productName">Product Name:</label>
+                                <input type="text" class="form-control" id="productName" name="productName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="supplierID">Supplier ID:</label>
+                                <input type="text" class="form-control" id="supplierID" name="supplierID">
+                            </div>
+                            <div class="form-group">
+                                <label for="categoryID">Category ID:</label>
+                                <input type="text" class="form-control" id="categoryID" name="categoryID">
+                            </div>
+                            <div class="form-group">
+                                <label for="unit">Unit:</label>
+                                <input type="text" class="form-control" id="unit" name="unit">
+                            </div>
+                            <div class="form-group">
+                                <label for="price">Price:</label>
+                                <input type="text" class="form-control" id="price" name="price" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
                     </div>
                 </div>
             </div>
+
+
+
+            <!-- Widgets Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-sm-12 col-md-6 col-xl-12"> <!-- Changed col-xl-4 to col-xl-12 for full width in larger screens -->
+                        <div class="h-100 bg-light rounded p-4">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <h6 class="mb-0">Product Overview</h6>
+                                <a href="manage_products.php">Show All</a>
+                            </div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Product Name</th>
+                                        <th>Price</th>
+                                        <th>Category</th>
+                                        <th>Unit</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
+                                        echo "<script>alert('Please log in.'); window.location.href='login.php';</script>";
+                                        exit;
+                                    }
+
+                                    // Assuming you have a database connection $mysqli from your config file
+                                    $query = "SELECT ProductID, ProductName, Price, CategoryID, Unit, ApprovalStatus FROM ArtisanProducts WHERE artisan_id = ?";
+                                    if ($stmt = $mysqli->prepare($query)) {
+                                        $stmt->bind_param("i", $_SESSION['artisan_id']);
+                                        $stmt->execute();
+                                        $result = $stmt->get_result();
+
+                                        while ($row = $result->fetch_assoc()) {
+                                            echo "<tr>";
+                                            echo "<td>" . htmlspecialchars($row['ProductID']) . "</td>";
+                                            echo "<td>" . htmlspecialchars($row['ProductName']) . "</td>";
+                                            echo "<td>" . htmlspecialchars($row['Price']) . "</td>";
+                                            echo "<td>" . htmlspecialchars($row['CategoryID']) . "</td>";  // Convert category ID to name if necessary
+                                            echo "<td>" . htmlspecialchars($row['Unit']) . "</td>";
+                                            echo "<td>" . htmlspecialchars($row['ApprovalStatus']) . "</td>";
+                                            echo "<td><a href='edit_product.php?id=" . $row['ProductID'] . "'>Edit</a> | <a href='delete_product.php?id=" . $row['ProductID'] . "'>Delete</a></td>";
+                                            echo "</tr>";
+                                        }
+                                        $stmt->close();
+                                    }
+                                    $mysqli->close();
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Widgets End -->
+
+
+
+
+            <!-- Footer End -->
         </div>
-        <!-- Widgets End -->
+        <!-- Content End -->
 
 
-
-        <!-- Footer End -->
-    </div>
-    <!-- Content End -->
-
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
     <!-- JavaScript Libraries -->

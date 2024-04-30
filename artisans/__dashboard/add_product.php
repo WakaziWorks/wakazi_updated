@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt = $mysqli->prepare($query)) {
         $stmt->bind_param("isiiis", $artisanID, $productName, $supplierID, $categoryID, $unit, $price);
         if ($stmt->execute()) {
-            echo "<script>alert('Product submitted successfully and awaits approval.'); window.location.href='dashboard.php';</script>";
+            echo "<script>alert('Product submitted successfully and awaits approval.'); window.location.href='index.php';</script>";
         } else {
             echo "<script>alert('Error submitting product: " . htmlspecialchars($stmt->error) . "'); window.location.href='add_product.php';</script>";
         }
