@@ -45,8 +45,7 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
     <link rel="icon" type="image/x-icon" href="../../static/assets/favicon.ico" />
 
     <!-- Bootstrap icons-->
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- Google fonts-->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -146,9 +145,9 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                                     </div>
                                 </a> -->
                                 <div class="menu-toggle1" onclick="toggleMenu()">
-                                    <div class="dash"></div>
-                                    <div class="dash"></div>
-                                    <div class="dash"></div>
+                                    <div class="dash" style="background: #ff00ff;"></div>
+                                    <div class="dash" style="background: #ff00ff;"></div>
+                                    <div class="dash" style="background: #ff00ff;"></div>
                                 </div>
                                 <ul class="dropdown-content dropdown-menu" id="dropdownContent" aria-labelledby="navbarDropdownMenuLink">
                                     <img src="../../static/images/WhatsApp_Image_2024-02-28_at_15.48.15-removebg-preview.png" alt="Wakazi" id="dropdown-logo">
@@ -209,7 +208,7 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                             <li style="text-align: left; margin-bottom: 7px;"><a href="#" style="text-decoration: none; color: #000;"><i class="bi bi-box2-heart" style="color: #000; font-size: 20px;"></i></i> Orders</a></li>
                             <li style="text-align: left; margin-bottom: 7px;"><a href="#" style="text-decoration: none; color: #000;"><i class="bi bi-chat-left-heart" style="color: #000; font-size: 20px;"></i></i> Saved items</a></li>
                         </ul>
-                        <!-- <script>
+                        <script>
                             // Get the account link and the popup buttons
                             const accountLink = document.getElementById('popup-trigger');
                             const popupButtons = document.getElementById('popup-buttons');
@@ -225,9 +224,9 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                                     popupButtons.style.display = 'none';
                                 }
                             });
-                        </script> -->
+                        </script>
                         <br>
-                        <a href="#" class="nav-link">
+                        <a href="#" class="nav-link account-nav-link">
                             <i class="bi bi-patch-question-fill" style="font-size: 20px;"></i> Help
                         </a>
                     <?php endif; ?>
@@ -291,24 +290,6 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
             let dropDownContent = document.getElementById("dropdownContent");
             dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
         }
-
-
-        // Get the account link and the popup buttons
-        const accountLink = document.getElementById('popup-trigger');
-        const popupButtons = document.getElementById('popup-buttons');
-
-        // Add click event listener to the account link
-        accountLink.addEventListener('click', function(event) {
-            // Prevent the default behavior of the link
-            event.preventDefault();
-            // Toggle the visibility of the popup buttons
-            if (popupButtons.style.display === 'none') {
-                popupButtons.style.display = 'block';
-            } else {
-                popupButtons.style.display = 'none';
-            }
-        });
-
         // Add click event listener to the document to handle clicks outside of the buttons
         document.addEventListener('click', function(event) {
             const target = event.target;
