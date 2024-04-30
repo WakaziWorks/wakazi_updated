@@ -65,5 +65,8 @@ include("../screens/headers/header.php");
             dropdownContent.style.display = dropdownContent.style.display === "block" ? "none": "block";
         }
     </script>
+    <?php
+        include("../screens/footer/footer.php");
+    ?>
 </body>
 </html>
