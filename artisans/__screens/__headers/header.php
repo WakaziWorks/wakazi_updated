@@ -16,7 +16,6 @@
   <link rel="stylesheet" href="css/bootstrap-login-form.min.css" />
 </head>
 
-<<<<<<< HEAD
 <body id="page-top">
     <header class="header fixed-top">
         <nav class="nav navbar navbar-expand-lg navbar-light">
@@ -63,10 +62,7 @@
                             // Get the account link and the popup buttons
                             const accountLink = document.getElementById('popup-trigger');
                             const popupButtons = document.getElementById('popup-buttons');
-=======
 <body>
-  <!-- Start your project here-->
->>>>>>> ba857b2ca148cca1dfcd1f4ddfdb12e8810e2e34
 
   <style>
     .gradient-custom-2 {

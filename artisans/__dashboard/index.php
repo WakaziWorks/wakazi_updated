@@ -52,12 +52,12 @@
                     <img src="../../static/images/WhatsApp_Image_2024-02-28_at_15.48.15-removebg-preview.png" height="90px" width="110px">
                 </a>
                 <!-- Search Section -->
-                <div class="mx-auto" style="width: 50%;">
+                <!-- <div class="mx-auto" style="width: 50%;">
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="I am looking for..." aria-label="Search">
                         <button class="btn btn-outline-success text-white" style="background-color: #ff00ff; border: none; outline: none;" type="submit">Search</button>
                     </form>
-                </div>
+                </div> -->
                 <!-- Icons for cart, account, and help -->
                 <div class="d-flex accounts-nav">
                     <?php if ($isLoggedIn) : ?>
