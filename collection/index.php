@@ -79,12 +79,16 @@ include("../screens/headers/header.php");
             </div>
         </div>
         <!-- Advanced search section -->
-        <div class="advanced-search">
+        <div class="advanced-search" style="text-align: center;">
             <h1>For more advanced searches...</h1>
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search your item here...">
-                <spn class="btn" style="background: #ff00ff; color: #000; font-weight: bold;"><i class="bi bi-search"></i></spn>
+            <div class="input-group" style="width: 70%; margin: 0 auto;"> <!-- Adjust max-width as needed -->
+                <input type="text" class="form-control" placeholder="Search your item here..." style="border-top-right-radius: 0; border-bottom-right-radius: 0;">
+                <span class="btn" style="background: #ff00ff; color: #000; font-weight: bold; border-top-left-radius: 0; border-bottom-left-radius: 0; padding: 10px;"> <!-- Adjust padding as needed -->
+                    <i class="bi bi-search"></i>
+                </span>
             </div>
+            <h5 style="margin-top: 2em; margin-bottom: 2em;">Don't know where to start?</h5>
+            <button>Explore Products</button>
         </div>
     </div>
 </body>

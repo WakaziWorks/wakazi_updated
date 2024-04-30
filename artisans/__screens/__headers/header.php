@@ -1,130 +1,22 @@
-<?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-session_start(); // Start the session at the beginning of the script
-
-// Check if the user is logged in
-$isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
-
-// require ('../../__config/app/config.php');
-
-// $query = "SELECT p.ProductID, p.ProductName, c.CategoryName 
-//           FROM Products p 
-//           JOIN Categories c ON p.CategoryID = c.CategoryID 
-//           WHERE p.is_featured = TRUE;";  // Make sure your tables and columns are correctly named
-
-// $result = $mysqli->query($query);
-
-// $featuredProducts = [];
-// $productsByCategory = [];
-
-// if ($result->num_rows > 0) {
-//     while ($row = $result->fetch_assoc()) {
-//         $featuredProducts[] = $row;
-//         $productsByCategory[$row['category_name']][] = $row;  // Organize products by category
-//     }
-// } else {
-//     echo "";
-// }
-
-// Close result set
-// $result->close();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Wakazi Works</title>
-    <link rel="icon" type="image/x-icon" href="../../static/assets/favicon.ico" />
-
-    <!-- Bootstrap icons-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    <!-- Google fonts-->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <!--<link href="css/styles.css" rel="stylesheet" />-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-    <!-- MDB -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css" rel="stylesheet" />
-    <!-- CSS files loading here -->
-    <!-- <link rel="stylesheet" href="../update_wakazi/ -->
-    <link rel="stylesheet" href="../../static/css/styles.css">
-    <style>
-        .navbar-nav {
-            margin-bottom: 0;
-        }
-        #navbar-nav a{
-            color: #ff00ff;
-        }
-        #navbar-nav a:hover{
-            color: #fff;
-            background: #ff00ff;
-            border-radius: 15px;
-        }
-
-        .navbar-light .navbar-nav .nav-link {
-            padding: 8px 10px;
-            /* Reduced padding to bring items closer */
-        }
-
-        .navbar {
-            padding-top: 0;
-            padding-bottom: 0;
-        }
-
-        .container-fluid {
-            padding-left: 0;
-            padding-right: 0;
-        }
-
-        /* Reducing space specifically between the search section and the navigation row */
-        .navbar-expand-lg+.navbar {
-            margin-top: -10px;
-            /* Pulls the second navbar up closer to the first */
-        }
-        #popup-buttons {
-            padding: 0.5em;
-            position: absolute;
-            top: 80%;
-            right: 2%;
-            background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            border-radius: 4px;
-            z-index: 100;
-        }
-        .account-nav-link{
-            position: relative;
-            color: #000;
-            font-size: large;
-        }
-        .account-nav-link:hover + #popup-buttons {
-            display: block;
-        }
-        .account-nav-link .bi{
-            color: inherit;
-        }
-        .account-nav-link:hover{
-            color: #ff00ff;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Material Design for Bootstrap</title>
+  <!-- MDB icon -->
+  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+  <!-- MDB -->
+  <link rel="stylesheet" href="css/bootstrap-login-form.min.css" />
 </head>
 
+<<<<<<< HEAD
 <body id="page-top">
     <header class="header fixed-top">
         <nav class="nav navbar navbar-expand-lg navbar-light">
@@ -171,93 +63,32 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                             // Get the account link and the popup buttons
                             const accountLink = document.getElementById('popup-trigger');
                             const popupButtons = document.getElementById('popup-buttons');
+=======
+<body>
+  <!-- Start your project here-->
+>>>>>>> ba857b2ca148cca1dfcd1f4ddfdb12e8810e2e34
 
-                            // Add click event listener to the account link
-                            accountLink.addEventListener('click', function(event) {
-                                // Prevent the default behavior of the link
-                                event.preventDefault();
-                                // Toggle the visibility of the popup buttons
-                                if (popupButtons.style.display === 'none') {
-                                    popupButtons.style.display = 'block';
-                                } else {
-                                    popupButtons.style.display = 'none';
-                                }
-                            });
-                        </script>
-                        <br>
-                        <a href="#" class="nav-link account-nav-link">
-                            <i class="bi bi-patch-question-fill" style="font-size: 20px;"></i> Help
-                        </a>
-                    <?php endif; ?>
-                </div>
-            </div>
-        </nav>
-        <!-- Additional Navigation Row -->
-        <div class="navbar navbar-expand-lg navbar-light bg-light">
+  <style>
+    .gradient-custom-2 {
+      /* fallback for old browsers */
+      background: #fccb90;
 
-            <div class="container-fluid">
-                <!-- Toggler button for mobile view -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
-                    <ul class="navbar-nav" id="navbar-nav">
-                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="../__dashboard/index.php">My Home</a></li>
-                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="">My Products</a></li>
-                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="">My Collections</a></li>
-                        <!-- <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="../../features/index.php">Features</a></li> -->
-                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../blog/index.php">Blog</a></li>
-                        <li class="nav-item dropdown d-lg-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Menu
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="index.php">Home</a></li>
-                                <li><a class="dropdown-item" href="">Products</a></li>
-                                <li><a class="dropdown-item" href="">Collections</a></li>
-                                <li><a class="dropdown-item" href="">Features</a></li>
-                                <li><a class="dropdown-item" href="../../blog/index.php">Blog</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        </div>
-    </header>
-    <script>
-        // Toggle visibility of collection's dropdown menu
-        function toggleMenu() {
-            var dropdownContent = document.querySelector('.dropdown-content');
-            dropdownContent.style.display === 'block' ? dropdownContent.style.display = 'none' : dropdownContent.style.display = 'block';
-        }
-        //Hide visibility of collection's dropdown when "x" is clicked
-        document.addEventListener("click", function(event) {
-            let dropdown = document.querySelector(".dropdown");
-            let dropdownContent = dropdown.querySelector(".dropdown-content");
-            let dropdownButton = dropdown.querySelector("button");
-            let closeButton = dropdown.querySelector(".close-button");
+      /* Chrome 10-25, Safari 5.1-6 */
+      background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
 
-            let isClickedInsideDropdown = dropdown.contains(event.target);
+      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    }
 
-            if (!isClickedInsideDropdown) {
-                dropdownContent.style.display = "none";
-            }
-        });
-
-        function toggleDropdown() {
-            let dropDownContent = document.getElementById("dropdownContent");
-            dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
-        }
-        // Add click event listener to the document to handle clicks outside of the buttons
-        document.addEventListener('click', function(event) {
-            const target = event.target;
-            // Check if the click target is outside of the popup buttons and the account link
-            if (target !== popupButtons && target !== accountLink) {
-                // Hide the popup buttons if they are currently visible
-                if (popupButtons.style.display === 'block') {
-                    popupButtons.style.display = 'none';
-                }
-            }
-        });
-    </script>
+    @media (min-width: 768px) {
+      .gradient-form {
+        height: 100vh !important;
+      }
+    }
+    @media (min-width: 769px) {
+      .gradient-custom-2 {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+      }
+    }
+  </style>
