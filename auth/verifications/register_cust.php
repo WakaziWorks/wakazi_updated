@@ -17,23 +17,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash password
     $role = 'c'; // Role 'c' for customers
 
-    // Call the stored procedure to insert or update user details
-    if ($stmt = $mysqli->prepare("CALL UpdateOrInsertUser(?, ?, ?, ?)")) {
-        $stmt->bind_param("ssss", $email, $username, $password, $role);
-        if ($stmt->execute()) {
-            $successMessage = "Successfully registered! Email: $email, Name: $username";
-            echo "<script>
-                    alert('$successMessage');
-                    setTimeout(function() { 
-                        window.location.href = '../accounts/login.php'; 
-                    }, 2000);
-                  </script>";
+    // Start transaction
+    $mysqli->begin_transaction();
+
+    try {
+        // Call the stored procedure to insert or update user details
+        if ($stmt = $mysqli->prepare("CALL UpdateOrInsertUser(?, ?, ?, ?)")) {
+            $stmt->bind_param("ssss", $email, $username, $password, $role);
+            $stmt->execute();
+            $stmt->close();
         } else {
-            echo "<script>alert('Something went wrong. Please try again later.'); setTimeout(function() { window.history.back(); }, 2000);</script>";
+            throw new Exception("Error preparing statement: " . $mysqli->error);
         }
-        $stmt->close();
-    } else {
-        echo "<script>alert('Error preparing statement: " . $mysqli->error . "'); setTimeout(function() { window.history.back(); }, 2000);</script>";
+
+        // Insert into customers table
+        if ($stmt = $mysqli->prepare("INSERT INTO customers (name, email, password) VALUES (?, ?, ?)")) {
+            $stmt->bind_param("sss", $username, $email, $password);
+            $stmt->execute();
+            $stmt->close();
+        } else {
+            throw new Exception("Error preparing statement: " . $mysqli->error);
+        }
+
+        // Commit transaction
+        $mysqli->commit();
+
+        $successMessage = "Successfully registered! Email: $email, Name: $username";
+        echo "<script>
+                alert('$successMessage');
+                setTimeout(function() { 
+                    window.location.href = '../accounts/login.php'; 
+                }, 2000);
+              </script>";
+    } catch (Exception $e) {
+        // Rollback transaction if anything goes wrong
+        $mysqli->rollback();
+        echo "<script>alert('" . $e->getMessage() . "'); setTimeout(function() { window.history.back(); }, 2000);</script>";
     }
 
     // Close connection
@@ -41,3 +60,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     echo "<script>setTimeout(function() { window.location.href = '../accounts/signup.php?error=Access denied'; }, 2000);</script>";
 }
+?>
