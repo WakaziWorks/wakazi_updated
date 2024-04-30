@@ -234,7 +234,7 @@
             <!-- Widgets Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
-                    <div class="col-sm-12 col-md-6 col-xl-12"> <!-- Changed col-xl-4 to col-xl-12 for full width in larger screens -->
+                    <div class="col-sm-12 col-md-6 col-xl-12"> <!-- Full width for larger screens -->
                         <div class="h-100 bg-light rounded p-4">
                             <div class="d-flex align-items-center justify-content-between mb-2">
                                 <h6 class="mb-0">Product Overview</h6>
@@ -253,7 +253,36 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                  
+                                    <?php
+                                    require_once '../__auth/__config/config.php';  // Adjust the path as necessary
+                                    session_start();
+
+                                    if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
+                                        echo "<script>alert('Please log in.'); window.location.href='login.php';</script>";
+                                        exit;
+                                    }
+
+                                    $query = "SELECT ProductID, ProductName, Price, CategoryID, Unit, ApprovalStatus FROM ArtisanProducts WHERE artisan_id = ?";
+                                    if ($stmt = $mysqli->prepare($query)) {
+                                        $stmt->bind_param("i", $_SESSION['artisan_id']);
+                                        $stmt->execute();
+                                        $result = $stmt->get_result();
+
+                                        while ($row = $result->fetch_assoc()) {
+                                            echo "<tr>";
+                                            echo "<td>" . htmlspecialchars($row['ProductID']) . "</td>";
+                                            echo "<td>" . htmlspecialchars($row['ProductName']) . "</td>";
+                                            echo "<td>" . htmlspecialchars($row['Price']) . "</td>";
+                                            echo "<td>" . htmlspecialchars($row['CategoryID']) . "</td>";  // Consider converting CategoryID to name if needed
+                                            echo "<td>" . htmlspecialchars($row['Unit']) . "</td>";
+                                            echo "<td>" . htmlspecialchars($row['ApprovalStatus']) . "</td>";
+                                            echo "<td><a href='edit_product.php?id=" . $row['ProductID'] . "'>Edit</a> | <a href='delete_product.php?id=" . $row['ProductID'] . "' onclick='return confirm(\"Are you sure?\");'>Delete</a></td>";
+                                            echo "</tr>";
+                                        }
+                                        $stmt->close();
+                                    }
+                                    $mysqli->close();
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
@@ -261,6 +290,7 @@
                 </div>
             </div>
             <!-- Widgets End -->
+
 
 
 
