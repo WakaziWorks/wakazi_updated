@@ -1,15 +1,4 @@
-<?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-session_start();
 
-if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
-    echo "<script>alert('You are not logged in. Please log in to continue.');
-                        window.location.href = 'login.php'; // Redirect to the login page</script>";
-    exit;
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,7 +54,18 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                     <div class="position-relative">
                         <img class="rounded-circle" src="<?php echo 'uploads/' . $_SESSION['profile_image']; ?>" alt="User" style="width: 40px; height: 40px;">
                     </div>
+                    <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+session_start();
 
+if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
+    echo "<script>alert('You are not logged in. Please log in to continue.');
+                        window.location.href = 'login.php'; // Redirect to the login page</script>";
+    exit;
+}
+
+?>
 
 
                     <div class="ms-3">
@@ -181,54 +181,11 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                         </a>
                     </div>
                     <!-- Add more cards for other functionalities if needed -->
-                    <!-- Add more cards for other functionalities if needed -->
                 </div>
             </div>
 
 
-            <!-- Product Overview Start -->
-            <!-- <div class="container-fluid pt-4 px-4">
-                <div class="bg-light text-center rounded p-4">
-                    <h6 class="mb-0">Your Products</h6>
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Product ID</th>
-                                <th>Name</th>
-                                <th>Price</th>
-                                <th>Category</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-
-                            $artisanID = $_SESSION['artisan_id'];
-                            $query = "SELECT * FROM Products WHERE ArtisanID = ?";
-                            if ($stmt = $mysqli->prepare($query)) {
-                                $stmt->bind_param("i", $artisanID);
-                                $stmt->execute();
-                                $result = $stmt->get_result();
-                                while ($row = $result->fetch_assoc()) {
-                                    echo "<tr>";
-                                    echo "<td>" . htmlspecialchars($row['ProductID']) . "</td>";
-                                    echo "<td>" . htmlspecialchars($row['ProductName']) . "</td>";
-                                    echo "<td>" . htmlspecialchars($row['Price']) . "</td>";
-                                    echo "<td>" . htmlspecialchars($row['CategoryID']) . "</td>";
-                                    echo "<td>" . htmlspecialchars($row['ApprovalStatus']) . "</td>";
-                                    echo "<td><a href='edit_product.php?id=" . htmlspecialchars($row['ProductID']) . "'>Edit</a> | <a href='delete_product.php?id=" . htmlspecialchars($row['ProductID']) . "' onclick='return confirm(\"Are you sure?\");'>Delete</a></td>";
-                                    echo "</tr>";
-                                }
-                                $stmt->close();
-                            }
-                            $mysqli->close();
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div> -->
-            <!-- Product Overview End -->
+          
 
 
 
