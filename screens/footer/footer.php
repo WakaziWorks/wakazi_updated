@@ -2,7 +2,7 @@
     <div class="container text-center">
         <div class="row align-items-center flex-column flex-sm-row">
             <div class="col footer-col">
-                <img src="static/images/x-diamond-fill.svg" />
+                <img src="../../static/images/x-diamond-fill.svg" />
                 <h5 style="color: #000; font-weight: normal;">Great Value</h5>
                 <p class="col-p text-light">We offer competitive prices on our product range.</p>
             </div>
@@ -12,12 +12,12 @@
                 <p class="col-p text-light">Pay with the world’s most popular and secure payment methods.</p>
             </div>
             <div class="col footer-col">
-                <img src="static/images/shield-lock-fill.svg" />
+                <img src="../../static/images/shield-lock-fill.svg" />
                 <h5 style="color: #000; font-weight: normal;">Shop with Confidence</h5>
                 <p class="col-p text-light">Our Buyer Protection covers your purchase from click to delivery</p>
             </div>
             <div class="col footer-col">
-                <img src="static/images/question-circle-fill.svg" />
+                <img src="../../static/images/question-circle-fill.svg" />
                 <h5 style="color: #000; font-weight: normal;">24/7 Help Center</h5>
                 <p class="col-p text-light">Round-the-clock assistance for a smooth shopping experience.</p>
             </div>
@@ -30,46 +30,46 @@
             <div class="row" style="margin-left: 7em;">
                 <div class="col terms-section">
                     <h4>Shopping Guide</h4>
-                    <a href="_superadmin_/index.html">
+                    <a href="">
                         <p class="text-light">How do I pay on wakazi?</p>
                     </a>
-                    <a href="_superadmin_/index.html">
+                    <a href="">
                         <p class="text-light">How long does my order arrive?</p>
                     </a>
-                    <a href="_superadmin_/index.html">
+                    <a href="">
                         <p class="text-light">How to shop on wakazi?</p>
                     </a>
-                    <a href="_superadmin_/index.html">
+                    <a href="">
                         <p class="text-light">Forgot password?</p>
                     </a>
                 </div>
                 <div class="col terms-section">
                     <h4>Customer Help</h4>
-                    <a href="_superadmin_/index.html">
+                    <a href="">
                         <p class="text-light">Privacy Policy</p>
                     </a>
-                    <a href="_superadmin_/index.html">
+                    <a href="">
                         <p class="text-light">Terms and Conditions</p>
                     </a>
-                    <a href="_superadmin_/index.html">
+                    <a href="">
                         <p class="text-light">Account Settings</p>
                     </a>
-                    <a href="_superadmin_/index.html">
+                    <a href="">
                         <p class="text-light">Delivery and Shipping</p>
                     </a>
-                    <a href="_superadmin_/index.html">
+                    <a href="">
                         <p class="text-light">FAQ Center</p>
                     </a>
                 </div>
                 <div class="col terms-section">
                     <h4>Business</h4>
-                    <a href="_superadmin_/index.html">
+                    <a href="">
                         <p class="text-light">Want to be a Seller?</p>
                     </a>
-                    <a href="_superadmin_/index.html">
+                    <a href="">
                         <p class="text-light">Seller Center</p>
                     </a>
-                    <a href="_superadmin_/index.html">
+                    <a href="">
                         <p class="text-light">Wakazi Shop</p>
                         </a>
                 </div>
