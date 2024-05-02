@@ -1,6 +1,6 @@
 <?php
 // include("../screens/headers/header.php");
-require ("../../config/app/config.php");
+// require ("../../config/app/config.php");
 ?>
 <br>
 <br>
