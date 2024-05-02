@@ -1,6 +1,6 @@
 <?php
-include("../__screens/__headers/header.php");
-require ("../../__config/app/config.php");
+include("../screens/headers/header.php");
+require ("../../config/app/config.php");
 ?>
 <!-- Jewellery Page -->
 <div class="container">
@@ -13,9 +13,9 @@ require ("../../__config/app/config.php");
         // Function to get user's email from session data
         function getUserEmail() {
             // Check if user is logged in (you might have your own method for this)
-            if (isset($_SESSION['user_email'])) {
+            if (isset($_SESSION['email'])) {
                 // Return user's email from session data
-                return $_SESSION['user_email'];
+                return $_SESSION['email'];
             } else {
                 // Return null or handle the case where user is not logged in
                 return null;
