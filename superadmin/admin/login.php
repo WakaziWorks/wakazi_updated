@@ -13,7 +13,7 @@
     <!-- Google Fonts Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
     <!-- MDB -->
-    <link rel="stylesheet" href="assets/css/bootstrap-login-form.min.css" />
+    <link rel="stylesheet" href="../../artisans/__dashboard/css/bootstrap-login-form.min.css" />
 </head>
 
 <body>
@@ -54,7 +54,7 @@
                                 <div class="card-body p-md-5 mx-md-4">
 
                                     <div class="text-center">
-                                        <h4 class="mt-1 mb-5 pb-1"> <img src="assets/img/logo.png" style="width: 185px;" alt="logo"> Admin</h4>
+                                        <h4 class="mt-1 mb-5 pb-1"> <img src="../../artisans/__dashboard/img/logo.png" style="width: 185px;" alt="logo"> Admin</h4>
                                     </div>
 
                                     <form action="../__config/verifications.php" method="POST">
@@ -85,12 +85,12 @@
 
                                 </div>
                             </div>
-                            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                            <!-- <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
                                 <div class="text-white px-3 py-4 p-md-5 mx-md-4">
                                     <h4 class="mb-4">The silent Philosophers.</h4>
                                     <p class="small mb-0">Artisans are the silent philosophers of society, shaping the world with their hands and minds.</p>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
