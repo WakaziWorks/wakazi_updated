@@ -69,10 +69,12 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
         .navbar-nav {
             margin-bottom: 0;
         }
-        #navbar-nav a{
+
+        #navbar-nav a {
             color: #ff00ff;
         }
-        #navbar-nav a:hover{
+
+        #navbar-nav a:hover {
             color: #fff;
             background: #ff00ff;
             border-radius: 15px;
@@ -98,6 +100,7 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
             margin-top: -10px;
             /* Pulls the second navbar up closer to the first */
         }
+
         #popup-buttons {
             padding: 0.5em;
             position: absolute;
@@ -108,19 +111,49 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
             border-radius: 4px;
             z-index: 100;
         }
-        .account-nav-link{
+
+        .account-nav-link {
             position: relative;
             color: #000;
             font-size: large;
         }
-        .account-nav-link:hover + #popup-buttons {
+
+        .account-nav-link:hover+#popup-buttons {
             display: block;
         }
-        .account-nav-link .bi{
+
+        .account-nav-link .bi {
             color: inherit;
         }
-        .account-nav-link:hover{
+
+        .account-nav-link:hover {
             color: #ff00ff;
+        }
+
+        .search-form {
+            width: 100%;
+            max-width: 400px;
+            /* Set maximum width for the search form */
+            margin: 0 auto;
+            /* Center the search form */
+        }
+
+        .search-input {
+            width: 100%;
+            padding-right: 44px;
+            /* Space for the search button */
+            border: 2px solid #000;
+            border-radius: 33px;
+        }
+
+        .search-btn {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            outline: none;
         }
     </style>
 </head>
@@ -129,17 +162,22 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
     <header class="header fixed-top">
         <nav class="nav navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
-                
+
                 <a class="navbar-brand fw-bold" id="logo" href="#">
                     <img src="../../static/images/WhatsApp_Image_2024-02-28_at_15.48.15-removebg-preview.png" height="90px" width="110px">
                 </a>
                 <!-- Search Section -->
-                <div class="mx-auto" style="width: 50%;">
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="I am looking for..." aria-label="Search">
-                        <button class="btn btn-outline-success text-white" style="background-color: #ff00ff; border: none; outline: none;" type="submit">Search</button>
+                <div class="mx-auto">
+                    <form class="search-form" role="search">
+                        <div class="position-relative">
+                            <input class="form-control search-input" type="search" placeholder="Search for anything" aria-label="Search">
+                            <button class="btn search-btn" type="submit">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
                     </form>
                 </div>
+
                 <!-- Icons for cart, account, and help -->
                 <div class="d-flex accounts-nav">
                     <?php if ($isLoggedIn) : ?>
