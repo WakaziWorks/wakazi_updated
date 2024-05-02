@@ -13,7 +13,7 @@
     <!-- Google Fonts Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
     <!-- MDB -->
-    <link rel="stylesheet" href="../../artisans/__dashboard/css/bootstrap-login-form.min.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap-login-form.min.css" />
 </head>
 
 <body>
@@ -54,7 +54,7 @@
                                 <div class="card-body p-md-5 mx-md-4">
 
                                     <div class="text-center">
-                                        <h4 class="mt-1 mb-5 pb-1"> <img src="../../artisans/__dashboard/img/logo.png" style="width: 185px;" alt="logo"> Admin</h4>
+                                        <h4 class="mt-1 mb-5 pb-1"> <img src="assets/img/logo.png" style="width: 185px;" alt="logo"> Admin</h4>
                                     </div>
 
                                     <form action="../__config/verifications.php" method="POST">
