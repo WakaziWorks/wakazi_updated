@@ -83,53 +83,39 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
             border-radius: 4px;
             z-index: 100;
         }
+        .account-nav-link{
+            position: relative;
+            color: #000;
+            font-size: large;
+        }
+        .account-nav-link:hover + #popup-buttons {
+            display: block;
+        }
+        .account-nav-link .bi{
+            color: inherit;
+        }
+        .account-nav-link:hover{
+            color: #ff00ff;
+        }
     </style>
 </head>
 
 <body id="page-top">
     <header class="header fixed-top">
-        <nav class="nav navbar navbar-expand-lg" style="margin: 0; padding: 0; flex-direction: column;">
-            <div class="container-fluid" style="margin-bottom: 0">
-                <!-- Dropdown for mobile and other small devices -->
-                <div class="dropdown">
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul class="navbar-nav">
-                            <li class="dropdown">
-                                <div class="menu-toggle1" onclick="toggleMenu()">
-                                    <div class="dash"></div>
-                                    <div class="dash"></div>
-                                    <div class="dash"></div>
-                                </div>
-                                <ul class="dropdown-content dropdown-menu" id="dropdownContent" aria-labelledby="navbarDropdownMenuLink">
-                                    <img src="../../static/images/WhatsApp_Image_2024-02-28_at_15.48.15-removebg-preview.png" alt="Wakazi" id="dropdown-logo">
-                                    <span class="close-button" onclick="toggleDropdown()">&times;</span>
-                                    <hr />
-                                    <a class="dropdown-item" href="#">Jewellery</a>
-                                    <a class="dropdown-item" href="#">Crafted Bags</a>
-                                    <a class="dropdown-item" href="#">Home Decors</a>
-                                    <a class="dropdown-item" href="#">Fashion Wears</a>
-                                    <a class="dropdown-item" href="#">Art & Collectibles</a>
-                                    <a class="dropdown-item" href="#">Fashion Accessories</a>
-                                    <a class="dropdown-item" href="#">Craft supplies & Tools</a>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <a class="navbar-brand fw-bold" id="logo" href="#" style="margin-right: 100px;">
+        <nav class="nav navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                
+                <a class="navbar-brand fw-bold" id="logo" href="#">
                     <img src="../../static/images/WhatsApp_Image_2024-02-28_at_15.48.15-removebg-preview.png" height="90px" width="110px">
                 </a>
                 <!-- Search Section -->
-                <div class="mx-auto">
-                    <form class="" role="search" style="width: 50em;">
-                        <div class="position-relative">
-                            <input class="form-control" type="search" placeholder="Search for anything" aria-label="Search" style="border: 2px solid #000; border-radius: 33px;">
-                            <span class="btn">
-                                <i class="bi bi-search"></i>
-                            </span>
-                        </div>
+                <div class="mx-auto" style="width: 50%;">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="I am looking for..." aria-label="Search">
+                        <button class="btn btn-outline-success text-white" style="background-color: #ff00ff; border: none; outline: none;" type="submit">Search</button>
                     </form>
                 </div>
+
                 <!-- Icons for cart, account, and help -->
                 <div class="d-flex accounts-nav">
                     <?php if ($isLoggedIn) : ?>
@@ -237,5 +223,3 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
             }
         });
     </script>
-</body>
-</html>
