@@ -1,7 +1,11 @@
 <?php
-include("../screens/headers/header.php");
+// include("../screens/headers/header.php");
 require ("../../config/app/config.php");
 ?>
+<br>
+<br>
+<br> 
+<br>
 <!-- Jewellery Page -->
 <div class="container">
     <!-- Jewellery details -->
@@ -21,6 +25,8 @@ require ("../../config/app/config.php");
                 return null;
             }
         }
+
+
         
         // Example usage:
         $userEmail = getUserEmail();
