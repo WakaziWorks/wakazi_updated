@@ -3614,7 +3614,7 @@ textarea.form-control-lg {
   --bs-nav-link-disabled-color: #6c757d;
   display: flex;
   flex-wrap: wrap;
-  padding-left: 0;
+  padding-left: 20px;
   margin-bottom: 0;
   list-style: none;
 }
@@ -10921,38 +10921,6 @@ section {
 .app-badge {
   height: 3rem;
 }
-
-/* #mainNav {
-  background-color: #e0c0ee;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-} */
-/* #mainNav .navbar-brand {
-  font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-}
-#mainNav .navbar-brand:hover, #mainNav .navbar-brand:active {
-  color: #2937f0;
-}
-#mainNav .navbar-toggler {
-  font-size: 0.875rem;
-  padding: 0.75rem 1rem;
-  color: #212529;
-}
-#mainNav .navbar-nav .nav-item .nav-link {
-  color: #212529;
-}
-#mainNav .navbar-nav .nav-item .nav-link:hover {
-  color: #6c757d;
-}
-#mainNav .navbar-nav .nav-item .nav-link.active {
-  color: #2937f0;
-} */
-
-/*!
- * html5-device-mockups (https://github.com/pixelsign/html5-device-mockups)
- * Copyright 2013 - 2017 pixelsign
- * Licensed under MIT (https://github.com/pixelsign/html5-device-mockups/blob/master/LICENSE.txt)
- * Last Build: Tue Nov 14 2017 12:40:57
- */
 .device-wrapper {
   max-width: 300px;
   width: 100%;
@@ -11140,11 +11108,29 @@ section.cta:before {
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin-right: 4em;
 }
-.accounts-nav .bi{
-  color: #ba3ce3;
-  font-weight: bold;
-  font-size: 27px;
+.account-nav-link {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  font-weight: bolder;
+  color: #000;
+}
+.account-nav-link .bi {
+  color: inherit;
+  font-size: 28px;
+}
+.account-nav-link:link,
+.account-nav-link:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.account-nav-link:hover,
+.account-nav-link:focus,
+.account-nav-link:active {
+  color: #000;
+  text-decoration: none;
 }
 .nav{
   display: flex;
@@ -11190,16 +11176,25 @@ section.cta:before {
     align-items: start;
   }
 }
+
+/* Dropdown toggle on the left of the logo */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
 .menu-toggle1 {
-  background: #e5b9f1;
-  border-radius: 7px;
-  padding: 10px;
+  cursor: pointer;
+  margin-left: 4em;
+  background: transparent;
+  transition: background 1s ease;
+  padding: 6px;
+}
+.menu-toggle1:hover{
+  background: #c837d1;
 }
 .menu-toggle1 .dash {
   width: 25px;
-  height: 4px;
-  background-color: var(--bs-purple);
-  margin: 5px 0;
+  background-color: #000;
   border-radius: 5px;
 }
 @media only screen and (max-width: 600px) {
@@ -11261,16 +11256,6 @@ section.cta:before {
   box-shadow: none;
   outline: 1px solid #000;
 }
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-.menu-toggle1 {
-  cursor: pointer;
-  background: transparent;
-  padding: 6px;
-  border-radius: 7px;
-}
 
 @media only screen and (max-width: 768px){
   .menu-toggle{
@@ -11284,31 +11269,32 @@ section.cta:before {
   border-radius: 5px;
   margin: 5px 0;
 }
+/* Dropdown contents on visibility */
 .dropdown-content {
   display: none;
   position: fixed;
-  top: -55%;
+  border: none;
+  outline: none;
+  background: #f5f1f7;
+  top: -70%;
   left: 0;
-  background-color: #ead6ed;
-  border-radius: 4px;
   width: 300px;
   height: 100vh;
   overflow-x: hidden;
-  padding-top: 90px;
+  padding-top: 60px;
   z-index: 1;
-  transition: 9.9s;
-  box-shadow: 0 14px 26px 0 rgba(0,0,0,0.2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: lighter;
+  box-shadow: 0 14px 26px 0 rgba(0,0,0,0.7);
 }
 .dropdown-content a {
-  color: purple;
+  color: #000;
   padding: 12px;
   text-decoration: none;
   display: block;
 }
 .dropdown-content a:hover {
-  background-color: #e18aee;
-  border-radius: 7px;
-  color: #fff3cd;
+  background-color: #f7d3f7;
 }
 #dropdown-logo{
   position: absolute;
@@ -11325,7 +11311,51 @@ section.cta:before {
   cursor: pointer;
   font-weight: bold;
   font-size: 1.8em;
-  color: #e171f2;
+  color: #000;
+}
+
+/* Search form */
+span.btn {
+  position: absolute;
+  top: 45%;
+  right: 1px;
+  transform: translateY(-45%);
+  background: #c837d1;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  color: #fff;
+}
+span.btn:hover{
+  background: #c837d1;
+  border: 1px solid #fff;
+}
+
+/* Navigation links ie home, collections, products etc */
+.navigation-links{
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  padding-right: 90px;
+  box-shadow: none;
+  background: transparent;
+  margin-left: 4em;
+}
+.navigation-links button{
+  border-radius: 22px;
+  background-color: transparent;
+  padding: 5px;
+  width: 6em;
+  margin-right: 2em;
+  border: none;
+  font-size: large;
+  transition: background-color 1s ease;
+}
+.navigation-links :hover button{
+  background-color: #c837d1;
 }
 
 
