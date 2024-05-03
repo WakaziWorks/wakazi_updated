@@ -7,6 +7,9 @@
             $query = "SELECT COUNT(*) AS pending_count FROM Products WHERE ApprovalStatus = 'pending'";
             $result = $mysqli->query($query);
             $pendingProducts = $result->fetch_assoc();
+            
+
+            
             ?>
             
           
