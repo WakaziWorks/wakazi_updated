@@ -48,21 +48,36 @@ if(isset($_GET['product_id']) && !empty($_GET['product_id'])) {
                 // Debug: Display a popup indicating the product details fetched
                 echo "<script>showDebugMessage('Product details fetched: " . json_encode($productData) . "');</script>";
 
-                // Insert the approved product into the Products table
-                $insertQuery = "INSERT INTO Products (ProductName, SupplierID, CategoryID, Unit, Price, is_featured, image, ApprovalStatus) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-                $insertStmt = $mysqli->prepare($insertQuery);
-                $insertStmt->bind_param("siisdiss", $productData['ProductName'], $productData['SupplierID'], $productData['CategoryID'], $productData['Unit'], $productData['Price'], $productData['is_featured'], $productData['image'], $productData['ApprovalStatus']);
+                // Check if the SupplierID exists in the Suppliers table
+                $supplierId = $productData['SupplierID'];
+                $checkSupplierQuery = "SELECT * FROM Suppliers WHERE SupplierID = ?";
+                $checkSupplierStmt = $mysqli->prepare($checkSupplierQuery);
+                $checkSupplierStmt->bind_param("i", $supplierId);
+                $checkSupplierStmt->execute();
+                $supplierResult = $checkSupplierStmt->get_result();
                 
-                // Execute the insert statement
-                if($insertStmt->execute()) {
-                    if($insertStmt->affected_rows > 0) {
-                        echo "Product approved and inserted into the Products table successfully.";
+                if($supplierResult->num_rows > 0) {
+                    // Insert the approved product into the Products table
+                    $insertQuery = "INSERT INTO Products (ProductName, SupplierID, CategoryID, Unit, Price, is_featured, image, ApprovalStatus) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                    $insertStmt = $mysqli->prepare($insertQuery);
+                    $insertStmt->bind_param("siisdiss", $productData['ProductName'], $productData['SupplierID'], $productData['CategoryID'], $productData['Unit'], $productData['Price'], $productData['is_featured'], $productData['image'], $productData['ApprovalStatus']);
+                    
+                    // Execute the insert statement
+                    if($insertStmt->execute()) {
+                        if($insertStmt->affected_rows > 0) {
+                            echo "Product approved and inserted into the Products table successfully.";
+                            echo "<script>window.location.href = 'dashboard.php';</script>";
+                        } else {
+                            echo "Failed to insert the approved product into the Products table.";
+                        }
                     } else {
-                        echo "Failed to insert the approved product into the Products table.";
+                        echo "Error inserting approved product: " . $insertStmt->error;
                     }
                 } else {
-                    echo "Error inserting approved product: " . $insertStmt->error;
+                    echo "Supplier with ID $supplierId does not exist.";
                 }
+
+                $checkSupplierStmt->close();
             }
         } else {
             echo "No product found with the provided ID.";
