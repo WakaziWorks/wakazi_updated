@@ -1,4 +1,10 @@
+<?php 
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,10 +61,7 @@
                         <img class="rounded-circle" src="<?php echo 'uploads/' . $_SESSION['profile_image']; ?>" alt="User" style="width: 40px; height: 40px;">
                     </div>
                     <?php
-                    error_reporting(E_ALL);
-                    ini_set('display_errors', 1);
-                    session_start();
-
+                  
                     if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                         echo "<script>alert('You are not logged in. Please log in to continue.');
                         window.location.href = '../__auth/artisanapp/login.php'; // Redirect to the login page</script>";
@@ -331,12 +334,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
-                                    require_once '../__auth/__config/config.php';  // Adjust the path as necessary
-                                    if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
-                                        echo "<script>alert('Please log in.'); window.location.href='login.php';</script>";
-                                        exit;
-                                    }
+                            <?php
 
                                     $query = "SELECT ProductID, ProductName, Price, CategoryID, Unit, ApprovalStatus FROM ArtisanProducts WHERE artisan_id = ?";
                                     if ($stmt = $mysqli->prepare($query)) {
