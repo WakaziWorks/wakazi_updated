@@ -5,6 +5,30 @@ session_start(); // Start the session at the beginning of the script
 
 // Check if the user is logged in
 $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
+
+// require ('../../__config/app/config.php');
+
+// $query = "SELECT p.ProductID, p.ProductName, c.CategoryName 
+//           FROM Products p 
+//           JOIN Categories c ON p.CategoryID = c.CategoryID 
+//           WHERE p.is_featured = TRUE;";  // Make sure your tables and columns are correctly named
+
+// $result = $mysqli->query($query);
+
+// $featuredProducts = [];
+// $productsByCategory = [];
+
+// if ($result->num_rows > 0) {
+//     while ($row = $result->fetch_assoc()) {
+//         $featuredProducts[] = $row;
+//         $productsByCategory[$row['category_name']][] = $row;  // Organize products by category
+//     }
+// } else {
+//     echo "";
+// }
+
+// Close result set
+// $result->close();
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +36,9 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Wakazi Works</title>
@@ -26,29 +52,27 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
-    
-    <!-- Bootstrap CSS -->
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <!--<link href="css/styles.css" rel="stylesheet" />-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css" rel="stylesheet" />
-    
-    <!-- Custom styles -->
+    <!-- CSS files loading here -->
+    <!-- <link rel="stylesheet" href="../update_wakazi/ -->
     <link rel="stylesheet" href="../../static/css/styles.css">
-    
     <style>
         .navbar-nav {
             margin-bottom: 0;
         }
-
-        #navbar-nav a {
+        #navbar-nav a{
             color: #ff00ff;
         }
-
-        #navbar-nav a:hover {
+        #navbar-nav a:hover{
             color: #fff;
             background: #ff00ff;
             border-radius: 15px;
@@ -56,6 +80,7 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
 
         .navbar-light .navbar-nav .nav-link {
             padding: 8px 10px;
+            /* Reduced padding to bring items closer */
         }
 
         .navbar {
@@ -71,13 +96,13 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
         /* Reducing space specifically between the search section and the navigation row */
         .navbar-expand-lg+.navbar {
             margin-top: -10px;
+            /* Pulls the second navbar up closer to the first */
         }
-
         #popup-buttons {
             padding: 0.5em;
             position: absolute;
-            top: 55%;
-            right: 14%;
+            top: 80%;
+            right: 2%;
             background-color: #fff;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             border-radius: 4px;
@@ -115,87 +140,104 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                         <button class="btn btn-outline-success text-white" style="background-color: #ff00ff; border: none; outline: none;" type="submit">Search</button>
                     </form>
                 </div>
-
                 <!-- Icons for cart, account, and help -->
                 <div class="d-flex accounts-nav">
                     <?php if ($isLoggedIn) : ?>
-                        <!-- User dropdown menu -->
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" id="navbarUserDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-person-check"></i> <?= $_SESSION['name']; ?>
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarUserDropdown">
-                                <li><a class="dropdown-item" href="../../auth/accounts/my_profile.php">My Profile</a></li>
-                                <li><a class="dropdown-item" href="../../auth/accounts/my_orders.php">My Orders</a></li>
-                                <li><a class="dropdown-item" href="../../auth/accounts/my_saved_items.php">Saved Items</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="../../__logout/__logout.php">Logout</a></li>
-                            </ul>
-                        </div>
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-cart4" style="padding: 2px;"></i> Cart
+                        </a>
+                        <!-- Display user info and logout link -->
+                        <a href="" class="nav-link" id="user-info">
+                            <i class="bi bi-person-check"></i> <?= $_SESSION['email']; ?>
+                        </a>
+                        <a href="../../__logout/__logout.php" class="nav-link">
+                            <i class="bi bi-box-arrow-right"></i> Logout
+                        </a>
                     <?php else : ?>
                         <!-- Links to show when the user is not logged in -->
+                        <!-- Links to show when the user is not logged in -->
                         <a href="../../_auth/_accounts/login.php" class="nav-link account-nav-link" id="popup-trigger">
-                            <i class="bi bi-person-circle"></i> Account
+                            <i class="bi bi-person-check"></i> Account
                         </a>
                         <ul id="popup-buttons" style="display: none; list-style: none;">
-                            <li type="button" class="btn" style="background: #c837d1; width: 100%; margin-bottom: 7px"><a href="../../auth/accounts/signup.php" style="text-decoration: none; color: white; padding: 5px;">Sign Up</a></li>
-                            <li type="button" class="btn" style="background: #c837d1; width: 100%;"><a href="../../auth/accounts/login.php" style="text-decoration: none; color: white; padding: 5px;">Sign In</a></li>
+                            <li type="button" class="btn" style="background: #ff00ff; width: 100%; margin-bottom: 5px;"><a href="../../auth/accounts/signup.php" style="text-decoration: none; color: white; padding: 5px;">Sign Up</a></li>
+                            <li type="button" class="btn" style="background: #ff00ff; width: 100%;"><a href="../../auth/accounts/login.php" style="text-decoration: none; color: white; padding: 5px;">Sign In</a></li>
                             <hr />
-                            <li style="text-align: left; margin-bottom: 7px;"><a href="#" style="text-decoration: none; color: #000;"><i class="bi bi-person-check"></i> My Account</a></li>
-                            <li style="text-align: left; margin-bottom: 7px;"><a href="#" style="text-decoration: none; color: #000;"><i class="bi bi-box2-heart"></i> Orders</a></li>
-                            <li style="text-align: left; margin-bottom: 7px;"><a href="#" style="text-decoration: none; color: #000;"><i class="bi bi-chat-left-heart"></i> Saved items</a></li>
+                            <li style="text-align: left; margin-bottom: 7px;"><a href="#" style="text-decoration: none; color: #000;"><i class="bi bi-person-check" style="color: #000;"></i> My Account</a></li>
+                            <li style="text-align: left; margin-bottom: 7px;"><a href="#" style="text-decoration: none; color: #000;"><i class="bi bi-box2-heart" style="color: #000; font-size: 20px;"></i></i> Orders</a></li>
+                            <li style="text-align: left; margin-bottom: 7px;"><a href="#" style="text-decoration: none; color: #000;"><i class="bi bi-chat-left-heart" style="color: #000; font-size: 20px;"></i></i> Saved items</a></li>
                         </ul>
+                        <script>
+                            // Get the account link and the popup buttons
+                            const accountLink = document.getElementById('popup-trigger');
+                            const popupButtons = document.getElementById('popup-buttons');
+
+                            // Add click event listener to the account link
+                            accountLink.addEventListener('click', function(event) {
+                                // Prevent the default behavior of the link
+                                event.preventDefault();
+                                // Toggle the visibility of the popup buttons
+                                if (popupButtons.style.display === 'none') {
+                                    popupButtons.style.display = 'block';
+                                } else {
+                                    popupButtons.style.display = 'none';
+                                }
+                            });
+                        </script>
+                        <br>
+                        <a href="#" class="nav-link account-nav-link">
+                            <i class="bi bi-patch-question-fill" style="font-size: 20px;"></i> Help
+                        </a>
                     <?php endif; ?>
-                    <a href="#" class="nav-link account-nav-link">
-                        <i class="bi bi-question-circle"></i> Help
-                    </a>
-                    <a href="#" class="nav-link account-nav-link">
-                        <i class="bi bi-cart3"></i> Cart
-                    </a>
-                </div>
-            </div>
-            <!-- Additional Navigation Row -->
-            <div class="navbar navbar-expand-lg" style="margin-top: -30px;">
-                <div class="">
-                    <!-- Toggler button for mobile view -->
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="navbar-collapse collapse" id="navbarNavDropdown">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="../../index.php">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../../products/index.php">Products</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../../collection/index.php">Collection</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../../features/index.php">Features</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../../blog/index.php">Blog</a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </nav>
+        <!-- Additional Navigation Row -->
+        <div class="navbar navbar-expand-lg navbar-light bg-light">
+
+            <div class="container-fluid">
+                <!-- Toggler button for mobile view -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+                    <ul class="navbar-nav" id="navbar-nav">
+                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="../__dashboard/index.php">My Home</a></li>
+                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="">My Products</a></li>
+                        <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="">My Collections</a></li>
+                        <!-- <li class="nav-item d-none d-lg-block" style="margin-right: 60px;"><a class="nav-link" href="../../features/index.php">Features</a></li> -->
+                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../blog/index.php">Blog</a></li>
+                        <li class="nav-item dropdown d-lg-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Menu
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="index.php">Home</a></li>
+                                <li><a class="dropdown-item" href="">Products</a></li>
+                                <li><a class="dropdown-item" href="">Collections</a></li>
+                                <li><a class="dropdown-item" href="">Features</a></li>
+                                <li><a class="dropdown-item" href="../../blog/index.php">Blog</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div>
     </header>
     <script>
         // Toggle visibility of collection's dropdown menu
         function toggleMenu() {
             var dropdownContent = document.querySelector('.dropdown-content');
             dropdownContent.style.display === 'block' ? dropdownContent.style.display = 'none' : dropdownContent.style.display = 'block';
-            content.classList.toggle('blur');
         }
-        
         //Hide visibility of collection's dropdown when "x" is clicked
         document.addEventListener("click", function(event) {
             let dropdown = document.querySelector(".dropdown");
             let dropdownContent = dropdown.querySelector(".dropdown-content");
+            let dropdownButton = dropdown.querySelector("button");
+            let closeButton = dropdown.querySelector(".close-button");
+
             let isClickedInsideDropdown = dropdown.contains(event.target);
 
             if (!isClickedInsideDropdown) {
@@ -207,13 +249,9 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
             let dropDownContent = document.getElementById("dropdownContent");
             dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
         }
-        
         // Add click event listener to the document to handle clicks outside of the buttons
         document.addEventListener('click', function(event) {
             const target = event.target;
-            const popupButtons = document.getElementById('popup-buttons');
-            const accountLink = document.getElementById('popup-trigger');
-            
             // Check if the click target is outside of the popup buttons and the account link
             if (target !== popupButtons && target !== accountLink) {
                 // Hide the popup buttons if they are currently visible

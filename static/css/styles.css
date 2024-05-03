@@ -5794,13 +5794,11 @@ textarea.form-control-lg {
 
 .carousel-inner {
   position: relative;
-  width: 100%;
   overflow: hidden;
 }
 .carousel-inner::after {
   display: block;
   clear: both;
-  content: "";
 }
 /* @media only screen and (max-width: 768pc){
   .carousel-inner video{
@@ -5813,7 +5811,7 @@ textarea.form-control-lg {
   }
 } */
 .carousel-item {
-  position: relative;
+  /* position: relative; */
   display: none;
   float: left;
   width: 100%;
@@ -5980,7 +5978,7 @@ textarea.form-control-lg {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 70%;
+  width: 80%;
   left: 10%;
   top: 45%;
   transform: translateY(-50%);
@@ -11538,7 +11536,7 @@ span.btn:hover{
 #carouselExampleCaptions{
   width: 98%;
   margin-top: 90px;
-  margin-left: 20px;
+  margin-left: 30px;
 }
 
 
@@ -11548,7 +11546,7 @@ span.btn:hover{
   width: 98%;
   height: 100%;
   margin-top: 30px;
-  margin-left: 20px;
+  margin-left: 30px;
   color: var(--bs-purple);
   display: flex;
   flex-direction: column;
@@ -11568,13 +11566,13 @@ span.btn:hover{
   }
 }
 .collection-container h1{
-  color: purple;
+  color: #000;
   font-weight: lighter;
   text-align: center;
   margin-top: 20px;
 }
 .collection-col{
-  background-color: white;
+  background-color: #f7d3f7;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
   margin-bottom: 20px;
   width: 100%;
@@ -11626,34 +11624,6 @@ span.btn:hover{
   margin-left: 25px;
 }
 
-
-
-
-/* Cart page styling */
-.main-section{
-  margin-top: 8em;
-  margin-bottom: 8em;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.main-section h2{
-  color: #800080;
-  margin-top: 0.5em;
-}
-.main-section button{
-  color: #fff;
-  background-color: #800080;
-  padding: 10px;
-  outline: none;
-  border: none;
-  font-weight: bolder;
-  margin-top: 0.5em;
-}
-.basket{
-  font-size: 5em;
-  color: #800080;
-}
 
 
 

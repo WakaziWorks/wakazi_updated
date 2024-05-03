@@ -2,58 +2,53 @@
 include("screens/headers/header.php")
 ?>
 
-
+<!-- Carousel Videos section -->
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        <!-- <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button> -->
     </div>
     <div class="carousel-inner ratio ratio-21x9">
-        <div class="carousel-item active" data-bs-interval="5000">
-            <video src="static/images/Universe.mp4" class="d-block h-20 w-100" autoplay muted loop></video>
+        <div class="carousel-item active" data-bs-interval="3000">
+            <video src="static/images/Universe.mp4" class="" autoplay muted loop></video>
             <div class="carousel-caption">
                 <h1 class="heading-h1">Artisans are the Alchemists.</h1>
                 <p>Artisans are the alchemists of our time, turning ordinary materials into works of wonder.</p>
-                <button style="font-size: 1.2em; background: #ff00ff;"><a href="#collection">Discover more</a></button>
+                <button style="font-size: 1.5em; background: #c837d1; font-weight: bold; border-radius: 100px; padding: 20px;"><a href="#collection">DISCOVER MORE</a></button>
             </div>
         </div>
-        <div class="carousel-item" data-bs-interval="5000">
-            <video src="static/images/Pottery.mp4" class="d-block h-20 w-100" autoplay muted loop></video>
-            <div class="carousel-caption">
-                <h1 class="heading-h1">The true Artisan.</h1>
-                <p>The true artisan is a seeker of beauty and truth, a philosopher of the tangible.</p>
-                <button style="font-size: 1.2em; background: #ff00ff;"><a href="#collection">Discover more</a></button>
-            </div>
-        </div>
-        <div class="carousel-item" data-bs-interval="5000">
-            <video src="static/images/Handtools.mp4" class="d-block h-20 w-100" autoplay muted loop></video>
+        <div class="carousel-item" data-bs-interval="3000">
+            <video src="static/images/Handtools.mp4" class="" autoplay muted loop></video>
             <div class="carousel-caption">
                 <h1 class="heading-h1">The silent Philosophers.</h1>
                 <p>Artisans are the silent philosophers of society, shaping the world with their hands and minds. </p>
-                <button style="font-size: 1.2em; background: #ff00ff;"><a href="#collection">Discover more</a></button>
+                <button style="font-size: 1.5em; background: #c837d1; font-weight: bold; border-radius: 100px; padding: 20px;"><a href="#collection">DISCOVER MORE</a></button>
             </div>
         </div>
-        
+        <div class="carousel-item" data-bs-interval="3000">
+            <video src="static/images/Pottery.mp4" class="" autoplay muted loop></video>
+            <div class="carousel-caption">
+                <h1 class="heading-h1">The true Artisan.</h1>
+                <p>The true artisan is a seeker of beauty and truth, a philosopher of the tangible.</p>
+                <button style="font-size: 1.5em; background: #c837d1; font-weight: bold; border-radius: 100px; padding: 20px;"><a href="#collection">DISCOVER MORE</a></button>
+            </div>
+        </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true" style="color: #ff00ff;"></span>
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true" style="color: #ff00ff;"></span>
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
     </button>
 </div>
 
-
-
 <!-- Collections -->
 <div class="collection-container justify-content-center" id="collection">
-    <h1 style="color: #ff00ff;">Shop by collections</h1>
-    <hr />
-    <div class="row">
+    <h1>Shop by collections</h1>
+    <div class="row gx-3">
         <div class="collection-col col-12 col-md mx-3">
             <h4>Jewellery</h4>
             <a href="#" onclick="redirectToCategory('jewellery')"><img src="static/images/jewellery.webp" alt="Jewellery" /></a>
