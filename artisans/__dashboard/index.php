@@ -192,76 +192,89 @@
 
 
 
-
-
-            <div class="container-fluid pt-4 px-4">
-                <div class="bg-light  rounded p-4">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Add Product</h6>
-                    </div>
-                    <div class="container mt-5">
-                        <form method="post" action="add_product.php">
-                            <div class="form-group">
-                                <label for="productName">Product Name:</label>
-                                <input type="text" class="form-control" id="productName" name="productName" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="supplierID">Supplier ID:</label>
-                                <input type="text" class="form-control" id="supplierID" name="supplierID">
-                            </div>
-                            <div class="form-group">
-                                <label for="categoryID">Category ID:</label>
-                                <input type="text" class="form-control" id="categoryID" name="categoryID">
-                            </div>
-                            <div class="form-group">
-                                <label for="unit">Unit:</label>
-                                <input type="text" class="form-control" id="unit" name="unit">
-                            </div>
-                            <div class="form-group">
-                                <label for="price">Price:</label>
-                                <input type="text" class="form-control" id="price" name="price" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                    </div>
+<!-- Add Product Form -->
+<div class="container-fluid pt-4 px-4">
+    <div class="bg-light rounded p-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <h6 class="mb-0">Add Product</h6>
+        </div>
+        <div class="container mt-5">
+            <form method="post" action="add_product.php">
+                <div class="form-group">
+                    <label for="productName">Product Name:</label>
+                    <input type="text" class="form-control" id="productName" name="productName" required>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label for="supplierID">Supplier ID:</label>
+                    <input type="text" class="form-control" id="supplierID" name="supplierID" pattern="\d+" title="Please enter a numeric value">
+                </div>
+                <div class="form-group">
+                    <label for="categoryID">Category:</label>
+                    <select class="form-control" id="categoryID" name="categoryID" required>
+                        <option value="">Select Category</option>
+                        <?php
+                        // Include your database connection file
+                        require 'config.php';
 
-            <script>
-                // Assuming jQuery is included
-                $('.edit-btn').click(function() {
-                    var productId = $(this).data('id');
-                    var productName = $(this).data('name');
-                    var price = $(this).data('price');
+                        // Query to fetch categories from the database
+                        $query = "SELECT CategoryID, CategoryName FROM Categories";
+                        $result = $mysqli->query($query);
 
-                    // Set the values in the modal inputs
-                    $('#editProductId').val(productId);
-                    $('#editProductName').val(productName);
-                    $('#editPrice').val(price);
-
-                    // Show the modal
-                    $('#editProductModal').modal('show');
-                });
-                $('#editProductForm').on('submit', function(e) {
-                    e.preventDefault();
-
-                    var formData = $(this).serialize(); // Serialize the form data
-
-                    $.ajax({
-                        url: 'edit_product_processing.php', // PHP file to process the form
-                        type: 'POST',
-                        data: formData,
-                        success: function(response) {
-                            alert('Product updated successfully!');
-                            $('#editProductModal').modal('hide');
-                            // Optionally refresh part of your page or re-fetch the products list
-                        },
-                        error: function() {
-                            alert('Something went wrong. Please try again.');
+                        // Check if categories exist
+                        if ($result->num_rows > 0) {
+                            // Loop through each category and create an option element
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<option value='" . $row['CategoryID'] . "'>" . $row['CategoryName'] . "</option>";
+                            }
                         }
-                    });
-                });
-            </script>
+                        // Close the database connection
+                        $mysqli->close();
+                        ?>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="unit">Unit:</label>
+                    <input type="text" class="form-control" id="unit" name="unit">
+                </div>
+                <div class="form-group">
+                    <label for="price">Price:</label>
+                    <input type="text" class="form-control" id="price" name="price" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- Edit Product Modal -->
+<div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductModalLabel" aria-hidden="true">
+    <!-- Modal content here -->
+</div>
+
+<script>
+    // jQuery script for edit product modal
+    $('.edit-btn').click(function() {
+        // Code to populate the modal with product details and show it
+    });
+
+    // AJAX request to handle product update
+    $('#editProductForm').on('submit', function(e) {
+        // Code to handle AJAX request for product update
+    });
+
+    // jQuery script to fetch and populate categories in add product form
+    $(document).ready(function() {
+        $.ajax({
+            url: 'fetch_categories.php', // PHP script to fetch categories
+            method: 'GET',
+            success: function(response) {
+                $('#categoryID').html(response); // Populate select options with categories
+            }
+        });
+    });
+</script>
+
 
 
             <!-- Edit Product Modal -->
