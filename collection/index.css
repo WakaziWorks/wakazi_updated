@@ -28,6 +28,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 10em;
   }
 .collections{
     justify-content: center;
@@ -46,7 +47,8 @@ body{
     position: absolute;
     top: 68%;
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 8em;
+    margin-top: 10em;
 }
 .collection-item{
     padding: 20px;
@@ -55,8 +57,8 @@ body{
 .collection-item img{
     border-radius: 50%;
     cursor: pointer;
-    height: 12em;
-    width: 12em;
+    height: 17em;
+    width: 17em;
     transition: box-shadow 0.3s ease;
 }
 .collection-item:hover img{
