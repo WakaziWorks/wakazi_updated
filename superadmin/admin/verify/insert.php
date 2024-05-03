@@ -6,10 +6,10 @@ require 'config.php'; // Include your configuration file with database connectio
 
 // Array of admin records with hashed passwords
 $admins = [
-    ['email' => 'admin@wakazi.com', 'password' => password_hash('superadmin123', PASSWORD_DEFAULT), 'name' => 'Super Admin', 'role' => 'sa'],
-    ['email' => 'productmanager@wakazi.com', 'password' => password_hash('productmanager123', PASSWORD_DEFAULT), 'name' => 'Product Manager', 'role' => 'pm'],
-    ['email' => 'hexanetsystems@wakazi.com', 'password' => password_hash('supermanager123', PASSWORD_DEFAULT), 'name' => 'Super Manager', 'role' => 'sm'],
-    ['email' => 'manager@wakazi.com', 'password' => password_hash('manager123', PASSWORD_DEFAULT), 'name' => 'Manager', 'role' => 'm']
+    ['email' => 'admin@wakazi.com', 'password' => password_hash('hexanetsystems485', PASSWORD_DEFAULT), 'name' => 'Super Admin', 'role' => 'sa'],
+    ['email' => 'productmanager@wakazi.com', 'password' => password_hash('pm@2024!wakazi', PASSWORD_DEFAULT), 'name' => 'Product Manager', 'role' => 'pm'],
+    ['email' => 'hexanetsystems@wakazi.com', 'password' => password_hash('pm@2024!wakazi', PASSWORD_DEFAULT), 'name' => 'Super Manager', 'role' => 'sm'],
+    ['email' => 'manager@wakazi.com', 'password' => password_hash('pm@2024!wakazi', PASSWORD_DEFAULT), 'name' => 'Manager', 'role' => 'm']
 ];
 
 // Start transaction
