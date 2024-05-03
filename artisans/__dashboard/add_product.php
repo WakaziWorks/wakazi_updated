@@ -30,11 +30,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $images = $_FILES['images'];
         $imageData = [];
 
-        // Loop through uploaded files
         foreach ($images['tmp_name'] as $index => $tmpName) {
             $imageName = $images['name'][$index];
             $imageTmpName = $images['tmp_name'][$index];
             $imageType = $images['type'][$index];
+
+            // Check if file was uploaded successfully
+            if (!is_uploaded_file($imageTmpName)) {
+                $errors[] = "File $imageName could not be uploaded.";
+                continue; // Skip to the next iteration
+            }
 
             // Check file extension
             $allowedExtensions = array('jpg', 'jpeg', 'png', 'gif');
@@ -42,7 +47,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!in_array(strtolower($fileExtension), $allowedExtensions)) {
                 $errors[] = "File $imageName has an invalid file type. Only JPG, JPEG, PNG, and GIF files are allowed.";
             } else {
-                $imageData[] = file_get_contents($imageTmpName); // Read file content
+                // Read file content
+                $fileContent = file_get_contents($imageTmpName);
+                if ($fileContent === false) {
+                    $errors[] = "Failed to read file $imageName.";
+                } else {
+                    $imageData[] = $fileContent;
+                }
             }
         }
     } else {
@@ -85,9 +96,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "<script>alert('Database preparation error: " . htmlspecialchars($mysqli->error) . "'); window.location.href='add_product.php';</script>";
     }
-    
+
     $mysqli->close();
 } else {
     echo "<script>alert('No data submitted.'); window.location.href='add_product.php';</script>";
 }
-?>
