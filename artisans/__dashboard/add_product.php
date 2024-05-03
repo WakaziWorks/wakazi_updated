@@ -18,11 +18,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $errors = [];
     $artisanID = $_SESSION['artisan_id'];
-    $productName = $_POST['productName'] ?? null;
+    $productName = $_POST['productName'];
     $supplierID = $_POST['supplierID'] ?? null; // Use NULL for optional fields
-    $categoryID = $_POST['categoryID'] ?? null;
+    $categoryID = $_POST['categoryID'];
     $unit = $_POST['unit'] ?? null;
     $price = $_POST['price'] ?? null;
+
+    // Check if files are uploaded
+    if (!empty($_FILES['images']['name'][0])) {
+        $images = $_FILES['images'];
+        $imageData = [];
+
+        // Loop through uploaded files
+        foreach ($images['tmp_name'] as $index => $tmpName) {
+            $imageName = $images['name'][$index];
+            $imageTmpName = $images['tmp_name'][$index];
+            $imageType = $images['type'][$index];
+
+            // Check file type
+            if (strpos($imageType, 'image') === false) {
+                $errors[] = "File $imageName is not an image.";
+            } else {
+                $imageData[] = file_get_contents($imageTmpName); // Read file content
+            }
+        }
+    } else {
+        $errors[] = "No images uploaded.";
+    }
 
     // Validate required fields
     if (empty($productName)) {
@@ -44,14 +66,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $mysqli->connect_error);
     }
 
-    $query = "INSERT INTO ArtisanProducts (artisan_id, ProductName, SupplierID, CategoryID, Unit, Price) VALUES (?, ?, ?, ?, ?, ?)";
+    // Prepare and execute SQL statement
+    $query = "INSERT INTO ArtisanProducts (artisan_id, ProductName, SupplierID, CategoryID, Unit, Price, image) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
     if ($stmt = $mysqli->prepare($query)) {
-        $stmt->bind_param("isiiis", $artisanID, $productName, $supplierID, $categoryID, $unit, $price);
-        if ($stmt->execute()) {
-            echo "<script>alert('Product submitted successfully and awaits approval.'); window.location.href='index.php';</script>";
-        } else {
-            echo "<script>alert('Error submitting product: " . htmlspecialchars($stmt->error) . "'); window.location.href='add_product.php';</script>";
+        foreach ($imageData as $image) {
+            $stmt->bind_param("isiiiss", $artisanID, $productName, $supplierID, $categoryID, $unit, $price, $image);
+            if ($stmt->execute()) {
+                echo "<script>alert('Product submitted successfully and awaits approval.'); window.location.href='index.php';</script>";
+            } else {
+                echo "<script>alert('Error submitting product: " . htmlspecialchars($stmt->error) . "'); window.location.href='add_product.php';</script>";
+            }
         }
         $stmt->close();
     } else {
