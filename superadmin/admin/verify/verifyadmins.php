@@ -29,10 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_PO
 
                 // Determine the appropriate dashboard based on the user's role
                 $redirectMap = [
-                    'sa' => '../superadmin_dashboard.php',
-                    'pm' => '../productmanager_dashboard.php',
-                    'sm' => '../supermanager_dashboard.php',
-                    'm' => '../manager_dashboard.php',
+                    'sa' => '../dashboard/dashboard.php',
+                    'pm' => '../dashboard/pm.php',
+                    'sm' => '../dashboard/sm.php',
+                    'm' => '../dashboard/m.php',
                 ];
                 $redirectPage = $redirectMap[$role] ?? '../login.php';
                 header("Location: $redirectPage");
