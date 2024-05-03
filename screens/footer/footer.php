@@ -21,7 +21,7 @@
         cursor: pointer;
     }
 </style>
-
+</div>
 <section class="footer-top" id="footer-1" style="background-color: #e868f0;">
     <div class="container text-center">
         <div class="row align-items-center flex-column flex-sm-row">
