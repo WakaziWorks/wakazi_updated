@@ -59,7 +59,7 @@
 
                     if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                         echo "<script>alert('You are not logged in. Please log in to continue.');
-                        window.location.href = 'login.php'; // Redirect to the login page</script>";
+                        window.location.href = '../index.php'; // Redirect to the login page</script>";
                         exit;
                     }
                     ?>
