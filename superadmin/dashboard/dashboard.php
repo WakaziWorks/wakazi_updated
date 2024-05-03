@@ -55,7 +55,7 @@
                     </div>
 
                     <?php
-                    session_start();
+
 
                     if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                         echo "<script>alert('You are not logged in. Please log in to continue.');
@@ -108,19 +108,16 @@
         <div class="content">
             <!-- Navbar Start -->
             <?php
-            // Start the session and include necessary files
-            ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-            session_start();
-            require 'config.php'; // Adjust this path as necessary
+            require 'config.php'; // Make sure this path is correct
 
-            // Query the database for unapproved products
-            $query = "SELECT COUNT(*) AS unapproved_count FROM Product WHERE is_approved = FALSE";
+            // Query the database for pending products
+            $query = "SELECT COUNT(*) AS pending_count FROM Products WHERE ApprovalStatus = 'pending'";
             $result = $mysqli->query($query);
-            $unapprovedProduct = $result->fetch_assoc();
+            $pendingProducts = $result->fetch_assoc();
 
             // Continue with your existing navbar and other HTML
             ?>
+
 
             <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
                 <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
@@ -133,18 +130,27 @@ ini_set('display_startup_errors', 1);
                     <input class="form-control border-0" type="search" placeholder="Search">
                 </form>
                 <div class="navbar-nav align-items-center ms-auto">
-                    <!-- Notifications for unapproved products -->
+                    <!-- Notifications for pending product approvals -->
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <i class="fa fa-bell me-lg-2"></i>
                             <span class="d-none d-lg-inline-flex">Notifications</span>
+                            <?php if ($pendingProducts['pending_count'] > 0) : ?>
+                                <span class="badge bg-danger"><?= $pendingProducts['pending_count'] ?></span>
+                            <?php endif; ?>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">
-                                <h6 class="fw-normal mb-0">You have <?= $unapprovedProduct['unapproved_count']; ?> unapproved products</h6>
-                                <small>Click to review</small>
-                            </a>
-                            <hr class="dropdown-divider">
+                            <?php if ($pendingProducts['pending_count'] > 0) : ?>
+                                <a href="#" class="dropdown-item">
+                                    <h6 class="fw-normal mb-0">Pending products to approve</h6>
+                                    <small><?= $pendingProducts['pending_count'] ?> pending approval</small>
+                                </a>
+                                <hr class="dropdown-divider">
+                            <?php else : ?>
+                                <a href="#" class="dropdown-item">
+                                    <h6 class="fw-normal mb-0">No pending products</h6>
+                                </a>
+                            <?php endif; ?>
                             <a href="#" class="dropdown-item text-center">See all notifications</a>
                         </div>
                     </div>
@@ -165,6 +171,7 @@ ini_set('display_startup_errors', 1);
                     </div>
                 </div>
             </nav>
+
 
             <!-- Navbar End -->
 
