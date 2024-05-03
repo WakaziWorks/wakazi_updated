@@ -30,7 +30,7 @@ if(isset($_GET['product_id']) && !empty($_GET['product_id'])) {
                 $productData = $productResult->fetch_assoc();
                 
                 // Insert the approved product into the Products table
-                $insertQuery = "INSERT INTO Products (ProductName, SupplierID, CategoryID, Unit, Price, image_url, is_featured) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                $insertQuery = "INSERT INTO Products (ProductName, SupplierID, CategoryID, Unit, Price, is_featured, image,) VALUES (?, ?, ?, ?, ?, ?, ?)";
                 $insertStmt = $mysqli->prepare($insertQuery);
                 $insertStmt->bind_param("siisdsi", $productData['ProductName'], $productData['SupplierID'], $productData['CategoryID'], $productData['Unit'], $productData['Price'], $productData['image_url'], $productData['is_featured']);
                 
