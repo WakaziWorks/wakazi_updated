@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
 
             // Check file extension
-            $allowedExtensions = array('jpg', 'jpeg', 'png', 'gif');
+            $allowedExtensions = array('jpg','JPG','jpeg', 'png', 'gif');
             $fileExtension = pathinfo($imageName, PATHINFO_EXTENSION);
             if (!in_array(strtolower($fileExtension), $allowedExtensions)) {
                 $errors[] = "File $imageName has an invalid file type. Only JPG, JPEG, PNG, and GIF files are allowed.";
