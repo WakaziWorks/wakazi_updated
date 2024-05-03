@@ -57,12 +57,12 @@
                     <?php
 
 
-                    if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
-                        echo "<script>alert('You are not logged in. Please log in to continue.');
-                        window.location.href = '../index.php'; // Redirect to the login page</script>";
-                        exit;
-                    }
-                    ?>
+                    // if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
+                    //     echo "<script>alert('You are not logged in. Please log in to continue.');
+                    //     window.location.href = '../index.php'; // Redirect to the login page</script>";
+                    //     exit;
+                    // }
+                    // ?>
 
                     <div class="ms-3">
                         <h6 class="mb-0"><?php echo $_SESSION['name']; ?></h6> <!-- Display username from session -->
