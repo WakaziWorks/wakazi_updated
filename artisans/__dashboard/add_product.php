@@ -26,41 +26,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $description = $_POST['description'];
 
     // Check if files are uploaded
-    // Process file upload
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Check if file was uploaded without errors
-        if (isset($_FILES["image"]) && $_FILES["image"]["error"] == UPLOAD_ERR_OK) {
-            $fileName = $_FILES["image"]["name"];
-            $fileTmpName = $_FILES["image"]["tmp_name"];
-            $fileSize = $_FILES["image"]["size"];
-            $fileType = $_FILES["image"]["type"];
+    if (!empty($_FILES['images']['name'][0])) {
+        $images = $_FILES['images'];
+        $imageData = [];
 
-            // Validate file size and type
-            $allowedExtensions = array("jpg", "jpeg", "png", "gif");
-            $maxFileSize = 10 * 1024 * 1024; // 10MB
-            if (in_array(strtolower(pathinfo($fileName, PATHINFO_EXTENSION)), $allowedExtensions) && $fileSize <= $maxFileSize) {
-                // Move the uploaded file to a permanent location
-                $uploadDir = "uploads/";
-                $filePath = $uploadDir . $fileName;
-                if (move_uploaded_file($fileTmpName, $filePath)) {
-                    // Store file information in the database
-                    $query = "INSERT INTO files (filename, filepath, filesize, filetype) VALUES (?, ?, ?, ?)";
-                    $stmt = $mysqli->prepare($query);
-                    $stmt->bind_param("ssis", $fileName, $filePath, $fileSize, $fileType);
-                    $stmt->execute();
-                    $stmt->close();
-                    echo "File uploaded successfully.";
-                } else {
-                    echo "Error moving file to destination directory.";
-                }
-            } else {
-                echo "Invalid file. Please upload a JPG, JPEG, PNG, or GIF file (up to 10MB in size).";
+        foreach ($images['tmp_name'] as $index => $tmpName) {
+            $imageName = $images['name'][$index];
+            $imageTmpName = $images['tmp_name'][$index];
+            $imageType = $images['type'][$index];
+
+            // Check if file was uploaded successfully
+            if (!is_uploaded_file($imageTmpName)) {
+                $errors[] = "File $imageName could not be uploaded.";
+                continue; // Skip to the next iteration
             }
-        } else {
-            $errors[] = "No images uploaded.";
-        }
-    }
 
+            // Check file extension
+            $allowedExtensions = array('jpg','JPG','jpeg', 'png', 'gif');
+            $fileExtension = pathinfo($imageName, PATHINFO_EXTENSION);
+            if (!in_array(strtolower($fileExtension), $allowedExtensions)) {
+                $errors[] = "File $imageName has an invalid file type. Only JPG, JPEG, PNG, and GIF files are allowed.";
+            } else {
+                // Read file content
+                $fileContent = file_get_contents($imageTmpName);
+                if ($fileContent === false) {
+                    $errors[] = "Failed to read file $imageName.";
+                } else {
+                    $imageData[] = $fileContent;
+                }
+            }
+        }
+    } else {
+        $errors[] = "No images uploaded.";
+    }
 
     // Validate required fields
     if (empty($productName)) {
