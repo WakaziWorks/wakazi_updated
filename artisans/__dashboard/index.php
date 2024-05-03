@@ -1,6 +1,6 @@
-<?php 
+<!-- <?php 
     require "../__auth/__config/config.php";
-?>
+?> -->
 <!DOCTYPE html>
 <html lang="en">
 
