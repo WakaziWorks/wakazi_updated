@@ -66,7 +66,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                 <!-- User Display Section -->
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        <img class="rounded-circle" src="<?php echo 'uploads/' . $_SESSION['profile_image']; ?>" alt="User" style="width: 40px; height: 40px;">
+                        <img class="rounded-circle" src="" alt="User" style="width: 40px; height: 40px;">
                     </div>
 
                 

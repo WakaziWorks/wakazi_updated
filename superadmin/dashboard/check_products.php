@@ -1,6 +1,6 @@
 
             <?php
-            session_start(); // Start the session if not already started
+            // session_start(); // Start the session if not already started
             require "../admin/verify/config.php"; // Make sure this path is correct
             
             // Query the database for pending products
@@ -9,3 +9,5 @@
             $pendingProducts = $result->fetch_assoc();
             ?>
             
+          
+
