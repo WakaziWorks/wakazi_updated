@@ -180,9 +180,6 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
             </nav>
 
 
-            <?php
-require 'config.php'; // Include your configuration file with database connection
-?>
 
 <div class="container">
     <div class="row">
