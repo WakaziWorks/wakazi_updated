@@ -25,51 +25,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $price = $_POST['price'];
     $description = $_POST['description'];
 
-    // Check if file was uploaded without errors
-    if (isset($_FILES["image"]) && $_FILES["image"]["error"] == UPLOAD_ERR_OK) {
-        $fileName = $_FILES["image"]["name"];
-        $fileTmpName = $_FILES["image"]["tmp_name"];
-        $fileSize = $_FILES["image"]["size"];
-        $fileType = $_FILES["image"]["type"];
+    // Check if files are uploaded
+    // Process file upload
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Check if file was uploaded without errors
+        if (isset($_FILES["image"]) && $_FILES["image"]["error"] == UPLOAD_ERR_OK) {
+            $fileName = $_FILES["image"]["name"];
+            $fileTmpName = $_FILES["image"]["tmp_name"];
+            $fileSize = $_FILES["image"]["size"];
+            $fileType = $_FILES["image"]["type"];
 
-        // Validate file size and type
-        $allowedExtensions = array("jpg", "jpeg", "png", "gif");
-        $maxFileSize = 10 * 1024 * 1024; // 10MB
-        if (in_array(strtolower(pathinfo($fileName, PATHINFO_EXTENSION)), $allowedExtensions) && $fileSize <= $maxFileSize) {
-            // Move the uploaded file to a permanent location
-            $uploadDir = "uploads/";
-            $filePath = $uploadDir . $fileName;
-            if (move_uploaded_file($fileTmpName, $filePath)) {
-                // Store file information in the database
-                $fileQuery = "INSERT INTO Files (FileName, FilePath, FileSize, FileType, ArtisanID) VALUES (?, ?, ?, ?, ?)";
-                $fileStmt = $mysqli->prepare($fileQuery);
-                $fileStmt->bind_param("ssisi", $fileName, $filePath, $fileSize, $fileType, $artisanID);
-                if ($fileStmt->execute()) {
-                    $fileID = $fileStmt->insert_id;
-                    $fileStmt->close();
-
-                    // Insert product information into ArtisanProducts table
-                    $productQuery = "INSERT INTO ArtisanProducts (artisan_id, ProductName, SupplierID, CategoryID, Unit, Price, image, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-                    $productStmt = $mysqli->prepare($productQuery);
-                    $productStmt->bind_param("isiiisss", $artisanID, $productName, $supplierID, $categoryID, $unit, $price, $filePath, $description);
-                    if ($productStmt->execute()) {
-                        echo "<script>alert('Product submitted successfully and awaits approval.'); window.location.href='index.php';</script>";
-                    } else {
-                        echo "<script>alert('Error submitting product: " . htmlspecialchars($productStmt->error) . "'); window.location.href='add_product.php';</script>";
-                    }
-                    $productStmt->close();
+            // Validate file size and type
+            $allowedExtensions = array("jpg", "jpeg", "png", "gif");
+            $maxFileSize = 10 * 1024 * 1024; // 10MB
+            if (in_array(strtolower(pathinfo($fileName, PATHINFO_EXTENSION)), $allowedExtensions) && $fileSize <= $maxFileSize) {
+                // Move the uploaded file to a permanent location
+                $uploadDir = "uploads/";
+                $filePath = $uploadDir . $fileName;
+                if (move_uploaded_file($fileTmpName, $filePath)) {
+                    // Store file information in the database
+                    $query = "INSERT INTO files (filename, filepath, filesize, filetype) VALUES (?, ?, ?, ?)";
+                    $stmt = $mysqli->prepare($query);
+                    $stmt->bind_param("ssis", $fileName, $filePath, $fileSize, $fileType);
+                    $stmt->execute();
+                    $stmt->close();
+                    echo "File uploaded successfully.";
                 } else {
-                    echo "<script>alert('Error storing file information: " . htmlspecialchars($fileStmt->error) . "'); window.location.href='add_product.php';</script>";
+                    echo "Error moving file to destination directory.";
                 }
             } else {
-                echo "Error moving file to destination directory.";
+                echo "Invalid file. Please upload a JPG, JPEG, PNG, or GIF file (up to 10MB in size).";
             }
         } else {
-            echo "Invalid file. Please upload a JPG, JPEG, PNG, or GIF file (up to 10MB in size).";
+            $errors[] = "No images uploaded.";
         }
-    } else {
-        $errors[] = "No images uploaded.";
     }
+
 
     // Validate required fields
     if (empty($productName)) {
@@ -86,8 +77,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
+    // Check the database connection
+    if ($mysqli->connect_error) {
+        die("Connection failed: " . $mysqli->connect_error);
+    }
+
+    // Prepare and execute SQL statement
+    $query = "INSERT INTO ArtisanProducts (artisan_id, ProductName, SupplierID, CategoryID, Unit, Price, image, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+    if ($stmt = $mysqli->prepare($query)) {
+        foreach ($imageData as $image) {
+            $stmt->bind_param("isiiiiss", $artisanID, $productName, $supplierID, $categoryID, $unit, $price, $image, $description);
+            if ($stmt->execute()) {
+                echo "<script>alert('Product submitted successfully and awaits approval.'); window.location.href='index.php';</script>";
+            } else {
+                echo "<script>alert('Error submitting product: " . htmlspecialchars($stmt->error) . "'); window.location.href='add_product.php';</script>";
+            }
+        }
+        $stmt->close();
+    } else {
+        echo "<script>alert('Database preparation error: " . htmlspecialchars($mysqli->error) . "'); window.location.href='add_product.php';</script>";
+    }
+
     $mysqli->close();
 } else {
     echo "<script>alert('No data submitted.'); window.location.href='add_product.php';</script>";
 }
-?>
