@@ -109,6 +109,8 @@
             <!-- Navbar Start -->
             <?php
             // Start the session and include necessary files
+            ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
             session_start();
             require 'config.php'; // Adjust this path as necessary
 
