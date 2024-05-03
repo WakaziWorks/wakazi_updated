@@ -31,7 +31,15 @@ include("../screens/headers/header.php");
                     // Loop through each product and display its details
                     while ($row = $result->fetch_assoc()) {
                         echo "<div class='col product-details'>";
-                        // echo "<img src='{$row['image']}' alt='Product' />";
+                        if (!empty($row['image'])) {
+                            // Convert the binary image data to base64 format
+                            $imageData = base64_encode($row['image']);
+                            // Output the image using base64 format
+                            echo "<img src='data:image/jpeg;base64,{$imageData}' alt='Product' />";
+                        } else {
+                            // If no image data is available, display a placeholder image
+                            echo "<img src='placeholder.jpg' alt='Product Placeholder' />";
+                        }
                         echo "<p class='description'>{$row['description']}</p>";
                         echo "<div class='product-price'>KES. {$row['Price']}</div>";
                         echo "<div class='cart-button'>";
