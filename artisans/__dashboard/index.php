@@ -193,39 +193,57 @@
 
 
 
-
             <div class="container-fluid pt-4 px-4">
-                <div class="bg-light  rounded p-4">
+                <div class="bg-light rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <h6 class="mb-0">Add Product</h6>
                     </div>
                     <div class="container mt-5">
-                        <form method="post" action="add_product.php">
-                            <div class="form-group">
-                                <label for="productName">Product Name:</label>
-                                <input type="text" class="form-control" id="productName" name="productName" required>
+                        <form method="post" action="add_product.php" enctype="multipart/form-data">
+                            <div class="row">
+                                <!-- First column -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="productName">Product Name:</label>
+                                        <input type="text" class="form-control" id="productName" name="productName" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="supplierID">Supplier ID:</label>
+                                        <input type="text" class="form-control" id="supplierID" name="supplierID">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="categoryID">Category ID:</label>
+                                        <input type="text" class="form-control" id="categoryID" name="categoryID">
+                                    </div>
+                                </div>
+                                <!-- Second column -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="unit">Unit:</label>
+                                        <input type="text" class="form-control" id="unit" name="unit">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description">Description:</label>
+                                        <input type="text" class="form-control" id="description" name="description">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="price">Price:</label>
+                                        <input type="text" class="form-control" id="price" name="price" required>
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="supplierID">Supplier ID:</label>
-                                <input type="text" class="form-control" id="supplierID" name="supplierID">
-                            </div>
-                            <div class="form-group">
-                                <label for="categoryID">Category ID:</label>
-                                <input type="text" class="form-control" id="categoryID" name="categoryID">
-                            </div>
-                            <div class="form-group">
-                                <label for="unit">Unit:</label>
-                                <input type="text" class="form-control" id="unit" name="unit">
-                            </div>
-                            <div class="form-group">
-                                <label for="price">Price:</label>
-                                <input type="text" class="form-control" id="price" name="price" required>
+                                <label for="images">Upload Images:</label>
+                                <input type="file" class="form-control" id="images" name="images[]" accept="image/*" multiple required>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
                 </div>
             </div>
+
+
+
 
             <script>
                 // Assuming jQuery is included

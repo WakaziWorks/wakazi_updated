@@ -37,21 +37,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     exit();
                 } else {
                     // Password does not match
-                    echo '<script>alert("Invalid email or password."); window.location.href = "login.php";</script>';
+                    echo '<script>alert("Invalid email or password."); window.location.href = "../artisanapp/login.php";</script>';
                     exit();
                 }
             } else {
                 // No user found with that email
-                echo '<script>alert("Invalid email or password."); window.location.href = "login.php";</script>';
+                echo '<script>alert("Invalid email or password."); window.location.href = "../artisanapp/login.php";</script>';
                 exit();
             }
             $stmt->close(); // Close statement
         } else {
-            echo '<script>alert("Something went wrong with the SQL statement."); window.location.href = "login.php";</script>';
+            echo '<script>alert("Something went wrong with the SQL statement."); window.location.href = "../artisanapp/login.php";</script>';
             exit();
         }
     } else {
-        echo '<script>alert("Please fill in all required fields."); window.location.href = "login.php";</script>';
+        echo '<script>alert("Please fill in all required fields."); window.location.href = "../artisanapp/login.php";</script>';
         exit();
     }
 }

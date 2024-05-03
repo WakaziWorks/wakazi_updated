@@ -69,7 +69,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                         <img class="rounded-circle" src="" alt="User" style="width: 40px; height: 40px;">
                     </div>
 
-                
+
 
                     <div class="ms-3">
                         <h6 class="mb-0"><?php echo $_SESSION['name']; ?></h6> <!-- Display username from session -->
@@ -114,7 +114,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
         <!-- Content Start -->
         <div class="content">
             <!-- Navbar Start -->
-          
+
 
 
             <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
@@ -160,62 +160,94 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                         </a>
                         <!-- Drop-down menu items for messages -->
                     </div>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">John Doe</span>
-                        </a>
-                        <!-- Drop-down menu items for user profile -->
+
+                    <div class="navbar-nav align-items-center ms-auto">
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                <span class="d-none d-lg-inline-flex">
+                                    <h6 class="mb-0"><?php echo $_SESSION['name']; ?>
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                                <a href="profile.php" class="dropdown-item">My Profile</a>
+                                <a href="#" class="dropdown-item">Settings</a>
+                                <a href="../../__logout/__logout.php" class="dropdown-item">Log Out</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </nav>
 
 
-            <!-- Navbar End -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <?php
+            // Fetch products from ArtisanProducts table where ApprovalStatus is 'pending'
+            $query = "SELECT * FROM ArtisanProducts WHERE ApprovalStatus = 'pending'";
+            $result = $mysqli->query($query);
+
+            // Display the table with CRUD functionality for ArtisanProducts
+            echo "<h2>Artisan Products (Pending Approval)</h2>";
+            echo "<table class='table table-bordered'>";
+            echo "<tr><th>Product ID</th><th>Artisan ID</th><th>Product Name</th><th>Supplier ID</th><th>Category ID</th><th>Unit</th><th>Price</th><th>Action</th></tr>";
+
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>{$row['ProductID']}</td>";
+                echo "<td>{$row['artisan_id']}</td>";
+                echo "<td>{$row['ProductName']}</td>";
+                echo "<td>{$row['SupplierID']}</td>";
+                echo "<td>{$row['CategoryID']}</td>";
+                echo "<td>{$row['Unit']}</td>";
+                echo "<td>{$row['Price']}</td>";
+                echo "<td><a href='approve_product.php?product_id={$row['ProductID']}' class='btn btn-primary'>Approve</a></td>"; // Link to approve product
+                echo "</tr>";
+            }
+
+            echo "</table>";
+            ?>
+        </div>
+        <div class="col-md-6">
+            <?php
+            // Fetch products from Products table
+            $query = "SELECT * FROM Products";
+            $result = $mysqli->query($query);
+
+            // Display the table with products from Products table
+            echo "<h2>All Products</h2>";
+            echo "<table class='table table-bordered'>";
+            echo "<tr><th>Product ID</th><th>Product Name</th><th>Supplier ID</th><th>Category ID</th><th>Unit</th><th>Price</th><th>Image URL</th><th>Is Featured</th></tr>";
+
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>{$row['ProductID']}</td>";
+                echo "<td>{$row['ProductName']}</td>";
+                echo "<td>{$row['SupplierID']}</td>";
+                echo "<td>{$row['CategoryID']}</td>";
+                echo "<td>{$row['Unit']}</td>";
+                echo "<td>{$row['Price']}</td>";
+                echo "<td>{$row['image_url']}</td>";
+                echo "<td>{$row['is_featured']}</td>";
+                echo "</tr>";
+            }
+
+            echo "</table>";
+            ?>
+        </div>
+    </div>
+</div>
+
+<?php
+$mysqli->close();
+?>
 
 
-            <!-- Sale & Revenue Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-line fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Today Sale</p>
-                                <h6 class="mb-0">$1234</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-bar fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Total Sale</p>
-                                <h6 class="mb-0">$1234</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-area fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Today Revenue</p>
-                                <h6 class="mb-0">$1234</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-pie fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Total Revenue</p>
-                                <h6 class="mb-0">$1234</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Sale & Revenue End -->
+
+
+
 
 
             <!-- Sales Chart Start -->
