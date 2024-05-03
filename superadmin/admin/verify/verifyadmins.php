@@ -6,28 +6,6 @@ error_reporting(E_ALL);
 session_start();
 require 'config.php'; // Include your configuration file with database connection
 
-// Function to insert admin records if not already present
-function insertAdminsIfNeeded($mysqli) {
-    $checkQuery = "SELECT COUNT(*) as count FROM admins";
-    if ($result = $mysqli->query($checkQuery)) {
-        $data = $result->fetch_assoc();
-        if ($data['count'] == 0) { // Only insert if no admins are present
-            $admins = [
-                ['email' => 'admin@wakazi.com', 'password' => password_hash('superadmin123', PASSWORD_DEFAULT), 'name' => 'Super Admin', 'role' => 'sa'],
-                ['email' => 'productmanager@wakazi.com', 'password' => password_hash('productmanager123', PASSWORD_DEFAULT), 'name' => 'Product Manager', 'role' => 'pm'],
-                ['email' => 'hexanetsystems@wakazi.com', 'password' => password_hash('supermanager123', PASSWORD_DEFAULT), 'name' => 'Super Manager', 'role' => 'sm'],
-                ['email' => 'manager@wakazi.com', 'password' => password_hash('manager123', PASSWORD_DEFAULT), 'name' => 'Manager', 'role' => 'm']
-            ];
-            $stmt = $mysqli->prepare("INSERT INTO admins (email, password, name, role) VALUES (?, ?, ?, ?)");
-            foreach ($admins as $admin) {
-                $stmt->bind_param("ssss", $admin['email'], $admin['password'], $admin['name'], $admin['role']);
-                $stmt->execute();
-            }
-            echo "Admins inserted successfully.<br>";
-        }
-    }
-}
-
 // Check and handle login
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_POST['password'])) {
     $email = mysqli_real_escape_string($mysqli, $_POST['email']);
@@ -49,9 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_PO
                 $_SESSION['name'] = $name;
                 $_SESSION['role'] = $role;
 
-                // Insert admins if needed before redirecting
-                insertAdminsIfNeeded($mysqli);
-
+                // Determine the appropriate dashboard based on the user's role
                 $redirectMap = [
                     'sa' => '../superadmin_dashboard.php',
                     'pm' => '../productmanager_dashboard.php',
