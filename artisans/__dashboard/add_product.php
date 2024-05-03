@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt = $mysqli->prepare($query)) {
         foreach ($imageData as $image) {
-            $stmt->bind_param("isiiiss", $artisanID, $productName, $supplierID, $categoryID, $unit, $price, $image, $description);
+            $stmt->bind_param("isiiiiss", $artisanID, $productName, $supplierID, $categoryID, $unit, $price, $image, $description);
             if ($stmt->execute()) {
                 echo "<script>alert('Product submitted successfully and awaits approval.'); window.location.href='index.php';</script>";
             } else {
@@ -84,6 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "<script>alert('Database preparation error: " . htmlspecialchars($mysqli->error) . "'); window.location.href='add_product.php';</script>";
     }
+    
     $mysqli->close();
 } else {
     echo "<script>alert('No data submitted.'); window.location.href='add_product.php';</script>";
