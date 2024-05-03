@@ -1,5 +1,6 @@
 <?php
-include ('check_products.php');
+session_start(); // Start the session at the beginning
+include('check_products.php'); // Include after session_start()
 
 if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
     echo "<script>alert('You are not logged in. Please log in to continue.');
@@ -7,6 +8,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
     exit;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

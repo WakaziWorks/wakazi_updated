@@ -7,5 +7,5 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     // Redirect to the login page
     header('Location: admin/login.php');
     exit; // Don't forget to call exit after header redirection
-}
+} else
 ?>
