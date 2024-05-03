@@ -25,3 +25,12 @@ hemdAoGBAKqbPtq/5FOF1+tBuTPf/CQg+HSa0que5harNSNO0nXpdAhGt9vwEMtt
 WUsnB01JQdpwNlftl/rfJS66Q1il3wuX8fljLdlVWDw3hP8Ufb9I7wWATMWmhYDk
 k0O0bc601EXgStTOM8fNrenM7vTHIg2Dy5F0J3fMqV3/XSzQ/O44
 -----END RSA PRIVATE KEY-----
+
+
+
+$admins = [
+    ['email' => 'superadmin@example.com', 'password' => password_hash('superadmin123', PASSWORD_DEFAULT), 'name' => 'Super Admin', 'role' => 'sa'],
+    ['email' => 'productmanager@example.com', 'password' => password_hash('productmanager123', PASSWORD_DEFAULT), 'name' => 'Product Manager', 'role' => 'pm'],
+    ['email' => 'supermanager@example.com', 'password' => password_hash('supermanager123', PASSWORD_DEFAULT), 'name' => 'Super Manager', 'role' => 'sm'],
+    ['email' => 'manager@example.com', 'password' => password_hash('manager123', PASSWORD_DEFAULT), 'name' => 'Manager', 'role' => 'm']
+];
