@@ -185,7 +185,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
                     <?php
-                    require 'config.php'; // Make sure this path is correct
+                    // require 'config.php'; // Make sure this path is correct
 
                     // Query the database for approved products from both tables
                     $query = "SELECT p.ProductID, p.ProductName, p.SupplierID, p.CategoryID, p.Unit, p.Price, p.image_url, p.ApprovalStatus,
