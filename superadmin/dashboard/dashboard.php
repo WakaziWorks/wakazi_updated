@@ -181,42 +181,50 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
 
 
 
-            <!-- Navbar End -->
+            <!-- Product Listing Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <?php
+                    require 'config.php'; // Make sure this path is correct
 
+                    // Query the database for approved products from both tables
+                    $query = "SELECT p.ProductID, p.ProductName, p.SupplierID, p.CategoryID, p.Unit, p.Price, p.image_url, p.ApprovalStatus,
+                          ap.artisan_id AS ArtisanID, ap.ApprovalStatus AS ArtisanApprovalStatus
+                  FROM Products p
+                  LEFT JOIN ArtisanProducts ap ON p.ProductID = ap.ProductID
+                  WHERE p.ApprovalStatus = 'approved' OR (ap.ApprovalStatus = 'approved' AND ap.ProductID IS NOT NULL)";
+                    $result = $mysqli->query($query);
 
-            <?php
+                    if ($result && $result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo '<div class="col-sm-6 col-xl-3">';
+                            echo '<div class="bg-light rounded d-flex flex-column p-4">';
+                            echo '<h5>' . $row['ProductName'] . '</h5>';
+                            echo '<p>Price: $' . $row['Price'] . '</p>';
+                            echo '<p>Supplier ID: ' . $row['SupplierID'] . '</p>';
+                            echo '<p>Category ID: ' . $row['CategoryID'] . '</p>';
+                            echo '<p>Unit: ' . $row['Unit'] . '</p>';
+                            echo '<p>Approval Status: ' . $row['ApprovalStatus'] . '</p>';
+                            echo '<p>Artisan ID: ' . ($row['ArtisanID'] ?? 'N/A') . '</p>';
+                            echo '<p>Artisan Approval Status: ' . ($row['ArtisanApprovalStatus'] ?? 'N/A') . '</p>';
+                            echo '<div class="mt-auto">';
+                            echo '<button type="button" class="btn btn-primary">Edit</button>';
+                            echo '<button type="button" class="btn btn-success">Update</button>';
+                            echo '<button type="button" class="btn btn-warning">Approve</button>';
+                            echo '</div>';
+                            echo '</div>';
+                            echo '</div>';
+                        }
+                    } else {
+                        echo '<div class="col">';
+                        echo '<p>No approved products found.</p>';
+                        echo '</div>';
+                    }
+                    ?>
+                </div>
+            </div>
+            <!-- Product Listing End -->
 
-            // Fetch products from the database
-            $query = "SELECT * FROM Products";
-            $result = $mysqli->query($query);
-
-            // Check if there are any products
-            if ($result->num_rows > 0) {
-                // Output each product
-                while ($row = $result->fetch_assoc()) {
-                    echo '<div class="col-sm-6 col-xl-3">';
-                    echo '<div class="bg-light rounded d-flex align-items-center justify-content-between p-4">';
-                    echo '<div>';
-                    echo '<h5>' . $row['ProductName'] . '</h5>';
-                    echo '<p>Price: $' . $row['Price'] . '</p>';
-                    echo '<p>Status: ' . $row['ApprovalStatus'] . '</p>';
-                    echo '</div>';
-                    echo '<div>';
-                    // Add CRUD functionality buttons
-                    echo '<button onclick="editProduct(' . $row['ProductID'] . ')">Edit</button>';
-                    echo '<button onclick="updateProduct(' . $row['ProductID'] . ')">Update</button>';
-                    echo '<button onclick="approveProduct(' . $row['ProductID'] . ')">Approve</button>';
-                    echo '</div>';
-                    echo '</div>';
-                    echo '</div>';
-                }
-            } else {
-                echo 'No products found.';
-            }
-
-            // Close the database connection
-            $mysqli->close();
-            ?>
 
 
 
