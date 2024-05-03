@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
             } else {
                 // No user found with that email
-                echo '<script>alert("Invalid email or password."); window.location.href = "../artisanapp/login.phpp";</script>';
+                echo '<script>alert("Invalid email or password."); window.location.href = "../artisanapp/login.php";</script>';
                 exit();
             }
             $stmt->close(); // Close statement
