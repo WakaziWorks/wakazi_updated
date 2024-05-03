@@ -184,47 +184,40 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
             <!-- Navbar End -->
 
 
-            <!-- Sale & Revenue Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <?php
-                    // Fetch products from the database
-                    $query = "SELECT * FROM Products";
-                    $result = $mysqli->query($query);
+            <?php
 
-                    // Check if there are any products
-                    if ($result->num_rows > 0) {
-                        // Loop through each product
-                        while ($row = $result->fetch_assoc()) {
-                            // Display product information
-                            echo '<div class="col-sm-6 col-xl-3">';
-                            echo '<div class="bg-light rounded d-flex align-items-center justify-content-between p-4">';
-                            echo '<div>';
-                            echo '<p class="mb-2">Product Name: ' . $row["ProductName"] . '</p>';
-                            echo '<p class="mb-2">Price: $' . $row["Price"] . '</p>';
-                            echo '</div>';
-                            echo '<div class="ms-3">';
-                            // CRUD functionality buttons
-                            echo '<a href="edit_product.php?id=' . $row["ProductID"] . '" class="btn btn-primary">Edit</a>';
-                            echo '<a href="update_product.php?id=' . $row["ProductID"] . '" class="btn btn-success">Update</a>';
-                            // Check if product needs approval
-                            if ($row["ApprovalStatus"] === "pending") {
-                                echo '<a href="approve_product.php?id=' . $row["ProductID"] . '" class="btn btn-warning">Approve</a>';
-                            }
-                            echo '</div>';
-                            echo '</div>';
-                            echo '</div>';
-                        }
-                    } else {
-                        // If no products found
-                        echo '<div class="col-12">';
-                        echo '<p>No products found.</p>';
-                        echo '</div>';
-                    }
-                    ?>
-                </div>
-            </div>
-            <!-- Sale & Revenue End -->
+            // Fetch products from the database
+            $query = "SELECT * FROM Products";
+            $result = $mysqli->query($query);
+
+            // Check if there are any products
+            if ($result->num_rows > 0) {
+                // Output each product
+                while ($row = $result->fetch_assoc()) {
+                    echo '<div class="col-sm-6 col-xl-3">';
+                    echo '<div class="bg-light rounded d-flex align-items-center justify-content-between p-4">';
+                    echo '<div>';
+                    echo '<h5>' . $row['ProductName'] . '</h5>';
+                    echo '<p>Price: $' . $row['Price'] . '</p>';
+                    echo '<p>Status: ' . $row['ApprovalStatus'] . '</p>';
+                    echo '</div>';
+                    echo '<div>';
+                    // Add CRUD functionality buttons
+                    echo '<button onclick="editProduct(' . $row['ProductID'] . ')">Edit</button>';
+                    echo '<button onclick="updateProduct(' . $row['ProductID'] . ')">Update</button>';
+                    echo '<button onclick="approveProduct(' . $row['ProductID'] . ')">Approve</button>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                }
+            } else {
+                echo 'No products found.';
+            }
+
+            // Close the database connection
+            $mysqli->close();
+            ?>
+
 
 
 
