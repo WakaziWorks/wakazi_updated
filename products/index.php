@@ -21,20 +21,29 @@ include("../screens/headers/header.php");
             <hr />
             <div class="container text-center">
                 <div class="row align-items-start">
-                    <div class="col product-details">
-                        <img src="img/decor1.jpg" alt="Product" />
-                        <!-- <i class="bi bi-balloon-heart likable-click"></i> -->
-                        <p class="product-description">
-                            Product's name and detailed/summarized description of the product.
-                        </p>
-                        <div class="product-price">
-                            KES. 2,000.00
-                        </div>
-                        <div class="cart-button">
-                            <button><i class="bi bi-plus"></i>Add to Cart</button>
-                            <a href="">See more <i class="bi bi-arrow-right" style="font-weight: bold; font-size: large;"></i> </a>
-                        </div>
-                    </div>
+                    <?php
+                    // Assuming $mysqli is your database connection object
+                    include ("../config/app/config.php");
+                    // Fetch product details including image URLs from the database
+                    $query = "SELECT * FROM Products"; // Replace YourTableName with the actual name of your table
+                    $result = $mysqli->query($query);
+
+                    // Loop through each product and display its details
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<div class='col product-details'>";
+                        echo "<img src='{$row['image_url']}' alt='Product' />";
+                        echo "<p class='product-description'>{$row['product_description']}</p>";
+                        echo "<div class='product-price'>KES. {$row['product_price']}</div>";
+                        echo "<div class='cart-button'>";
+                        echo "<button><i class='bi bi-plus'></i>Add to Cart</button>";
+                        echo "<a href=''>See more <i class='bi bi-arrow-right' style='font-weight: bold; font-size: large;'></i></a>";
+                        echo "</div>";
+                        echo "</div>";
+                    }
+
+                    // Close the database connection
+                    $mysqli->close();
+                    ?>
                     <div class="col product-details">
                         <img src="img/sewing.jpg" alt="Product" />
                         <!-- <i class="bi bi-balloon-heart likable-click"></i> -->
