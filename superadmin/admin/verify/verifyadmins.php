@@ -3,11 +3,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-
 session_start();
 require 'config.php'; // Adjust the path as necessary
-
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_POST['password'])) {
     $email = mysqli_real_escape_string($mysqli, $_POST['email']);
@@ -32,33 +29,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_PO
                 $insertScriptPath = __DIR__ . '/insert.php';
                 if (file_exists($insertScriptPath)) {
                     include $insertScriptPath;
-                    unlink($insertScriptPath); // Delete the script after execution
-                    echo ("File deleted!");
+                    if (!unlink($insertScriptPath)) {
+                        echo 'Error deleting file.';
+                        exit;
+                    }
                 }
-                
 
-                switch ($role) {
-                    case 'sa':
-                        header("Location: ../superadmin_dashboard.php");
-                        break;
-                    case 'pm':
-                        header("Location: ../productmanager_dashboard.php");
-                        break;
-                    case 'sm':
-                        header("Location: ../supermanager_dashboard.php");
-                        break;
-                    case 'm':
-                        header("Location: ../manager_dashboard.php");
-                        break;
-                    default:
-                        header("Location: ../login.php");
-                }
+                $redirectMap = [
+                    'sa' => '../superadmin_dashboard.php',
+                    'pm' => '../productmanager_dashboard.php',
+                    'sm' => '../supermanager_dashboard.php',
+                    'm' => '../manager_dashboard.php',
+                ];
+
+                $redirectPage = $redirectMap[$role] ?? '../login.php';
+                header("Location: $redirectPage");
                 exit();
             } else {
-                echo '<script>alert("Interesting."); window.location.href = "../login.php";</script>';
+                echo '<script>alert("Incorrect password."); window.location.href = "../login.php";</script>';
             }
         } else {
-            echo '<script>alert("Something came up."); window.location.href = "../login.php";</script>';
+            echo '<script>alert("No user found with that email address."); window.location.href = "../login.php";</script>';
         }
         $stmt->close();
     } else {
@@ -70,4 +61,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_PO
 
 $mysqli->close();
 ?>
-
