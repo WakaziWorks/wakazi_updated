@@ -118,6 +118,7 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
 </head>
 
 <body id="page-top">
+    <div class="container">
     <header class="header fixed-top">
         <nav class="nav navbar navbar-expand-lg " style="margin: 0; padding: 0; display: flex; flex-direction: column;">
             <div class="container-fluid" style="margin-bottom: 0">

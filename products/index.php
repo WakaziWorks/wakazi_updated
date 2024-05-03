@@ -4,6 +4,7 @@ include("../screens/headers/header.php");
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,7 @@ include("../screens/headers/header.php");
     <!-- Bootstrap icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
+
 <body>
     <div class="product-section">
         <div class="container product-row-container">
@@ -30,7 +32,7 @@ include("../screens/headers/header.php");
                         </div>
                         <div class="cart-button">
                             <button><i class="bi bi-plus"></i>Add to Cart</button>
-                            <a href="">See more  <i class="bi bi-arrow-right" style="font-weight: bold; font-size: large;"></i> </a>
+                            <a href="">See more <i class="bi bi-arrow-right" style="font-weight: bold; font-size: large;"></i> </a>
                         </div>
                     </div>
                     <div class="col product-details">
@@ -44,7 +46,7 @@ include("../screens/headers/header.php");
                         </div>
                         <div class="cart-button">
                             <button><i class="bi bi-plus"></i>Add to Cart</button>
-                            <a href="">See more  <i class="bi bi-arrow-right" style="font-weight: bold; font-size: large;"></i> </a>
+                            <a href="">See more <i class="bi bi-arrow-right" style="font-weight: bold; font-size: large;"></i> </a>
                         </div>
                     </div>
                     <div class="col product-details">
@@ -58,7 +60,7 @@ include("../screens/headers/header.php");
                         </div>
                         <div class="cart-button">
                             <button><i class="bi bi-plus"></i>Add to Cart</button>
-                            <a href="">See more  <i class="bi bi-arrow-right" style="font-weight: bold; font-size: large;"></i> </a>
+                            <a href="">See more <i class="bi bi-arrow-right" style="font-weight: bold; font-size: large;"></i> </a>
                         </div>
                     </div>
                     <div class="col product-details">
@@ -72,12 +74,12 @@ include("../screens/headers/header.php");
                         </div>
                         <div class="cart-button">
                             <button><i class="bi bi-plus"></i>Add to Cart</button>
-                            <a href="">See more  <i class="bi bi-arrow-right" style="font-weight: bold; font-size: large;"></i> </a>
+                            <a href="">See more <i class="bi bi-arrow-right" style="font-weight: bold; font-size: large;"></i> </a>
                         </div>
                     </div>
                 </div>
-            <hr />
-            <div class="row align-items-start">
+                <hr />
+                <div class="row align-items-start">
                     <div class="col product-details">
                         <img src="img/decor1.jpg" alt="Product" />
                         <!-- <i class="bi bi-balloon-heart likable-click"></i> -->
@@ -89,7 +91,7 @@ include("../screens/headers/header.php");
                         </div>
                         <div class="cart-button">
                             <button><i class="bi bi-plus"></i>Add to Cart</button>
-                            <a href="">See more  <i class="bi bi-arrow-right" style="font-weight: bold; font-size: large;"></i> </a>
+                            <a href="">See more <i class="bi bi-arrow-right" style="font-weight: bold; font-size: large;"></i> </a>
                         </div>
                     </div>
                     <div class="col product-details">
@@ -103,7 +105,7 @@ include("../screens/headers/header.php");
                         </div>
                         <div class="cart-button">
                             <button><i class="bi bi-plus"></i>Add to Cart</button>
-                            <a href="">See more  <i class="bi bi-arrow-right" style="font-weight: bold; font-size: large;"></i> </a>
+                            <a href="">See more <i class="bi bi-arrow-right" style="font-weight: bold; font-size: large;"></i> </a>
                         </div>
                     </div>
                     <div class="col product-details">
@@ -117,7 +119,7 @@ include("../screens/headers/header.php");
                         </div>
                         <div class="cart-button">
                             <button><i class="bi bi-plus"></i>Add to Cart</button>
-                            <a href="">See more  <i class="bi bi-arrow-right" style="font-weight: bold; font-size: large;"></i> </a>
+                            <a href="">See more <i class="bi bi-arrow-right" style="font-weight: bold; font-size: large;"></i> </a>
                         </div>
                     </div>
                     <div class="col product-details">
@@ -131,7 +133,7 @@ include("../screens/headers/header.php");
                         </div>
                         <div class="cart-button">
                             <button><i class="bi bi-plus"></i>Add to Cart</button>
-                            <a href="">See more  <i class="bi bi-arrow-right" style="font-weight: bold; font-size: large;"></i> </a>
+                            <a href="">See more <i class="bi bi-arrow-right" style="font-weight: bold; font-size: large;"></i> </a>
                         </div>
                     </div>
                 </div>
@@ -140,6 +142,7 @@ include("../screens/headers/header.php");
         </div>
     </div>
 </body>
+
 </html>
 
 <?php
