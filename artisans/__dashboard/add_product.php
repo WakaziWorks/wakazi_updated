@@ -25,7 +25,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $price = $_POST['price'];
     $description = $_POST['description'];
 
-
     // Check if files are uploaded
     if (!empty($_FILES['images']['name'][0])) {
         $images = $_FILES['images'];
@@ -37,9 +36,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $imageTmpName = $images['tmp_name'][$index];
             $imageType = $images['type'][$index];
 
-            // Check file type
-            if (strpos($imageType, 'image') === false) {
-                $errors[] = "File $imageName is not an image.";
+            // Check file extension
+            $allowedExtensions = array('jpg', 'jpeg', 'png', 'gif');
+            $fileExtension = pathinfo($imageName, PATHINFO_EXTENSION);
+            if (!in_array(strtolower($fileExtension), $allowedExtensions)) {
+                $errors[] = "File $imageName has an invalid file type. Only JPG, JPEG, PNG, and GIF files are allowed.";
             } else {
                 $imageData[] = file_get_contents($imageTmpName); // Read file content
             }
@@ -59,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check for any errors
     if (!empty($errors)) {
         $missingFields = implode(', ', $errors);
-        echo "<script>alert('Required data is missing: $missingFields'); window.location.href='add_product.php';</script>";
+        echo "<script>alert('Required data is missing or invalid: $missingFields'); window.location.href='add_product.php';</script>";
         exit;
     }
 
