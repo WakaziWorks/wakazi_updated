@@ -33,7 +33,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_PO
                 if (file_exists($insertScriptPath)) {
                     include $insertScriptPath;
                     unlink($insertScriptPath); // Delete the script after execution
+                    echo ("File deleted!");
                 }
+                
 
                 switch ($role) {
                     case 'sa':
@@ -53,10 +55,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_PO
                 }
                 exit();
             } else {
-                echo '<script>alert("Invalid email or password."); window.location.href = "../login.php";</script>';
+                echo '<script>alert("Interesting."); window.location.href = "../login.php";</script>';
             }
         } else {
-            echo '<script>alert("Invalid email or password."); window.location.href = "../login.php";</script>';
+            echo '<script>alert("Something came up."); window.location.href = "../login.php";</script>';
         }
         $stmt->close();
     } else {
