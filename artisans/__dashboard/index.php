@@ -193,14 +193,13 @@
 
 
 
-
             <div class="container-fluid pt-4 px-4">
-                <div class="bg-light  rounded p-4">
+                <div class="bg-light rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <h6 class="mb-0">Add Product</h6>
                     </div>
                     <div class="container mt-5">
-                        <form method="post" action="add_product.php">
+                        <form method="post" action="add_product.php" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="productName">Product Name:</label>
                                 <input type="text" class="form-control" id="productName" name="productName" required>
@@ -221,11 +220,17 @@
                                 <label for="price">Price:</label>
                                 <input type="text" class="form-control" id="price" name="price" required>
                             </div>
+                            <div class="form-group">
+                                <label for="images">Upload Images:</label>
+                                <a href="upload_image"><input type="file" class="form-control" id="images" name="images[]" accept="image/*" multiple required></a>
+                            </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
                 </div>
             </div>
+
+
 
             <script>
                 // Assuming jQuery is included
