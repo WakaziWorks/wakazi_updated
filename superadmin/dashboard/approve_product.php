@@ -18,8 +18,8 @@ require '../admin/verify/config.php'; // Include your configuration file with da
 
 <?php
 // Check if the product ID is set in the URL parameter
-if(isset($_GET['ProductID']) && !empty($_GET['ProductID'])) {
-    $productId = $_GET['ProductID'];
+if(isset($_GET['product_id']) && !empty($_GET['product_id'])) {
+    $productId = $_GET['product_id'];
 
     // Debug: Display a popup indicating that the product ID is set
     echo "<script>showDebugMessage('Product ID is set: $productId');</script>";
