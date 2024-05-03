@@ -57,35 +57,35 @@ if(isset($_GET['product_id']) && !empty($_GET['product_id'])) {
                 $supplierResult = $checkSupplierStmt->get_result();
                 
                 if ($supplierResult->num_rows > 0) {
-                    // Insert the approved product into the Products table
-                    $insertQuery = "INSERT INTO Products (ProductName, SupplierID, CategoryID, Unit, Price, is_featured, image, ApprovalStatus, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-                    $insertStmt = $mysqli->prepare($insertQuery);
-                    
-                    // Check if the prepare statement succeeded
-                    if ($insertStmt) {
-                        // Bind parameters
-                        $insertStmt->bind_param("siisweweweiisss", $productData['ProductName'], $productData['SupplierID'], $productData['CategoryID'], $productData['Unit'], $productData['Price'], $productData['is_featured'], $productData['image'], $productData['ApprovalStatus'], $productData['description']);
-                        
-                        // Execute the insert statement
-                        if ($insertStmt->execute()) {
-                            if ($insertStmt->affected_rows > 0) {
-                                echo "<script>showDebugMessage('Product approved and inserted into the Products table successfully')</script>.";
-                                echo "<script>window.location.href = 'dashboard.php';</script>";
-                            } else {
-                                echo "Failed to insert the approved product into the Products table.";
-                            }
-                        } else {
-                            echo "Error inserting approved product: " . $insertStmt->error;
-                        }
-                        // Close the prepared statement
-                        $insertStmt->close();
-                    } else {
-                        echo "Failed to prepare the insert statement.";
-                    }
-                } else {
-                    echo "Supplier with ID $supplierId does not exist.";
-                }
-                
+    // Insert the approved product into the Products table
+    $insertQuery = "INSERT INTO Products (ProductName, SupplierID, CategoryID, Unit, Price, is_featured, image, ApprovalStatus, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $insertStmt = $mysqli->prepare($insertQuery);
+    
+    // Check if the prepare statement succeeded
+    if ($insertStmt) {
+        // Bind parameters
+        $insertStmt->bind_param("siisiisss", $productData['ProductName'], $productData['SupplierID'], $productData['CategoryID'], $productData['Unit'], $productData['Price'], $productData['is_featured'], $productData['image'], $productData['ApprovalStatus'], $productData['description']);
+        
+        // Execute the insert statement
+        if ($insertStmt->execute()) {
+            if ($insertStmt->affected_rows > 0) {
+                echo "Product approved and inserted into the Products table successfully.";
+                echo "<script>window.location.href = 'dashboard.php';</script>";
+            } else {
+                echo "Failed to insert the approved product into the Products table.";
+            }
+        } else {
+            echo "Error inserting approved product: " . $insertStmt->error;
+        }
+        // Close the prepared statement
+        $insertStmt->close();
+    } else {
+        echo "Failed to prepare the insert statement.";
+    }
+} else {
+    echo "Supplier with ID $supplierId does not exist.";
+}
+
 
                 $checkSupplierStmt->close();
             }
