@@ -54,10 +54,10 @@
                                 <div class="card-body p-md-5 mx-md-4">
 
                                     <div class="text-center">
-                                        <h4 class="mt-1 mb-5 pb-1"> <img src="assets/img/logo.png" style="width: 185px;" alt="logo"> Admin</h4>
+                                        <h4 class="mt-1 mb-5 pb-1"> <img src="assets/img/logo.png" style="width: 185px;" alt="logo"> Admins</h4>
                                     </div>
 
-                                    <form action="../__config/verifications.php" method="POST">
+                                    <form action="verify/verifyadmins.php" method="POST">
                                         <p>Please login to your account</p>
 
                                         <div class="form-outline mb-4">
@@ -72,13 +72,13 @@
 
                                         <div class="text-center pt-1 mb-5 pb-1">
                                             <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Log in</button>
-                                            <a class="text-muted" href="#!">Forgot password?</a>
+                                            <!-- <a class="text-muted" href="#!">Forgot password?</a> -->
                                         </div>
 
-                                        <div class="d-flex align-items-center justify-content-center pb-4">
+                                        <!-- <div class="d-flex align-items-center justify-content-center pb-4">
                                             <p class="mb-0 me-2">Don't have an account?</p>
                                             <a href="signup.php" class="btn btn-outline-danger">Create new</a>
-                                        </div>
+                                        </div> -->
                                        
                                     </form>
 
