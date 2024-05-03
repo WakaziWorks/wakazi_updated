@@ -64,7 +64,7 @@ error_reporting(E_ALL);
 
                     if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                         echo "<script>alert('You are not logged in. Please log in to continue.');
-                        window.location.href = '../artisanapp/login.php'; // Redirect to the login page</script>";
+                        window.location.href = '../__auth/artisanapp/login.php'; // Redirect to the login page</script>";
                         exit;
                     }
 
