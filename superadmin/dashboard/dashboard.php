@@ -180,50 +180,59 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
             </nav>
 
 
+            <?php
 
-            <!-- Product Listing Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <?php
-                    // require 'config.php'; // Make sure this path is correct
+            // Fetch products from ArtisanProducts table where ApprovalStatus is 'pending'
+            $query = "SELECT * FROM ArtisanProducts WHERE ApprovalStatus = 'pending'";
+            $result = $mysqli->query($query);
 
-                    // Query the database for approved products from both tables
-                    $query = "SELECT p.ProductID, p.ProductName, p.SupplierID, p.CategoryID, p.Unit, p.Price, p.image_url, p.ApprovalStatus,
-                          ap.artisan_id AS ArtisanID, ap.ApprovalStatus AS ArtisanApprovalStatus
-                  FROM Products p
-                  LEFT JOIN ArtisanProducts ap ON p.ProductID = ap.ProductID
-                  WHERE p.ApprovalStatus = 'approved' OR (ap.ApprovalStatus = 'approved' AND ap.ProductID IS NOT NULL)";
-                    $result = $mysqli->query($query);
+            // Display the table with CRUD functionality for ArtisanProducts
+            echo "<h2>Artisan Products (Pending Approval)</h2>";
+            echo "<table border='1'>";
+            echo "<tr><th>Product ID</th><th>Artisan ID</th><th>Product Name</th><th>Supplier ID</th><th>Category ID</th><th>Unit</th><th>Price</th><th>Action</th></tr>";
 
-                    if ($result && $result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                            echo '<div class="col-sm-6 col-xl-3">';
-                            echo '<div class="bg-light rounded d-flex flex-column p-4">';
-                            echo '<h5>' . $row['ProductName'] . '</h5>';
-                            echo '<p>Price: $' . $row['Price'] . '</p>';
-                            echo '<p>Supplier ID: ' . $row['SupplierID'] . '</p>';
-                            echo '<p>Category ID: ' . $row['CategoryID'] . '</p>';
-                            echo '<p>Unit: ' . $row['Unit'] . '</p>';
-                            echo '<p>Approval Status: ' . $row['ApprovalStatus'] . '</p>';
-                            echo '<p>Artisan ID: ' . ($row['ArtisanID'] ?? 'N/A') . '</p>';
-                            echo '<p>Artisan Approval Status: ' . ($row['ArtisanApprovalStatus'] ?? 'N/A') . '</p>';
-                            echo '<div class="mt-auto">';
-                            echo '<button type="button" class="btn btn-primary">Edit</button>';
-                            echo '<button type="button" class="btn btn-success">Update</button>';
-                            echo '<button type="button" class="btn btn-warning">Approve</button>';
-                            echo '</div>';
-                            echo '</div>';
-                            echo '</div>';
-                        }
-                    } else {
-                        echo '<div class="col">';
-                        echo '<p>No approved products found.</p>';
-                        echo '</div>';
-                    }
-                    ?>
-                </div>
-            </div>
-            <!-- Product Listing End -->
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>{$row['ProductID']}</td>";
+                echo "<td>{$row['artisan_id']}</td>";
+                echo "<td>{$row['ProductName']}</td>";
+                echo "<td>{$row['SupplierID']}</td>";
+                echo "<td>{$row['CategoryID']}</td>";
+                echo "<td>{$row['Unit']}</td>";
+                echo "<td>{$row['Price']}</td>";
+                echo "<td><a href='approve_product.php?product_id={$row['ProductID']}'>Approve</a></td>"; // Link to approve product
+                echo "</tr>";
+            }
+
+            echo "</table>";
+
+            // Fetch products from Products table
+            $query = "SELECT * FROM Products";
+            $result = $mysqli->query($query);
+
+            // Display the table with products from Products table
+            echo "<h2>All Products</h2>";
+            echo "<table border='1'>";
+            echo "<tr><th>Product ID</th><th>Product Name</th><th>Supplier ID</th><th>Category ID</th><th>Unit</th><th>Price</th><th>Image URL</th><th>Is Featured</th></tr>";
+
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>{$row['ProductID']}</td>";
+                echo "<td>{$row['ProductName']}</td>";
+                echo "<td>{$row['SupplierID']}</td>";
+                echo "<td>{$row['CategoryID']}</td>";
+                echo "<td>{$row['Unit']}</td>";
+                echo "<td>{$row['Price']}</td>";
+                echo "<td>{$row['image_url']}</td>";
+                echo "<td>{$row['is_featured']}</td>";
+                echo "</tr>";
+            }
+
+            echo "</table>";
+
+            $mysqli->close();
+            ?>
+
 
 
 
