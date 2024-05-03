@@ -32,8 +32,8 @@ include("../screens/headers/header.php");
                     while ($row = $result->fetch_assoc()) {
                         echo "<div class='col product-details'>";
                         echo "<img src='{$row['image']}' alt='Product' />";
-                        echo "<p class='description'>{$row['product_description']}</p>";
-                        echo "<div class='product-price'>KES. {$row['product_price']}</div>";
+                        echo "<p class='description'>{$row['description']}</p>";
+                        echo "<div class='product-price'>KES. {$row['Price']}</div>";
                         echo "<div class='cart-button'>";
                         echo "<button><i class='bi bi-plus'></i>Add to Cart</button>";
                         echo "<a href=''>See more <i class='bi bi-arrow-right' style='font-weight: bold; font-size: large;'></i></a>";
