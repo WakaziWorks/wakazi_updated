@@ -181,14 +181,20 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
 
 
             <?php
+require 'config.php'; // Include your configuration file with database connection
+?>
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <?php
             // Fetch products from ArtisanProducts table where ApprovalStatus is 'pending'
             $query = "SELECT * FROM ArtisanProducts WHERE ApprovalStatus = 'pending'";
             $result = $mysqli->query($query);
 
             // Display the table with CRUD functionality for ArtisanProducts
             echo "<h2>Artisan Products (Pending Approval)</h2>";
-            echo "<table border='1'>";
+            echo "<table class='table table-bordered'>";
             echo "<tr><th>Product ID</th><th>Artisan ID</th><th>Product Name</th><th>Supplier ID</th><th>Category ID</th><th>Unit</th><th>Price</th><th>Action</th></tr>";
 
             while ($row = $result->fetch_assoc()) {
@@ -200,19 +206,22 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                 echo "<td>{$row['CategoryID']}</td>";
                 echo "<td>{$row['Unit']}</td>";
                 echo "<td>{$row['Price']}</td>";
-                echo "<td><a href='approve_product.php?product_id={$row['ProductID']}'>Approve</a></td>"; // Link to approve product
+                echo "<td><a href='approve_product.php?product_id={$row['ProductID']}' class='btn btn-primary'>Approve</a></td>"; // Link to approve product
                 echo "</tr>";
             }
 
             echo "</table>";
-
+            ?>
+        </div>
+        <div class="col-md-6">
+            <?php
             // Fetch products from Products table
             $query = "SELECT * FROM Products";
             $result = $mysqli->query($query);
 
             // Display the table with products from Products table
             echo "<h2>All Products</h2>";
-            echo "<table border='1'>";
+            echo "<table class='table table-bordered'>";
             echo "<tr><th>Product ID</th><th>Product Name</th><th>Supplier ID</th><th>Category ID</th><th>Unit</th><th>Price</th><th>Image URL</th><th>Is Featured</th></tr>";
 
             while ($row = $result->fetch_assoc()) {
@@ -229,9 +238,15 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
             }
 
             echo "</table>";
-
-            $mysqli->close();
             ?>
+        </div>
+    </div>
+</div>
+
+<?php
+$mysqli->close();
+?>
+
 
 
 
