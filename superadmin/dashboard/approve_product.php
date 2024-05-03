@@ -64,12 +64,12 @@ if(isset($_GET['product_id']) && !empty($_GET['product_id'])) {
                     // Check if the prepare statement succeeded
                     if ($insertStmt) {
                         // Bind parameters
-                        $insertStmt->bind_param("siisiisss", $productData['ProductName'], $productData['SupplierID'], $productData['CategoryID'], $productData['Unit'], $productData['Price'], $productData['is_featured'], $productData['image'], $productData['ApprovalStatus'], $productData['description']);
+                        $insertStmt->bind_param("siisweweweiisss", $productData['ProductName'], $productData['SupplierID'], $productData['CategoryID'], $productData['Unit'], $productData['Price'], $productData['is_featured'], $productData['image'], $productData['ApprovalStatus'], $productData['description']);
                         
                         // Execute the insert statement
                         if ($insertStmt->execute()) {
                             if ($insertStmt->affected_rows > 0) {
-                                echo "Product approved and inserted into the Products table successfully.";
+                                echo "<script>showDebugMessage('Product approved and inserted into the Products table successfully')</script>.";
                                 echo "<script>window.location.href = 'dashboard.php';</script>";
                             } else {
                                 echo "Failed to insert the approved product into the Products table.";
