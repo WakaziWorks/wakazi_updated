@@ -1,3 +1,12 @@
+<?php
+include ('check_products.php');
+
+if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
+    echo "<script>alert('You are not logged in. Please log in to continue.');
+    window.location.href = '../index.php'; // Redirect to the login page</script>";
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,15 +63,7 @@
                         <img class="rounded-circle" src="<?php echo 'uploads/' . $_SESSION['profile_image']; ?>" alt="User" style="width: 40px; height: 40px;">
                     </div>
 
-                    <?php
-
-
-                    // if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
-                    //     echo "<script>alert('You are not logged in. Please log in to continue.');
-                    //     window.location.href = '../index.php'; // Redirect to the login page</script>";
-                    //     exit;
-                    // }
-                    // ?>
+                
 
                     <div class="ms-3">
                         <h6 class="mb-0"><?php echo $_SESSION['name']; ?></h6> <!-- Display username from session -->
@@ -107,16 +108,7 @@
         <!-- Content Start -->
         <div class="content">
             <!-- Navbar Start -->
-            <?php
-            require 'config.php'; // Make sure this path is correct
-
-            // Query the database for pending products
-            $query = "SELECT COUNT(*) AS pending_count FROM Products WHERE ApprovalStatus = 'pending'";
-            $result = $mysqli->query($query);
-            $pendingProducts = $result->fetch_assoc();
-
-            // Continue with your existing navbar and other HTML
-            ?>
+          
 
 
             <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
