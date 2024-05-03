@@ -1,3 +1,6 @@
+<?php 
+    require "../__auth/__config/config.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -213,8 +216,7 @@
                     <select class="form-control" id="categoryID" name="categoryID" required>
                         <option value="">Select Category</option>
                         <?php
-                        // Include your database connection file
-                        require 'config.php';
+                      
 
                         // Query to fetch categories from the database
                         $query = "SELECT CategoryID, CategoryName FROM Categories";
