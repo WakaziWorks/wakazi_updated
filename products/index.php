@@ -22,7 +22,7 @@ include("../screens/headers/header.php");
                         <img src="img/decor1.jpg" alt="Product" />
                         <!-- <i class="bi bi-balloon-heart likable-click"></i> -->
                         <p class="product-description">
-                            Product's name and detailed/summarized description
+                            Product's name and detailed/summarized description of the product.
                         </p>
                         <div class="product-price">
                             KES. 2000.00
