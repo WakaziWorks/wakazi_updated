@@ -1,6 +1,6 @@
-<!-- <?php 
+<?php 
     require "../__auth/__config/config.php";
-?> -->
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -216,22 +216,22 @@
                     <select class="form-control" id="categoryID" name="categoryID" required>
                         <option value="">Select Category</option>
                         <?php
-                      
+                       
 
                         // Query to fetch categories from the database
-                        // $query = "SELECT CategoryID, CategoryName FROM Categories";
-                        // $result = $mysqli->query($query);
+                        $query = "SELECT CategoryID, CategoryName FROM Categories";
+                        $result = $mysqli->query($query);
 
-                        // // Check if categories exist
-                        // if ($result->num_rows > 0) {
-                        //     // Loop through each category and create an option element
-                        //     while ($row = $result->fetch_assoc()) {
-                        //         echo "<option value='" . $row['CategoryID'] . "'>" . $row['CategoryName'] . "</option>";
-                        //     }
-                        // }
-                        // // Close the database connection
-                        // $mysqli->close();
-                        // ?>
+                        // Check if categories exist
+                        if ($result->num_rows > 0) {
+                            // Loop through each category and create an option element
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<option value='" . $row['CategoryID'] . "'>" . $row['CategoryName'] . "</option>";
+                            }
+                        }
+                        // Close the database connection
+                        $mysqli->close();
+                        ?>
                     </select>
                 </div>
                 <div class="form-group">
