@@ -3,10 +3,26 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require '../admin/verify/config.php'; // Include your configuration file with database connection
+?>
 
+<script>
+    // Debugging function to display a popup message
+    function showDebugMessage(message) {
+        alert(message);
+        // Wait for 2 seconds before continuing
+        setTimeout(function() {
+            // Continue with the rest of the script
+        }, 2000);
+    }
+</script>
+
+<?php
 // Check if the product ID is set in the URL parameter
-if(isset($_GET['product_id']) && !empty($_GET['product_id'])) {
-    $productId = $_GET['product_id'];
+if(isset($_GET['ProductID']) && !empty($_GET['ProductID'])) {
+    $productId = $_GET['ProductID'];
+
+    // Debug: Display a popup indicating that the product ID is set
+    echo "<script>showDebugMessage('Product ID is set: $productId');</script>";
 
     // Update the ApprovalStatus of the product in ArtisanProducts table to 'approved'
     $updateQuery = "UPDATE ArtisanProducts SET ApprovalStatus = 'approved' WHERE ProductID = ?";
@@ -29,8 +45,11 @@ if(isset($_GET['product_id']) && !empty($_GET['product_id'])) {
                 $productResult = $selectStmt->get_result();
                 $productData = $productResult->fetch_assoc();
                 
+                // Debug: Display a popup indicating the product details fetched
+                echo "<script>showDebugMessage('Product details fetched: " . json_encode($productData) . "');</script>";
+
                 // Insert the approved product into the Products table
-                $insertQuery = "INSERT INTO Products (ProductName, SupplierID, CategoryID, Unit, Price, is_featured, image,) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                $insertQuery = "INSERT INTO Products (ProductName, SupplierID, CategoryID, Unit, Price, is_featured, image) VALUES (?, ?, ?, ?, ?, ?, ?)";
                 $insertStmt = $mysqli->prepare($insertQuery);
                 $insertStmt->bind_param("siisdsi", $productData['ProductName'], $productData['SupplierID'], $productData['CategoryID'], $productData['Unit'], $productData['Price'], $productData['image_url'], $productData['is_featured']);
                 
