@@ -58,9 +58,9 @@ if(isset($_GET['product_id']) && !empty($_GET['product_id'])) {
                 
                 if($supplierResult->num_rows > 0) {
                     // Insert the approved product into the Products table
-                    $insertQuery = "INSERT INTO Products (ProductName, SupplierID, CategoryID, Unit, Price, is_featured, image, ApprovalStatus) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                    $insertQuery = "INSERT INTO Products (ProductName, SupplierID, CategoryID, Unit, Price, is_featured, image, ApprovalStatus, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     $insertStmt = $mysqli->prepare($insertQuery);
-                    $insertStmt->bind_param("siisdiss", $productData['ProductName'], $productData['SupplierID'], $productData['CategoryID'], $productData['Unit'], $productData['Price'], $productData['is_featured'], $productData['image'], $productData['ApprovalStatus']);
+                    $insertStmt->bind_param("siisdiss", $productData['ProductName'], $productData['SupplierID'], $productData['CategoryID'], $productData['Unit'], $productData['Price'], $productData['is_featured'], $productData['image'], $productData['ApprovalStatus'], $productData['description']);
                     
                     // Execute the insert statement
                     if($insertStmt->execute()) {

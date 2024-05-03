@@ -19,10 +19,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $errors = [];
     $artisanID = $_SESSION['artisan_id'];
     $productName = $_POST['productName'];
-    $supplierID = $_POST['supplierID'] ?? null; // Use NULL for optional fields
+    $supplierID = $_POST['supplierID']; // Use NULL for optional fields
     $categoryID = $_POST['categoryID'];
-    $unit = $_POST['unit'] ?? null;
-    $price = $_POST['price'] ?? null;
+    $unit = $_POST['unit'];
+    $price = $_POST['price'];
+    $description = $_POST['description'];
+
 
     // Check if files are uploaded
     if (!empty($_FILES['images']['name'][0])) {
@@ -67,11 +69,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Prepare and execute SQL statement
-    $query = "INSERT INTO ArtisanProducts (artisan_id, ProductName, SupplierID, CategoryID, Unit, Price, image) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $query = "INSERT INTO ArtisanProducts (artisan_id, ProductName, SupplierID, CategoryID, Unit, Price, image, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
     if ($stmt = $mysqli->prepare($query)) {
         foreach ($imageData as $image) {
-            $stmt->bind_param("isiiiss", $artisanID, $productName, $supplierID, $categoryID, $unit, $price, $image);
+            $stmt->bind_param("isiiiss", $artisanID, $productName, $supplierID, $categoryID, $unit, $price, $image, $description);
             if ($stmt->execute()) {
                 echo "<script>alert('Product submitted successfully and awaits approval.'); window.location.href='index.php';</script>";
             } else {

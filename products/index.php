@@ -31,8 +31,8 @@ include("../screens/headers/header.php");
                     // Loop through each product and display its details
                     while ($row = $result->fetch_assoc()) {
                         echo "<div class='col product-details'>";
-                        echo "<img src='{$row['image_url']}' alt='Product' />";
-                        echo "<p class='product-description'>{$row['product_description']}</p>";
+                        echo "<img src='{$row['image']}' alt='Product' />";
+                        echo "<p class='description'>{$row['product_description']}</p>";
                         echo "<div class='product-price'>KES. {$row['product_price']}</div>";
                         echo "<div class='cart-button'>";
                         echo "<button><i class='bi bi-plus'></i>Add to Cart</button>";
