@@ -217,6 +217,10 @@
                                 <input type="text" class="form-control" id="unit" name="unit">
                             </div>
                             <div class="form-group">
+                                <label for="description">Description:</label>
+                                <input type="text" class="form-control" id="description" name="description">
+                            </div>
+                            <div class="form-group">
                                 <label for="price">Price:</label>
                                 <input type="text" class="form-control" id="price" name="price" required>
                             </div>
