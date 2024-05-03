@@ -188,8 +188,10 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
 
                         // Display the table with CRUD functionality for ArtisanProducts
                         echo "<h2>Artisan Products (Pending Approval)</h2>";
-                        echo "<table class='table table-bordered'>";
-                        echo "<tr><th>Product ID</th><th>Artisan ID</th><th>Product Name</th><th>Supplier ID</th><th>Category ID</th><th>Unit</th><th>Price</th><th>Action</th></tr>";
+                        echo "<div class='table-responsive'>";
+                        echo "<table class='table table-bordered table-striped'>";
+                        echo "<thead><tr><th>Product ID</th><th>Artisan ID</th><th>Product Name</th><th>Supplier ID</th><th>Category ID</th><th>Unit</th><th>Price</th><th>Action</th></tr></thead>";
+                        echo "<tbody>";
 
                         while ($row = $result->fetch_assoc()) {
                             echo "<tr>";
@@ -204,7 +206,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                             echo "</tr>";
                         }
 
-                        echo "</table>";
+                        echo "</tbody></table></div>";
                         ?>
                     </div>
                 </div>
@@ -217,8 +219,10 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
 
                         // Display the table with products from Products table
                         echo "<h2>All Products</h2>";
-                        echo "<table class='table table-bordered'>";
-                        echo "<tr><th>Product ID</th><th>Product Name</th><th>Supplier ID</th><th>Category ID</th><th>Unit</th><th>Price</th><th>Image URL</th><th>Is Featured</th></tr>";
+                        echo "<div class='table-responsive'>";
+                        echo "<table class='table table-bordered table-striped'>";
+                        echo "<thead><tr><th>Product ID</th><th>Product Name</th><th>Supplier ID</th><th>Category ID</th><th>Unit</th><th>Price</th><th>Image URL</th><th>Is Featured</th></tr></thead>";
+                        echo "<tbody>";
 
                         while ($row = $result->fetch_assoc()) {
                             echo "<tr>";
@@ -233,17 +237,18 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                             echo "</tr>";
                         }
 
-                        echo "</table>";
+                        echo "</tbody></table></div>";
                         $mysqli->close();
 
                         ?>
                     </div>
                 </div>
             </div>
-        
 
 
-                    <!-- Widgets Start -->
+
+
+            <!-- Widgets Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
                     <div class="col-sm-12 col-md-6 col-xl-4">
