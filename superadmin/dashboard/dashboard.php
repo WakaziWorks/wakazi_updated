@@ -65,8 +65,8 @@
                     ?>
 
                     <div class="ms-3">
-                        <h6 class="mb-0"><?php echo $_SESSION['email']; ?></h6> <!-- Display username from session -->
-                        <span><?php echo $_SESSION['role']; ?></span>
+                        <h6 class="mb-0"><?php echo $_SESSION['name']; ?></h6> <!-- Display username from session -->
+                        <!-- <span><?php echo $_SESSION['role']; ?></span> -->
                     </div>
                 </div>
 
