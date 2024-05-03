@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 require '../admin/verify/config.php'; // Include your configuration file with database connection
 
 // Check if the product ID is set in the URL parameter
