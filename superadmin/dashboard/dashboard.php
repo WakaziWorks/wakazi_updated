@@ -265,7 +265,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                             echo "<td>{$row['CategoryID']}</td>";
                             echo "<td>{$row['Unit']}</td>";
                             echo "<td>{$row['Price']}</td>";
-                            echo "<td><a href='edit_product.php?product_id={$row['ProductID']}' class='btn btn-info'>Edit</a></td>";
+                            echo "<td><button type='button' class='btn btn-info' data-toggle='modal' data-target='#editProductModal{$row['ProductID']}'>Edit</button></td>";
                             echo "<td><a href='delete_product.php?product_id={$row['ProductID']}' class='btn btn-danger' onclick='return confirm(\"Are you sure you want to delete this product?\")'>Delete</a></td>";
 
 
@@ -280,9 +280,61 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                 </div>
             </div>
 
+<?php
 
+            echo "<div class='modal fade' id='editProductModal{$row['ProductID']}' tabindex='-1' role='dialog' aria-labelledby='editProductModalLabel{$row['ProductID']}' aria-hidden='true'>
+    <div class='modal-dialog' role='document'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <h5 class='modal-title' id='editProductModalLabel{$row['ProductID']}'>Edit Product</h5>
+                <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
+                </button>
+            </div>
+            <div class='modal-body'>
+                <form action='update_product.php' method='post'>
+                    <input type='hidden' name='product_id' value='{$row['ProductID']}'>
+                    <div class='form-group'>
+                        <label for='productName{$row['ProductID']}'>Product Name:</label>
+                        <input type='text' class='form-control' name='productName' id='productName{$row['ProductID']}' value='{$row['ProductName']}'>
+                    </div>
+                    <div class='form-group'>
+                        <label for='supplierID{$row['ProductID']}'>Supplier ID:</label>
+                        <input type='number' class='form-control' name='supplierID' id='supplierID{$row['ProductID']}' value='{$row['SupplierID']}'>
+                    </div>
+                    <!-- Repeat for other fields -->
+                    <div class='modal-footer'>
+                        <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
+                        <button type='submit' class='btn btn-primary'>Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>";
+?>
 
-
+<script>
+$(document).ready(function(){
+    $('form').submit(function(event) {
+        event.preventDefault(); // Prevent the form from submitting via the browser
+        var form = $(this);
+        $.ajax({
+            type: form.attr('method'),
+            url: form.attr('action'),
+            data: form.serialize(),
+            success: function(data) {
+                alert('Product updated successfully');
+                $('#editProductModal' + form.children('input[name="product_id"]').val()).modal('hide');
+                // Optionally refresh page or part of the page here
+            },
+            error: function() {
+                alert('Failed to update product');
+            }
+        });
+    });
+});
+</script>
 
 
 
