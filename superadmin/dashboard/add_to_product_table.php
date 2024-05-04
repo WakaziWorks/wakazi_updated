@@ -1,3 +1,13 @@
+<script>
+    // Debugging function to display a popup message
+    function showDebugMessage(message) {
+        alert(message);
+        // Wait for 2 seconds before continuing
+        setTimeout(function() {
+            // Continue with the rest of the script
+        }, 2000);
+    }
+</script>
 <?php
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -70,8 +80,12 @@ if ($selectResult->num_rows > 0) {
     }
 } else {
     echo "No approved products found to transfer.<br/>";
+
 }
+
 
 // Close the database connection
 $mysqli->close();
+echo "<script>showDebugMessage('Product updated successfully. Redirecting...');</script>";
+echo "<script>window.location.href = 'dashboard.php';</script>";
 ?>
