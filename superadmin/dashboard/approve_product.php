@@ -60,15 +60,16 @@ if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
                 $supplierResult = $checkSupplierStmt->get_result();
 
                 if ($supplierResult->num_rows > 0) {
-                    // Prepare the insert statement with all necessary fields
+                    // Check and adjust the ApprovalStatus before insertion
+                    $validApprovalStatuses = ['pending', 'approved']; // Valid statuses in the Products table
+                    $approvalStatus = in_array($productData['ApprovalStatus'], $validApprovalStatuses) ?
+                        $productData['ApprovalStatus'] : 'pending'; // Default to 'pending' if not valid
+
                     $insertQuery = "INSERT INTO Products (ProductName, SupplierID, CategoryID, Unit, Price, is_featured, ApprovalStatus, image, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     $insertStmt = $mysqli->prepare($insertQuery);
 
                     if ($insertStmt) {
-                        // Debug: Check how many columns are being inserted
-                        echo "<script>showDebugMessage('Preparing to insert data for 9 columns');</script>";
-
-                        // Bind parameters - ensuring all fields from ArtisanProducts are covered and correctly typed
+                        // Bind parameters - note the use of 'b' for blob types if your 'image' field requires it
                         $insertStmt->bind_param(
                             "siisisbss",
                             $productData['ProductName'],
@@ -76,8 +77,8 @@ if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
                             $productData['CategoryID'],
                             $productData['Unit'],
                             $productData['Price'],
-                            $productData['is_featured'],
-                            $productData['ApprovalStatus'],
+                            $productData['is_featured'], // ensure this is a tinyint (0 or 1)
+                            $approvalStatus,             // use the adjusted approval status
                             $productData['image'],
                             $productData['description']
                         );
