@@ -221,7 +221,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                         echo "<h2>All Products</h2>";
                         echo "<div class='table-responsive'>";
                         echo "<table class='table table-bordered table-striped'>";
-                        echo "<thead><tr><th>Product ID</th><th>Product Name</th><th>Supplier ID</th><th>Category ID</th><th>Unit</th><th>Price</th><th>Image URL</th><th>Is Featured</th></tr></thead>";
+                        echo "<thead><tr><th>Product ID</th><th>Product Name</th><th>Supplier ID</th><th>Category ID</th><th>Unit</th><th>Price</th></tr></thead>";
                         echo "<tbody>";
 
                         while ($row = $result->fetch_assoc()) {
@@ -232,8 +232,6 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                             echo "<td>{$row['CategoryID']}</td>";
                             echo "<td>{$row['Unit']}</td>";
                             echo "<td>{$row['Price']}</td>";
-                            // echo "<td>{$row['image_url']}</td>";
-                            // echo "<td>{$row['is_featured']}</td>";
                             echo "</tr>";
                         }
 

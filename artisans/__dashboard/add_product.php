@@ -89,15 +89,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($stmt->execute()) {
                 echo "<script>alert('Product submitted successfully and awaits approval.'); window.location.href='index.php';</script>";
             } else {
-                echo "<script>alert('Error submitting product: " . htmlspecialchars($stmt->error) . "'); window.location.href='add_product.php';</script>";
+                echo "<script>alert('Error submitting product: " . htmlspecialchars($stmt->error) . "'); window.location.href='index.php';</script>";
             }
         }
         $stmt->close();
     } else {
-        echo "<script>alert('Database preparation error: " . htmlspecialchars($mysqli->error) . "'); window.location.href='add_product.php';</script>";
+        echo "<script>alert('Database preparation error: " . htmlspecialchars($mysqli->error) . "'); window.location.href='index.php';</script>";
     }
 
     $mysqli->close();
 } else {
-    echo "<script>alert('No data submitted.'); window.location.href='add_product.php';</script>";
+    echo "<script>alert('No data submitted.'); window.location.href='index.php.php';</script>";
 }
