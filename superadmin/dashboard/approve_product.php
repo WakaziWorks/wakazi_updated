@@ -34,15 +34,23 @@ if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
             $selectStmt->execute();
             $productResult = $selectStmt->get_result();
             // Check how many rows/products are being fetched
+            $mysqli->set_charset("utf8mb4");
+            $productData = array_map(function ($value) {
+                return mb_convert_encoding($value, 'UTF-8', 'UTF-8');
+            }, $productData);
+
+            $productDataJson = json_encode($productData);
+
+
             $numProductsFetched = $productResult->num_rows;
             echo "<script>showDebugMessage('$numProductsFetched product(s) fetched');</script>";
             if ($numProductsFetched > 0) {
-                $productData = $productResult->fetch_assoc();
-
                 $productDataJson = json_encode($productData);
-                $productDataJson = htmlspecialchars($productDataJson, ENT_QUOTES, 'UTF-8');
-                echo "<script>showDebugMessage('Product data fetched: $productDataJson');</script>";
-                
+                if ($productDataJson === false) {
+                    echo "<script>showDebugMessage('JSON encode error: " . json_last_error_msg() . "');</script>";
+                } else {
+                    echo "<script>showDebugMessage('Product data fetched: $productDataJson');</script>";
+                }
             }
             $productData = $productResult->fetch_assoc();
 
