@@ -209,7 +209,7 @@
                                         <input type="text" class="form-control" id="productName" name="productName" required>
                                     </div>
                                     <?php
-                                    include("fetch_supplers.php");
+                                    include("fetch_suppliers.php");
                                     ?>
                                     <div class="form-group">
                                         <label for="supplierID">Supplier:</label>
