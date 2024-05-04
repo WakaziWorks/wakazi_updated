@@ -218,7 +218,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                         $result = $mysqli->query($query);
 
                         // Display the table with CRUD functionality for ArtisanProducts
-                        echo "<h2>Artisan Products (Pending Approval)</h2>";
+                        echo "<h2>Artisan Products Approved</h2>";
                         echo "<div class='table-responsive'>";
                         echo "<table class='table table-bordered table-striped'>";
                         echo "<thead><tr><th>Product ID</th><th>Artisan ID</th><th>Product Name</th><th>Supplier ID</th><th>Category ID</th><th>Unit</th><th>Price</th><th>Action</th></tr></thead>";
