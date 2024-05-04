@@ -40,11 +40,9 @@ if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
                 $productData = $productResult->fetch_assoc();
 
                 $productDataJson = json_encode($productData);
-                if ($productDataJson === false) {
-                    echo "<script>showDebugMessage('JSON encode error: " . json_last_error_msg() . "');</script>";
-                } else {
-                    echo "<script>showDebugMessage('Product data fetched: $productDataJson');</script>";
-                }
+                $productDataJson = htmlspecialchars($productDataJson, ENT_QUOTES, 'UTF-8');
+                echo "<script>showDebugMessage('Product data fetched: $productDataJson');</script>";
+                
             }
             $productData = $productResult->fetch_assoc();
 
