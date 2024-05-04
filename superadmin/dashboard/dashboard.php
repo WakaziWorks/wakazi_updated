@@ -233,7 +233,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                             echo "<td>{$row['Unit']}</td>";
                             echo "<td>{$row['Price']}</td>";
                             // echo "<td>{$row['image_url']}</td>";
-                            echo "<td>{$row['is_featured']}</td>";
+                            // echo "<td>{$row['is_featured']}</td>";
                             echo "</tr>";
                         }
 
