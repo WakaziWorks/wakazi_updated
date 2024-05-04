@@ -189,6 +189,27 @@
             </div>
 
 
+            <?php
+// Fetch categories
+$query = "SELECT CategoryID, CategoryName FROM Categories";
+$result = $mysqli->query($query);
+$categories = [];
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $categories[$row['CategoryID']] = $row['CategoryName'];
+    }
+}
+
+// Fetch suppliers
+$query = "SELECT SupplierID, SupplierName FROM Suppliers";
+$result = $mysqli->query($query);
+$suppliers = [];
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $suppliers[$row['SupplierID']] = $row['SupplierName'];
+    }
+}
+?>
 
 
 
@@ -208,13 +229,23 @@
                                         <input type="text" class="form-control" id="productName" name="productName" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="supplierID">Supplier ID:</label>
-                                        <input type="text" class="form-control" id="supplierID" name="supplierID">
+                                        <label for="supplierID">Supplier:</label>
+                                        <select class="form-control" id="supplierID" name="supplierID">
+                                            <?php foreach ($suppliers as $supplierID => $supplierName) { ?>
+                                                <option value="<?php echo $supplierID; ?>"><?php echo $supplierName; ?></option>
+                                            <?php } ?>
+                                        </select>
                                     </div>
+
                                     <div class="form-group">
-                                        <label for="categoryID">Category ID:</label>
-                                        <input type="text" class="form-control" id="categoryID" name="categoryID">
+                                        <label for="categoryID">Category:</label>
+                                        <select class="form-control" id="categoryID" name="categoryID">
+                                            <?php foreach ($categories as $categoryID => $categoryName) { ?>
+                                                <option value="<?php echo $categoryID; ?>"><?php echo $categoryName; ?></option>
+                                            <?php } ?>
+                                        </select>
                                     </div>
+
                                 </div>
                                 <!-- Second column -->
                                 <div class="col-md-6">
