@@ -35,7 +35,13 @@ if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
             // Check how many rows/products are being fetched
             $numProductsFetched = $productResult->num_rows;
             echo "<script>showDebugMessage('$numProductsFetched product(s) fetched');</script>";
-
+            if ($numProductsFetched > 0) {
+                $productData = $productResult->fetch_assoc();
+    
+                // Create a JSON string of the product data
+                $productDataJson = json_encode($productData);
+                echo "<script>showDebugMessage('Product data fetched: $productDataJson');</script>";
+            }
             $productData = $productResult->fetch_assoc();
 
             $insertQuery = "INSERT INTO Products (ProductID, ProductName, SupplierID, CategoryID, Unit, Price, ApprovalStatus, image, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
