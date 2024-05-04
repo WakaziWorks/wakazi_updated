@@ -1,8 +1,8 @@
 <?php
-require "../__auth/__config/config.php";
+// require "../__auth/__config/config.php";
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-session_start();
+
 // Fetch categories
 $query = "SELECT CategoryID, CategoryName FROM Categories";
 $result = $mysqli->query($query);
