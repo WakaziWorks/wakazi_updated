@@ -193,116 +193,56 @@
 
 
 
-            <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-require '../__auth/__config/config.php'; // Ensure the path is correct
-session_start();
-
-// Check if the user is logged in
-if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
-    header("Location: login.php");
-    exit;
-}
-
-// Open database connection
-$mysqli = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
-
-// Check if the connection was successful
-if ($mysqli->connect_errno) {
-    echo "Failed to connect to MySQL: " . $mysqli->connect_error;
-    exit;
-}
-
-// Fetch categories
-$query = "SELECT CategoryID, CategoryName FROM Categories";
-$result = $mysqli->query($query);
-$categories = [];
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $categories[$row['CategoryID']] = $row['CategoryName'];
-    }
-}
-
-// Fetch suppliers
-$query = "SELECT SupplierID, SupplierName FROM Suppliers";
-$result = $mysqli->query($query);
-$suppliers = [];
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $suppliers[$row['SupplierID']] = $row['SupplierName'];
-    }
-}
-
-?>
-
-<div class="container-fluid pt-4 px-4">
-    <div class="bg-light rounded p-4">
-        <div class="d-flex align-items-center justify-content-between mb-4">
-            <h6 class="mb-0">Add Product</h6>
-        </div>
-        <div class="container mt-5">
-            <form method="post" action="add_product.php" enctype="multipart/form-data">
-                <div class="row">
-                    <!-- First column -->
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="productName">Product Name:</label>
-                            <input type="text" class="form-control" id="productName" name="productName" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="supplierID">Supplier:</label>
-                            <select class="form-control" id="supplierID" name="supplierID">
-                                <?php foreach ($suppliers as $supplierID => $supplierName) { ?>
-                                    <option value="<?php echo $supplierID; ?>"><?php echo $supplierName; ?></option>
-                                <?php } ?>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="categoryID">Category:</label>
-                            <select class="form-control" id="categoryID" name="categoryID">
-                                <?php foreach ($categories as $categoryID => $categoryName) { ?>
-                                    <option value="<?php echo $categoryID; ?>"><?php echo $categoryName; ?></option>
-                                <?php } ?>
-                            </select>
-                        </div>
-
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-light rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0">Add Product</h6>
                     </div>
-                    <!-- Second column -->
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="unit">Unit:</label>
-                            <input type="text" class="form-control" id="unit" name="unit">
-                        </div>
-                        <div class="form-group">
-                            <label for="description">Description:</label>
-                            <input type="text" class="form-control" id="description" name="description">
-                        </div>
-                        <div class="form-group">
-                            <label for="price">Price:</label>
-                            <input type="text" class="form-control" id="price" name="price" required>
-                        </div>
+                    <div class="container mt-5">
+                        <form method="post" action="add_product.php" enctype="multipart/form-data">
+                            <div class="row">
+                                <!-- First column -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="productName">Product Name:</label>
+                                        <input type="text" class="form-control" id="productName" name="productName" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="supplierID">Supplier ID:</label>
+                                        <input type="text" class="form-control" id="supplierID" name="supplierID">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="categoryID">Category ID:</label>
+                                        <input type="text" class="form-control" id="categoryID" name="categoryID">
+                                    </div>
+                                </div>
+                                <!-- Second column -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="unit">Unit:</label>
+                                        <input type="text" class="form-control" id="unit" name="unit">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description">Description:</label>
+                                        <input type="text" class="form-control" id="description" name="description">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="price">Price:</label>
+                                        <input type="text" class="form-control" id="price" name="price" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- File upload -->
+                            <div class="form-group">
+                                <label for="images">Upload Images:</label>
+                                <input type="file" class="form-control" id="images" name="images[]" accept="image/png, image/jpeg, image/jpg" multiple required>
+                            </div>
+                            <hr>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
                     </div>
                 </div>
-                <!-- File upload -->
-                <div class="form-group">
-                    <label for="images">Upload Images:</label>
-                    <input type="file" class="form-control" id="images" name="images[]" accept="image/png, image/jpeg, image/jpg" multiple required>
-                </div>
-                <hr>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
-    </div>
-</div>
-
-<?php
-// Close the database connection
-$mysqli->close();
-?>
-
+            </div>
 
 
 
