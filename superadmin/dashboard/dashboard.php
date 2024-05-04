@@ -182,7 +182,6 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                 <div class="row">
                     <div class="col-md-12">
                         <?php
-                        require 'path_to_your_database_config_file.php';  // Ensure the database connection is established
 
                         // Fetch products from ArtisanProducts table where ApprovalStatus is 'pending'
                         $query = "SELECT * FROM ArtisanProducts WHERE ApprovalStatus = 'pending'";
