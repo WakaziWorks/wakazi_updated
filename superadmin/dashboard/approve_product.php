@@ -17,94 +17,51 @@ require '../admin/verify/config.php'; // Include your configuration file with da
 </script>
 
 <?php
-// Check if the product ID is set in the URL parameter
-if(isset($_GET['product_id']) && !empty($_GET['product_id'])) {
+function prepared_query($mysqli, $sql, $params, $types = "") {
+    $types = $types ?: str_repeat("s", count($params));
+    $stmt = $mysqli->prepare($sql);
+    if ($stmt === false) {
+        throw new Exception("Prepare statement failed: " . $mysqli->error);
+    }
+    $stmt->bind_param($types, ...$params);
+    $stmt->execute();
+    return $stmt;
+}
+if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
     $productId = $_GET['product_id'];
-
-    // Debug: Display a popup indicating that the product ID is set
     echo "<script>showDebugMessage('Product ID is set: $productId');</script>";
 
-    // Update the ApprovalStatus of the product in ArtisanProducts table to 'approved'
-    $updateQuery = "UPDATE ArtisanProducts SET ApprovalStatus = 'approved' WHERE ProductID = ?";
-    $updateStmt = $mysqli->prepare($updateQuery);
-    $updateStmt->bind_param("i", $productId);
-    
-    // Execute the update statement
-    if($updateStmt->execute()) {
-        if($updateStmt->affected_rows > 0) {
-            // Fetch details of the approved product from ArtisanProducts table
-            $selectQuery = "SELECT * FROM ArtisanProducts WHERE ProductID = ?";
-            $selectStmt = $mysqli->prepare($selectQuery);
-            $selectStmt->bind_param("i", $productId);
-            $selectStmt->execute();
-            
-            
-            // Check if the select statement executed successfully
-            if ($selectStmt->errno) {
-                echo "Error fetching product details: " . $selectStmt->error;
-            } else {
-                $productResult = $selectStmt->get_result();
-                $productData = $productResult->fetch_assoc();
-                
-                // Debug: Display a popup indicating the product details fetched
-                echo "<script>showDebugMessage('Product details fetched: " . json_encode($productData) . "');</script>";
+    // Update the ApprovalStatus
+    prepared_query($mysqli, "UPDATE ArtisanProducts SET ApprovalStatus = 'approved' WHERE ProductID = ?", [$productId], "i");
 
-                // Check if the SupplierID exists in the Suppliers table
-                $supplierId = $productData['SupplierID'];
-                $checkSupplierQuery = "SELECT * FROM Suppliers WHERE SupplierID = ?";
-                $checkSupplierStmt = $mysqli->prepare($checkSupplierQuery);
-                $checkSupplierStmt->bind_param("i", $supplierId);
-                $checkSupplierStmt->execute();
-                $supplierResult = $checkSupplierStmt->get_result();
-                
-                if ($supplierResult->num_rows > 0) {
-                    // Insert the approved product into the Products table
-                    $insertQuery = "INSERT INTO Products (ProductName, SupplierID, CategoryID, Unit, Price, is_featured, image, ApprovalStatus, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-                    $insertStmt = $mysqli->prepare($insertQuery);
-                    
-                    // Check if the prepare statement succeeded
-                    if ($insertStmt) {
-                        // Bind parameters
-                        $insertStmt->bind_param("siisweweweiisss", $productData['ProductName'], $productData['SupplierID'], $productData['CategoryID'], $productData['Unit'], $productData['Price'], $productData['is_featured'], $productData['image'], $productData['ApprovalStatus'], $productData['description']);
-                        
-                        // Execute the insert statement
-                        if ($insertStmt->execute()) {
-                            if ($insertStmt->affected_rows > 0) {
-                                echo "<script>showDebugMessage('Product approved and inserted into the Products table successfully')</script>.";
-                                echo "<script>window.location.href = 'dashboard.php';</script>";
-                            } else {
-                                echo "Failed to insert the approved product into the Products table.";
-                            }
-                        } else {
-                            echo "Error inserting approved product: " . $insertStmt->error;
-                        }
-                        // Close the prepared statement
-                        $insertStmt->close();
-                    } else {
-                        echo "Failed to prepare the insert statement.";
-                    }
-                } else {
-                    echo "Supplier with ID $supplierId does not exist.";
-                }
-                
+    // Fetch details of the approved product
+    $selectStmt = prepared_query($mysqli, "SELECT * FROM ArtisanProducts WHERE ProductID = ?", [$productId], "i");
+    $productResult = $selectStmt->get_result();
 
-                $checkSupplierStmt->close();
-            }
+    if ($productResult->num_rows > 0) {
+        $productData = $productResult->fetch_assoc();
+        echo "<script>showDebugMessage('Product details fetched: " . json_encode($productData) . "');</script>";
+
+        // Check if the SupplierID exists
+        $supplierCheckStmt = prepared_query($mysqli, "SELECT * FROM Suppliers WHERE SupplierID = ?", [$productData['SupplierID']], "i");
+        $supplierResult = $supplierCheckStmt->get_result();
+        
+        if ($supplierResult->num_rows > 0) {
+            // Insert the approved product into the Products table
+            prepared_query($mysqli, "INSERT INTO Products (ProductID, ProductName, SupplierID, CategoryID, Unit, Price, ApprovalStatus, image, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", [
+                $productId, $productData['ProductName'], $productData['SupplierID'], $productData['CategoryID'], $productData['Unit'], $productData['Price'], $productData['ApprovalStatus'], $productData['image'], $productData['description']
+            ], "isiidiss");
+
+            echo "<script>alert('Product approved and inserted into the Products table successfully');</script>";
+            echo "<script>window.location.href = 'dashboard.php';</script>";
         } else {
-            echo "No product found with the provided ID.";
+            echo "<script>alert('Supplier with ID {$productData['SupplierID']} does not exist.');</script>";
         }
     } else {
-        echo "Failed to update the approval status of the product.";
+        echo "<script>alert('No product found with the provided ID.');</script>";
     }
-
-    // Close the prepared statements
-    $updateStmt->close();
-    if(isset($selectStmt)) $selectStmt->close();
-    if(isset($insertStmt)) $insertStmt->close();
+    $mysqli->close();
 } else {
-    echo "Product ID is missing.";
+    echo "<script>alert('Product ID is missing.');</script>";
 }
-
-// Close the database connection
-$mysqli->close();
 ?>
