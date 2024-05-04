@@ -252,7 +252,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                         echo "<h2>All Products</h2>";
                         echo "<div class='table-responsive'>";
                         echo "<table class='table table-bordered table-striped'>";
-                        echo "<thead><tr><th>Product ID</th><th>Product Name</th><th>Supplier ID</th><th>Category ID</th><th>Unit</th><th>Price</th></tr></thead>";
+                        echo "<thead><tr><th>Product ID</th><th>Product Name</th><th>Supplier ID</th><th>Category ID</th><th>Unit</th><th>Price</th><th>Edit</th><th>Delete</th></tr></thead>";
                         echo "<tbody>";
 
                         while ($row = $result->fetch_assoc()) {
@@ -265,6 +265,10 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                             echo "<td>{$row['CategoryID']}</td>";
                             echo "<td>{$row['Unit']}</td>";
                             echo "<td>{$row['Price']}</td>";
+                            echo "<td><a href='approve_product.php?product_id={$row['ProductID']}' class='btn btn-primary'>Edit</a></td>"; // Link to approve product
+                            echo "<td><a href='approve_product.php?product_id={$row['ProductID']}' class='btn btn-primary'>Delete</a></td>"; // Link to approve product
+
+
                             echo "</tr>";
                         }
 
