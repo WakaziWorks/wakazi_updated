@@ -178,154 +178,108 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
 
 
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <?php
-
-                        // Fetch products from ArtisanProducts table where ApprovalStatus is 'pending'
-                        $query = "SELECT * FROM ArtisanProducts WHERE ApprovalStatus = 'pending'";
-                        $result = $mysqli->query($query);
-
-                        echo "<h2>Artisan Products (Pending Approval)</h2>";
-                        echo "<div class='table-responsive'>";
-                        echo "<table class='table table-bordered table-striped'>";
-                        echo "<thead><tr><th>Product ID</th><th>Artisan ID</th><th>Product Name</th><th>Supplier ID</th><th>Category ID</th><th>Unit</th><th>Price</th><th>Action</th></tr></thead>";
-                        echo "<tbody>";
-
-                        while ($row = $result->fetch_assoc()) {
-                            echo "<tr>";
-                            echo "<td>{$row['ProductID']}</td>";
-                            echo "<td>{$row['artisan_id']}</td>";
-                            echo "<td>{$row['ProductName']}</td>";
-                            echo "<td>{$row['SupplierID']}</td>";
-                            echo "<td>{$row['CategoryID']}</td>";
-                            echo "<td>{$row['Unit']}</td>";
-                            echo "<td>{$row['Price']}</td>";
-                            echo "<td><a href='approve_product.php?product_id={$row['ProductID']}' class='btn btn-success'>Approve</a></td>";
-                            echo "</tr>";
-                        }
-
-                        echo "</tbody></table></div>";
-                        ?>
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <?php
-                        // Fetch products from ArtisanProducts table where ApprovalStatus is 'approved'
-                        $query = "SELECT * FROM ArtisanProducts WHERE ApprovalStatus = 'approved'";
-                        $result = $mysqli->query($query);
-
-                        echo "<h2>Artisan Products Approved</h2>";
-                        echo "<div class='table-responsive'>";
-                        echo "<table class='table table-bordered table-striped'>";
-                        echo "<thead><tr><th>Product ID</th><th>Artisan ID</th><th>Product Name</th><th>Supplier ID</th><th>Category ID</th><th>Unit</th><th>Price</th><th>Action</th></tr></thead>";
-                        echo "<tbody>";
-
-                        while ($row = $result->fetch_assoc()) {
-                            echo "<tr>";
-                            echo "<td>{$row['ProductID']}</td>";
-                            echo "<td>{$row['artisan_id']}</td>";
-                            echo "<td>{$row['ProductName']}</td>";
-                            echo "<td>{$row['SupplierID']}</td>";
-                            echo "<td>{$row['CategoryID']}</td>";
-                            echo "<td>{$row['Unit']}</td>";
-                            echo "<td>{$row['Price']}</td>";
-                            echo "<td><a href='edit_product.php?product_id={$row['ProductID']}' class='btn btn-warning'>Edit</a></td>";
-                            echo "</tr>";
-                        }
-
-                        echo "</tbody></table></div>";
-                        ?>
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <?php
-                        // Fetch products from Products table
-                        $query = "SELECT * FROM Products";
-                        $result = $mysqli->query($query);
-
-                        echo "<h2>All Products</h2>";
-                        echo "<div class='table-responsive'>";
-                        echo "<table class='table table-bordered table-striped'>";
-                        echo "<thead><tr><th>Product ID</th><th>Product Name</th><th>Supplier ID</th><th>Category ID</th><th>Unit</th><th>Price</th><th>Edit</th><th>Delete</th></tr></thead>";
-                        echo "<tbody>";
-
-                        while ($row = $result->fetch_assoc()) {
-                            echo "<tr>";
-                            echo "<td>{$row['ProductID']}</td>";
-                            echo "<td>{$row['ProductName']}</td>";
-                            echo "<td>{$row['SupplierID']}</td>";
-                            echo "<td>{$row['CategoryID']}</td>";
-                            echo "<td>{$row['Unit']}</td>";
-                            echo "<td>{$row['Price']}</td>";
-                            echo "<td><a href='edit_product.php?product_id={$row['ProductID']}' class='btn btn-info'>Edit</a></td>";
-                            echo "<td><a href='delete_product.php?product_id={$row['ProductID']}' class='btn btn-danger' onclick='return confirm(\"Are you sure you want to delete this product?\")'>Delete</a></td>";
-                            echo "</tr>";
-                        }
-
-                        echo "</tbody></table></div>";
-                        $mysqli->close();
-                        ?>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-
+           <div class="container">
+    <div class="row">
+        <div class="col-md-12">
             <?php
+            require 'path_to_your_database_config_file.php';  // Ensure the database connection is established
 
-            // Fetch all users from the database
-            $query = "SELECT UserID, Username, Email FROM Users";
+            // Fetch products from ArtisanProducts table where ApprovalStatus is 'pending'
+            $query = "SELECT * FROM ArtisanProducts WHERE ApprovalStatus = 'pending'";
             $result = $mysqli->query($query);
 
-            if ($result->num_rows > 0) {
-                echo "<div class='container pt-4 px-4'>
-            <div class='row'>
-                <div class='col-xl-12'>
-                    <div class='bg-light rounded p-4'>
-                        <div class='table-responsive'>
-                            <table class='table'>
-                                <thead>
-                                    <tr>
-                                        <th>UserID</th>
-                                        <th>Username</th>
-                                        <th>Email</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>";
+            echo "<h2>Artisan Products (Pending Approval)</h2>";
+            echo "<div class='table-responsive'>";
+            echo "<table class='table table-bordered table-striped'>";
+            echo "<thead><tr><th>Product ID</th><th>Artisan ID</th><th>Product Name</th><th>Supplier ID</th><th>Category ID</th><th>Unit</th><th>Price</th><th>Action</th></tr></thead>";
+            echo "<tbody>";
 
-                while ($row = $result->fetch_assoc()) {
-                    echo "<tr>
-                <td>{$row['UserID']}</td>
-                <td>{$row['Username']}</td>
-                <td>{$row['Email']}</td>
-                <td>
-                    <a href='edit_user.php?userid={$row['UserID']}' class='btn btn-success'>Edit</a>
-                    <a href='delete_user.php?userid={$row['UserID']}' class='btn btn-danger' onclick='return confirm(\"Are you sure you want to delete this user?\")'>Delete</a>
-                </td>
-              </tr>";
-                }
-
-                echo "          </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>";
-            } else {
-                echo "No users found.";
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>{$row['ProductID']}</td>";
+                echo "<td>{$row['artisan_id']}</td>";
+                echo "<td>{$row['ProductName']}</td>";
+                echo "<td>{$row['SupplierID']}</td>";
+                echo "<td>{$row['CategoryID']}</td>";
+                echo "<td>{$row['Unit']}</td>";
+                echo "<td>{$row['Price']}</td>";
+                echo "<td><a href='approve_product.php?product_id={$row['ProductID']}' class='btn btn-success'>Approve</a></td>";
+                echo "</tr>";
             }
 
+            echo "</tbody></table></div>";
+            ?>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <?php
+            // Fetch products from ArtisanProducts table where ApprovalStatus is 'approved'
+            $query = "SELECT * FROM ArtisanProducts WHERE ApprovalStatus = 'approved'";
+            $result = $mysqli->query($query);
+
+            echo "<h2>Artisan Products Approved</h2>";
+            echo "<div class='table-responsive'>";
+            echo "<table class='table table-bordered table-striped'>";
+            echo "<thead><tr><th>Product ID</th><th>Artisan ID</th><th>Product Name</th><th>Supplier ID</th><th>Category ID</th><th>Unit</th><th>Price</th><th>Action</th></tr></thead>";
+            echo "<tbody>";
+
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>{$row['ProductID']}</td>";
+                echo "<td>{$row['artisan_id']}</td>";
+                echo "<td>{$row['ProductName']}</td>";
+                echo "<td>{$row['SupplierID']}</td>";
+                echo "<td>{$row['CategoryID']}</td>";
+                echo "<td>{$row['Unit']}</td>";
+                echo "<td>{$row['Price']}</td>";
+                echo "<td><a href='edit_product.php?product_id={$row['ProductID']}' class='btn btn-warning'>Edit</a></td>";
+                echo "</tr>";
+            }
+
+            echo "</tbody></table></div>";
+            ?>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <?php
+            // Fetch products from Products table
+            $query = "SELECT * FROM Products";
+            $result = $mysqli->query($query);
+
+            echo "<h2>All Products</h2>";
+            echo "<div class='table-responsive'>";
+            echo "<table class='table table-bordered table-striped'>";
+            echo "<thead><tr><th>Product ID</th><th>Product Name</th><th>Supplier ID</th><th>Category ID</th><th>Unit</th><th>Price</th><th>Edit</th><th>Delete</th></tr></thead>";
+            echo "<tbody>";
+
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>{$row['ProductID']}</td>";
+                echo "<td>{$row['ProductName']}</td>";
+                echo "<td>{$row['SupplierID']}</td>";
+                echo "<td>{$row['CategoryID']}</td>";
+                echo "<td>{$row['Unit']}</td>";
+                echo "<td>{$row['Price']}</td>";
+                echo "<td><a href='edit_product.php?product_id={$row['ProductID']}' class='btn btn-info'>Edit</a></td>";
+                echo "<td><a href='delete_product.php?product_id={$row['ProductID']}' class='btn btn-danger' onclick='return confirm(\"Are you sure you want to delete this product?\")'>Delete</a></td>";
+                echo "</tr>";
+            }
+
+            echo "</tbody></table></div>";
             $mysqli->close();
             ?>
+        </div>
+    </div>
+</div>
+
+             
+
+
+
 
 
 
