@@ -70,7 +70,7 @@ if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
                         echo "Parameter values: ";
                         var_dump($productData);
                         echo "<br>";
-                        $insertStmt->bind_param("isississ", $productData['ProductID'], $productData['artisan_id'], $productData['ProductName'], $productData['SupplierID'], $productData['CategoryID'], $productData['Unit'], $productData['Price'], $productData['ApprovalStatus'], $productData['image']);
+                        $insertStmt->bind_param("sisissis", $productData['ProductName'], $productData['SupplierID'], $productData['CategoryID'], $productData['Unit'], $productData['Price'], $productData['ApprovalStatus'], $productData['image'], $productData['description']);
 
                         // Execute the insert statement
                         if ($insertStmt->execute()) {
