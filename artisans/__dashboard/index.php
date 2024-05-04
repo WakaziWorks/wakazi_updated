@@ -189,27 +189,7 @@
             </div>
 
 
-            <?php
-// Fetch categories
-$query = "SELECT CategoryID, CategoryName FROM Categories";
-$result = $mysqli->query($query);
-$categories = [];
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $categories[$row['CategoryID']] = $row['CategoryName'];
-    }
-}
 
-// Fetch suppliers
-$query = "SELECT SupplierID, SupplierName FROM Suppliers";
-$result = $mysqli->query($query);
-$suppliers = [];
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $suppliers[$row['SupplierID']] = $row['SupplierName'];
-    }
-}
-?>
 
 
 
@@ -228,6 +208,9 @@ if ($result->num_rows > 0) {
                                         <label for="productName">Product Name:</label>
                                         <input type="text" class="form-control" id="productName" name="productName" required>
                                     </div>
+                                    <?php
+                                    include("fetch_supplers.php");
+                                    ?>
                                     <div class="form-group">
                                         <label for="supplierID">Supplier:</label>
                                         <select class="form-control" id="supplierID" name="supplierID">
