@@ -227,7 +227,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                         while ($row = $result->fetch_assoc()) {
                             echo "<tr>";
                             echo "<td>{$row['ProductID']}</td>";
-                            echo "<td>{$row['artisan_id']}</td>";
+                            // echo "<td>{$row['artisan_id']}</td>";
 
                             echo "<td>{$row['ProductName']}</td>";
                             echo "<td>{$row['SupplierID']}</td>";
