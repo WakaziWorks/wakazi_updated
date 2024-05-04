@@ -60,16 +60,28 @@ if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
                 $supplierResult = $checkSupplierStmt->get_result();
 
                 if ($supplierResult->num_rows > 0) {
-                    // Check and adjust the ApprovalStatus before insertion
-                    $validApprovalStatuses = ['pending', 'approved']; // Valid statuses in the Products table
+                    // Define the valid approval statuses based on your Products table schema
+                    $validApprovalStatuses = ['pending', 'approved'];
                     $approvalStatus = in_array($productData['ApprovalStatus'], $validApprovalStatuses) ?
-                        $productData['ApprovalStatus'] : 'pending'; // Default to 'pending' if not valid
+                        $productData['ApprovalStatus'] : 'pending';
 
                     $insertQuery = "INSERT INTO Products (ProductName, SupplierID, CategoryID, Unit, Price, is_featured, ApprovalStatus, image, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     $insertStmt = $mysqli->prepare($insertQuery);
 
                     if ($insertStmt) {
-                        // Bind parameters - note the use of 'b' for blob types if your 'image' field requires it
+                        // Debug: Print the data being bound
+                        echo "<pre>Binding the following data:</pre>";
+                        echo "<pre>ProductName: {$productData['ProductName']}</pre>";
+                        echo "<pre>SupplierID: {$productData['SupplierID']}</pre>";
+                        echo "<pre>CategoryID: {$productData['CategoryID']}</pre>";
+                        echo "<pre>Unit: {$productData['Unit']}</pre>";
+                        echo "<pre>Price: {$productData['Price']}</pre>";
+                        echo "<pre>is_featured: {$productData['is_featured']}</pre>";
+                        echo "<pre>ApprovalStatus: $approvalStatus</pre>";
+                        echo "<pre>image: " . strlen($productData['image']) . " bytes</pre>"; // assuming 'image' is a blob
+                        echo "<pre>description: {$productData['description']}</pre>";
+
+                        // Bind parameters
                         $insertStmt->bind_param(
                             "siisisbss",
                             $productData['ProductName'],
@@ -77,15 +89,15 @@ if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
                             $productData['CategoryID'],
                             $productData['Unit'],
                             $productData['Price'],
-                            $productData['is_featured'], // ensure this is a tinyint (0 or 1)
-                            $approvalStatus,             // use the adjusted approval status
+                            $productData['is_featured'],
+                            $approvalStatus,
                             $productData['image'],
                             $productData['description']
                         );
 
-                        // Execute the insert statement
+                        // Attempt to execute the statement
                         if ($insertStmt->execute()) {
-                            echo "<script>showDebugMessage('Product approved and inserted into Products table successfully. Rows affected: " . $insertStmt->affected_rows . "');</script>";
+                            echo "<script>alert('Product approved and inserted into Products table successfully. Rows affected: " . $insertStmt->affected_rows . "');</script>";
                             echo "<script>window.location.href = 'dashboard.php';</script>";
                         } else {
                             echo "Error inserting approved product: " . $insertStmt->error;
