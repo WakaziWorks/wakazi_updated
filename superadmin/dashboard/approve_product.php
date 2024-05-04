@@ -32,106 +32,18 @@ if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
     // Execute the update statement
     if ($updateStmt->execute()) {
         if ($updateStmt->affected_rows > 0) {
-            // Fetch details of the approved product from ArtisanProducts table
-            $selectQuery = "SELECT * FROM ArtisanProducts WHERE ProductID = ?";
-            $selectStmt = $mysqli->prepare($selectQuery);
-            $selectStmt->bind_param("i", $productId);
-            $selectStmt->execute();
-
-            // Check if the select statement executed successfully
-            if ($selectStmt->errno) {
-                echo "Error fetching product details: " . $selectStmt->error;
-            } else {
-                $productResult = $selectStmt->get_result();
-                $productData = $productResult->fetch_assoc();
-
-                // Debug: Display a popup indicating the product details fetched
-                echo "<script>showDebugMessage('Product details fetched: " . json_encode($productData) . "');</script>";
-
-                // Check if the SupplierID exists in the Suppliers table
-                $supplierId = $productData['SupplierID'];
-                $checkSupplierQuery = "SELECT * FROM Suppliers WHERE SupplierID = ?";
-                $checkSupplierStmt = $mysqli->prepare($checkSupplierQuery);
-                $checkSupplierStmt->bind_param("i", $supplierId);
-                $checkSupplierStmt->execute();
-                $supplierResult = $checkSupplierStmt->get_result();
-
-                if ($supplierResult->num_rows > 0) {
-                    // Insert the approved product into the Products table
-                    $insertQuery = "INSERT INTO Products (ProductName, SupplierID, CategoryID, Unit, Price, is_featured, image, ApprovalStatus, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-                    $insertStmt = $mysqli->prepare($insertQuery);
-
-                    // Check if the prepare statement succeeded
-                    if ($insertStmt) {
-                        // Bind parameters
-                        // Assuming $productData is an associative array fetched from the database
-                        $types = ''; // This will store the type string for bind_param
-                        $values = []; // This will store references to the values to be bound
-
-                        foreach ($productData as $key => $value) {
-                            // Determine the type of each value
-                            if (is_int($value)) {
-                                $types .= 'i';
-                            } elseif (is_double($value)) {
-                                $types .= 'd';
-                            } elseif (is_string($value)) {
-                                $types .= 's';
-                            } else {
-                                // Assume it's a blob or an unknown type
-                                $types .= 'b';
-                            }
-                            $values[] = &$productData[$key]; // bind_param needs references
-                        }
-
-                        // Prepare your SQL statement
-                        $insertQuery = "INSERT INTO Products (ProductName, SupplierID, CategoryID, Unit, Price, ApprovalStatus, image, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-                        $insertStmt = $mysqli->prepare($insertQuery);
-
-                        // You need to use call_user_func_array to dynamically bind parameters
-                        array_unshift($values, $types); // Prepend the types string to the values array
-                        call_user_func_array([$insertStmt, 'bind_param'], $values);
-
-                        // Execute the statement
-                        if ($insertStmt->execute()) {
-                            echo "Success!";
-                        } else {
-                            echo "Error: " . $insertStmt->error;
-                        }
-
-                        // Execute the insert statement
-                        if ($insertStmt->execute()) {
-                            if ($insertStmt->affected_rows > 0) {
-                                echo "<script>showDebugMessage('Product approved and inserted into the Products table successfully')</script>.";
-                                echo "<script>window.location.href = 'dashboard.php';</script>";
-                            } else {
-                                echo "Failed to insert the approved product into the Products table.";
-                            }
-                        } else {
-                            echo "Error inserting approved product: " . $insertStmt->error;
-                        }
-                        // Close the prepared statement
-                        $insertStmt->close();
-                    } else {
-                        echo "Failed to prepare the insert statement.";
-                    }
-                } else {
-                    echo "Supplier with ID $supplierId does not exist.";
-                }
-
-
-                $checkSupplierStmt->close();
-            }
+            // Display a popup indicating success and redirect to add_to_product_table.php
+            echo "<script>showDebugMessage('Product approval status updated successfully. Redirecting...');</script>";
+            echo "<script>window.location.href = 'add_to_product_table.php';</script>";
         } else {
-            echo "No product found with the provided ID.";
+            echo "No product found with the provided ID or it is already approved.";
         }
     } else {
-        echo "Failed to update the approval status of the product.";
+        echo "Failed to update the approval status of the product: " . $updateStmt->error;
     }
 
-    // Close the prepared statements
+    // Close the prepared statement
     $updateStmt->close();
-    if (isset($selectStmt)) $selectStmt->close();
-    if (isset($insertStmt)) $insertStmt->close();
 } else {
     echo "Product ID is missing.";
 }
