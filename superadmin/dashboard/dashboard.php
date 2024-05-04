@@ -214,7 +214,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                     <div class="col-md-8">
                         <?php
                         // Fetch products from ArtisanProducts table where ApprovalStatus is 'pending'
-                        $query = "SELECT * FROM ArtisanProducts";
+                        $query = "SELECT * FROM ArtisanProducts WHERE ApprovalStatus = 'approved'";
                         $result = $mysqli->query($query);
 
                         // Display the table with CRUD functionality for ArtisanProducts
