@@ -62,8 +62,14 @@ if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
                     $insertStmt = $mysqli->prepare($insertQuery);
 
                     // Check if the prepare statement succeeded
+                    // Check if the prepare statement succeeded
                     if ($insertStmt) {
                         // Bind parameters
+                        echo "Number of parameters: " . count($productData) . "<br>";
+                        echo "Parameter types: sisisiss <br>";
+                        echo "Parameter values: ";
+                        var_dump($productData);
+                        echo "<br>";
                         $insertStmt->bind_param("sisisiss", $productData['ProductName'], $productData['SupplierID'], $productData['CategoryID'], $productData['Unit'], $productData['Price'], $productData['is_featured'], $productData['image'], $productData['ApprovalStatus'], $productData['description']);
 
                         // Execute the insert statement
