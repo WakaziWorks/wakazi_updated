@@ -51,7 +51,7 @@ if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
                     $productData['Unit'],
                     $productData['Price'],
                     $productData['ApprovalStatus'],
-                    $null, // Placeholder for blob data
+                    $productData['image'], // Placeholder for blob data
                     $productData['description']
                 );
             
