@@ -18,15 +18,21 @@ if ($selectResult->num_rows > 0) {
         $checkProductResult = $checkProductStmt->get_result();
         
         if ($checkProductResult->num_rows == 0) {
-            // Check if SupplierID exists in the Suppliers table
+            // Check if SupplierID and CategoryID exist in their respective tables
             $checkSupplierQuery = "SELECT 1 FROM Suppliers WHERE SupplierID = ?";
             $checkSupplierStmt = $mysqli->prepare($checkSupplierQuery);
             $checkSupplierStmt->bind_param("i", $row['SupplierID']);
             $checkSupplierStmt->execute();
             $checkSupplierResult = $checkSupplierStmt->get_result();
-            
-            if ($checkSupplierResult->num_rows > 0) {
-                // Insert the new product into Products
+
+            $checkCategoryQuery = "SELECT 1 FROM Categories WHERE CategoryID = ?";
+            $checkCategoryStmt = $mysqli->prepare($checkCategoryQuery);
+            $checkCategoryStmt->bind_param("i", $row['CategoryID']);
+            $checkCategoryStmt->execute();
+            $checkCategoryResult = $checkCategoryStmt->get_result();
+
+            if ($checkSupplierResult->num_rows > 0 && $checkCategoryResult->num_rows > 0) {
+                // Both SupplierID and CategoryID are valid, insert the new product into Products
                 $insertQuery = "INSERT INTO Products (ProductName, SupplierID, CategoryID, Unit, Price, is_featured, image, ApprovalStatus, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 $insertStmt = $mysqli->prepare($insertQuery);
         
@@ -53,9 +59,10 @@ if ($selectResult->num_rows > 0) {
                     echo "Failed to prepare the insert statement for new product ID " . $row['ProductID'] . ".<br/>";
                 }
             } else {
-                echo "Supplier with ID " . $row['SupplierID'] . " does not exist.<br/>";
+                echo "Either Supplier ID " . $row['SupplierID'] . " or Category ID " . $row['CategoryID'] . " does not exist.<br/>";
             }
             $checkSupplierStmt->close();
+            $checkCategoryStmt->close();
         } else {
             echo "Product " . $row['ProductName'] . " from supplier ID " . $row['SupplierID'] . " is already in the Products table.<br/>";
         }
