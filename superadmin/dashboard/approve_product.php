@@ -31,6 +31,9 @@ if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
 
     // Execute the update statement
     if ($updateStmt->execute()) {
+        // Debug: Display a popup indicating the update status
+        echo "<script>showDebugMessage('Update query executed. Rows affected: " . $updateStmt->affected_rows . "');</script>";
+
         if ($updateStmt->affected_rows > 0) {
             // Fetch details of the approved product from ArtisanProducts table
             $selectQuery = "SELECT * FROM ArtisanProducts WHERE ProductID = ?";
@@ -61,29 +64,19 @@ if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
                     $insertQuery = "INSERT INTO Products (ProductName, SupplierID, CategoryID, Unit, Price, is_featured, image, ApprovalStatus, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     $insertStmt = $mysqli->prepare($insertQuery);
 
-                    // Check if the prepare statement succeeded
-                    // Check if the prepare statement succeeded
                     if ($insertStmt) {
-                        // Bind parameters
-                        echo "Number of parameters: " . count($productData) . "<br>";
-                        echo "Parameter types: sisisiss <br>";
-                        echo "Parameter values: ";
-                        var_dump($productData);
-                        echo "<br>";
-                        $insertStmt->bind_param("sisissis", $productData['ProductName'], $productData['SupplierID'], $productData['CategoryID'], $productData['Unit'], $productData['Price'], $productData['ApprovalStatus'], $productData['image'], $productData['description']);
+                        $insertStmt->bind_param("sisissis", $productData['ProductName'], $productData['SupplierID'], $productData['CategoryID'], $productData['Unit'], $productData['Price'], $productData['is_featured'], $productData['image'], $productData['description']);
+                        
+                        // Debug: Show a popup before executing insert
+                        echo "<script>showDebugMessage('Preparing to insert: " . json_encode($productData) . "');</script>";
 
-                        // Execute the insert statement
                         if ($insertStmt->execute()) {
-                            if ($insertStmt->affected_rows > 0) {
-                                echo "<script>showDebugMessage('Product approved and inserted into the Products table successfully')</script>.";
-                                echo "<script>window.location.href = 'dashboard.php';</script>";
-                            } else {
-                                echo "Failed to insert the approved product into the Products table.";
-                            }
+                            // Debug: Show success message
+                            echo "<script>showDebugMessage('Product approved and inserted into the Products table successfully. Rows affected: " . $insertStmt->affected_rows . "');</script>";
+                            echo "<script>window.location.href = 'dashboard.php';</script>";
                         } else {
                             echo "Error inserting approved product: " . $insertStmt->error;
                         }
-                        // Close the prepared statement
                         $insertStmt->close();
                     } else {
                         echo "Failed to prepare the insert statement.";
@@ -91,8 +84,6 @@ if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
                 } else {
                     echo "Supplier with ID $supplierId does not exist.";
                 }
-
-
                 $checkSupplierStmt->close();
             }
         } else {
@@ -101,11 +92,7 @@ if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
     } else {
         echo "Failed to update the approval status of the product.";
     }
-
-    // Close the prepared statements
     $updateStmt->close();
-    if (isset($selectStmt)) $selectStmt->close();
-    if (isset($insertStmt)) $insertStmt->close();
 } else {
     echo "Product ID is missing.";
 }
