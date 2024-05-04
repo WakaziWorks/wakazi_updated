@@ -27,29 +27,30 @@ if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
     if ($updateStmt->execute()) {
         echo "<script>showDebugMessage('Update query executed. Rows affected: " . $updateStmt->affected_rows . "');</script>";
 
-        if ($updateStmt->affected_rows > 0) {
-            $selectQuery = "SELECT * FROM ArtisanProducts WHERE ProductID = ?";
-            $selectStmt = $mysqli->prepare($selectQuery);
-            $selectStmt->bind_param("i", $productId);
-            $selectStmt->execute();
-            $productResult = $selectStmt->get_result();
-            // Check how many rows/products are being fetched
-            $mysqli->set_charset("utf8mb4");
-            $productData = array_map(function ($value) {
-                return mb_convert_encoding($value, 'UTF-8', 'UTF-8');
-            }, $productData);
-
-            $productDataJson = json_encode($productData);
-
-
-            $numProductsFetched = $productResult->num_rows;
-            echo "<script>showDebugMessage('$numProductsFetched product(s) fetched');</script>";
-            if ($numProductsFetched > 0) {
-                $productDataJson = json_encode($productData);
-                if ($productDataJson === false) {
-                    echo "<script>showDebugMessage('JSON encode error: " . json_last_error_msg() . "');</script>";
-                } else {
-                    echo "<script>showDebugMessage('Product data fetched: $productDataJson');</script>";
+        if ($updateStmt->execute()) {
+            echo "<script>showDebugMessage('Update query executed. Rows affected: " . $updateStmt->affected_rows . "');</script>";
+        
+            if ($updateStmt->affected_rows > 0) {
+                $selectQuery = "SELECT * FROM ArtisanProducts WHERE ProductID = ?";
+                $selectStmt = $mysqli->prepare($selectQuery);
+                $selectStmt->bind_param("i", $productId);
+                $selectStmt->execute();
+                $productResult = $selectStmt->get_result();
+                // Check how many rows/products are being fetched
+                $numProductsFetched = $productResult->num_rows;
+                echo "<script>showDebugMessage('$numProductsFetched product(s) fetched');</script>";
+        
+                if ($numProductsFetched > 0) {
+                    $productData = $productResult->fetch_assoc();
+        
+                    // Get column names from the fetched data
+                    $columnNames = array_keys($productData);
+                    $columnNamesJson = json_encode($columnNames);
+                    if ($columnNamesJson === false) {
+                        echo "<script>showDebugMessage('JSON encode error: " . json_last_error_msg() . "');</script>";
+                    } else {
+                        echo "<script>showDebugMessage('Columns fetched: $columnNamesJson');</script>";
+                    }
                 }
             }
             $productData = $productResult->fetch_assoc();
