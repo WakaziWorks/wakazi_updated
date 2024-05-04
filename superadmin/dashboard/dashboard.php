@@ -265,8 +265,8 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                             echo "<td>{$row['CategoryID']}</td>";
                             echo "<td>{$row['Unit']}</td>";
                             echo "<td>{$row['Price']}</td>";
-                            echo "<td><a href='approve_product.php?product_id={$row['ProductID']}' class='btn btn-primary'>Edit</a></td>"; // Link to approve product
-                            echo "<td><a href='approve_product.php?product_id={$row['ProductID']}' class='btn btn-primary'>Delete</a></td>"; // Link to approve product
+                            echo "<td><a href='edit_product.php?product_id={$row['ProductID']}' class='btn btn-info'>Edit</a></td>";
+                            echo "<td><a href='delete_product.php?product_id={$row['ProductID']}' class='btn btn-danger' onclick='return confirm(\"Are you sure you want to delete this product?\")'>Delete</a></td>";
 
 
                             echo "</tr>";
