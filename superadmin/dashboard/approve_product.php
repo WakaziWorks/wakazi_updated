@@ -9,101 +9,83 @@ require '../admin/verify/config.php'; // Include your configuration file with da
     // Debugging function to display a popup message
     function showDebugMessage(message) {
         alert(message);
-        // Wait for 2 seconds before continuing
         setTimeout(function() {
-            // Continue with the rest of the script
-        }, 2000);
+            /* Continue with the rest of the script */ }, 2000);
     }
 </script>
 
 <?php
-// Check if the product ID is set in the URL parameter
-if(isset($_GET['product_id']) && !empty($_GET['product_id'])) {
+if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
     $productId = $_GET['product_id'];
-
-    // Debug: Display a popup indicating that the product ID is set
     echo "<script>showDebugMessage('Product ID is set: $productId');</script>";
 
-    // Update the ApprovalStatus of the product in ArtisanProducts table to 'approved'
     $updateQuery = "UPDATE ArtisanProducts SET ApprovalStatus = 'approved' WHERE ProductID = ?";
     $updateStmt = $mysqli->prepare($updateQuery);
     $updateStmt->bind_param("i", $productId);
-    
-    // Execute the update statement
-    if($updateStmt->execute()) {
-        if($updateStmt->affected_rows > 0) {
-            // Fetch details of the approved product from ArtisanProducts table
+
+    if ($updateStmt->execute()) {
+        echo "<script>showDebugMessage('Update query executed. Rows affected: " . $updateStmt->affected_rows . "');</script>";
+
+        if ($updateStmt->affected_rows > 0) {
             $selectQuery = "SELECT * FROM ArtisanProducts WHERE ProductID = ?";
             $selectStmt = $mysqli->prepare($selectQuery);
             $selectStmt->bind_param("i", $productId);
             $selectStmt->execute();
+            $productResult = $selectStmt->get_result();
+            $productData = $productResult->fetch_assoc();
+
+            // Check the ApprovalStatus and adjust if it's 'rejected'
+            $approvalStatus = $productData['ApprovalStatus'] == 'rejected' ? 'pending' : $productData['ApprovalStatus'];
+
+            $insertQuery = "INSERT INTO Products (ProductName, SupplierID, CategoryID, Unit, Price, ApprovalStatus, image, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            $insertStmt = $mysqli->prepare($insertQuery);
             
-            // Check if the select statement executed successfully
-            if ($selectStmt->errno) {
-                echo "Error fetching product details: " . $selectStmt->error;
-            } else {
-                $productResult = $selectStmt->get_result();
-                $productData = $productResult->fetch_assoc();
-                
-                // Debug: Display a popup indicating the product details fetched
-                echo "<script>showDebugMessage('Product details fetched: " . json_encode($productData) . "');</script>";
-
-                // Check if the SupplierID exists in the Suppliers table
-                $supplierId = $productData['SupplierID'];
-                $checkSupplierQuery = "SELECT * FROM Suppliers WHERE SupplierID = ?";
-                $checkSupplierStmt = $mysqli->prepare($checkSupplierQuery);
-                $checkSupplierStmt->bind_param("i", $supplierId);
-                $checkSupplierStmt->execute();
-                $supplierResult = $checkSupplierStmt->get_result();
-                
-                if ($supplierResult->num_rows > 0) {
-                    // Insert the approved product into the Products table
-                    $insertQuery = "INSERT INTO Products (ProductName, SupplierID, CategoryID, Unit, Price, is_featured, image, ApprovalStatus, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-                    $insertStmt = $mysqli->prepare($insertQuery);
-                    
-                    // Check if the prepare statement succeeded
-                    if ($insertStmt) {
-                        // Bind parameters
-                        $insertStmt->bind_param("siisweweweiisss", $productData['ProductName'], $productData['SupplierID'], $productData['CategoryID'], $productData['Unit'], $productData['Price'], $productData['is_featured'], $productData['image'], $productData['ApprovalStatus'], $productData['description']);
-                        
-                        // Execute the insert statement
-                        if ($insertStmt->execute()) {
-                            if ($insertStmt->affected_rows > 0) {
-                                echo "<script>showDebugMessage('Product approved and inserted into the Products table successfully')</script>.";
-                                echo "<script>window.location.href = 'dashboard.php';</script>";
-                            } else {
-                                echo "Failed to insert the approved product into the Products table.";
-                            }
-                        } else {
-                            echo "Error inserting approved product: " . $insertStmt->error;
-                        }
-                        // Close the prepared statement
-                        $insertStmt->close();
-                    } else {
-                        echo "Failed to prepare the insert statement.";
-                    }
+            if ($insertStmt) {
+                // Prepare binary data for binding
+                $null = NULL; // Placeholder for blob data
+                $insertStmt->bind_param(
+                    "siidiss",
+                    $productData['ProductName'],
+                    $productData['SupplierID'],
+                    $productData['CategoryID'],
+                    $productData['Unit'],
+                    $productData['Price'],
+                    $productData['ApprovalStatus'],
+                    $null, // Placeholder for blob data
+                    $productData['description']
+                );
+            
+                // Handling blob data
+                if (empty($productData['image'])) {
+                    // You can decide to either set a default image or raise an error if no image is provided
+                    echo "<script>alert('No image provided. Please upload an image.'); window.location.href='dashboard.php';</script>";
+                    exit;
                 } else {
-                    echo "Supplier with ID $supplierId does not exist.";
+                    $insertStmt->send_long_data(6, $productData['image']); // Ensuring the right index is used for blob data
                 }
-                
-
-                $checkSupplierStmt->close();
+            
+                // Execute the statement
+                if ($insertStmt->execute()) {
+                    echo "<script>alert('Product approved and inserted into Products table successfully. Rows affected: " . $insertStmt->affected_rows . "');</script>";
+                    echo "<script>window.location.href = 'dashboard.php';</script>";
+                } else {
+                    echo "Error inserting approved product: " . $insertStmt->error;
+                }
+                $insertStmt->close();
+            } else {
+                echo "Failed to prepare the insert statement.";
             }
+            
         } else {
             echo "No product found with the provided ID.";
         }
     } else {
         echo "Failed to update the approval status of the product.";
     }
-
-    // Close the prepared statements
     $updateStmt->close();
-    if(isset($selectStmt)) $selectStmt->close();
-    if(isset($insertStmt)) $insertStmt->close();
 } else {
     echo "Product ID is missing.";
 }
 
-// Close the database connection
 $mysqli->close();
 ?>
