@@ -62,13 +62,16 @@ if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
                 if ($supplierResult->num_rows > 0) {
                     // Define the valid approval statuses based on your Products table schema
                     $validApprovalStatuses = ['pending', 'approved'];
-                    $approvalStatus = in_array($productData['ApprovalStatus'], $validApprovalStatuses) ?
-                        $productData['ApprovalStatus'] : 'pending';
+                    // Ensure approval status is sanitized and valid
+                    $approvalStatus = in_array($productData['ApprovalStatus'], $validApprovalStatuses) ? $productData['ApprovalStatus'] : 'pending';
 
                     $insertQuery = "INSERT INTO Products (ProductName, SupplierID, CategoryID, Unit, Price, is_featured, ApprovalStatus, image, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     $insertStmt = $mysqli->prepare($insertQuery);
 
                     if ($insertStmt) {
+                        // Set a default value for is_featured if it's not set
+                        $is_featured = isset($productData['is_featured']) ? $productData['is_featured'] : 0; // Assuming the default value is 0
+
                         // Debug: Print the data being bound
                         echo "<pre>Binding the following data:</pre>";
                         echo "<pre>ProductName: {$productData['ProductName']}</pre>";
@@ -76,20 +79,20 @@ if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
                         echo "<pre>CategoryID: {$productData['CategoryID']}</pre>";
                         echo "<pre>Unit: {$productData['Unit']}</pre>";
                         echo "<pre>Price: {$productData['Price']}</pre>";
-                        echo "<pre>is_featured: {$productData['is_featured']}</pre>";
+                        echo "<pre>is_featured: $is_featured</pre>";
                         echo "<pre>ApprovalStatus: $approvalStatus</pre>";
                         echo "<pre>image: " . strlen($productData['image']) . " bytes</pre>"; // assuming 'image' is a blob
                         echo "<pre>description: {$productData['description']}</pre>";
 
                         // Bind parameters
                         $insertStmt->bind_param(
-                            "siisisbss",
+                            "siidisisbss",
                             $productData['ProductName'],
                             $productData['SupplierID'],
                             $productData['CategoryID'],
                             $productData['Unit'],
                             $productData['Price'],
-                            $productData['is_featured'],
+                            $is_featured,
                             $approvalStatus,
                             $productData['image'],
                             $productData['description']
