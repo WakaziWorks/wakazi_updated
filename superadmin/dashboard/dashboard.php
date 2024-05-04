@@ -221,7 +221,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                         echo "<h2>All Products</h2>";
                         echo "<div class='table-responsive'>";
                         echo "<table class='table table-bordered table-striped'>";
-                        echo "<thead><tr><th>Product ID</th><th>Artisan ID</th><th>Product Name</th><th>Supplier ID</th><th>Category ID</th><th>Unit</th><th>Price</th></tr></thead>";
+                        echo "<thead><tr><th>Product ID</th><th>Product Name</th><th>Supplier ID</th><th>Category ID</th><th>Unit</th><th>Price</th></tr></thead>";
                         echo "<tbody>";
 
                         while ($row = $result->fetch_assoc()) {
