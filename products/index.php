@@ -42,7 +42,7 @@ include("../screens/headers/header.php");
                         echo "<div class='product-price'>KES. {$row['Price']}</div>";
                         echo "<form action='add_to_cart.php' method='post'>";
                         echo "<input type='hidden' name='product_id' value='{$row['ProductID']}'>";
-                        echo "<button type='submit' class='btn btn-primary'><i class='bi bi-plus'></i> Add to Cart</button>";
+                        echo "<button type='submit'><i class='bi bi-plus'></i> Add to Cart</button>";
                         echo "</form>";
                         echo "<a href='product_details.php?id={$row['ProductID']}'>See more <i class='bi bi-arrow-right'></i></a>";
                         echo "</div>";
