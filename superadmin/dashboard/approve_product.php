@@ -60,19 +60,31 @@ if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
                 $supplierResult = $checkSupplierStmt->get_result();
 
                 if ($supplierResult->num_rows > 0) {
-                    // Insert the approved product into the Products table
-                    $insertQuery = "INSERT INTO Products (ProductName, SupplierID, CategoryID, Unit, Price, is_featured, image, ApprovalStatus, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    // Prepare the insert statement with all necessary fields
+                    $insertQuery = "INSERT INTO Products (ProductName, SupplierID, CategoryID, Unit, Price, is_featured, ApprovalStatus, image, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     $insertStmt = $mysqli->prepare($insertQuery);
 
                     if ($insertStmt) {
-                        $insertStmt->bind_param("sisissis", $productData['ProductName'], $productData['SupplierID'], $productData['CategoryID'], $productData['Unit'], $productData['Price'], $productData['is_featured'], $productData['image'], $productData['description']);
-                        
-                        // Debug: Show a popup before executing insert
-                        echo "<script>showDebugMessage('Preparing to insert: " . json_encode($productData) . "');</script>";
+                        // Debug: Check how many columns are being inserted
+                        echo "<script>showDebugMessage('Preparing to insert data for 9 columns');</script>";
 
+                        // Bind parameters - ensuring all fields from ArtisanProducts are covered and correctly typed
+                        $insertStmt->bind_param(
+                            "siisisbss",
+                            $productData['ProductName'],
+                            $productData['SupplierID'],
+                            $productData['CategoryID'],
+                            $productData['Unit'],
+                            $productData['Price'],
+                            $productData['is_featured'],
+                            $productData['ApprovalStatus'],
+                            $productData['image'],
+                            $productData['description']
+                        );
+
+                        // Execute the insert statement
                         if ($insertStmt->execute()) {
-                            // Debug: Show success message
-                            echo "<script>showDebugMessage('Product approved and inserted into the Products table successfully. Rows affected: " . $insertStmt->affected_rows . "');</script>";
+                            echo "<script>showDebugMessage('Product approved and inserted into Products table successfully. Rows affected: " . $insertStmt->affected_rows . "');</script>";
                             echo "<script>window.location.href = 'dashboard.php';</script>";
                         } else {
                             echo "Error inserting approved product: " . $insertStmt->error;
