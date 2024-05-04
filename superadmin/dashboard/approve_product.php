@@ -62,25 +62,35 @@ if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
                 if ($supplierResult->num_rows > 0) {
                     $insertQuery = "INSERT INTO Products (ProductName, SupplierID, CategoryID, Unit, Price, is_featured, ApprovalStatus, image, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     $insertStmt = $mysqli->prepare($insertQuery);
-                    
+
                     if ($insertStmt) {
                         // Prepare binary data for binding
                         $null = NULL; // For binding the blob
-                        $insertStmt->bind_param("siidisiib", 
-                            $productData['ProductName'], 
-                            $productData['SupplierID'], 
-                            $productData['CategoryID'], 
-                            $productData['Unit'], 
-                            $productData['Price'], 
-                            $is_featured, 
+                        $insertStmt->bind_param(
+                            "siidisiis",
+                            $productData['ProductName'],
+                            $productData['SupplierID'],
+                            $productData['CategoryID'],
+                            $productData['Unit'],
+                            $productData['Price'],
+                            $is_featured,
                             $approvalStatus,
                             $null, // Placeholder for blob
                             $productData['description']
                         );
-                    
-                        // Bind the blob separately
-                        $insertStmt->send_long_data(7, $productData['image']);
-                    
+
+                        // Check if image data is present, if not, handle the error or set default image data
+                        if (empty($productData['image'])) {
+                            // Option: Set a default image or fetch an existing image data
+                            // For example: $defaultImageData = file_get_contents('path_to_default_image');
+                            // $insertStmt->send_long_data(7, $defaultImageData);
+                            echo "<script>alert('No image provided. Please upload an image.'); window.location.href='dashboard.php';</script>";
+                            exit; // Stop the operation if no image is available
+                        } else {
+                            // Send the actual image data
+                            $insertStmt->send_long_data(7, $productData['image']);
+                        }
+
                         // Execute the statement
                         if ($insertStmt->execute()) {
                             echo "<script>alert('Product approved and inserted into Products table successfully. Rows affected: " . $insertStmt->affected_rows . "');</script>";
@@ -92,7 +102,6 @@ if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
                     } else {
                         echo "Failed to prepare the insert statement.";
                     }
-                    
                 } else {
                     echo "Supplier with ID $supplierId does not exist.";
                 }
