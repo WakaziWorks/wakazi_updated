@@ -9,8 +9,7 @@ require '../admin/verify/config.php'; // Include your configuration file with da
     // Debugging function to display a popup message
     function showDebugMessage(message) {
         alert(message);
-        setTimeout(function() {
-            /* Continue with the rest of the script */ }, 2000);
+        setTimeout(function() { /* Continue with the rest of the script */ }, 2000);
     }
 </script>
 
@@ -34,17 +33,14 @@ if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
             $productResult = $selectStmt->get_result();
             $productData = $productResult->fetch_assoc();
 
-            // Check the ApprovalStatus and adjust if it's 'rejected'
-            $approvalStatus = $productData['ApprovalStatus'] == 'rejected' ? 'pending' : $productData['ApprovalStatus'];
-
-            $insertQuery = "INSERT INTO Products (ProductName, SupplierID, CategoryID, Unit, Price, ApprovalStatus, image, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            $insertQuery = "INSERT INTO Products (ProductID, ProductName, SupplierID, CategoryID, Unit, Price, ApprovalStatus, image, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $insertStmt = $mysqli->prepare($insertQuery);
-            
+
             if ($insertStmt) {
-                // Prepare binary data for binding
                 $null = NULL; // Placeholder for blob data
                 $insertStmt->bind_param(
-                    "siidiss",
+                    "isiidiss",
+                    $productId,
                     $productData['ProductName'],
                     $productData['SupplierID'],
                     $productData['CategoryID'],
@@ -54,16 +50,15 @@ if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
                     $productData['image'], // Placeholder for blob data
                     $productData['description']
                 );
-            
+
                 // Handling blob data
                 if (empty($productData['image'])) {
-                    // You can decide to either set a default image or raise an error if no image is provided
                     echo "<script>alert('No image provided. Please upload an image.'); window.location.href='dashboard.php';</script>";
                     exit;
                 } else {
-                    $insertStmt->send_long_data(6, $productData['image']); // Ensuring the right index is used for blob data
+                    $insertStmt->send_long_data(7, $productData['image']); // Ensuring the right index is used for blob data
                 }
-            
+
                 // Execute the statement
                 if ($insertStmt->execute()) {
                     echo "<script>alert('Product approved and inserted into Products table successfully. Rows affected: " . $insertStmt->affected_rows . "');</script>";
@@ -75,7 +70,6 @@ if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
             } else {
                 echo "Failed to prepare the insert statement.";
             }
-            
         } else {
             echo "No product found with the provided ID.";
         }
