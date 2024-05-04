@@ -60,45 +60,28 @@ if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
                 $supplierResult = $checkSupplierStmt->get_result();
 
                 if ($supplierResult->num_rows > 0) {
-                    // Define the valid approval statuses based on your Products table schema
-                    $validApprovalStatuses = ['pending', 'approved'];
-                    // Ensure approval status is sanitized and valid
-                    $approvalStatus = in_array($productData['ApprovalStatus'], $validApprovalStatuses) ? $productData['ApprovalStatus'] : 'pending';
-
                     $insertQuery = "INSERT INTO Products (ProductName, SupplierID, CategoryID, Unit, Price, is_featured, ApprovalStatus, image, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     $insertStmt = $mysqli->prepare($insertQuery);
-
+                    
                     if ($insertStmt) {
-                        // Set a default value for is_featured if it's not set
-                        $is_featured = isset($productData['is_featured']) ? $productData['is_featured'] : 0; // Assuming the default value is 0
-
-                        // Debug: Print the data being bound
-                        echo "<pre>Binding the following data:</pre>";
-                        echo "<pre>ProductName: {$productData['ProductName']}</pre>";
-                        echo "<pre>SupplierID: {$productData['SupplierID']}</pre>";
-                        echo "<pre>CategoryID: {$productData['CategoryID']}</pre>";
-                        echo "<pre>Unit: {$productData['Unit']}</pre>";
-                        echo "<pre>Price: {$productData['Price']}</pre>";
-                        echo "<pre>is_featured: $is_featured</pre>";
-                        echo "<pre>ApprovalStatus: $approvalStatus</pre>";
-                        echo "<pre>image: " . strlen($productData['image']) . " bytes</pre>"; // assuming 'image' is a blob
-                        echo "<pre>description: {$productData['description']}</pre>";
-
-                        // Bind parameters
-                        $insertStmt->bind_param(
-                            "siidisisbss",
-                            $productData['ProductName'],
-                            $productData['SupplierID'],
-                            $productData['CategoryID'],
-                            $productData['Unit'],
-                            $productData['Price'],
-                            $is_featured,
+                        // Prepare binary data for binding
+                        $null = NULL; // For binding the blob
+                        $insertStmt->bind_param("siidisiib", 
+                            $productData['ProductName'], 
+                            $productData['SupplierID'], 
+                            $productData['CategoryID'], 
+                            $productData['Unit'], 
+                            $productData['Price'], 
+                            $is_featured, 
                             $approvalStatus,
-                            $productData['image'],
+                            $null, // Placeholder for blob
                             $productData['description']
                         );
-
-                        // Attempt to execute the statement
+                    
+                        // Bind the blob separately
+                        $insertStmt->send_long_data(7, $productData['image']);
+                    
+                        // Execute the statement
                         if ($insertStmt->execute()) {
                             echo "<script>alert('Product approved and inserted into Products table successfully. Rows affected: " . $insertStmt->affected_rows . "');</script>";
                             echo "<script>window.location.href = 'dashboard.php';</script>";
@@ -109,6 +92,7 @@ if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
                     } else {
                         echo "Failed to prepare the insert statement.";
                     }
+                    
                 } else {
                     echo "Supplier with ID $supplierId does not exist.";
                 }
