@@ -9,7 +9,8 @@ require '../admin/verify/config.php'; // Include your configuration file with da
     // Debugging function to display a popup message
     function showDebugMessage(message) {
         alert(message);
-        setTimeout(function() { /* Continue with the rest of the script */ }, 2000);
+        setTimeout(function() {
+            /* Continue with the rest of the script */ }, 2000);
     }
 </script>
 
@@ -31,6 +32,10 @@ if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
             $selectStmt->bind_param("i", $productId);
             $selectStmt->execute();
             $productResult = $selectStmt->get_result();
+            // Check how many rows/products are being fetched
+            $numProductsFetched = $productResult->num_rows;
+            echo "<script>showDebugMessage('$numProductsFetched product(s) fetched');</script>";
+
             $productData = $productResult->fetch_assoc();
 
             $insertQuery = "INSERT INTO Products (ProductID, ProductName, SupplierID, CategoryID, Unit, Price, ApprovalStatus, image, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
