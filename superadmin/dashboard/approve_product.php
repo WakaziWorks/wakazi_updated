@@ -10,7 +10,8 @@ require '../admin/verify/config.php'; // Include your configuration file with da
     function showDebugMessage(message) {
         alert(message);
         setTimeout(function() {
-            /* Continue with the rest of the script */ }, 2000);
+            /* Continue with the rest of the script */
+        }, 2000);
     }
 </script>
 
@@ -37,10 +38,13 @@ if (isset($_GET['product_id']) && !empty($_GET['product_id'])) {
             echo "<script>showDebugMessage('$numProductsFetched product(s) fetched');</script>";
             if ($numProductsFetched > 0) {
                 $productData = $productResult->fetch_assoc();
-    
-                // Create a JSON string of the product data
+
                 $productDataJson = json_encode($productData);
-                echo "<script>showDebugMessage('Product data fetched: $productDataJson');</script>";
+                if ($productDataJson === false) {
+                    echo "<script>showDebugMessage('JSON encode error: " . json_last_error_msg() . "');</script>";
+                } else {
+                    echo "<script>showDebugMessage('Product data fetched: $productDataJson');</script>";
+                }
             }
             $productData = $productResult->fetch_assoc();
 
