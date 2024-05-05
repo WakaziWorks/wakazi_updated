@@ -203,7 +203,7 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                         <a href="#" class="nav-link account-nav-link">
                             <i class="bi bi-question-circle"></i> Help
                         </a>
-                        <a href="#" class="nav-link account-nav-link">
+                        <a href="../../cart/cart.php" class="nav-link account-nav-link">
                             <i class="bi bi-cart3"></i> Cart
                             <!-- <i class="bi bi-cart4" style="padding: 2px;"></i> -->
                         </a>
