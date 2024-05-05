@@ -53,7 +53,6 @@ include("../screens/headers/header.php");
                     $mysqli->close();
                     ?>
                 </div>
-
                 <hr />
             </div>
         </div>
