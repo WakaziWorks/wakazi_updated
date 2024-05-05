@@ -1,0 +1,29 @@
+.head{
+    margin-top: 7em;
+    background: rgb(229, 169, 236);
+    height: 8em;
+    padding: 2em;
+}
+.head h2{
+    color: #ab29b4;
+}
+.head p{
+    font-weight: lighter;
+}
+.artisans{
+    margin-top: 2em;
+    margin-bottom: 5em;
+}
+.img{
+    align-items: center;
+    text-align: center;
+}
+.img img{
+    height: 16em;
+    width: 16em;
+    border-radius: 50%;
+    margin-bottom: 0.85em;
+}
+.img p{
+    text-align: start;
+}

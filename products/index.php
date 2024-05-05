@@ -66,5 +66,3 @@ include("../screens/headers/header.php");
 include("../screens/footer/footer.php")
 ?>
 
-
-
