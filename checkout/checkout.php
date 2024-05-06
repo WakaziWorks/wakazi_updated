@@ -59,7 +59,7 @@ if (!isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Need Help?</h5>
-                        <p class="card-text">Our customer support is here to help you with your order. Call us at <strong>1-800-555-1234</strong> or <a href="#">chat now</a>.</p>
+                        <p class="card-text">Our customer support is here to help you with your order. Call us at <strong>----------</strong> or <a href="#">chat now</a>.</p>
                     </div>
                 </div>
 
