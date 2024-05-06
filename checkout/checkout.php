@@ -12,6 +12,7 @@ if (!isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +20,7 @@ if (!isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
+
 <body>
 <div class="container mt-5">
     <div class="row">
@@ -37,6 +39,10 @@ if (!isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
                             <input type="text" class="form-control" id="name" name="name" required>
                         </div>
                         <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="text" class="form-control" id="phone" name="phone" required>
+                        </div>
+                        <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
                             <input type="password" class="form-control" id="password" name="password" required>
                         </div>
@@ -51,49 +57,52 @@ if (!isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
         </div>
         <div class="col-md-5">
             <div class="card">
-               
-                </div>
+                <!-- Optionally add any summary or promotional information here -->
             </div>
         </div>
     </div>
 </div>
 
-<script>
-function checkEmail() {
-    var email = $('#email').val();
-    $.ajax({
-        url: 'check_email.php',
-        type: 'POST',
-        data: {email: email},
-        success: function(response) {
-            if(response.exists) {
-                $('#emailHelp').text('Email already registered, please log in or use a different email.');
-                $('#password, #confirmPassword').prop('disabled', true);
-            } else {
-                $('#emailHelp').text('');
-                $('#password, #confirmPassword').prop('disabled', false);
-            }
-        }
-    });
-}
+    </div>
 
-$('#checkoutForm').on('submit', function(e) {
-    e.preventDefault();
-    var formData = $(this).serialize();
-    $.ajax({
-        url: 'process_checkout.php', // This script will handle both signup and login
-        type: 'POST',
-        data: formData,
-        success: function(response) {
-            alert('Success! Proceeding to payment.');
-            window.location.href = 'payment_page.php';
-        },
-        error: function() {
-            alert('Failed to process your request.');
+    <script>
+        function checkEmail() {
+            var email = $('#email').val();
+            $.ajax({
+                url: 'check_email.php',
+                type: 'POST',
+                data: {
+                    email: email
+                },
+                success: function(response) {
+                    if (response.exists) {
+                        $('#emailHelp').text('Email already registered, please log in or use a different email.');
+                        $('#password, #confirmPassword').prop('disabled', true);
+                    } else {
+                        $('#emailHelp').text('');
+                        $('#password, #confirmPassword').prop('disabled', false);
+                    }
+                }
+            });
         }
-    });
-});
-</script>
+
+        $('#checkoutForm').on('submit', function(e) {
+            e.preventDefault();
+            var formData = $(this).serialize();
+            $.ajax({
+                url: 'process_checkout.php', // This script will handle both signup and login
+                type: 'POST',
+                data: formData,
+                success: function(response) {
+                    alert('Success! Proceeding to payment.');
+                    window.location.href = 'payment_page.php';
+                },
+                error: function() {
+                    alert('Failed to process your request.');
+                }
+            });
+        });
+    </script>
 </body>
-</html>
 
+</html>
