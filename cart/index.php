@@ -73,10 +73,11 @@ $total_price = 0;
                 <button class="btn" type="button" style="background: #c837d1; color: #fff;">CHECKOUT (KES. <?php echo $total_price; ?>)</button>
             </div>
         </div>
-        <div class="row">
+      
+    </div>
+    <div class="row">
         <button type="button" class="btn btn-danger" onclick="clearCart()">Remove All Items</button>
         </div>
-    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
