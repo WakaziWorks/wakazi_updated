@@ -64,9 +64,9 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
                     </div>
                     <p>Delivery fee not included.</p>
                     <hr />
-                    <div class="d-grid gap-2">
+                    <!-- <div class="d-grid gap-2">
                         <button class="btn" type="button" style="background: #c837d1; color: #fff;" onclick="proceedToCheckout();">CHECKOUT (KES. <?php echo $total_price; ?>)</button>
-                    </div>
+                    </div> -->
                 <?php else : ?>
                     <div class="d-flex justify-content-center align-items-center" style="height: 200px;">
                         <a href="../products/index.php" class="btn btn-secondary">Start Shopping</a>
