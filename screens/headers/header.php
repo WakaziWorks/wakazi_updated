@@ -165,7 +165,142 @@ if (isset($_SESSION['flash'])) {
 <body id="page-top">
     <div id="alert-placeholder"></div>
 
-            <header class="header">
+
+    <header class="header">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <!-- Logo -->
+                    <a class="navbar-brand" href="#">
+                        <img src="../../static/images/WhatsApp_Image_2024-02-28_at_15.48.15-removebg-preview.png" height="90px" width="110px" alt="Logo">
+                    </a>
+
+                    <!-- Toggle Button for Small Screens -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <!-- Centered Search Bar -->
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                        <form class="d-flex" style="background-color: transparent; width: ;">
+                            <div class="input-group">
+                                <input class="form-control me-2" type="search" placeholder="Search for anything" aria-label="Search" style="border: 2px solid #000; border-radius: 33px; width: 50em;">
+                                <button class="btn btn-outline-pink" type="submit"><i class="bi bi-search"></i></button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Right Navigation Links -->
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <!-- <?php if ($isLoggedIn) : ?> -->
+                        <ul class="navbar-nav">
+
+                        <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <!-- <i class="bi bi-person"></i> <?= $_SESSION['name']; ?> -->
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="#">My Profile</a></li>
+                                    <li><a class="dropdown-item" href="#">My Orders</a></li>
+                                    <li><a class="dropdown-item" href="#">Saved Items</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="../../__logout/__logout.php">Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                            <?php else : ?>
+
+                        <ul class="navbar-nav">
+                            <!-- Dropdown for Account -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="../../auth/accounts/login.php" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person"></i> Account
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li type="button" class="btn" style="background: #c837d1; width: 100%; margin-bottom: 7px"><a class="dropdown-item" href="../../auth/accounts/signup.php" style="text-decoration: none; color: white; padding: 5px;">Sign Up</a></li>
+                                    <li type="button" class="btn" style="background: #c837d1; width: 100%;"><a class="dropdown-item" href="../../auth/accounts/login.php" style="text-decoration: none; color: white; padding: 5px;">Sign In</a></li>
+                                    <hr />
+                                    <li><a class="dropdown-item" href="#">My Profile</a></li>
+                                    <li><a class="dropdown-item" href="#">My Orders</a></li>
+                                    <li><a class="dropdown-item" href="#">Saved Items</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                                </ul>
+                            </li>
+
+                            <!-- Help Link -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class="bi bi-question-circle"></i> Help</a>
+                            </li>
+
+                            <!-- Cart -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="../../cart/index.php">
+                                    <i class="fa fa-shopping-cart"></i> Cart
+                                    <span class="badge bg-primary" style="background-color: #48003E;" id="cart-count">
+                                        <?php echo count($_SESSION['cart'] ?? []); ?>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+
+                </div>
+            </nav>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                        <ul class="navbar-nav">
+                            <!-- Dropdown for Account -->
+                            <a class="nav-link" href="../../index.php"><button>Home</button></a>
+                                <a class="nav-link" href="../../products/index.php"><button>Products</button></a>
+                                <a class="nav-link" href="../../collection/index.php"><button>Collection</button></a>
+                                <a class="nav-link" href="../../features/index.php"><button>Features</button></a>
+                                <a class="nav-link" href="../../blog/index.php"><button>Blog</button></a>
+                        </ul>
+                    </div>
+            </nav>
+        </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- <header class="header">
                 <nav class="nav navbar navbar-expand-lg " style="margin: 0; padding: 0; display: flex; flex-direction: column;">
                     <div class="container-fluid" style="margin-bottom: 0">
                         <div class="dropdown">
@@ -207,10 +342,10 @@ if (isset($_SESSION['flash'])) {
                                     </span>
                                 </div>
                             </form>
-                        </div>
+                        </div> -->
 
-                        <div class="d-flex accounts-nav">
-                            <?php if ($isLoggedIn) : ?>
+                        <!-- <div class="d-flex accounts-nav"> -->
+                            <!-- <?php if ($isLoggedIn) : ?>
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" id="navbarUserDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="bi bi-person-check"></i> <?= $_SESSION['name']; ?>
@@ -240,16 +375,16 @@ if (isset($_SESSION['flash'])) {
                             <?php endif; ?>
                             <a href="#" class="nav-link account-nav-link">
                                 <i class="bi bi-question-circle"></i> Help
-                            </a>
-                            <div class="d-flex">
+                            </a> -->
+                            <!-- <div class="d-flex">
                                 <a class="nav-link" href="../../cart/index.php" id="cart">
                                     <i class="fa fa-shopping-cart"></i> Cart
                                     <span class="badge bg-primary" style="background-color: #48003E;" id="cart-count">
                                         <?php echo count($_SESSION['cart'] ?? []); ?>
                                     </span>
                                 </a>
-                            </div>
-                        </div>
+                            </div> -->
+                        <!-- </div>
                         <script>
                             const accountLink = document.getElementById('popup-trigger');
                             const popupButtons = document.getElementById('popup-buttons');
@@ -292,8 +427,8 @@ if (isset($_SESSION['flash'])) {
                         </div>
                     </div>
                 </nav>
-            </header>
-        </div>
+            </header> -->
+        <!-- </div> -->
 
 
 
