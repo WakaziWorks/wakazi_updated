@@ -236,11 +236,11 @@ require "cust.php";
             <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <!-- Dropdown for Account -->
-                    <li class="nav-item"><a class="nav-link" href="../../index.php"><button>Home</button></a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../products/index.php"><button>Products</button></a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../collection/index.php"><button>Collection</button></a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../features/index.php"><button>Features</button></a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../blog/index.php"><button>Blog</button></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../index.php"><i>Home</i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../products/index.php"><i>Products</i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../collection/index.php"><i>Collection</i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../features/index.php"><i>Features</i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../blog/index.php"><i>Blog</i></a></li>
                 </ul>
             </div>
         </nav>
