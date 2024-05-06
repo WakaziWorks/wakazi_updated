@@ -32,6 +32,12 @@ if (!isset($_SESSION['cart'])) {
 
 // Close result set
 // $result->close();
+
+if (isset($_SESSION['flash'])) {
+    echo '<div class="alert alert-success" role="alert">' . $_SESSION['flash'] . '</div>';
+    unset($_SESSION['flash']); // Remove the flash message after displaying it
+}
+
 ?>
 
 <!DOCTYPE html>
