@@ -32,6 +32,7 @@ $total_price = 0;
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+    <div class="container-fluid">
     <div class="container-fluid p-4 w-80 d-flex" style="margin-top: 10em;">
         <div class="container-fluid w-75 p-3 bg-light border me-3 rounded">
             <h3>Cart (<?php echo array_sum($_SESSION['cart']); ?>)</h3>
@@ -77,7 +78,8 @@ $total_price = 0;
     </div>
    
         <button type="button" class="btn btn-danger" onclick="clearCart()">Remove All Items</button>
-        
+    </div>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
