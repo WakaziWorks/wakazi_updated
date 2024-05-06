@@ -13,7 +13,6 @@ include("../screens/headers/header.php"); // Ensure the path is correct
 </head>
 <body>
     <div class="container mt-5">
-    <div id="alert-placeholder"></div>
 
         <div class="row">
             <?php
@@ -58,15 +57,20 @@ function addToCart(productId) {
 }
 
 function showSuccessAlert(message, success = true) {
-    var alertType = success ? 'alert-success' : 'alert-danger';
+    var alertType = success ? 'alert-success' : 'alert-danger'; // alert-danger can be styled similarly if needed
     var alertHtml = '<div class="alert ' + alertType + ' alert-dismissible fade show" role="alert">' +
         message +
-        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
-        '<span aria-hidden="true">&times;</span>' +
-        '</button>' +
+        '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' +
         '</div>';
     $('#alert-placeholder').html(alertHtml);
+
+    // Set a timeout to automatically dismiss the alert after 2 seconds
+    setTimeout(function() {
+        $('.alert').alert('close'); // Using Bootstrap's `alert` method to close the alert
+    }, 2000);
 }
+
+
 </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>

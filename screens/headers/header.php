@@ -120,10 +120,41 @@ if (isset($_SESSION['flash'])) {
             border-radius: 4px;
             z-index: 100;
         }
+
+        #alert-placeholder .alert {
+            width: 100%;
+            /* Full width */
+            margin-bottom: 0;
+            /* Remove any margin below the alert */
+            border-radius: 0;
+            /* Optional: removes border radius for a full-width flat look */
+            position: fixed;
+            /* Fixed at the top */
+            top: 0;
+            /* Top position 0 */
+            left: 0;
+            /* Align left */
+            z-index: 1050;
+            /* High z-index to overlay on other content */
+            color: #fff;
+            /* White text color */
+        }
+
+        .alert-success {
+            background-color: #155724;
+            /* Dark green background */
+        }
+
+        .alert-dismissible .btn-close {
+            color: #fff;
+            /* Ensures close button is visible against dark background */
+        }
     </style>
 </head>
 
 <body id="page-top">
+    <div id="alert-placeholder"></div>
+
     <div class="container-fluid">
         <header class="header fixed-top">
             <nav class="nav navbar navbar-expand-lg " style="margin: 0; padding: 0; display: flex; flex-direction: column;">
@@ -214,13 +245,13 @@ if (isset($_SESSION['flash'])) {
                             <i class="bi bi-question-circle"></i> Help
                         </a>
                         <div class="d-flex">
-                    <a class="nav-link" href="#" id="cart">
-                        <i class="fa fa-shopping-cart"></i> Cart
-                        <span class="badge bg-primary" id="cart-count">
-                            <?php echo count($_SESSION['cart']); ?>
-                        </span>
-                    </a>
-                </div>
+                            <a class="nav-link" href="#" id="cart">
+                                <i class="fa fa-shopping-cart"></i> Cart
+                                <span class="badge bg-primary" id="cart-count">
+                                    <?php echo count($_SESSION['cart']); ?>
+                                </span>
+                            </a>
+                        </div>
                     </div>
                     <script>
                         // Get the account link and the popup buttons
@@ -291,41 +322,41 @@ if (isset($_SESSION['flash'])) {
         </header>
     </div>
 
-    
-        <script>
-            // Toggle visibility of collection's dropdown menu
-            function toggleMenu() {
-                var dropdownContent = document.querySelector('.dropdown-content');
-                dropdownContent.style.display === 'block' ? dropdownContent.style.display = 'none' : dropdownContent.style.display = 'block';
-                content.classList.toggle('blur');
+
+    <script>
+        // Toggle visibility of collection's dropdown menu
+        function toggleMenu() {
+            var dropdownContent = document.querySelector('.dropdown-content');
+            dropdownContent.style.display === 'block' ? dropdownContent.style.display = 'none' : dropdownContent.style.display = 'block';
+            content.classList.toggle('blur');
+        }
+        //Hide visibility of collection's dropdown when "x" is clicked
+        document.addEventListener("click", function(event) {
+            let dropdown = document.querySelector(".dropdown");
+            let dropdownContent = dropdown.querySelector(".dropdown-content");
+            let dropdownButton = dropdown.querySelector("button");
+            let closeButton = dropdown.querySelector(".close-button");
+
+            let isClickedInsideDropdown = dropdown.contains(event.target);
+
+            if (!isClickedInsideDropdown) {
+                dropdownContent.style.display = "none";
             }
-            //Hide visibility of collection's dropdown when "x" is clicked
-            document.addEventListener("click", function(event) {
-                let dropdown = document.querySelector(".dropdown");
-                let dropdownContent = dropdown.querySelector(".dropdown-content");
-                let dropdownButton = dropdown.querySelector("button");
-                let closeButton = dropdown.querySelector(".close-button");
+        });
 
-                let isClickedInsideDropdown = dropdown.contains(event.target);
-
-                if (!isClickedInsideDropdown) {
-                    dropdownContent.style.display = "none";
+        function toggleDropdown() {
+            let dropDownContent = document.getElementById("dropdownContent");
+            dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
+        }
+        // Add click event listener to the document to handle clicks outside of the buttons
+        document.addEventListener('click', function(event) {
+            const target = event.target;
+            // Check if the click target is outside of the popup buttons and the account link
+            if (target !== popupButtons && target !== accountLink) {
+                // Hide the popup buttons if they are currently visible
+                if (popupButtons.style.display === 'block') {
+                    popupButtons.style.display = 'none';
                 }
-            });
-
-            function toggleDropdown() {
-                let dropDownContent = document.getElementById("dropdownContent");
-                dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
             }
-            // Add click event listener to the document to handle clicks outside of the buttons
-            document.addEventListener('click', function(event) {
-                const target = event.target;
-                // Check if the click target is outside of the popup buttons and the account link
-                if (target !== popupButtons && target !== accountLink) {
-                    // Hide the popup buttons if they are currently visible
-                    if (popupButtons.style.display === 'block') {
-                        popupButtons.style.display = 'none';
-                    }
-                }
-            });
-        </script>
+        });
+    </script>
