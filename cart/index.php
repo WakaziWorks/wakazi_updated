@@ -55,7 +55,6 @@ $total_price = 0;
             <?php endforeach; ?>
 
         </div>
-        <button type="button" class="btn btn-danger" onclick="clearCart()">Remove All Items</button>
 
         <div class="container-fluid w-25 bg-danger rounded p-3 bg-light border">
             <h3>Cart Summary</h3>
@@ -73,6 +72,9 @@ $total_price = 0;
             <div class="d-grid gap-2">
                 <button class="btn" type="button" style="background: #c837d1; color: #fff;">CHECKOUT (KES. <?php echo $total_price; ?>)</button>
             </div>
+        </div>
+        <div class="row">
+        <button type="button" class="btn btn-danger" onclick="clearCart()">Remove All Items</button>
         </div>
     </div>
 
