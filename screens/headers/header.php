@@ -177,7 +177,6 @@ if (isset($_SESSION['flash'])) {
                             </div>
                         </form>
                     </div>
-                    <div id="alert-placeholder"></div>
 
                     <!-- Icons for cart, account, and help -->
                     <div class="d-flex accounts-nav">
@@ -291,6 +290,8 @@ if (isset($_SESSION['flash'])) {
             </nav>
         </header>
     </div>
+    <div id="alert-placeholder"></div>
+
     
         <script>
             // Toggle visibility of collection's dropdown menu
