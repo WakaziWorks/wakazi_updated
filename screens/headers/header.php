@@ -322,6 +322,27 @@ if (isset($_SESSION['flash'])) {
 
                     <!-- Right Navigation Links -->
                     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <?php if ($isLoggedIn) : ?>
+                        <ul class="navbar-nav">
+
+                        <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person"></i> <?= $_SESSION['name']; ?>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="#">My Profile</a></li>
+                                    <li><a class="dropdown-item" href="#">My Orders</a></li>
+                                    <li><a class="dropdown-item" href="#">Saved Items</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="../../__logout/__logout.php">Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                            <?php else : ?>
+
                         <ul class="navbar-nav">
                             <!-- Dropdown for Account -->
                             <li class="nav-item dropdown">
@@ -356,6 +377,9 @@ if (isset($_SESSION['flash'])) {
                             </li>
                         </ul>
                     </div>
+
+
+
                 </div>
             </nav>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
