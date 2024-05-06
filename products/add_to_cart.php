@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-// Retrieve product ID from POST request
-$product_id = $_POST['product_id'] ?? null; // Use the null coalescing operator to handle the case where it might not be set
+// Assuming product ID is passed as a POST parameter
+$product_id = $_POST['product_id'] ?? null;
 
-// Initialize cart if not already done
+// Initialize the cart if not already done
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
