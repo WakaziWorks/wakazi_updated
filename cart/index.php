@@ -53,6 +53,8 @@ $total_price = 0;
                 </div>
             </div>
             <?php endforeach; ?>
+            <button type="button" class="btn btn-danger" onclick="clearCart()">Remove All Items</button>
+
         </div>
         <div class="container-fluid w-25 bg-danger rounded p-3 bg-light border">
             <h3>Cart Summary</h3>
@@ -80,6 +82,14 @@ $total_price = 0;
             location.reload(); // Reload page to update cart display
         });
     }
+    function clearCart() {
+    if (confirm('Are you sure you want to remove all items from your cart?')) {
+        $.post('clear_cart.php', function(data) {
+            location.reload(); // Reload page to reflect that the cart is now empty
+        });
+    }
+}
+
     </script>
 </body>
 </html>
