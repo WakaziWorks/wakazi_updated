@@ -290,7 +290,6 @@ if (isset($_SESSION['flash'])) {
             </nav>
         </header>
     </div>
-    <div id="alert-placeholder"></div>
 
     
         <script>

@@ -13,6 +13,8 @@ include("../screens/headers/header.php"); // Ensure the path is correct
 </head>
 <body>
     <div class="container mt-5">
+    <div id="alert-placeholder"></div>
+
         <div class="row">
             <?php
             include("../config/app/config.php");
