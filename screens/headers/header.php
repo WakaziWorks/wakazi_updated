@@ -290,6 +290,8 @@ if (isset($_SESSION['flash'])) {
                 </div>
             </nav>
         </header>
+    </div>
+    
         <script>
             // Toggle visibility of collection's dropdown menu
             function toggleMenu() {
