@@ -266,6 +266,8 @@ if (isset($_SESSION['flash'])) {
                     </div>
             </nav>
         </header>
+    
+        <div class="container-fluid">
 
 
 
