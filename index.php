@@ -144,11 +144,10 @@ include("screens/headers/header.php")
 </section> -->
 
 
-<!-- App features section-->
-<section id="features" id="features">
+<section id="features">
     <div class="container px-5">
         <div class="row gx-5 align-items-center">
-            <div class="col-lg-8 order-lg-1 mb-5 mb-lg-0">
+            <div class="col-lg-8 mb-5 mb-lg-0">
                 <div class="container-fluid px-5">
                     <div class="row gx-5">
                         <div class="col-md-6 mb-5">
@@ -156,7 +155,7 @@ include("screens/headers/header.php")
                             <div class="text-center">
                                 <i class="bi-phone icon-feature text-gradient d-block mb-3"></i>
                                 <h3 class="font-alt">Product Sales</h3>
-                                <p class="text-muted mb-0">Extreme product fucntionalities </p>
+                                <p class="text-muted mb-0">Extreme product functionalities</p>
                             </div>
                         </div>
                         <div class="col-md-6 mb-5">
@@ -164,7 +163,7 @@ include("screens/headers/header.php")
                             <div class="text-center">
                                 <i class="bi-camera icon-feature text-gradient d-block mb-3"></i>
                                 <h3 class="font-alt">Vendor Flexibility</h3>
-                                <p class="text-muted mb-0">All vendors with flexible product Sales!</p>
+                                <p class="text-muted mb-0">All vendors with flexible product sales!</p>
                             </div>
                         </div>
                     </div>
@@ -188,7 +187,7 @@ include("screens/headers/header.php")
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 order-lg-0">
+            <div class="col-lg-4">
                 <!-- Features section device mockup-->
                 <div class="features-device-mockup">
                     <svg class="circle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -199,17 +198,11 @@ include("screens/headers/header.php")
                             </linearGradient>
                         </defs>
                         <circle cx="50" cy="50" r="50"></circle>
-                    </svg><svg class="shape-1 d-none d-sm-block" viewBox="0 0 240.83 240.83" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="-32.54" y="78.39" width="305.92" height="84.05" rx="42.03" transform="translate(120.42 -49.88) rotate(45)"></rect>
-                        <rect x="-32.54" y="78.39" width="305.92" height="84.05" rx="42.03" transform="translate(-49.88 120.42) rotate(-45)"></rect>
-                    </svg><svg class="shape-2 d-none d-sm-block" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="50" cy="50" r="50"></circle>
                     </svg>
                     <div class="device-wrapper">
                         <div class="device" data-device="iPhoneX" data-orientation="portrait" data-color="black">
                             <div class="screen bg-black">
-
-                                <video muted="muted" autoplay="" loop="" style="max-width: 100%; height: 100%">
+                                <video muted autoplay loop style="max-width: 100%; height: 100%">
                                     <source src="static/images/demo-screen.mp4" type="video/mp4" />
                                 </video>
                             </div>
@@ -220,6 +213,7 @@ include("screens/headers/header.php")
         </div>
     </div>
 </section>
+
 <!-- Quote/testimonial aside-->
 <!-- <aside class="text-center bg-secondary">
         <div class="container px-5">
