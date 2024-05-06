@@ -17,7 +17,7 @@ $products = $result->fetch_all(MYSQLI_ASSOC);
 $total_price = 0;
 ?>
 
-        <div class="container-fluid p-4 w-80 d-flex" style="margin-top: 10em;">
+        <div class="container-fluid p-4 w-80 d-flex">
             <div class="container-fluid w-75 p-3 bg-light border me-3 rounded">
                 <h3>Cart (<?php echo count($products); ?>)</h3>
                 <hr />

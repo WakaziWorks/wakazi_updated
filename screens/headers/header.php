@@ -148,7 +148,7 @@ require "cust.php";
 
 <body>
     <div id="alert-placeholder"></div>
-    <header class="header">
+    <header class="header fixed-top">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
                     <!-- Logo -->

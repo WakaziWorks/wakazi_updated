@@ -17,5 +17,5 @@ if (isset($_SESSION['flash'])) {
     echo '<div class="alert alert-success" role="alert">' . $_SESSION['flash'] . '</div>';
     unset($_SESSION['flash']);
 }
-echo json_encode($response);
+// echo json_encode($response);
 ?>
