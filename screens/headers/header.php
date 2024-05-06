@@ -156,7 +156,7 @@ if (isset($_SESSION['flash'])) {
     <div id="alert-placeholder"></div>
 
     <div class="container-fluid">
-        <header class="header fixed-top">
+        <header class="header ">
             <nav class="nav navbar navbar-expand-lg " style="margin: 0; padding: 0; display: flex; flex-direction: column;">
                 <div class="container-fluid" style="margin-bottom: 0">
                     <!-- Dropdown for mobile and other small devices -->
