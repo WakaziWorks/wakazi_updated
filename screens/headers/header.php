@@ -322,12 +322,12 @@ if (isset($_SESSION['flash'])) {
 
                     <!-- Right Navigation Links -->
                     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                    <?php if ($isLoggedIn) : ?>
+                    <!-- <?php if ($isLoggedIn) : ?> -->
                         <ul class="navbar-nav">
 
                         <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="bi bi-person"></i> <?= $_SESSION['name']; ?>
+                                    <!-- <i class="bi bi-person"></i> <?= $_SESSION['name']; ?> -->
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li><a class="dropdown-item" href="#">My Profile</a></li>
