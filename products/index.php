@@ -57,7 +57,7 @@ include("../screens/headers/header.php"); // Ensure the path is correct
                             <h4 class="card-title"><?php echo $row['ProductName']; ?></h5>
                                 <h5 class='product-price'><?php echo 'KES ' . $row['Price'] ?></h5>
                                 <p class="card-text"><?php echo $row['description']; ?></p>
-                                <a href="#" onclick="addToCart(<?php echo $row['ProductID']; ?>); return false;" class="btn btn-primary">Add to Cart</a>
+                                <a href="add_to_cart.php" onclick="addToCart(<?php echo $row['ProductID']; ?>); return false;" class="btn btn-primary">Add to Cart</a>
                         </div>
                     </div>
                 </div>
