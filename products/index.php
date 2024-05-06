@@ -11,6 +11,23 @@ include("../screens/headers/header.php"); // Ensure the path is correct
     <title>Products</title>
     <!-- Bootstrap CSS for styling and components -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card {
+    display: flex;
+    flex-direction: column; /* Ensures the content inside card is properly aligned */
+    height: 100%;           /* Makes sure all cards in the row have the same height */
+}
+
+.card-body {
+    flex-grow: 1;           /* Allows the card body to fill the space making footer align at bottom */
+}
+.card-img-top {
+    width: 100%;        /* Ensures image takes up the full card width */
+    height: auto;       /* Maintains aspect ratio */
+    object-fit: cover;  /* Covers the height of the card nicely, might crop if necessary */
+    max-height: 400px;  /* Optional: Restrict maximum height if desired */
+}
+</style>
 </head>
 
 <body>
@@ -26,12 +43,12 @@ include("../screens/headers/header.php"); // Ensure the path is correct
             ?>
                 <div class="col-md-3 mb-4">
                     <div class="card">
-                        <img src="placeholder.jpg" height="400px" width="25%" data-src="<?php echo 'data:image/jpeg;base64,' . base64_encode($row['image']); ?>" class="lazyload card-img-top" alt="Product Image">
+                    <img src="placeholder.jpg" data-src="<?php echo 'data:image/jpeg;base64,' . base64_encode($row['image']); ?>" class="lazyload card-img-top" alt="Product Image">
                         <div class="card-body">
                             <h4 class="card-title"><?php echo $row['ProductName']; ?></h5>
                             <h5 class='product-price'><?php echo 'KES ' . $row['Price'] ?></h5>
                             <p class="card-text"><?php echo $row['description']; ?></p>
-                            <a href="#" onclick="addToCart(<?php echo $row['ProductID']; ?>); return false;" class="btn btn-primary">Add to Cart</a>
+                            <a href="#" onclick="addToCart(<?php echo $row['ProductID']; echo $row['Price']?>); return false;" class="btn btn-primary">Add to Cart</a>
                         </div>
                     </div>
                 </div>
