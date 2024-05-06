@@ -3,7 +3,7 @@ require '../config/config.php'; // Ensure your DB connection settings are correc
 
 if (isset($_POST['email'])) {
     $email = $_POST['email'];
-    $query = "SELECT email FROM artisans WHERE email = ?";
+    $query = "SELECT email FROM customers WHERE email = ?";
     if ($stmt = $mysqli->prepare($query)) {
         $stmt->bind_param("s", $email);
         $stmt->execute();
