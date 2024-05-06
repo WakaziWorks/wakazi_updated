@@ -12,3 +12,5 @@ if (!in_array($product_id, $_SESSION['cart'])) {
 // Return the new cart count as JSON
 header('Content-Type: application/json');
 echo json_encode(['new_cart_count' => count($_SESSION['cart'])]);
+
+echo "<script>window.location.href = 'index.php';</script>";
