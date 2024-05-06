@@ -158,15 +158,7 @@ include("screens/headers/header.php")
             </div>
             <div class="col-lg-4">
                 <div class="features-device-mockup">
-                    <svg class="circle" viewBox="0 0 100 100" xmlns="">
-                        <defs>
-                            <linearGradient id="circleGradient" gradientTransform="rotate(45)">
-                                <stop class="gradient-start-color" offset="0%"></stop>
-                                <stop class="gradient-end-color" offset="100%"></stop>
-                            </linearGradient>
-                        </defs>
-                        <circle cx="50" cy="50" r="50"></circle>
-                    </svg>
+                   
                     <div class="device-wrapper">
                         <div class="device" data-device="iPhoneX" data-orientation="portrait" data-color="black">
                             <div class="screen bg-black">
