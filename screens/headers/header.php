@@ -149,35 +149,35 @@ require "cust.php";
 <body>
     <div id="alert-placeholder"></div>
     <header class="header">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-                    <!-- Logo -->
-                    <a class="navbar-brand" href="#">
-                        <img src="../../static/images/WhatsApp_Image_2024-02-28_at_15.48.15-removebg-preview.png" height="90px" width="110px" alt="Logo">
-                    </a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <!-- Logo -->
+                <a class="navbar-brand" href="#">
+                    <img src="../../static/images/WhatsApp_Image_2024-02-28_at_15.48.15-removebg-preview.png" height="90px" width="110px" alt="Logo">
+                </a>
 
-                    <!-- Toggle Button for Small Screens -->
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                <!-- Toggle Button for Small Screens -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                    <!-- Centered Search Bar -->
-                    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                        <form class="d-flex" style="background-color: transparent;">
-                            <div class="input-group">
-                                <input class="form-control me-2" type="search" placeholder="Search for anything" aria-label="Search" style="border: 2px solid #000; border-radius: 33px; width: 50em;">
-                                <button class="btn btn-outline-pink" type="submit"><i class="bi bi-search"></i></button>
-                            </div>
-                        </form>
-                    </div>
-                    <?php if ($isLoggedIn) : ?>
+                <!-- Centered Search Bar -->
+                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                    <form class="d-flex" style="background-color: transparent;">
+                        <div class="input-group">
+                            <input class="form-control me-2" type="search" placeholder="Search for anything" aria-label="Search" style="border: 2px solid #000; border-radius: 33px; width: 50em;">
+                            <button class="btn btn-outline-pink" type="submit"><i class="bi bi-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+                <?php if ($isLoggedIn) : ?>
                     <!-- Right Navigation Links -->
                     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                        
+
 
                         <ul class="navbar-nav">
 
-                        <li class="nav-item dropdown">
+                            <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-person"></i> <?php $_SESSION['name']; ?>
                                 </a>
@@ -193,7 +193,7 @@ require "cust.php";
                             </li>
                         </ul>
 
-                            <?php else : ?>
+                    <?php else : ?>
 
                         <ul class="navbar-nav">
                             <!-- Dropdown for Account -->
@@ -206,44 +206,44 @@ require "cust.php";
                                     <hr />
                                     <li><a class="dropdown-item" href="../../auth/accounts/login.php" style="text-decoration: none; color: #c837d1; padding: 5px;">Sign In</a></li>
                                     <hr />
-                                 
+
                                 </ul>
                             </li>
-                            <?php endif; ?>
+                        <?php endif; ?>
 
-                            <!-- Help Link -->
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="bi bi-question-circle"></i> Help</a>
-                            </li>
+                        <!-- Help Link -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="bi bi-question-circle"></i> Help</a>
+                        </li>
 
-                            <!-- Cart -->
-                            <li class="nav-item">
-                                <a class="nav-link" href="../../cart/index.php">
-                                    <i class="fa fa-shopping-cart"></i> Cart
-                                    <span class="badge bg-primary" style="background-color: #48003E;" id="cart-count">
-                                        <?php echo count($_SESSION['cart'] ?? []); ?>
-                                    </span>
-                                </a>
-                            </li>
+                        <!-- Cart -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../cart/index.php">
+                                <i class="fa fa-shopping-cart"></i> Cart
+                                <span class="badge bg-primary" style="background-color: #48003E;" id="cart-count">
+                                    <?php echo count($_SESSION['cart'] ?? []); ?>
+                                </span>
+                            </a>
+                        </li>
                         </ul>
                     </div>
 
 
 
-                </div>
-            </nav>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            </div>
+        </nav>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                        <ul class="navbar-nav">
-                            <!-- Dropdown for Account -->
-                            <a class="nav-item" href="../../index.php"><button>Home</button></a>
-                                <a class="nav-item" href="../../products/index.php"><button>Products</button></a>
-                                <a class="nav-item" href="../../collection/index.php"><button>Collection</button></a>
-                                <a class="nav-item" href="../../features/index.php"><button>Features</button></a>
-                                <a class="nav-item" href="../../blog/index.php"><button>Blog</button></a>
-                        </ul>
-                    </div>
-            </nav>
-        </header>
-    
-        <div class="container-fluid">
+                <ul class="navbar-nav">
+                    <!-- Dropdown for Account -->
+                    <li class="nav-item"><a  href="../../index.php"><button>Home</button></a></li>
+                    <li class="nav-item"><a href="../../products/index.php"><button>Products</button></a></li>
+                    <li class="nav-item"><a  href="../../collection/index.php"><button>Collection</button></a></li>
+                    <li class="nav-item"><a  href="../../features/index.php"><button>Features</button></a></li>
+                    <li class="nav-item"><a  href="../../blog/index.php"><button>Blog</button></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid">
