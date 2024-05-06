@@ -170,7 +170,7 @@ require "cust.php";
                             </div>
                         </form>
                     </div>
-                    <?php //if ($isLoggedIn) : ?>
+                    <?php if ($isLoggedIn) : ?>
                     <!-- Right Navigation Links -->
                     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                         
@@ -193,7 +193,7 @@ require "cust.php";
                             </li>
                         </ul>
 
-                            <?php //else : ?>
+                            <?php else : ?>
 
                         <ul class="navbar-nav">
                             <!-- Dropdown for Account -->
@@ -214,6 +214,7 @@ require "cust.php";
                                     <li><a class="dropdown-item" href="#">Logout</a></li>
                                 </ul>
                             </li>
+                            <?php endif; ?>
 
                             <!-- Help Link -->
                             <li class="nav-item">

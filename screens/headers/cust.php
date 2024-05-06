@@ -9,7 +9,7 @@ ini_set('display_errors', 1);
 // }
 
 
-// $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
+$isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
