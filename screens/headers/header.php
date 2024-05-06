@@ -206,13 +206,7 @@ require "cust.php";
                                     <hr />
                                     <li><a class="dropdown-item" href="../../auth/accounts/login.php" style="text-decoration: none; color: #c837d1; padding: 5px;">Sign In</a></li>
                                     <hr />
-                                    <!-- <li><a class="dropdown-item" href="#">My Profile</a></li>
-                                    <li><a class="dropdown-item" href="#">My Orders</a></li>
-                                    <li><a class="dropdown-item" href="#">Saved Items</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Logout</a></li> -->
+                                 
                                 </ul>
                             </li>
                             <?php endif; ?>

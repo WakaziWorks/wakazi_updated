@@ -17,18 +17,6 @@ $products = $result->fetch_all(MYSQLI_ASSOC);
 $total_price = 0;
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-
-<body>
-    <div class="container-fluid">
         <div class="container-fluid p-4 w-80 d-flex" style="margin-top: 10em;">
             <div class="container-fluid w-75 p-3 bg-light border me-3 rounded">
                 <h3>Cart (<?php echo count($products); ?>)</h3>
