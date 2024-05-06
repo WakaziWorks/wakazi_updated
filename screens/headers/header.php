@@ -184,7 +184,7 @@ if (isset($_SESSION['flash'])) {
                             </div>
                         </form>
                     </div>
-                    <?php if ($isLoggedIn) : ?>
+                    
                     <!-- Right Navigation Links -->
                     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                         
