@@ -23,8 +23,8 @@ include("../screens/headers/header.php"); // Ensure the path is correct
 }
 .card-img-top {
     width: 100%;        /* Ensures the image takes the full width of the card */
-    height: 250px;      /* Fixed height for all images */
-    object-fit: cover;  /* Ensures the image covers the fixed height, cropping excess parts if necessary */
+    height: 0px;      /* Fixed height for all images */
+    object-fit: contain;  /* Ensures the image covers the fixed height, cropping excess parts if necessary */
     border-top-left-radius: calc(.25rem - 1px); /* Optional: matches the border radius of the card */
     border-top-right-radius: calc(.25rem - 1px);
 }
