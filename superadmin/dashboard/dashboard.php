@@ -281,36 +281,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
             </div>
 
 
-            <div class='modal fade' id='editProductModal{$row[' ProductID']}' tabindex='-1' role='dialog' aria-labelledby='editProductModalLabel{$row[' ProductID']}' aria-hidden='true'>
-                <div class='modal-dialog' role='document'>
-                    <div class='modal-content'>
-                        <div class='modal-header'>
-                            <h5 class='modal-title' id='editProductModalLabel{$row[' ProductID']}'>Edit Product</h5>
-                            <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-                                <span aria-hidden='true'>&times;</span>
-                            </button>
-                        </div>
-                        <div class='modal-body'>
-                            <form action='update_product.php' method='post'>
-                                <input type='hidden' name='product_id' value='{$row[' ProductID']}'>
-                                <div class='form-group'>
-                                    <label for='productName{$row[' ProductID']}'>Product Name:</label>
-                                    <input type='text' class='form-control' name='productName' id='productName{$row[' ProductID']}' value='{$row[' ProductName']}'>
-                                </div>
-                                <div class='form-group'>
-                                    <label for='supplierID{$row[' ProductID']}'>Supplier ID:</label>
-                                    <input type='number' class='form-control' name='supplierID' id='supplierID{$row[' ProductID']}' value='{$row[' SupplierID']}'>
-                                </div>
-                                <!-- Repeat for other fields -->
-                                <div class='modal-footer'>
-                                    <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
-                                    <button type='submit' class='btn btn-primary'>Save changes</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>;
+            
 
 
             <script>
