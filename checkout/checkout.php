@@ -50,8 +50,29 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
         <div class="col-md-5">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Cart Summary</h5>
-                    <!-- Dynamically load cart summary here -->
+                <div class="container-fluid w-25 bg-danger rounded p-3 bg-light border">
+                <h3>Cart Summary</h3>
+                <hr />
+                <?php if (!empty($products)) : ?>
+                    <div class="d-flex mb-4">
+                        <div class="d-flex align-items-center">
+                            <h5>Sub-Total</h5>
+                        </div>
+                        <div class="d-flex align-items-center ms-auto">
+                            <h6 class="fs-3">KES. <?php echo $total_price; ?></h6>
+                        </div>
+                    </div>
+                    <p>Delivery fee not included.</p>
+                    <hr />
+                    <div class="d-grid gap-2">
+                        <button class="btn" type="button" style="background: #c837d1; color: #fff;" onclick="proceedToCheckout();">CHECKOUT (KES. <?php echo $total_price; ?>)</button>
+                    </div>
+                <?php else : ?>
+                    <div class="d-flex justify-content-center align-items-center" style="height: 200px;">
+                        <a href="../products/index.php" class="btn btn-secondary">Start Shopping</a>
+                    </div>
+                <?php endif; ?>
+            </div>
                 </div>
             </div>
         </div>
