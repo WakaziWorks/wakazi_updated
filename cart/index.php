@@ -78,7 +78,7 @@ $total_price = 0;
                     <p>Delivery fee not included.</p>
                     <hr />
                     <div class="d-grid gap-2">
-                        <button class="btn" type="button" style="background: #c837d1; color: #fff;">CHECKOUT (KES. <?php echo $total_price; ?>)</button>
+                        <button class="btn" type="button" style="background: #c837d1; color: #fff;" onclick="proceedToCheckout();">CHECKOUT (KES. <?php echo $total_price; ?>)</button>
                     </div>
                 <?php else : ?>
                     <div class="d-flex justify-content-center align-items-center" style="height: 200px;">
@@ -108,6 +108,10 @@ $total_price = 0;
                     location.reload(); // Reload page to reflect that the cart is now empty
                 });
             }
+        }
+
+        function proceedToCheckout() {
+            window.location.href = '../checkout/checkout.php'; // Redirect to the checkout page
         }
     </script>
 
