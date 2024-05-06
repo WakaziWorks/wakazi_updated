@@ -157,138 +157,66 @@ if (isset($_SESSION['flash'])) {
     </style>
 </head>
 
-<body id="page-top">
+<body >
     <div id="alert-placeholder"></div>
 <div class="container">
     <div class="container-fluid">
-        <header class="header">
-            <nav class="nav navbar navbar-expand-lg " style="margin: 0; padding: 0; display: flex; flex-direction: column;">
-                <div class="container-fluid" style="margin-bottom: 0">
-                    <div class="dropdown">
-                     
-                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                            <ul class="navbar-nav">
-                                <li class="dropdown">
-                                    <div class="menu-toggle1" onclick="toggleMenu()">
-                                        <div class="dash"></div>
-                                        <div class="dash"></div>
-                                        <div class="dash"></div>
-                                    </div>
-                                    <ul class="dropdown-content dropdown-menu" id="dropdownContent" aria-labelledby="navbarDropdownMenuLink">
-                                        <img src="../../static/images/WhatsApp_Image_2024-02-28_at_15.48.15-removebg-preview.png" alt="Wakazi" id="dropdown-logo">
-                                        <span class="close-button" onclick="toggleDropdown()">&times;</span>
-                                        <hr />
-                                        <a class="dropdown-item" href="#">Jewellery</a>
-                                        
-                                        <a class="dropdown-item" href="#">Crafted Bags</a>
-                                        <a class="dropdown-item" href="#">Home Decors</a>
-                                        <a class="dropdown-item" href="#">Fashion Wears</a>
-                                        <a class="dropdown-item" href="#">Art & Collectibles</a>
-                                        <a class="dropdown-item" href="#">Fashion Accessories</a>
-                                        <a class="dropdown-item" href="#">Craft supplies & Tools</a>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <a class="navbar-brand fw-bold" id="logo" href="#" style="margin-right: 100px;">
-                        <img src="../../static/images/WhatsApp_Image_2024-02-28_at_15.48.15-removebg-preview.png" height="90px" width="110px">
-                    </a>
-                    <div class="mx-auto">
-                        <form class="" role="search" style="width: 50em;">
-                            <div class="position-relative">
-                                <input class="form-control" type="search" placeholder="Search for anything" aria-label="Search" style="border: 2px solid #000; border-radius: 33px;">
-                                <span class="btn">
-                                    <i class="bi bi-search"></i>
-                                </span>
-                            </div>
-                        </form>
-                    </div>
+    <header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#">
+                <img src="../../static/images/WhatsApp_Image_2024-02-28_at_15.48.15-removebg-preview.png" height="90px" width="110px" alt="Logo">
+            </a>
 
-                    <div class="d-flex accounts-nav">
-                        <?php if ($isLoggedIn) : ?>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" id="navbarUserDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="bi bi-person-check"></i> <?= $_SESSION['name']; ?>
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarUserDropdown">
-                                    <li><a class="dropdown-item" href="../../auth/accounts/my_profile.php">My Profile</a></li>
-                                    <li><a class="dropdown-item" href="../../auth/accounts/my_orders.php">My Orders</a></li>
-                                    <li><a class="dropdown-item" href="../../auth/accounts/my_saved_items.php">Saved Items</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="../../__logout/__logout.php">Logout</a></li>
-                                </ul>
-                            </div>
-                        <?php else : ?>
-                            <a href="../../auth/accounts/login.php" class="nav-link account-nav-link" id="popup-trigger">
-                                <i class="bi bi-person-circle"></i> Account
-                            </a>
-                            <ul id="popup-buttons" style="display: none; list-style: none;">
-                                <li type="button" class="btn" style="background: #c837d1; width: 100%; margin-bottom: 7px"><a href="../../auth/accounts/signup.php" style="text-decoration: none; color: white; padding: 5px;">Sign Up</a></li>
-                                <li type="button" class="btn" style="background: #c837d1; width: 100%;"><a href="../../auth/accounts/login.php" style="text-decoration: none; color: white; padding: 5px;">Sign In</a></li>
-                                <hr />
-                                <li style="text-align: left; margin-bottom: 7px;"><a href="#" style="text-decoration: none; color: #000;"><i class="bi bi-person-check"></i> My Account</a></li>
-                                <li style="text-align: left; margin-bottom: 7px;"><a href="#" style="text-decoration: none; color: #000;"><i class="bi bi-box2-heart"></i></i> Orders</a></li>
-                                <li style="text-align: left; margin-bottom: 7px;"><a href="#" style="text-decoration: none; color: #000;"><i class="bi bi-chat-left-heart"></i></i> Saved items</a></li>
-                            </ul>
-                        <?php endif; ?>
-                        <a href="#" class="nav-link account-nav-link">
-                            <i class="bi bi-question-circle"></i> Help
+            <!-- Toggle Button for Small Screens -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Centered Search Bar -->
+            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search for anything" aria-label="Search" style="border: 2px solid #000; border-radius: 33px;">
+                    <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+                </form>
+            </div>
+
+            <!-- Right Navigation Links -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <!-- Dropdown for Account -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person"></i> Account
                         </a>
-                        <div class="d-flex">
-                            <a class="nav-link" href="../../cart/index.php" id="cart">
-                                <i class="fa fa-shopping-cart"></i> Cart
-                                <span class="badge bg-primary" style="background-color: #48003E;" id="cart-count">
-                                    <?php echo count($_SESSION['cart'] ?? []); ?>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                    <script>
-                        const accountLink = document.getElementById('popup-trigger');
-                        const popupButtons = document.getElementById('popup-buttons');
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">My Profile</a></li>
+                            <li><a class="dropdown-item" href="#">My Orders</a></li>
+                            <li><a class="dropdown-item" href="#">Saved Items</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </li>
 
-                        accountLink.addEventListener('click', function(event) {
-                            event.preventDefault();
-                            if (popupButtons.style.display === 'none') {
-                                popupButtons.style.display = 'block';
-                            } else {
-                                popupButtons.style.display = 'none';
-                            }
-                        });
-                    </script>
-                </div>
-                <div class="navbar navbar-expand-lg" style="margin-top: -30px;">
-                    <div class="">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                    
-                        <div class="navbar-nav navigation-links" id="navbarNavDropdown">
-                            <a class="nav-link" href="../../index.php"><button>Home</button></a>
-                            <a class="nav-link" href="../../products/index.php"><button>Products</button></a>
-                            <a class="nav-link" href="../../collection/index.php"><button>Collection</button></a>
-                            <a class="nav-link" href="../../features/index.php"><button>Features</button></a>
-                            <a class="nav-link" href="../../blog/index.php"><button>Blog</button></a>
-                            <div class="nav-item" style="display: none;">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Menu
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="index.php">Home</a></li>
-                                    <li><a class="dropdown-item" href="">Products</a></li>
-                                    <li><a class="dropdown-item" href="">Collections</a></li>
-                                    <li><a class="dropdown-item" href="">Features</a></li>
-                                    <li><a class="dropdown-item" href="../../blog/index.php">Blog</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </header>
+                    <!-- Help Link -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="bi bi-question-circle"></i> Help</a>
+                    </li>
+
+                    <!-- Cart -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../cart/index.php">
+                            <i class="fa fa-shopping-cart"></i> Cart
+                            <span class="badge bg-primary" style="background-color: #48003E;" id="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
     </div>
 
 
