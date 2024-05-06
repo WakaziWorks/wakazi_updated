@@ -80,13 +80,22 @@ include("../screens/headers/header.php");
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         function updateQuantity(productId, change) {
-            $.post('update_cart.php', {
-                product_id: productId,
-                quantity_change: change
-            }, function(data) {
-                location.reload(); // Reload page to update cart display
+            $.ajax({
+                url: 'update_cart.php',
+                type: 'POST',
+                data: {
+                    product_id: productId,
+                    quantity_change: change
+                },
+                success: function(response) {
+                    // Assuming response includes the new quantity and total price
+                    $('#product_' + productId + '_qty').text(response.new_quantity);
+                    $('#total_price').text(response.new_total_price);
+                    updateCartSummary();
+                }
             });
         }
+
 
         function clearCart() {
             if (confirm('Are you sure you want to remove all items from your cart?')) {

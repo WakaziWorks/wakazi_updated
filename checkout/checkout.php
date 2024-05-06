@@ -6,7 +6,19 @@ if (!isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
     header('Location: checkout.php'); // Redirect if already logged in
     exit;
 }
+
+session_start();
+if (!isset($_SESSION['products'])) {
+    // Redirect to cart or product page if no products in the cart
+    header('Location: ../products/index.php');
+    exit;
+}
+// Continue processing with available cart data
+$total_price = array_sum(array_map(function($product) {
+    return $product['Price'] * $product['quantity'];
+}, $_SESSION['products']));
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +61,6 @@ if (!isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
         </div>
         <div class="col-md-5">
             <div class="card">
-                <div class="card-body">
                 <div class="container-fluid w-25 bg-danger rounded p-3 bg-light border">
                 <h3>Cart Summary</h3>
                 <hr />
