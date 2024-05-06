@@ -118,6 +118,7 @@ include("screens/headers/header.php")
 </script>
 
 <section id="features">
+    <div class="card">
     <div class="container px-5">
         <div class="row gx-5 align-items-center">
             <div class="col-lg-8 mb-5 mb-lg-0">
@@ -191,6 +192,7 @@ include("screens/headers/header.php")
 
         </div>
     </div>
+</div>
 </section>
 
 
