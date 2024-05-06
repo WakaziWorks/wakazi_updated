@@ -311,10 +311,10 @@ if (isset($_SESSION['flash'])) {
                     </button>
 
                     <!-- Centered Search Bar -->
-                    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent" style="width: 50em;">
-                        <form class="d-flex" style="background-color: transparent; width: max-content;">
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                        <form class="d-flex" style="background-color: transparent; width: ;">
                             <div class="input-group">
-                                <input class="form-control me-2" type="search" placeholder="Search for anything" aria-label="Search" style="border: 2px solid #000; border-radius: 33px; width: auto;">
+                                <input class="form-control me-2" type="search" placeholder="Search for anything" aria-label="Search" style="border: 2px solid #000; border-radius: 33px; width: 50em;">
                                 <button class="btn btn-outline-pink" type="submit"><i class="bi bi-search"></i></button>
                             </div>
                         </form>
