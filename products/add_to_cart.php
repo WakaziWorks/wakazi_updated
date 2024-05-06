@@ -1,7 +1,16 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 session_start();
 
-// Assuming product ID is passed as a POST parameter
+// Debugging output
+echo "<pre>POST Data:";
+print_r($_POST);
+echo "Session Cart before modifications:";
+print_r($_SESSION['cart']);
+echo "</pre>";
+
 $product_id = $_POST['product_id'] ?? null;
 
 // Initialize the cart if not already done
@@ -14,14 +23,19 @@ if ($product_id) {
     if (array_key_exists($product_id, $_SESSION['cart'])) {
         $_SESSION['cart'][$product_id]++;
     } else {
-        $_SESSION['cart'][$product_id] = 1; // Add new item with quantity 1
+        $_SESSION['cart'][$product_id] = 1;
     }
 }
 
 // Calculate total number of items in the cart
 $total_items = array_sum($_SESSION['cart']);
 
-// Return the new cart count as JSON
+// Debugging output
+echo "<pre>Session Cart after modifications:";
+print_r($_SESSION['cart']);
+echo "Total Items: $total_items";
+echo "</pre>";
+
 header('Content-Type: application/json');
 echo json_encode(['new_cart_count' => $total_items]);
 exit;
