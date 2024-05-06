@@ -9,29 +9,7 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
-// require ('../../__config/app/config.php');
 
-// $query = "SELECT p.ProductID, p.ProductName, c.CategoryName 
-//           FROM Products p 
-//           JOIN Categories c ON p.CategoryID = c.CategoryID 
-//           WHERE p.is_featured = TRUE;";  // Make sure your tables and columns are correctly named
-
-// $result = $mysqli->query($query);
-
-// $featuredProducts = [];
-// $productsByCategory = [];
-
-// if ($result->num_rows > 0) {
-//     while ($row = $result->fetch_assoc()) {
-//         $featuredProducts[] = $row;
-//         $productsByCategory[$row['category_name']][] = $row;  // Organize products by category
-//     }
-// } else {
-//     echo "";
-// }
-
-// Close result set
-// $result->close();
 
 if (isset($_SESSION['flash'])) {
     echo '<div class="alert alert-success" role="alert">' . $_SESSION['flash'] . '</div>';
@@ -73,10 +51,69 @@ if (isset($_SESSION['flash'])) {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css" rel="stylesheet" />
     <!-- CSS files loading here -->
     <!-- <link rel="stylesheet" href="../update_wakazi/ -->
-    <link rel="stylesheet" href="../../static/css/styles.css">
+    <!-- <link rel="stylesheet" href="../../static/css/styles.css"> -->
     <style>
         .navbar-nav {
             margin-bottom: 0;
+        }
+
+        /* Collections */
+        .collection-container {
+            width: 98%;
+            height: 100%;
+            margin-top: 30px;
+            margin-left: 30px;
+            color: var(--bs-purple);
+            display: flex;
+            flex-direction: column;
+            background: rgb(245, 236, 250);
+            background: radial-gradient(circle, rgba(245, 236, 250, 1) 0%, rgba(206, 152, 244, 1) 100%);
+        }
+
+        @media only screen and (max-width: 768px) {
+            .collection-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+            }
+
+            .collection-col {
+                text-align: center;
+            }
+        }
+
+        .collection-container h1 {
+            color: #000;
+            font-weight: lighter;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .collection-col {
+            background-color: #f7d3f7;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+            margin-bottom: 20px;
+            width: 100%;
+            height: 400px;
+            cursor: pointer;
+        }
+
+        .collection-col h4 {
+            margin: 10px 10px;
+            color: black;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: normal;
+        }
+
+        .collection-col h4:hover {
+            color: purple;
+        }
+
+        .collection-col img {
+            width: 100%;
+            height: 80%;
         }
 
         #navbar-nav a {
