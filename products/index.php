@@ -24,7 +24,7 @@ include("../screens/headers/header.php"); // Ensure the path is correct
 
             while ($row = $result->fetch_assoc()) {
             ?>
-                <div class="col-md-4 mb-4">
+                <div class="col-md-3 mb-4">
                     <div class="card">
                         <img src="placeholder.jpg" height="400px" width="25%" data-src="<?php echo 'data:image/jpeg;base64,' . base64_encode($row['image']); ?>" class="lazyload card-img-top" alt="Product Image">
                         <div class="card-body">
