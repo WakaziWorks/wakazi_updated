@@ -1,11 +1,4 @@
 <?php
-// session_start();
-include("../screens/headers/header.php");
-// Check if user is already logged in
-if (!isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
-    header('Location: ../cart/index.php.php'); // Redirect if already logged in
-    exit;
-}
 
 ?>
 
