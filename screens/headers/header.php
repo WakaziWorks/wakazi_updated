@@ -1,7 +1,8 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-require 'cust.php';
+session_start(); // Start the session at the beginning of the script
+
 // Check if the user is logged in
 $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
 // Define your cart array in session if not already set
@@ -155,7 +156,7 @@ if (isset($_SESSION['flash'])) {
     <div id="alert-placeholder"></div>
 
     <div class="container-fluid">
-        <header class="header ">
+        <header class="header fixed-top">
             <nav class="nav navbar navbar-expand-lg " style="margin: 0; padding: 0; display: flex; flex-direction: column;">
                 <div class="container-fluid" style="margin-bottom: 0">
                     <!-- Dropdown for mobile and other small devices -->
@@ -247,7 +248,7 @@ if (isset($_SESSION['flash'])) {
                             <a class="nav-link" href="../../cart/index.php" id="cart">
                                 <i class="fa fa-shopping-cart"></i> Cart
                                 <span class="badge bg-primary" id="cart-count">
-                                <?php echo count($products); ?>
+                                    <?php echo count($_SESSION['cart'] ?? []); ?>
                                 </span>
                             </a>
                         </div>
