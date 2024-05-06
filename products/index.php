@@ -57,8 +57,8 @@ include("../screens/headers/header.php"); // Ensure the path is correct
                             <h4 class="card-title"><?php echo $row['ProductName']; ?></h5>
                                 <h5 class='product-price'><?php echo 'KES ' . $row['Price'] ?></h5>
                                 <p class="card-text"><?php echo $row['description']; ?></p>
-                                <a href="#" onclick="addToCart(<?php echo $row['ProductID'];
-                                                                echo $row['Price'] ?>); return false;" class="btn btn-primary">Add to Cart</a>
+                                <a href="#" onclick="addToCart(<?php echo $row['ProductID']; ?>, <?php echo $row['Price']; ?>); return false;" class="btn btn-primary">Add to Cart</a>
+
                         </div>
                     </div>
                 </div>
@@ -70,7 +70,7 @@ include("../screens/headers/header.php"); // Ensure the path is correct
     </div>
 
     <script>
-        function addToCart(productId) {
+        function addToCart(productId, price) {
             $.ajax({
                 url: 'add_to_cart.php',
                 type: 'POST',
@@ -78,7 +78,6 @@ include("../screens/headers/header.php"); // Ensure the path is correct
                     product_id: productId
                 },
                 success: function(response) {
-                    // Update the cart count in the UI
                     $('#cart-count').text(response.new_cart_count);
                     showSuccessAlert('Product added to cart successfully!');
                 },
@@ -87,6 +86,7 @@ include("../screens/headers/header.php"); // Ensure the path is correct
                 }
             });
         }
+
         // $('button.add-to-cart').on('click', function(e) {
         //     e.preventDefault();
         //     var btn = $(this);
