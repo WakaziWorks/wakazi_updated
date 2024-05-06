@@ -1,6 +1,8 @@
 <?php
 session_start();
 include("../screens/headers/header.php");
+require_once("../config/app/config.php");
+
 // Fetch cart details for the current session
 $session_id = session_id();
 $query = "SELECT p.*, cd.quantity FROM cart_details cd
