@@ -22,11 +22,13 @@ include("../screens/headers/header.php"); // Ensure the path is correct
     flex-grow: 1;           /* Allows the card body to fill the space making footer align at bottom */
 }
 .card-img-top {
-    width: 100%;        /* Ensures image takes up the full card width */
-    height: auto;       /* Maintains aspect ratio */
-    object-fit: cover;  /* Covers the height of the card nicely, might crop if necessary */
-    max-height: 400px;  /* Optional: Restrict maximum height if desired */
+    width: 100%;        /* Ensures the image takes the full width of the card */
+    height: 250px;      /* Fixed height for all images */
+    object-fit: cover;  /* Ensures the image covers the fixed height, cropping excess parts if necessary */
+    border-top-left-radius: calc(.25rem - 1px); /* Optional: matches the border radius of the card */
+    border-top-right-radius: calc(.25rem - 1px);
 }
+
 </style>
 </head>
 
