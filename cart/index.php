@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 include("../screens/headers/header.php");
 require_once("../config/app/config.php");
 
