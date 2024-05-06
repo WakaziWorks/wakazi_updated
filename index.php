@@ -1,7 +1,7 @@
 <?php
 include("screens/headers/header.php")
 ?>
-
+<div class="container">
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -119,80 +119,83 @@ include("screens/headers/header.php")
 
 <section id="features">
     <div class="card">
-    <div class="container px-5">
-        <div class="row gx-5 align-items-center">
-            <div class="col-lg-8 mb-5 mb-lg-0">
-                <div class="container-fluid px-5">
-                    <div class="row gx-5">
-                        <div class="col-md-6 mb-5">
-                            <div class="text-center">
-                                <i class="bi-phone icon-feature text-gradient d-block mb-3"></i>
-                                <h3 class="font-alt">Product Sales</h3>
-                                <p class="text-muted mb-0">Extreme product functionalities</p>
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-8 mb-5 mb-lg-0">
+                    <div class="container-fluid px-5">
+                        <div class="row gx-5">
+                            <div class="col-md-6 mb-5">
+                                <div class="text-center">
+                                    <i class="bi-phone icon-feature text-gradient d-block mb-3"></i>
+                                    <h3 class="font-alt">Product Sales</h3>
+                                    <p class="text-muted mb-0">Extreme product functionalities</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-5">
+                                <div class="text-center">
+                                    <i class="bi-camera icon-feature text-gradient d-block mb-3"></i>
+                                    <h3 class="font-alt">Vendor Flexibility</h3>
+                                    <p class="text-muted mb-0">All vendors with flexible product sales!</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-6 mb-5">
-                            <div class="text-center">
-                                <i class="bi-camera icon-feature text-gradient d-block mb-3"></i>
-                                <h3 class="font-alt">Vendor Flexibility</h3>
-                                <p class="text-muted mb-0">All vendors with flexible product sales!</p>
+                        <div class="row">
+                            <div class="col-md-6 mb-5 mb-md-0">
+                                <div class="text-center">
+                                    <i class="bi-gift icon-feature text-gradient d-block mb-3"></i>
+                                    <h3 class="font-alt">Free to Use</h3>
+                                    <p class="text-muted mb-0">Flexible system</p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 mb-5 mb-md-0">
-                            <div class="text-center">
-                                <i class="bi-gift icon-feature text-gradient d-block mb-3"></i>
-                                <h3 class="font-alt">Free to Use</h3>
-                                <p class="text-muted mb-0">Flexible system</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="text-center">
-                                <i class="bi-patch-check icon-feature text-gradient d-block mb-3"></i>
-                                <h3 class="font-alt">Security</h3>
-                                <p class="text-muted mb-0">Secure product checkout!</p>
+                            <div class="col-md-6">
+                                <div class="text-center">
+                                    <i class="bi-patch-check icon-feature text-gradient d-block mb-3"></i>
+                                    <h3 class="font-alt">Security</h3>
+                                    <p class="text-muted mb-0">Secure product checkout!</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4">
-    <div class="features-device-mockup">
-        <div class="device-wrapper">
-            <div class="device" data-device="iPhoneX" data-orientation="portrait" data-color="black">
-                <!-- Applying a circular mask to the screen -->
-                <div class="screen bg-black rounded-circle overflow-hidden">
-                    <video class="rounded-circle" muted autoplay loop style="width: 100%; height: auto; display: block;">
-                        <source src="static/images/demo-screen.mp4" type="video/mp4" />
-                    </video>
+                <div class="col-lg-4">
+                    <div class="features-device-mockup">
+                        <div class="device-wrapper">
+                            <div class="device" data-device="iPhoneX" data-orientation="portrait" data-color="black">
+                                <!-- Applying a circular mask to the screen -->
+                                <div class="screen bg-black rounded-circle overflow-hidden">
+                                    <video class="rounded-circle" muted autoplay loop style="width: 100%; height: auto; display: block;">
+                                        <source src="static/images/demo-screen.mp4" type="video/mp4" />
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <style>
+                    .device .screen {
+                        position: relative;
+                        width: 100%;
+                        /* Adjust the size as needed */
+                        padding-top: 100%;
+                        /* Equal to width for a perfect circle */
+                        border-radius: 50%;
+                        overflow: hidden;
+                    }
+
+                    .device video {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        min-width: 100%;
+                        min-height: 100%;
+                    }
+                </style>
+
             </div>
         </div>
     </div>
-</div>
-
-<style>
-    .device .screen {
-        position: relative;
-        width: 100%; /* Adjust the size as needed */
-        padding-top: 100%; /* Equal to width for a perfect circle */
-        border-radius: 50%;
-        overflow: hidden;
-    }
-    .device video {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        min-width: 100%;
-        min-height: 100%;
-    }
-</style>
-
-        </div>
-    </div>
-</div>
 </section>
 
 
@@ -203,9 +206,9 @@ include("screens/headers/header.php")
                 <h2 class="display-4 lh-1 mb-4">Renaissance fuses Avant-Garde </h2>
                 <p class="lead fw-normal text-muted mb-5 mb-lg-0">In the vibrant tapestry of artistic expression, where the Renaissance meets the avant-garde, lies a fusion of tradition and innovation that ignites the senses. </p>
                 <p class="lead fw-normal text-muted mb-5 mb-lg-0" id="paragraph">
-                    
 
-                    Picture the sun-drenched landscapes of sub-Saharan Africa, where rhythms pulse through the earth and colors dance upon the canvas of existence. Here, amidst the ancient rhythms of tribal drums and the intricate beadwork of cultural heritage, emerges a new Renaissance—a rebirth of creativity that transcends boundaries. 
+
+                    Picture the sun-drenched landscapes of sub-Saharan Africa, where rhythms pulse through the earth and colors dance upon the canvas of existence. Here, amidst the ancient rhythms of tribal drums and the intricate beadwork of cultural heritage, emerges a new Renaissance—a rebirth of creativity that transcends boundaries.
 
                     In this eclectic convergence, traditional motifs intertwine with modern techniques, birthing a kaleidoscope of expression that challenges the norms of convention. This is where the echoes of history harmonize with the avant-garde spirit, where every brushstroke whispers tales of resilience and every melody carries the heartbeat of a continent.
                 </p>
@@ -245,6 +248,6 @@ include("screens/headers/header.php")
     </div>
 </section>
 
-<?php 
+<?php
 include("screens/footer/footer.php");
 ?>
