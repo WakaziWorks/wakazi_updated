@@ -1,67 +1,57 @@
 <?php
-include("../screens/headers/header.php");
+include("../screens/headers/header.php"); // Ensure the path is correct
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>products</title>
-    <!-- CSS file -->
-    <link rel="stylesheet" type="text/css" href="index.css">
-    <!-- Bootstrap icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Products</title>
+    <!-- Bootstrap CSS for styling and components -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-
 <body>
-    <div class="product-section">
-        <div class="container product-row-container">
-            <hr />
-            <div class="container text-center">
-                <div class="row align-items-start">
-                    <?php
-                    // Assuming $mysqli is your database connection object
-                    include("../config/app/config.php");
+    <div class="container mt-5">
+        <div class="row">
+            <?php
+            include("../config/app/config.php");
+            $query = "SELECT * FROM Products";
+            $result = $mysqli->query($query);
 
-                    // Fetch product details including image URLs from the database
-                    $query = "SELECT * FROM Products"; // Replace YourTableName with the actual name of your table
-                    $result = $mysqli->query($query);
-
-                    // Loop through each product and display its details
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<div class='col product-details'>";
-                        if (!empty($row['image'])) {
-                            $imageData = base64_encode($row['image']);
-                            echo "<img src='data:image/jpeg;base64,{$imageData}' alt='Product' />";
-                        } else {
-                            echo "<img src='placeholder.jpg' alt='Product Placeholder' />";
-                        }
-                        echo "<p class='description'>{$row['description']}</p>";
-                        echo "<div class='product-price'>KES. {$row['Price']}</div>";
-                        echo "<form action='add_to_cart.php' method='post'>";
-                        echo "<input type='hidden' name='product_id' value='{$row['ProductID']}'>";
-                        echo "<button type='submit'><i class='bi bi-plus'></i> Add to Cart</button>";
-                        echo "</form>";
-                        echo "<a href='product_details.php?id={$row['ProductID']}'>See more <i class='bi bi-arrow-right'></i></a>";
-                        echo "</div>";
-                    }
-                    
-
-                    // Close the database connection
-                    $mysqli->close();
-                    ?>
+            while ($row = $result->fetch_assoc()) {
+                ?>
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <img src="<?php echo 'data:image/jpeg;base64,' . base64_encode($row['image']); ?>" class="card-img-top" alt="Product Image">
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $row['ProductName']; ?></h5>
+                            <p class="card-text"><?php echo $row['Description']; ?></p>
+                            <a href="add_to_cart.php?product_id=<?php echo $row['ProductID']; ?>" class="btn btn-primary add-to-cart">Add to Cart</a>
+                        </div>
+                    </div>
                 </div>
-                <hr />
-            </div>
+                <?php
+            }
+            $mysqli->close();
+            ?>
         </div>
     </div>
+
+    <script>
+    // Use jQuery for handling click events
+    $(document).ready(function(){
+        $('.add-to-cart').click(function(event){
+            event.preventDefault(); // Prevent form from submitting normally
+            var url = $(this).attr('href');
+
+            $.get(url, function(data){
+                // Assuming `add_to_cart.php` returns the new cart count
+                $('#cart-count').text(data.new_cart_count);
+                alert('Product added to cart!');
+            });
+        });
+    });
+    </script>
 </body>
-
 </html>
-
-<?php
-include("../screens/footer/footer.php")
-?>
-

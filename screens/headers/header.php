@@ -5,7 +5,10 @@ session_start(); // Start the session at the beginning of the script
 
 // Check if the user is logged in
 $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
-
+// Define your cart array in session if not already set
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = [];
+}
 // require ('../../__config/app/config.php');
 
 // $query = "SELECT p.ProductID, p.ProductName, c.CategoryName 
@@ -203,10 +206,14 @@ $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
                         <a href="#" class="nav-link account-nav-link">
                             <i class="bi bi-question-circle"></i> Help
                         </a>
-                        <a href="../../cart/cart.php" class="nav-link account-nav-link">
-                            <i class="bi bi-cart3"></i> Cart
-                            <!-- <i class="bi bi-cart4" style="padding: 2px;"></i> -->
-                        </a>
+                        <div class="d-flex">
+                    <a class="nav-link" href="#" id="cart">
+                        <i class="fa fa-shopping-cart"></i> Cart
+                        <span class="badge bg-primary" id="cart-count">
+                            <?php echo count($_SESSION['cart']); ?>
+                        </span>
+                    </a>
+                </div>
                     </div>
                     <script>
                         // Get the account link and the popup buttons
