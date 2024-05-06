@@ -157,19 +157,38 @@ include("screens/headers/header.php")
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="features-device-mockup">
-                   
-                    <div class="device-wrapper">
-                        <div class="device" data-device="iPhoneX" data-orientation="portrait" data-color="black">
-                            <div class="screen bg-black">
-                                <video muted autoplay loop style="max-width: 100%; height: 100%">
-                                    <source src="static/images/demo-screen.mp4" type="video/mp4" />
-                                </video>
-                            </div>
-                        </div>
-                    </div>
+    <div class="features-device-mockup">
+        <div class="device-wrapper">
+            <div class="device" data-device="iPhoneX" data-orientation="portrait" data-color="black">
+                <!-- Applying a circular mask to the screen -->
+                <div class="screen bg-black rounded-circle overflow-hidden">
+                    <video class="rounded-circle" muted autoplay loop style="width: 100%; height: auto; display: block;">
+                        <source src="static/images/demo-screen.mp4" type="video/mp4" />
+                    </video>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .device .screen {
+        position: relative;
+        width: 100%; /* Adjust the size as needed */
+        padding-top: 100%; /* Equal to width for a perfect circle */
+        border-radius: 50%;
+        overflow: hidden;
+    }
+    .device video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        min-width: 100%;
+        min-height: 100%;
+    }
+</style>
+
         </div>
     </div>
 </section>
