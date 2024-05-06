@@ -85,7 +85,9 @@ $total_price = 0;
                     </div>
                 <?php else : ?>
                     <div class="d-flex justify-content-center align-items-center" style="height: 200px;">
-                        <p class="text-muted">Add some products to your cart.</p>
+                        <a href="../products/index.php">
+                            <button type="button" class="btn btn-secondary">Start Shopping</button>
+                        </a>
                     </div>
                 <?php endif; ?>
             </div>
