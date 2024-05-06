@@ -245,7 +245,7 @@ if (isset($_SESSION['flash'])) {
                             <i class="bi bi-question-circle"></i> Help
                         </a>
                         <div class="d-flex">
-                            <a class="nav-link" href="#" id="cart">
+                            <a class="nav-link" href="../../cart/index.php" id="cart">
                                 <i class="fa fa-shopping-cart"></i> Cart
                                 <span class="badge bg-primary" id="cart-count">
                                     <?php echo count($_SESSION['cart'] ?? []); ?>
