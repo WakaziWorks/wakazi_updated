@@ -7,7 +7,7 @@ if (!isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
     exit;
 }
 
-session_start();
+
 if (!isset($_SESSION['products'])) {
     // Redirect to cart or product page if no products in the cart
     header('Location: ../products/index.php');
