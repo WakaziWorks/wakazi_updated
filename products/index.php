@@ -52,7 +52,7 @@ include("../screens/headers/header.php"); // Ensure the path is correct
             ?>
                 <div class="col-md-3 mb-4">
                     <div class="card">
-                        <img src="placeholder.jpg" data-src="<?php echo 'data:image/jpeg;base64,' . base64_encode($row['image']); ?>" class="card-img-top" alt="Product Image"> <!-- removed class "lazyload" -->
+                        <img src="<?php echo 'data:image/jpeg;base64,' . base64_encode($row['image']); ?>" class="card-img-top" alt="Product Image"> <!-- removed class "lazyload" -->
                         <div class="card-body">
                             <h4 class="card-title"><?php echo $row['ProductName']; ?></h5>
                                 <h5 class='product-price'><?php echo 'KES ' . $row['Price'] ?></h5>
