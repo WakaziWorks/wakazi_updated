@@ -81,7 +81,7 @@ $('#checkoutForm').on('submit', function(e) {
     e.preventDefault();
     var formData = $(this).serialize();
     $.ajax({
-        url: 'signup_or_login.php', // This script will handle both signup and login
+        url: 'process_checkout.php', // This script will handle both signup and login
         type: 'POST',
         data: formData,
         success: function(response) {
