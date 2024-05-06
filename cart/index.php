@@ -75,9 +75,9 @@ $total_price = 0;
         </div>
       
     </div>
-    <div class="row">
+   
         <button type="button" class="btn btn-danger" onclick="clearCart()">Remove All Items</button>
-        </div>
+        
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
