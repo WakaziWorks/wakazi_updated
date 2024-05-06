@@ -170,7 +170,7 @@ require "cust.php";
                             </div>
                         </form>
                     </div>
-                    <?php if ($isLoggedIn) : ?>
+                    <?php //if ($isLoggedIn) : ?>
                     <!-- Right Navigation Links -->
                     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                         
@@ -193,7 +193,7 @@ require "cust.php";
                             </li>
                         </ul>
 
-                            <?php else : ?>
+                            <?php //else : ?>
 
                         <ul class="navbar-nav">
                             <!-- Dropdown for Account -->
@@ -225,7 +225,7 @@ require "cust.php";
                                 <a class="nav-link" href="../../cart/index.php">
                                     <i class="fa fa-shopping-cart"></i> Cart
                                     <span class="badge bg-primary" style="background-color: #48003E;" id="cart-count">
-                                        <?php //echo count($_SESSION['cart'] ?? []); ?>
+                                        <?php echo count($_SESSION['cart'] ?? []); ?>
                                     </span>
                                 </a>
                             </li>
