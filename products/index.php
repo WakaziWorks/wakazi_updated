@@ -66,6 +66,9 @@ include("../screens/headers/header.php"); // Ensure the path is correct
             $mysqli->close();
             ?>
         </div>
+    
+
+    </div>
         <!-- Cart Sidebar Offcanvas -->
         <div class="offcanvas offcanvas-end" tabindex="-1" id="cartSidebar" aria-labelledby="cartSidebarLabel">
             <div class="offcanvas-header">
@@ -96,8 +99,6 @@ include("../screens/headers/header.php"); // Ensure the path is correct
                 </ul>
             </div>
         </div>
-
-    </div>
 
     <script>
         function addToCart(productId) {
@@ -153,7 +154,6 @@ include("../screens/headers/header.php"); // Ensure the path is correct
                 $('.alert').alert('close'); // Using Bootstrap's `alert` method to close the alert
             }, 2000);
         }
-        
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
