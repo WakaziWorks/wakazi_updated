@@ -2,17 +2,11 @@
 session_start();
 include("../screens/headers/header.php");
 // Check if user is already logged in
-if (!isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
-    header('Location: checkout.php'); // Redirect if already logged in
+if (!isset($_SESSION['logged_in']) && $_SESSION['logged_in'] && (!isset($_SESSION['products'])) === true) {
+    header('Location: ../cart/index.php.php'); // Redirect if already logged in
     exit;
 }
 
-
-if (!isset($_SESSION['products'])) {
-    // Redirect to cart or product page if no products in the cart
-    header('Location: ../products/index.php');
-    exit;
-}
 // Continue processing with available cart data
 $total_price = array_sum(array_map(function($product) {
     return $product['Price'] * $product['quantity'];
