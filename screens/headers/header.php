@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-session_start(); 
+session_start();
 
 $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
 if (!isset($_SESSION['cart'])) {
@@ -9,7 +9,7 @@ if (!isset($_SESSION['cart'])) {
 }
 if (isset($_SESSION['flash'])) {
     echo '<div class="alert alert-success" role="alert">' . $_SESSION['flash'] . '</div>';
-    unset($_SESSION['flash']); 
+    unset($_SESSION['flash']);
 }
 ?>
 
@@ -25,14 +25,14 @@ if (isset($_SESSION['flash'])) {
     <meta name="author" content="" />
     <title>Wakazi Works</title>
     <link rel="icon" type="image/x-icon" href="../../static/assets/favicon.ico" />
-<!-- Bootstrap CSS -->
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Bootstrap Icons -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Bootstrap Bundle with Popper -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
     <style>
         .navbar-nav {
@@ -158,65 +158,70 @@ if (isset($_SESSION['flash'])) {
     </style>
 </head>
 
-<body >
+<body>
     <div id="alert-placeholder"></div>
     <div class="container">
-    <header class="header">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <!-- Logo -->
-                <a class="navbar-brand" href="#">
-                    <img src="../../static/images/WhatsApp_Image_2024-02-28_at_15.48.15-removebg-preview.png" height="90px" width="110px" alt="Logo">
-                </a>
+        <header class="header">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <!-- Logo -->
+                    <a class="navbar-brand" href="#">
+                        <img src="../../static/images/WhatsApp_Image_2024-02-28_at_15.48.15-removebg-preview.png" height="90px" width="110px" alt="Logo">
+                    </a>
 
-                <!-- Toggle Button for Small Screens -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                    <!-- Toggle Button for Small Screens -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                <!-- Centered Search Bar -->
-                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                    <form class="d-flex" style="background-color: transparent;">
-                        <input class="form-control me-2" type="search" placeholder="Search for anything" aria-label="Search" style="border: 2px solid #000; border-radius: 33px; width:max-content;">
-                        <button class="btn btn-outline-pink" type="submit"><i class="bi bi-search"></i></button>
-                    </form>
+                    <!-- Centered Search Bar -->
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                        <form class="d-flex" style="background-color: transparent; width: max-content;">
+                            <div class="input-group">
+                                <input class="form-control me-2" type="search" placeholder="Search for anything" aria-label="Search" style="border: 2px solid #000; border-radius: 33px; width: auto;">
+                                <button class="btn btn-outline-pink" type="submit"><i class="bi bi-search"></i></button>
+                            </div>
+                        </form>
+                    </div>
+
+
+                    <!-- Right Navigation Links -->
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                        <ul class="navbar-nav">
+                            <!-- Dropdown for Account -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person"></i> Account
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="#">My Profile</a></li>
+                                    <li><a class="dropdown-item" href="#">My Orders</a></li>
+                                    <li><a class="dropdown-item" href="#">Saved Items</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                                </ul>
+                            </li>
+
+                            <!-- Help Link -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class="bi bi-question-circle"></i> Help</a>
+                            </li>
+
+                            <!-- Cart -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="../../cart/index.php">
+                                    <i class="fa fa-shopping-cart"></i> Cart
+                                    <span class="badge bg-primary" style="background-color: #48003E;" id="cart-count">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-
-                <!-- Right Navigation Links -->
-                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                    <ul class="navbar-nav">
-                        <!-- Dropdown for Account -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-person"></i> Account
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">My Profile</a></li>
-                                <li><a class="dropdown-item" href="#">My Orders</a></li>
-                                <li><a class="dropdown-item" href="#">Saved Items</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Logout</a></li>
-                            </ul>
-                        </li>
-
-                        <!-- Help Link -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="bi bi-question-circle"></i> Help</a>
-                        </li>
-
-                        <!-- Cart -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="../../cart/index.php">
-                                <i class="fa fa-shopping-cart"></i> Cart
-                                <span class="badge bg-primary" style="background-color: #48003E;" id="cart-count">0</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-</div>
+            </nav>
+        </header>
+    </div>
 
 
     <script>
