@@ -1,21 +1,16 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-session_start(); // Start the session at the beginning of the script
+session_start(); 
 
-// Check if the user is logged in
 $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
-// Define your cart array in session if not already set
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
-
-
 if (isset($_SESSION['flash'])) {
     echo '<div class="alert alert-success" role="alert">' . $_SESSION['flash'] . '</div>';
-    unset($_SESSION['flash']); // Remove the flash message after displaying it
+    unset($_SESSION['flash']); 
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -31,27 +26,18 @@ if (isset($_SESSION['flash'])) {
     <title>Wakazi Works</title>
     <link rel="icon" type="image/x-icon" href="../../static/assets/favicon.ico" />
 
-    <!-- Bootstrap icons-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- Google fonts-->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/cs// Start the session at the beginning of the scripts2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <!--<link href="css/styles.css" rel="stylesheet" />-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-    <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css" rel="stylesheet" />
-    <!-- CSS files loading here -->
-    <!-- <link rel="stylesheet" href="../update_wakazi/ -->
-    <!-- <link rel="stylesheet" href="../../static/css/styles.css"> -->
+ 
     <style>
         .navbar-nav {
             margin-bottom: 0;
@@ -128,7 +114,6 @@ if (isset($_SESSION['flash'])) {
 
         .navbar-light .navbar-nav .nav-link {
             padding: 8px 10px;
-            /* Reduced padding to bring items closer */
         }
 
         .navbar {
@@ -141,10 +126,8 @@ if (isset($_SESSION['flash'])) {
             padding-right: 0;
         }
 
-        /* Reducing space specifically between the search section and the navigation row */
         .navbar-expand-lg+.navbar {
             margin-top: -10px;
-            /* Pulls the second navbar up closer to the first */
         }
 
         #popup-buttons {
@@ -160,31 +143,21 @@ if (isset($_SESSION['flash'])) {
 
         #alert-placeholder .alert {
             width: 100%;
-            /* Full width */
             margin-bottom: 0;
-            /* Remove any margin below the alert */
             border-radius: 0;
-            /* Optional: removes border radius for a full-width flat look */
             position: fixed;
-            /* Fixed at the top */
             top: 0;
-            /* Top position 0 */
             left: 0;
-            /* Align left */
             z-index: 1050;
-            /* High z-index to overlay on other content */
             color: #fff;
-            /* White text color */
         }
 
         .alert-success {
             background-color: #155724;
-            /* Dark green background */
         }
 
         .alert-dismissible .btn-close {
             color: #fff;
-            /* Ensures close button is visible against dark background */
         }
     </style>
 </head>
@@ -196,11 +169,8 @@ if (isset($_SESSION['flash'])) {
         <header class="header">
             <nav class="nav navbar navbar-expand-lg " style="margin: 0; padding: 0; display: flex; flex-direction: column;">
                 <div class="container-fluid" style="margin-bottom: 0">
-                    <!-- Dropdown for mobile and other small devices -->
                     <div class="dropdown">
-                        <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button> -->
+                     
                         <div class="collapse navbar-collapse" id="navbarNavDropdown">
                             <ul class="navbar-nav">
                                 <li class="dropdown">
@@ -214,18 +184,13 @@ if (isset($_SESSION['flash'])) {
                                         <span class="close-button" onclick="toggleDropdown()">&times;</span>
                                         <hr />
                                         <a class="dropdown-item" href="#">Jewellery</a>
-                                        <!-- <a class="dropdown-item" href="#">Weddings</a> -->
-                                        <!-- <a class="dropdown-item" href="#">Pet supplies</a> -->
+                                        
                                         <a class="dropdown-item" href="#">Crafted Bags</a>
                                         <a class="dropdown-item" href="#">Home Decors</a>
                                         <a class="dropdown-item" href="#">Fashion Wears</a>
-                                        <!-- <a class="dropdown-item" href="#">Bath and beauty</a> -->
                                         <a class="dropdown-item" href="#">Art & Collectibles</a>
-                                        <!-- <a class="dropdown-item" href="#">Baby, Gifts and Shoes</a> -->
                                         <a class="dropdown-item" href="#">Fashion Accessories</a>
                                         <a class="dropdown-item" href="#">Craft supplies & Tools</a>
-                                        <!-- <a class="dropdown-item" href="#">Books, Movies and Music</a> -->
-                                        <!-- <a class="dropdown-item" href="#">Paper and party supplies</a> -->
                                     </ul>
                                 </li>
                             </ul>
@@ -234,7 +199,6 @@ if (isset($_SESSION['flash'])) {
                     <a class="navbar-brand fw-bold" id="logo" href="#" style="margin-right: 100px;">
                         <img src="../../static/images/WhatsApp_Image_2024-02-28_at_15.48.15-removebg-preview.png" height="90px" width="110px">
                     </a>
-                    <!-- Search Section -->
                     <div class="mx-auto">
                         <form class="" role="search" style="width: 50em;">
                             <div class="position-relative">
@@ -246,10 +210,8 @@ if (isset($_SESSION['flash'])) {
                         </form>
                     </div>
 
-                    <!-- Icons for cart, account, and help -->
                     <div class="d-flex accounts-nav">
                         <?php if ($isLoggedIn) : ?>
-                            <!-- User dropdown menu -->
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" id="navbarUserDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-person-check"></i> <?= $_SESSION['name']; ?>
@@ -265,7 +227,6 @@ if (isset($_SESSION['flash'])) {
                                 </ul>
                             </div>
                         <?php else : ?>
-                            <!-- Links to show when the user is not logged in -->
                             <a href="../../auth/accounts/login.php" class="nav-link account-nav-link" id="popup-trigger">
                                 <i class="bi bi-person-circle"></i> Account
                             </a>
@@ -291,15 +252,11 @@ if (isset($_SESSION['flash'])) {
                         </div>
                     </div>
                     <script>
-                        // Get the account link and the popup buttons
                         const accountLink = document.getElementById('popup-trigger');
                         const popupButtons = document.getElementById('popup-buttons');
 
-                        // Add click event listener to the account link
                         accountLink.addEventListener('click', function(event) {
-                            // Prevent the default behavior of the link
                             event.preventDefault();
-                            // Toggle the visibility of the popup buttons
                             if (popupButtons.style.display === 'none') {
                                 popupButtons.style.display = 'block';
                             } else {
@@ -308,32 +265,12 @@ if (isset($_SESSION['flash'])) {
                         });
                     </script>
                 </div>
-                <!-- Additional Navigation Row -->
                 <div class="navbar navbar-expand-lg" style="margin-top: -30px;">
                     <div class="">
-                        <!-- Toggler button for mobile view -->
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                        <!-- <div class="" id="navbarNavDropdown">
-                            <a class="nav-link" href="../../index.php">Home</a>
-                            <li class="nav-item" style="margin-right: 90px;"><a class="nav-link" href="../../products/index.php">Products</a></li>
-                            <li class="nav-item d-none d-lg-block" style="margin-right: 90px;"><a class="nav-link" href="../../collection/index.php">Collections</a></li>
-                            <li class="nav-item d-none d-lg-block" style="margin-right: 90px;"><a class="nav-link" href="../../features/index.php">Features</a></li>
-                            <li class="nav-item d-none d-lg-block"><a class="nav-link" href="../../blog/index.php">Blog</a></li>
-                            <li class="nav-item dropdown d-lg-none">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Menu
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="index.php">Home</a></li>
-                                    <li><a class="dropdown-item" href="">Products</a></li>
-                                    <li><a class="dropdown-item" href="">Collections</a></li>
-                                    <li><a class="dropdown-item" href="">Features</a></li>
-                                    <li><a class="dropdown-item" href="../../blog/index.php">Blog</a></li>
-                                </ul>
-                            </li>
-                        </div> -->
+                    
                         <div class="navbar-nav navigation-links" id="navbarNavDropdown">
                             <a class="nav-link" href="../../index.php"><button>Home</button></a>
                             <a class="nav-link" href="../../products/index.php"><button>Products</button></a>
@@ -361,13 +298,11 @@ if (isset($_SESSION['flash'])) {
 
 
     <script>
-        // Toggle visibility of collection's dropdown menu
         function toggleMenu() {
             var dropdownContent = document.querySelector('.dropdown-content');
             dropdownContent.style.display === 'block' ? dropdownContent.style.display = 'none' : dropdownContent.style.display = 'block';
             content.classList.toggle('blur');
         }
-        //Hide visibility of collection's dropdown when "x" is clicked
         document.addEventListener("click", function(event) {
             let dropdown = document.querySelector(".dropdown");
             let dropdownContent = dropdown.querySelector(".dropdown-content");
@@ -385,12 +320,9 @@ if (isset($_SESSION['flash'])) {
             let dropDownContent = document.getElementById("dropdownContent");
             dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
         }
-        // Add click event listener to the document to handle clicks outside of the buttons
         document.addEventListener('click', function(event) {
             const target = event.target;
-            // Check if the click target is outside of the popup buttons and the account link
             if (target !== popupButtons && target !== accountLink) {
-                // Hide the popup buttons if they are currently visible
                 if (popupButtons.style.display === 'block') {
                     popupButtons.style.display = 'none';
                 }

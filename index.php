@@ -2,7 +2,6 @@
 include("screens/headers/header.php")
 ?>
 
-<!-- Carousel Videos section -->
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -45,7 +44,6 @@ include("screens/headers/header.php")
     </button>
 </div>
 
-<!-- Collections -->
 <div class="collection-container justify-content-center" id="collection">
     <h1>Shop by collections</h1>
     <div class="row gx-3">
@@ -119,31 +117,6 @@ include("screens/headers/header.php")
     }
 </script>
 
-<!-- Product Section -->
-<!-- <section id="products" class="py-5">
-    <div class="container">
-        <h2 class="text-center font-alt mb-5">Featured Products</h2>
-        <?php foreach ($productsByCategory as $category => $products) : ?>
-            <h3><?php echo htmlspecialchars($category); ?></h3>
-            <div class="row g-4">
-                <?php foreach ($products as $product) : ?>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card product-card">
-                            <img src="<?php echo htmlspecialchars($product['image_path']); ?>" class="card-img-top" alt="Product Image">
-                            <div class="card-body">
-                                <h5 class="card-title"><?php echo htmlspecialchars($product['product_name']); ?></h5>
-                                <p class="card-text"><?php echo htmlspecialchars($product['description']); ?></p>
-                                <a href="#" class="btn btn-primary">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-        <?php endforeach; ?>
-    </div>
-</section> -->
-
-
 <section id="features">
     <div class="container px-5">
         <div class="row gx-5 align-items-center">
@@ -151,7 +124,6 @@ include("screens/headers/header.php")
                 <div class="container-fluid px-5">
                     <div class="row gx-5">
                         <div class="col-md-6 mb-5">
-                            <!-- Feature item-->
                             <div class="text-center">
                                 <i class="bi-phone icon-feature text-gradient d-block mb-3"></i>
                                 <h3 class="font-alt">Product Sales</h3>
@@ -159,7 +131,6 @@ include("screens/headers/header.php")
                             </div>
                         </div>
                         <div class="col-md-6 mb-5">
-                            <!-- Feature item-->
                             <div class="text-center">
                                 <i class="bi-camera icon-feature text-gradient d-block mb-3"></i>
                                 <h3 class="font-alt">Vendor Flexibility</h3>
@@ -169,7 +140,6 @@ include("screens/headers/header.php")
                     </div>
                     <div class="row">
                         <div class="col-md-6 mb-5 mb-md-0">
-                            <!-- Feature item-->
                             <div class="text-center">
                                 <i class="bi-gift icon-feature text-gradient d-block mb-3"></i>
                                 <h3 class="font-alt">Free to Use</h3>
@@ -177,7 +147,6 @@ include("screens/headers/header.php")
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <!-- Feature item-->
                             <div class="text-center">
                                 <i class="bi-patch-check icon-feature text-gradient d-block mb-3"></i>
                                 <h3 class="font-alt">Security</h3>
@@ -188,9 +157,8 @@ include("screens/headers/header.php")
                 </div>
             </div>
             <div class="col-lg-4">
-                <!-- Features section device mockup-->
                 <div class="features-device-mockup">
-                    <svg class="circle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="circle" viewBox="0 0 100 100" xmlns="">
                         <defs>
                             <linearGradient id="circleGradient" gradientTransform="rotate(45)">
                                 <stop class="gradient-start-color" offset="0%"></stop>
@@ -214,18 +182,7 @@ include("screens/headers/header.php")
     </div>
 </section>
 
-<!-- Quote/testimonial aside-->
-<!-- <aside class="text-center bg-secondary">
-        <div class="container px-5">
-            <div class="row gx-5 justify-content-center">
-                <div class="col-xl-8">
-                    <div class="h2 fs-1 text-white mb-4">"An intuitive solution to a common problem that we all face, wrapped up in a ecommerce web system"</div>
-                    <img src="{{ asset('images/tnw-logo.svg') }}" alt="..." style="height: 3rem" />
-                </div>
-            </div>
-        </div>
-    </aside> -->
-<!-- Basic features section-->
+
 <section class="bg-light">
     <div class="container px-5">
         <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
@@ -242,17 +199,15 @@ include("screens/headers/header.php")
                 <a class="btn btn-primary mt-3" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="readMoreBtn" style="background: #ff00ff; border: none; outline: none;">Read More</a>
             </div>
             <div class="col-sm-8 col-md-6">
-                <div class="px-5 px-sm-0"><img class="img-fluid rounded-circle" src="https://source.unsplash.com/u8Jn2rzYIps/900x900" alt="..." /></div>
+                <div class="px-5 px-sm-0"><img class="img-fluid rounded-circle" src="" alt="..." /></div>
             </div>
         </div>
     </div>
 </section>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Hide the paragraph initially
         document.getElementById('paragraph').classList.add('collapse');
 
-        // Toggle collapse state when Read More button is clicked
         document.getElementById('readMoreBtn').addEventListener('click', function() {
             const paragraph = document.getElementById('paragraph');
             if (paragraph.classList.contains('show')) {
@@ -265,20 +220,7 @@ include("screens/headers/header.php")
         });
     });
 </script>
-<!-- Call to action section-->
-<!-- <section class="cta">
-        <div class="cta-content">
-            <div class="container px-5">
-                <h2 class="text-white display-1 lh-1 mb-4">
-                    Stop waiting.
-                    <br />
-                    Start building.
-                </h2>
-                <a class="btn btn-outline-light py-3 px-4 rounded-pill" href="https://startbootstrap.com/theme/new-age" target="_blank">Download for free</a>
-            </div>
-        </div>
-    </section> -->
-<!-- App badge section-->
+
 <section class="" id="download">
     <div class="container px-5">
         <h2 class="text-center text-purple font-alt mb-4" style="color: black;">Get the app now!</h2>
@@ -286,6 +228,7 @@ include("screens/headers/header.php")
             <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge" src="static/images/google-play-badge.svg" alt="..." /></a>
             <a href="#!"><img class="app-badge" src="static/images/app-store-badge.svg" alt="..." /></a>
         </div>
+
     </div>
 </section>
 
