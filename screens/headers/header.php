@@ -289,7 +289,11 @@ if (isset($_SESSION['flash'])) {
                 </div>
             </nav>
         </header>
-    </div>  <header class="header fixed-top">
+    </div>  
+    
+    
+    
+    <header class="header">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <!-- Logo -->
@@ -380,3 +384,36 @@ if (isset($_SESSION['flash'])) {
             }
         });
     </script>
+
+<script>
+    function toggleMenu() {
+        var dropdownContent = document.querySelector('.dropdown-content');
+        dropdownContent.style.display === 'block' ? dropdownContent.style.display = 'none' : dropdownContent.style.display = 'block';
+        content.classList.toggle('blur');
+    }
+    document.addEventListener("click", function(event) {
+        let dropdown = document.querySelector(".dropdown");
+        let dropdownContent = dropdown.querySelector(".dropdown-content");
+        let dropdownButton = dropdown.querySelector("button");
+        let closeButton = dropdown.querySelector(".close-button");
+
+        let isClickedInsideDropdown = dropdown.contains(event.target);
+
+        if (!isClickedInsideDropdown) {
+            dropdownContent.style.display = "none";
+        }
+    });
+
+    function toggleDropdown() {
+        let dropDownContent = document.getElementById("dropdownContent");
+        dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
+    }
+    document.addEventListener('click', function(event) {
+        const target = event.target;
+        if (target !== popupButtons && target !== accountLink) {
+            if (popupButtons.style.display === 'block') {
+                popupButtons.style.display = 'none';
+            }
+        }
+    });
+</script>
