@@ -26,7 +26,7 @@ include("../screens/headers/header.php"); // Ensure the path is correct
             ?>
                 <div class="col-md-4 mb-3">
                     <div class="card">
-                        <img src="placeholder.jpg" height="270px" width="25%" data-src="<?php echo 'data:image/jpeg;base64,' . base64_encode($row['image']); ?>" class="lazyload card-img-top" alt="Product Image">
+                        <img src="placeholder.jpg" height="320px" width="25%" data-src="<?php echo 'data:image/jpeg;base64,' . base64_encode($row['image']); ?>" class="lazyload card-img-top" alt="Product Image">
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $row['ProductName']; ?></h5>
                             <p class="card-text"><?php echo $row['description']; ?></p>
