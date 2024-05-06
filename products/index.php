@@ -26,7 +26,7 @@ include("../screens/headers/header.php"); // Ensure the path is correct
                         <img src="<?php echo 'data:image/jpeg;base64,' . base64_encode($row['image']); ?>" class="card-img-top" alt="Product Image">
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $row['ProductName']; ?></h5>
-                            <p class="card-text"><?php echo $row['Description']; ?></p>
+                            <p class="card-text"><?php echo $row['description']; ?></p>
                             <a href="add_to_cart.php?product_id=<?php echo $row['ProductID']; ?>" class="btn btn-primary add-to-cart">Add to Cart</a>
                         </div>
                     </div>
