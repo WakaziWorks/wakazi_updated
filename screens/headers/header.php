@@ -162,10 +162,8 @@ if (isset($_SESSION['flash'])) {
     </style>
 </head>
 
-<body id="page-top">
+<body>
     <div id="alert-placeholder"></div>
-
-
     <header class="header">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
@@ -181,7 +179,7 @@ if (isset($_SESSION['flash'])) {
 
                     <!-- Centered Search Bar -->
                     <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                        <form class="d-flex" style="background-color: transparent; width: ;">
+                        <form class="d-flex" style="background-color: transparent;">
                             <div class="input-group">
                                 <input class="form-control me-2" type="search" placeholder="Search for anything" aria-label="Search" style="border: 2px solid #000; border-radius: 33px; width: 50em;">
                                 <button class="btn btn-outline-pink" type="submit"><i class="bi bi-search"></i></button>
@@ -191,7 +189,8 @@ if (isset($_SESSION['flash'])) {
 
                     <!-- Right Navigation Links -->
                     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                    <!-- <?php if ($isLoggedIn) : ?> -->
+                        <!-- check if logged in           <?php //if ($isLoggedIn) : ?> -->
+
                         <ul class="navbar-nav">
 
                         <li class="nav-item dropdown">
@@ -210,7 +209,7 @@ if (isset($_SESSION['flash'])) {
                             </li>
                         </ul>
 
-                            <?php else : ?>
+                            <!-- <// else : ?> -->
 
                         <ul class="navbar-nav">
                             <!-- Dropdown for Account -->
@@ -242,7 +241,7 @@ if (isset($_SESSION['flash'])) {
                                 <a class="nav-link" href="../../cart/index.php">
                                     <i class="fa fa-shopping-cart"></i> Cart
                                     <span class="badge bg-primary" style="background-color: #48003E;" id="cart-count">
-                                        <?php echo count($_SESSION['cart'] ?? []); ?>
+                                        <?php //echo count($_SESSION['cart'] ?? []); ?>
                                     </span>
                                 </a>
                             </li>
