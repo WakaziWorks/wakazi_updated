@@ -57,7 +57,7 @@ include("../screens/headers/header.php"); // Ensure the path is correct
                             <h4 class="card-title"><?php echo $row['ProductName']; ?></h5>
                                 <h5 class='product-price'><?php echo 'KES ' . $row['Price'] ?></h5>
                                 <p class="card-text"><?php echo $row['description']; ?></p>
-                                <a href="#" onclick="addToCart(<?php echo $row['ProductID'];?>); return false;" class="btn btn-primary">Add to Cart</a>
+                                <a href="#" onclick="addToCart(<?php echo $row['ProductID']; ?>); return false;" class="btn btn-primary">Add to Cart</a>
                         </div>
                     </div>
                 </div>
@@ -66,6 +66,37 @@ include("../screens/headers/header.php"); // Ensure the path is correct
             $mysqli->close();
             ?>
         </div>
+        <!-- Cart Sidebar Offcanvas -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="cartSidebar" aria-labelledby="cartSidebarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="cartSidebarLabel">Cart</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="list-group list-group-flush">
+                    <?php if (!empty($_SESSION['cart'])) : ?>
+                        <?php foreach ($_SESSION['cart'] as $product_id => $quantity) : ?>
+                            <!-- Fetch product details from the database -->
+                            <?php
+                            // Assuming $mysqli is your database connection
+                            $query = $mysqli->prepare("SELECT ProductName, Price FROM Products WHERE ProductID = ?");
+                            $query->bind_param("i", $product_id);
+                            $query->execute();
+                            $result = $query->get_result();
+                            if ($product = $result->fetch_assoc()) :
+                            ?>
+                                <li class="list-group-item">
+                                    <?php echo htmlspecialchars($product['ProductName']); ?> - Qty: <?php echo $quantity; ?>
+                                </li>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    <?php else : ?>
+                        <li class="list-group-item">Your cart is empty.</li>
+                    <?php endif; ?>
+                </ul>
+            </div>
+        </div>
+
     </div>
 
     <script>
