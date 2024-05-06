@@ -27,7 +27,7 @@ include("../screens/headers/header.php"); // Ensure the path is correct
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $row['ProductName']; ?></h5>
                             <p class="card-text"><?php echo $row['description']; ?></p>
-                            <a href="add_to_cart.php?product_id=<?php echo $row['ProductID']; ?>" class="btn btn-primary add-to-cart">Add to Cart</a>
+                            <a href="#" onclick="addToCart(<?php echo $row['ProductID']; ?>); return false;" class="btn btn-primary">Add to Cart</a>
                         </div>
                     </div>
                 </div>
@@ -39,21 +39,37 @@ include("../screens/headers/header.php"); // Ensure the path is correct
     </div>
 
     <script>
-    // Use jQuery for handling click events
-    $(document).ready(function(){
-        $('.add-to-cart').click(function(event){
-            event.preventDefault(); // Prevent form from submitting normally
-            var url = $(this).attr('href');
-
-            $.get(url, function(data){
-                // Assuming `add_to_cart.php` returns the new cart count
-                $('#cart-count').text(data.new_cart_count);
-                alert('Product added to cart!');
-            });
-        });
+function addToCart(productId) {
+    $.ajax({
+        url: 'add_to_cart.php',
+        type: 'POST',
+        data: {product_id: productId},
+        success: function(response) {
+            // Assuming the response is the new count or a success message
+            $('#cart-count').text(response.new_cart_count);
+            showSuccessAlert('Product added to cart successfully!');
+        },
+        error: function() {
+            showSuccessAlert('Failed to add product to cart.', false);
+        }
     });
-    </script>
+}
+
+function showSuccessAlert(message, success = true) {
+    var alertType = success ? 'alert-success' : 'alert-danger';
+    var alertHtml = '<div class="alert ' + alertType + ' alert-dismissible fade show" role="alert">' +
+        message +
+        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+        '<span aria-hidden="true">&times;</span>' +
+        '</button>' +
+        '</div>';
+    $('#alert-placeholder').html(alertHtml);
+}
+</script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 
 </body>
 </html>
