@@ -164,7 +164,7 @@ if (isset($_SESSION['flash'])) {
 
 <body id="page-top">
     <div id="alert-placeholder"></div>
-
+<div class="container">
     <div class="container-fluid">
         <header class="header">
             <nav class="nav navbar navbar-expand-lg " style="margin: 0; padding: 0; display: flex; flex-direction: column;">
