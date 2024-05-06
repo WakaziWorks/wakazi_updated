@@ -293,7 +293,7 @@ if (isset($_SESSION['flash'])) {
     
     
     
-    <header class="header">
+<header class="header fixed-top">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <!-- Logo -->
