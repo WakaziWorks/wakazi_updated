@@ -177,7 +177,7 @@ if (isset($_SESSION['flash'])) {
                 <!-- Centered Search Bar -->
                 <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                     <form class="d-flex" style="background-color: transparent;">
-                        <input class="form-control me-2" type="search" placeholder="Search for anything" aria-label="Search" style="border: 2px solid #000; border-radius: 33px;">
+                        <input class="form-control me-2" type="search" placeholder="Search for anything" aria-label="Search" style="border: 2px solid #000; border-radius: 33px; width:max-content;">
                         <button class="btn btn-outline-pink" type="submit"><i class="bi bi-search"></i></button>
                     </form>
                 </div>
