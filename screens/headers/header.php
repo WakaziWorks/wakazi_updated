@@ -202,8 +202,8 @@ require "cust.php";
                                     <i class="bi bi-person"></i> Account
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li type="button" class="btn" style="background: #c837d1; width: 100%; margin-bottom: 7px"><a class="dropdown-item" href="../../auth/accounts/signup.php" style="text-decoration: none; color: white; padding: 5px;">Sign Up</a></li>
-                                    <li type="button" class="btn" style="background: #c837d1; width: 100%;"><a class="dropdown-item" href="../../auth/accounts/login.php" style="text-decoration: none; color: white; padding: 5px;">Sign In</a></li>
+                                    <li><a class="dropdown-item" href="../../auth/accounts/signup.php" style="text-decoration: none; color: #c837d1; padding: 5px;">Sign Up</a></li>
+                                    <li><a class="dropdown-item" href="../../auth/accounts/login.php" style="text-decoration: none; color: #c837d1; padding: 5px;">Sign In</a></li>
                                     <hr />
                                     <li><a class="dropdown-item" href="#">My Profile</a></li>
                                     <li><a class="dropdown-item" href="#">My Orders</a></li>
