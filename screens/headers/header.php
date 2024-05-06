@@ -25,8 +25,6 @@ if (isset($_SESSION['flash'])) {
     <meta name="author" content="" />
     <title>Wakazi Works</title>
     <link rel="icon" type="image/x-icon" href="../../static/assets/favicon.ico" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
@@ -189,13 +187,13 @@ if (isset($_SESSION['flash'])) {
 
                     <!-- Right Navigation Links -->
                     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                        <!-- check if logged in           <?php //if ($isLoggedIn) : ?> -->
+                        <?php if ($isLoggedIn) : ?>
 
                         <ul class="navbar-nav">
 
                         <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <!-- <i class="bi bi-person"></i> <?= $_SESSION['name']; ?> -->
+                                    <i class="bi bi-person"></i> <?= $_SESSION['name']; ?>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li><a class="dropdown-item" href="#">My Profile</a></li>
@@ -209,7 +207,7 @@ if (isset($_SESSION['flash'])) {
                             </li>
                         </ul>
 
-                            <!-- <// else : ?> -->
+                            <?php else : ?>
 
                         <ul class="navbar-nav">
                             <!-- Dropdown for Account -->
@@ -267,45 +265,3 @@ if (isset($_SESSION['flash'])) {
         </header>
     
         <div class="container-fluid">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-     
-
-       
