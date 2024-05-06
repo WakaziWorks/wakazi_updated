@@ -1,16 +1,5 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-session_start();
-
-$isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
-if (!isset($_SESSION['cart'])) {
-    $_SESSION['cart'] = [];
-}
-if (isset($_SESSION['flash'])) {
-    echo '<div class="alert alert-success" role="alert">' . $_SESSION['flash'] . '</div>';
-    unset($_SESSION['flash']);
-}
+require "cust.php";
 ?>
 
 <!DOCTYPE html>
@@ -184,7 +173,7 @@ if (isset($_SESSION['flash'])) {
                             </div>
                         </form>
                     </div>
-                    
+                    <?php if ($isLoggedIn) : ?>
                     <!-- Right Navigation Links -->
                     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                         
@@ -193,7 +182,7 @@ if (isset($_SESSION['flash'])) {
 
                         <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="bi bi-person"></i> <?= $_SESSION['name']; ?>
+                                    <i class="bi bi-person"></i> <?php $_SESSION['name']; ?>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li><a class="dropdown-item" href="#">My Profile</a></li>

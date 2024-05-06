@@ -1,20 +1,21 @@
-
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 session_start();
-// include("../screens/headers/header.php");
 
-require_once("../../config/app/config.php");
+$response = ['logged_in' => false];
+if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+    $response['logged_in'] = true;
+}
 
-// Fetch cart details for the current session
-$session_id = session_id();
-$query = "SELECT p.*, cd.quantity FROM cart_details cd
-          JOIN Products p ON p.ProductID = cd.product_id
-          WHERE cd.session_id = ?";
-$stmt = $mysqli->prepare($query);
-$stmt->bind_param("s", $session_id);
-$stmt->execute();
-$result = $stmt->get_result();
-$products = $result->fetch_all(MYSQLI_ASSOC);
 
-$total_price = 0;
+$isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = [];
+}
+if (isset($_SESSION['flash'])) {
+    echo '<div class="alert alert-success" role="alert">' . $_SESSION['flash'] . '</div>';
+    unset($_SESSION['flash']);
+}
+// echo json_encode($response);
 ?>
