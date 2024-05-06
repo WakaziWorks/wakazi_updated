@@ -56,6 +56,8 @@ $total_price = 0;
                             </div>
                         </div>
                     <?php endforeach; ?>
+                    <button type="button" class="btn btn-danger" onclick="clearCart()">Remove All Items</button>
+
                 <?php endif; ?>
             </div>
 
@@ -80,7 +82,7 @@ $total_price = 0;
                     </div>
                 <?php else : ?>
                     <div class="d-flex justify-content-center align-items-center" style="height: 200px;">
-                        <p class="text-muted">Your cart is empty. Start shopping!</p>
+                        <a href="../products/index.php" class="btn btn-secondary">Start Shopping</a>
                     </div>
                 <?php endif; ?>
             </div>
@@ -108,6 +110,7 @@ $total_price = 0;
             }
         }
     </script>
+
 </body>
 
 </html>
