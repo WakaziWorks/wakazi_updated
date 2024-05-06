@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 include("../screens/headers/header.php");
 // Check if user is already logged in
 if (!isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
@@ -92,62 +92,52 @@ if (!isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
                                             </form>
                                         </div>
                                     </div>
-                                </div>                                </form>
+                                </div>
+                                </form>
                             </div>
                         </div>
                     `);
                 }
             }, 'json');
         });
-    </script>
-</body>
 
-</html>
-
-
-
-
-
-
-
-<script>
-    function checkEmail() {
-        var email = $('#email').val();
-        $.ajax({
-            url: 'check_email.php',
-            type: 'POST',
-            data: {
-                email: email
-            },
-            success: function(response) {
-                if (response.exists) {
-                    $('#emailHelp').text('Email already registered, please log in or use a different email.');
-                    $('#password, #confirmPassword').prop('disabled', true);
-                } else {
-                    $('#emailHelp').text('');
-                    $('#password, #confirmPassword').prop('disabled', false);
+        function checkEmail() {
+            var email = $('#email').val();
+            $.ajax({
+                url: 'check_email.php',
+                type: 'POST',
+                data: {
+                    email: email
+                },
+                success: function(response) {
+                    if (response.exists) {
+                        $('#emailHelp').text('Email already registered, please log in or use a different email.');
+                        $('#password, #confirmPassword').prop('disabled', true);
+                    } else {
+                        $('#emailHelp').text('');
+                        $('#password, #confirmPassword').prop('disabled', false);
+                    }
                 }
-            }
-        });
-    }
+            });
+        }
 
-    $('#checkoutForm').on('submit', function(e) {
-        e.preventDefault();
-        var formData = $(this).serialize();
-        $.ajax({
-            url: 'process_checkout.php', // This script will handle both signup and login
-            type: 'POST',
-            data: formData,
-            success: function(response) {
-                alert('Success! Proceeding to payment.');
-                window.location.href = 'payment_page.php';
-            },
-            error: function() {
-                alert('Failed to process your request.');
-            }
+        $('#checkoutForm').on('submit', function(e) {
+            e.preventDefault();
+            var formData = $(this).serialize();
+            $.ajax({
+                url: 'process_checkout.php', // This script will handle both signup and login
+                type: 'POST',
+                data: formData,
+                success: function(response) {
+                    alert('Success! Proceeding to payment.');
+                    window.location.href = 'payment_page.php';
+                },
+                error: function() {
+                    alert('Failed to process your request.');
+                }
+            });
         });
-    });
-</script>
+    </script>
 </body>
 
 </html>
