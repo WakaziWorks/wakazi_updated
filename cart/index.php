@@ -58,8 +58,10 @@ $total_price = 0;
                     <?php endforeach; ?>
                 <?php endif; ?>
             </div>
-        </div>
-        <div class="container-fluid w-25 bg-danger rounded p-3 bg-light border">
+
+            <!-- HTML Above Remains Unchanged -->
+
+            <div class="container-fluid w-25 bg-danger rounded p-3 bg-light border">
                 <h3>Cart Summary</h3>
                 <hr />
                 <?php if (!empty($products)) : ?>
@@ -78,12 +80,14 @@ $total_price = 0;
                     </div>
                 <?php else : ?>
                     <div class="d-flex justify-content-center align-items-center" style="height: 200px;">
-                        <a href="../products/index.php">
-                            <button type="button" class="btn btn-secondary">Start Shopping</button>
-                        </a>
+                        <p class="text-muted">Your cart is empty. Start shopping!</p>
                     </div>
                 <?php endif; ?>
             </div>
+
+            <!-- JavaScript and Closing HTML Tags Remain Unchanged -->
+
+        </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
