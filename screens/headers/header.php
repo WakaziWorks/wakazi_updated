@@ -209,8 +209,40 @@ require "cust.php";
 
     <!-- End Top Bar -->
     <header class="header fixed-top">
+
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
+            <ul class="navbar-nav">
+                            <!-- Dropdown for Account -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="../../auth/accounts/login.php" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person"></i> Account
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="../../auth/accounts/signup.php" style="text-decoration: none; color: #c837d1; padding: 5px;">Sign Up</a></li>
+                                    <hr />
+                                    <li><a class="dropdown-item" href="../../auth/accounts/login.php" style="text-decoration: none; color: #c837d1; padding: 5px;">Sign In</a></li>
+                                    <hr />
+
+                                </ul>
+                            </li>
+                        <?php endif; ?>
+
+                        <!-- Help Link -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="bi bi-question-circle"></i> Help</a>
+                        </li>
+
+                        <!-- Cart -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../cart/index.php">
+                                <i class="fa fa-shopping-cart"></i> Cart
+                                <span class="badge bg-primary" style="background-color: #48003E;" id="cart-count">
+                                    <?php echo count($_SESSION['cart'] ?? []); ?>
+                                </span>
+                            </a>
+                        </li>
+                        </ul>
                 <!-- Logo -->
                 <a class="navbar-brand" href="#">
                     <img src="../../static/images/WhatsApp_Image_2024-02-28_at_15.48.15-removebg-preview.png" height="90px" width="110px" alt="Logo">
