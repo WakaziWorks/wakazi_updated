@@ -2,7 +2,7 @@
 include("screens/headers/header.php")
 ?>
 <div class="container-fluid">
-    <div class="col-12 col-md-10 col-xl-8 offset-xl-2 offset-md-1">
+    <div class="container" style="padding: 20px;">
 
         <div id="carouselExampleCaptions" class="carousel slide">
             <div class="carousel-indicators">
