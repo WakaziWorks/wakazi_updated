@@ -43,11 +43,9 @@ include("../screens/headers/header.php");
     <!-- Advanced search section -->
     <div class="advanced-search">
         <h1>For more advanced searches...</h1>
-        <div class="input-group" style="width: 70%; margin: 0 auto;">
-            <input type="text" class="form-control" placeholder="Search your item here..." style="border-top-right-radius: 0; border-bottom-right-radius: 0;">
-            <button class="button btn-primary" style="border-top-left-radius: 0; border-bottom-left-radius: 0;">
-                <i class="bi bi-search"></i>
-            </button>
+        <div class="input-group" style="width: 50%; margin: 0 auto; border: 1px solid purple; border-radius: 30px;">
+            <input type="text" class="form-control" placeholder="Search your item here.. " style="border-top-left-radius: 30px; border-bottom-left-radius: 30px;">
+            <button class="btn btn-primary" style="border-top-right-radius: 30px; border-bottom-right-radius: 30px;">Search</button>
         </div>
         <h5 style="margin-top: 2em; margin-bottom: 2em;">Don't know where to start?</h5>
         <button class="btn btn-primary">Explore Products</button>
