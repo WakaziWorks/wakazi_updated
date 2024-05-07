@@ -2,6 +2,7 @@
 include("screens/headers/header.php")
 ?>
 <div class="container-fluid">
+<div class="container-fluid">
     <div id="carouselExampleCaptions" class="carousel slide">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -46,7 +47,7 @@ include("screens/headers/header.php")
 </div>
 
 
-<div class="container" style="background: linear-gradient(to bottom, #6c2e8e, #ffffff); padding: 30px 0;">
+<div class="container px-4 py-5" style="background: linear-gradient(to bottom, #6c2e8e, #ffffff); padding: 30px 0;">
     <div class="row justify-content-center">
         <div class="col-md-9">
             <h1 class="text-center mb-5">Shop by collections</h1>
