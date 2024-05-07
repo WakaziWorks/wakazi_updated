@@ -279,7 +279,7 @@ include("screens/headers/header.php")
                 <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Read More</a>
             </div>
             <div class="col-sm-8 col-md-6">
-                <div class="px-5 px-sm-0"><img class="img-fluid rounded-circle" src="static/images/your-image.jpg" alt="Artistic Image" /></div>
+                <div class="px-5 px-sm-0"><img class="img-fluid rounded-circle" src="static/images/igor.jpg" alt="Artistic Image" /></div>
             </div>
         </div>
     </div>
