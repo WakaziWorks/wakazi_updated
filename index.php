@@ -48,7 +48,7 @@ include("screens/headers/header.php")
 </div>
 
 
-<div class="container px-4 py-5" style="background: linear-gradient(to bottom, #6c2e8e, #ffffff); padding: 30px 0;">
+<div class="container-fluid" style="background: linear-gradient(to bottom, #6c2e8e, #ffffff); padding: 25px;">
     <div class="row justify-content-center">
         <div class="col-md-9">
             <h1 class="text-center mb-5">Shop by collections</h1>
