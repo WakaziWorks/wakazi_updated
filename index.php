@@ -46,45 +46,86 @@ include("screens/headers/header.php")
 </div>
 
 
-<div class="collection-container justify-content-center" id="collection">
-    <h1>Shop by collections</h1>
+<div class="container">
+    <h1 class="text-center mb-5">Shop by collections</h1>
     <div class="row gx-3">
-        <div class="collection-col col-12 col-md mx-3">
-            <h4>Jewellery</h4>
-            <a href="#" onclick="redirectToCategory('jewellery')"><img src="static/images/jewellery.webp" alt="Jewellery" /></a>
+        <div class="col-12 col-md-6 col-lg-3 mx-auto">
+            <div class="card">
+                <img src="static/images/jewellery.webp" class="card-img-top" alt="Jewellery">
+                <div class="card-body">
+                    <h4 class="card-title">Jewellery</h4>
+                    <a href="#" onclick="redirectToCategory('jewellery')" class="btn btn-primary">View Collection</a>
+                </div>
+            </div>
         </div>
-        <div class="collection-col col-12 col-md mx-3">
-            <h4>Home Decors</h4>
-            <a href="#" onclick="redirectToCategory('home_decor')"><img src="static/images/decor.jpg" alt="Home and Decor" /></a>
+        <div class="col-12 col-md-6 col-lg-3 mx-auto">
+            <div class="card">
+                <img src="static/images/decor.jpg" class="card-img-top" alt="Home Decors">
+                <div class="card-body">
+                    <h4 class="card-title">Home Decors</h4>
+                    <a href="#" onclick="redirectToCategory('home_decor')" class="btn btn-primary">View Collection</a>
+                </div>
+            </div>
         </div>
-        <div class="collection-col col-12 col-md mx-3">
-            <h4>Bags and Purses</h4>
-            <a href="#" onclick="redirectToCategory('bags_purses')"><img src="static/images/bag.webp" alt="Bags and Purses" /></a>
+        <div class="col-12 col-md-6 col-lg-3 mx-auto">
+            <div class="card">
+                <img src="static/images/bag.webp" class="card-img-top" alt="Bags and Purses">
+                <div class="card-body">
+                    <h4 class="card-title">Bags and Purses</h4>
+                    <a href="#" onclick="redirectToCategory('bags_purses')" class="btn btn-primary">View Collection</a>
+                </div>
+            </div>
         </div>
-        <div class="collection-col col-12 col-md mx-3">
-            <h4>Art and Collectibles</h4>
-            <a href="#" onclick="redirectToCategory('art_collectibles')"><img src="static/images/art2.jpg" alt="Art and Collectibles" /></a>
+        <div class="col-12 col-md-6 col-lg-3 mx-auto">
+            <div class="card">
+                <img src="static/images/art2.jpg" class="card-img-top" alt="Art and Collectibles">
+                <div class="card-body">
+                    <h4 class="card-title">Art and Collectibles</h4>
+                    <a href="#" onclick="redirectToCategory('art_collectibles')" class="btn btn-primary">View Collection</a>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="collection-col col-12 col-md mx-3">
-            <h4>Books, Movies and Music</h4>
-            <a href="#" onclick="redirectToCategory('books_movies_music')"><img src="static/images/books.jpg" alt="Books, Movies and Music" /></a>
+    <div class="row mt-4">
+        <div class="col-12 col-md-6 col-lg-3 mx-auto">
+            <div class="card">
+                <img src="static/images/books.jpg" class="card-img-top" alt="Books, Movies and Music">
+                <div class="card-body">
+                    <h4 class="card-title">Books, Movies and Music</h4>
+                    <a href="#" onclick="redirectToCategory('books_movies_music')" class="btn btn-primary">View Collection</a>
+                </div>
+            </div>
         </div>
-        <div class="collection-col col-12 col-md mx-3">
-            <h4>Electronics</h4>
-            <a href="#" onclick="redirectToCategory('electronics')"><img src="static/images/electronics.jpg" alt="Electronics" /></a>
+        <div class="col-12 col-md-6 col-lg-3 mx-auto">
+            <div class="card">
+                <img src="static/images/electronics.jpg" class="card-img-top" alt="Electronics">
+                <div class="card-body">
+                    <h4 class="card-title">Electronics</h4>
+                    <a href="#" onclick="redirectToCategory('electronics')" class="btn btn-primary">View Collection</a>
+                </div>
+            </div>
         </div>
-        <div class="collection-col col-12 col-md mx-3">
-            <h4>Accessories</h4>
-            <a href="#" onclick="redirectToCategory('accessories')"><img src="static/images/accesories.jpg" alt="Accessories" /></a>
+        <div class="col-12 col-md-6 col-lg-3 mx-auto">
+            <div class="card">
+                <img src="static/images/accesories.jpg" class="card-img-top" alt="Accessories">
+                <div class="card-body">
+                    <h4 class="card-title">Accessories</h4>
+                    <a href="#" onclick="redirectToCategory('accessories')" class="btn btn-primary">View Collection</a>
+                </div>
+            </div>
         </div>
-        <div class="collection-col col-12 col-md mx-3">
-            <h4>Craft supplies and Tools</h4>
-            <a href="#" onclick="redirectToCategory('craft_supplies_tools')"><img src="static/images/craft.jpg" alt="Craft supplies and Tools" /></a>
+        <div class="col-12 col-md-6 col-lg-3 mx-auto">
+            <div class="card">
+                <img src="static/images/craft.jpg" class="card-img-top" alt="Craft supplies and Tools">
+                <div class="card-body">
+                    <h4 class="card-title">Craft supplies and Tools</h4>
+                    <a href="#" onclick="redirectToCategory('craft_supplies_tools')" class="btn btn-primary">View Collection</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
 
 <script>
     function redirectToCategory(category) {
