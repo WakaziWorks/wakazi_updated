@@ -208,7 +208,7 @@ require "cust.php";
     <!-- ======= Header ======= -->
 
     <!-- End Top Bar -->
-    <header class="header fixed-top">
+    <header class="header fixed">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
