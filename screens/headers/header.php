@@ -227,19 +227,7 @@ require "cust.php";
                         </ul>
                     </li>
 
-                    <!-- Help Link -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="bi bi-question-circle"></i> Help</a>
-                    </li>
-
-                    <!-- Cart -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="../../cart/index.php">
-                            <i class="fa fa-shopping-cart"></i> Cart
-                            <span class="badge bg-primary" style="background-color: #48003E;" id="cart-count">
-                            </span>
-                        </a>
-                    </li>
+              
                 </ul>
                 <!-- Logo -->
                 <a class="navbar-brand" href="#">
