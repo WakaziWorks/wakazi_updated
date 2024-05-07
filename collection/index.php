@@ -11,31 +11,43 @@ include("../screens/headers/header.php");
     <!-- Collections section -->
     <div class="container">
         <div class="row justify-content-center mb-4">
-            <div class="col-sm-4 justify-content-center">
-                <img src="img/jewel.jpg"  alt="Jewel" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
-                <p class="text-center">Jewellery <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
+            <div class="card">
+                <div class="col-sm-4 justify-content-center">
+                    <img src="img/jewel.jpg" alt="Jewel" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
+                    <p class="text-center">Jewellery <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
+                </div>
             </div>
-            <div class="col-lg-4 justify-content-center">
-                <img src="img/clothing.jpg"  alt="Clothing" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
-                <p class="text-center">Fashion wear <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
+            <div class="card">
+                <div class="col-lg-4 justify-content-center">
+                    <img src="img/clothing.jpg" alt="Clothing" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
+                    <p class="text-center">Fashion wear <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
+                </div>
             </div>
-            <div class="col-sm-4 justify-content-center">
-                <img src="img/accessories.jpg"  alt="Accessories" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
-                <p class="text-center">Fashion accessories <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
+            <div class="card">
+                <div class="col-sm-4 justify-content-center">
+                    <img src="img/accessories.jpg" alt="Accessories" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
+                    <p class="text-center">Fashion accessories <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
+                </div>
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-sm-4 justify-content-center">
-                <img src="img/decor.jpg"  alt="Decor" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
-                <p class="text-center">Home decors <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
+            <div class="card">
+                <div class="col-sm-4 justify-content-center">
+                    <img src="img/decor.jpg" alt="Decor" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
+                    <p class="text-center">Home decors <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
+                </div>
             </div>
-            <div class="col-lg-4 justify-content-center" >
-                <img src="img/bagnpurse.jpg"  alt="Bags & Purse" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
+            <div class="card">
+            <div class="col-lg-4 justify-content-center">
+                <img src="img/bagnpurse.jpg" alt="Bags & Purse" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
                 <p class="text-center">Crafted bags <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
             </div>
+            </div>
+            <div class="card">
             <div class="col-sm-4 justify-content-center">
-                <img src="img/art.jpg"  alt="Art & Collectibles" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
+                <img src="img/art.jpg" alt="Art & Collectibles" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
                 <p class="text-center">Art & collectibles <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
+            </div>
             </div>
         </div>
     </div>
