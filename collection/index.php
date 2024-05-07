@@ -12,7 +12,7 @@
     <style>
         /* Custom styles here */
         .top-background {
-            background-color: #f8f9fa;
+            background-color: #C41CD0;
             padding: 2rem;
             text-align: center;
         }
