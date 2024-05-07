@@ -184,6 +184,20 @@ include("screens/headers/header.php")
             </div>
         </div>
         <div class="row gx-5 align-items-center">
+        <div class="col-lg-4">
+                <div class="features-device-mockup">
+                    <div class="device-wrapper" style="padding: 20px;">
+                        <div class="device" data-device="iPhoneX" data-orientation="portrait" data-color="black">
+                            <!-- Applying a circular mask to the screen -->
+                            <div class="screen bg-black rounded-circle overflow-hidden">
+                                <video class="rounded-circle" muted autoplay loop style="width: 100%; height: auto; display: block;">
+                                    <source src="static/images/demo-screen.mp4" type="video/mp4" />
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col-lg-8 mb-5 mb-lg-0">
                 <div class="container-fluid px-5">
                     <div class="row gx-5">
@@ -223,20 +237,7 @@ include("screens/headers/header.php")
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="features-device-mockup">
-                    <div class="device-wrapper" style="padding: 20px;">
-                        <div class="device" data-device="iPhoneX" data-orientation="portrait" data-color="black">
-                            <!-- Applying a circular mask to the screen -->
-                            <div class="screen bg-black rounded-circle overflow-hidden">
-                                <video class="rounded-circle" muted autoplay loop style="width: 100%; height: auto; display: block;">
-                                    <source src="static/images/demo-screen.mp4" type="video/mp4" />
-                                </video>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          
 
             <style>
                 .device .screen {
