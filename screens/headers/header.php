@@ -216,7 +216,7 @@ require "cust.php";
                     <!-- Dropdown for Account -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="../../auth/accounts/login.php" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-person"></i> Menu 
+                            <i class="bi bi-person"></i> Menu
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="../../auth/accounts/signup.php" style="text-decoration: none; color: #c837d1; padding: 5px;">Sign Up</a></li>
@@ -227,7 +227,7 @@ require "cust.php";
                         </ul>
                     </li>
 
-              
+
                 </ul>
                 <!-- Logo -->
                 <a class="navbar-brand" href="#">
@@ -240,11 +240,12 @@ require "cust.php";
                 </button>
 
                 <!-- Centered Search Bar -->
-                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent" style="float: right;">
                     <form class="d-flex" style="background-color: transparent;">
                         <div class="input-group">
                             <input class="form-control me-2" type="search" placeholder="Search for anything" aria-label="Search" style="border: 2px solid #000; border-radius: 33px; width: 50em;">
-                            <button class="btn btn-outline-success" type="submit">Search</button>                        </div>
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </div>
                     </form>
                 </div>
                 <?php if ($isLoggedIn) : ?>
