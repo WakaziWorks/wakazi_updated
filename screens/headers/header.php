@@ -300,11 +300,11 @@ require "cust.php";
             <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <!-- Dropdown for Account -->
-                    <li class="nav-item"><a class="nav-link" href="../../index.php"><i>Home</i></a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../products/index.php"><i>Products</i></a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../collection/index.php"><i>Collection</i></a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../features/index.php"><i>Features</i></a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../blog/index.php"><i>Blog</i></a></li>
+                    <li class="nav-item"><a class="nav-link link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="../../index.php">Home</a></li>
+                    <li class="nav-item"><a class="nav-link link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="../../products/index.php">Products</a></li>
+                    <li class="nav-item"><a class="nav-link link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="../../collection/index.php">Collection</a></li>
+                    <li class="nav-item"><a class="nav-link link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="../../features/index.php">Features</a></li>
+                    <li class="nav-item"><a class="nav-link link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="../../blog/index.php">Blog</a></li>
                 </ul>
             </div>
         </nav>
