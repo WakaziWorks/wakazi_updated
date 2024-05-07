@@ -18,6 +18,36 @@
             /* Circular images */
         }
 
+        .image-circle {
+            width: 15em;
+            /* Set image size */
+            height: 15em;
+            object-fit: cover;
+            /* Ensure full coverage within the circle */
+            border-radius: 50%;
+            /* Make it round */
+            margin-bottom: 1em;
+            /* Space below each image */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Smooth transitions for effects */
+        }
+
+        .image-circle:hover {
+            transform: scale(1.05);
+            /* Slight scale up on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            /* Shadow for depth */
+        }
+
+        .image-text {
+            color: #333;
+            /* Text color for better visibility */
+            font-size: 1.1em;
+            /* Larger text */
+            text-decoration: none;
+            /* No underline */
+        }
+
         .card {
             border: none;
             /* Hide card borders */
@@ -84,13 +114,9 @@
                 $items = ['jewel', 'clothing', 'accessories', 'decor', 'bagnpurse', 'art'];
                 $names = ['Jewellery', 'Fashion wear', 'Fashion accessories', 'Home decors', 'Crafted bags', 'Art & collectibles'];
                 foreach ($items as $index => $item) {
-                    echo "<div class='col-sm-6 col-md-4 col-lg-3 mb-4'>";
-                    echo "<div class='card text-center no-border'>";
-                    echo "<img src='img/{$item}.jpg' alt='{$names[$index]}' class='card-img-top'>";
-                    echo "<div class='card-body'>";
-                    echo "<p class='card-text'>{$names[$index]} <i class='bi bi-arrow-right'></i></p>";
-                    echo "</div>";
-                    echo "</div>";
+                    echo "<div class='col-sm-6 col-md-4 col-lg-3 mb-4 text-center'>";
+                    echo "<img src='img/{$item}.jpg' alt='{$names[$index]}' class='image-circle'>";
+                    echo "<a href='#' class='image-text'>{$names[$index]} <i class='bi bi-arrow-right'></i></a>";
                     echo "</div>";
                 }
                 ?>
