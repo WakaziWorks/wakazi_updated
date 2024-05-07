@@ -195,7 +195,7 @@ include("screens/headers/header.php")
                     <div class="row">
                         <div class="col-md-6 mb-5 mb-md-0">
                             <div class="text-center">
-                            <img src="static/img/touch-screen_10605241.png" />
+                            <img src="static/img/touch-screen_10605241.png" width="150px" height="150px">
                             <h3 class="font-alt">Free to Use</h3>
                                 <p class="text-muted mb-0">Flexible system</p>
                             </div>
