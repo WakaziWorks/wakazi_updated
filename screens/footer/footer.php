@@ -27,7 +27,7 @@
         }
     </style>
 
-    <section class="footer-top" id="footer-1" style="background-color: #e868f0;">
+    <section class="footer-top" id="footer-1" style="background-color: #e868f0; padding: 50px;">
         <div class="container text-center">
             <div class="row align-items-center">
                 <div class="col">
@@ -54,7 +54,7 @@
         </div>
     </section>
 
-    <section class="footer" style="background-color: #c837d1;">
+    <section class="footer" style="background-color: #c837d1; padding: 50px;">
         <div class="container">
             <div class="row justify-content-center text-light text-center">
                 <div class="col-12 col-md-3">
