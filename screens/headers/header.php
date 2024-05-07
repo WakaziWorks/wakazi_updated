@@ -250,10 +250,10 @@ require "cust.php";
                 </div>
                 <?php if ($isLoggedIn) : ?>
                     <!-- Right Navigation Links -->
-                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" style="padding: 30px;">
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 
 
-                        <ul class="navbar-nav">
+                        <ul class="navbar-nav" style="padding: 30px;">
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
