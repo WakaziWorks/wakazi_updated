@@ -41,20 +41,22 @@ include("../screens/headers/header.php");
     </div>
 
     <!-- Advanced search section -->
-    <div class="advanced-search">
-        <h1>For more advanced searches...</h1>
-        <div class="input-group" style="width: 50%; margin: 0 auto; border: 1px solid purple; border-radius: 30px;">
-            <input type="text" class="form-control" placeholder="Search your item here.. " style="border-top-left-radius: 30px; border-bottom-left-radius: 30px;">
-            <button class="btn btn-primary" style="border-top-right-radius: 30px; border-bottom-right-radius: 30px;">Search</button>
+    <div class="container-fluid">
+        <div class="advanced-search">
+            <h1>For more advanced searches...</h1>
+            <div class="input-group" style="width: 50%; margin: 0 auto; border: 1px solid purple; border-radius: 30px;">
+                <input type="text" class="form-control" placeholder="Search your item here.. " style="border-top-left-radius: 30px; border-bottom-left-radius: 30px;">
+                <button class="btn btn-primary" style="border-top-right-radius: 30px; border-bottom-right-radius: 30px;">Search</button>
+            </div>
+            <h5 style="margin-top: 2em; margin-bottom: 2em;">Don't know where to start?</h5>
+            <button class="btn btn-primary">Explore Products</button>
         </div>
-        <h5 style="margin-top: 2em; margin-bottom: 2em;">Don't know where to start?</h5>
-        <button class="btn btn-primary">Explore Products</button>
-    </div>
-    <div class="bottom">
-        <p>Send me exclusive offers, personalized tips for shopping and how to sell on Wakazi.</p>
-        <div class="input-group" style="width: 50%; margin: 0 auto; border: 1px solid purple; border-radius: 30px;">
-            <input type="text" class="form-control" placeholder="Enter your Email." style="border-top-left-radius: 30px; border-bottom-left-radius: 30px;">
-            <button class="btn btn-primary" style="border-top-right-radius: 30px; border-bottom-right-radius: 30px;">Subscribe</button>
+        <div class="bottom">
+            <p>Send me exclusive offers, personalized tips for shopping and how to sell on Wakazi.</p>
+            <div class="input-group" style="width: 50%; margin: 0 auto; border: 1px solid purple; border-radius: 30px;">
+                <input type="text" class="form-control" placeholder="Enter your Email." style="border-top-left-radius: 30px; border-bottom-left-radius: 30px;">
+                <button class="btn btn-primary" style="border-top-right-radius: 30px; border-bottom-right-radius: 30px;">Subscribe</button>
+            </div>
         </div>
     </div>
 </div>
