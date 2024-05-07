@@ -115,7 +115,7 @@
                 $names = ['Jewellery', 'Fashion wear', 'Fashion accessories', 'Home decors', 'Crafted bags', 'Art & collectibles'];
                 foreach ($items as $index => $item) {
                     echo "<div class='col-sm-6 col-md-4 col-lg-3 mb-4 text-center'>";
-                    echo "<img src='img/{$item}.jpg' alt='{$names[$index]}' class='image-circle'>";
+                    echo "<img src='img/{$item}.jpg' alt='{$names[$index]}' class='image-circle'> <br>";
                     echo "<a href='#' class='image-text'>{$names[$index]} <i class='bi bi-arrow-right'></i></a>";
                     echo "</div>";
                 }
