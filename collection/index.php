@@ -11,31 +11,31 @@ include("../screens/headers/header.php");
     <!-- Collections section -->
     <div class="container">
         <div class="row justify-content-center">
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 18rem;" style="padding: 10px; border: none">
                 <img src="img/jewel.jpg" alt="Jewel" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
                 <div class="card-body justify-content-center">
                     <p class="text-center">Jewellery <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
                 </div>
             </div>
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 18rem;" style="padding: 10px; border: none">
                 <img src="img/jewel.jpg" alt="Jewel" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
                 <div class="card-body justify-content-center">
                     <p class="text-center">Jewellery <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
                 </div>
             </div>
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 18rem;" style="padding: 10px; border: none">
                 <img src="img/jewel.jpg" alt="Jewel" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
                 <div class="card-body justify-content-center">
                     <p class="text-center">Jewellery <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
                 </div>
             </div>
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 18rem;" style="padding: 10px; border: none">
                 <img src="img/jewel.jpg" alt="Jewel" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
                 <div class="card-body justify-content-center">
                     <p class="text-center">Jewellery <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
                 </div>
             </div>
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 18rem;" style="padding: 10px; border: none">
                 <img src="img/jewel.jpg" alt="Jewel" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
                 <div class="card-body justify-content-center">
                     <p class="text-center">Jewellery <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
