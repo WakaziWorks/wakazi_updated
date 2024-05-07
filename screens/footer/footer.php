@@ -1,28 +1,4 @@
-<style>
-    .footer-col {
-        transition: background-color 0.7s ease;
-        color: #fff;
-        cursor: pointer;
-    }
 
-    .footer-col:hover {
-        background-color: white;
-        border-radius: 5px;
-        padding: 10px;
-        cursor: pointer;
-
-    }
-
-    .footer-col p {
-        color: black;
-        cursor: pointer;
-    }
-
-    .footer-col p:hover {
-        color: black;
-        cursor: pointer;
-    }
-</style>
 </div>
 <section class="footer-top" id="footer-1" style="background-color: #e868f0;">
     <div class="container text-center">
