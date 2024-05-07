@@ -187,7 +187,7 @@ include("screens/headers/header.php")
                         </div>
                         <div class="col-md-6 mb-5">
                             <div class="text-center">
-                            <img src="static/img/touch-screen_10605241.png" width="90px" height="90px">
+                            <img src="static/img/delivery_6137526 (1).png" width="90px" height="90px">
                                 <h3 class="font-alt">Vendor Flexibility</h3>
                                 <p class="text-muted mb-0">All vendors with flexible product sales!</p>
                             </div>
@@ -204,7 +204,7 @@ include("screens/headers/header.php")
                         </div>
                         <div class="col-md-6">
                             <div class="text-center">
-                            <img src="static/img/touch-screen_10605241.png" width="90px" height="90px">
+                            <img src="static/img/shield_508281.png" width="90px" height="90px">
                             <br>
                             <h3 class="font-alt">Security</h3>
                                 <p class="text-muted mb-0">Secure product checkout!</p>
