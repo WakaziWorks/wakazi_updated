@@ -250,7 +250,7 @@ require "cust.php";
                 </div>
                 <?php if ($isLoggedIn) : ?>
                     <!-- Right Navigation Links -->
-                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" style="padding: 30px;">
 
 
                         <ul class="navbar-nav">
