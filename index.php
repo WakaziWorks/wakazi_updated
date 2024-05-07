@@ -195,8 +195,8 @@ include("screens/headers/header.php")
                     <div class="row">
                         <div class="col-md-6 mb-5 mb-md-0">
                             <div class="text-center">
-                                <i class="bi-gift icon-feature text-gradient d-block mb-3" style="font-size: 2.5rem;"></i>
-                                <h3 class="font-alt">Free to Use</h3>
+                            <img src="static/img/touch-screen_10605241.png" />
+                            <h3 class="font-alt">Free to Use</h3>
                                 <p class="text-muted mb-0">Flexible system</p>
                             </div>
                         </div>
