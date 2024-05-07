@@ -200,10 +200,10 @@ require "cust.php";
         <a href="https://www.twitter.com/wakaziworks" class="twitter"><i class="bi bi-twitter"></i></a>
         <a href="" class="facebook"><i class="bi bi-whatsapp"></i></a>
         <a href="#" class="instagram"><i class="bi bi-instagram"></i></a> -->
-        <<a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+        <!-- <<a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
       </div>
     </div>
-  </section> -->
+  </section>  -->
   <!-- End Top Bar -->
     <header class="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
