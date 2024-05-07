@@ -205,8 +205,8 @@ require "cust.php";
     <div id="alert-placeholder"></div>
 
     <!-- ======= Header ======= -->
-   <!-- ======= Header ======= -->
-   
+    <!-- ======= Header ======= -->
+
     <!-- End Top Bar -->
     <header class="header fixed-top">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -309,5 +309,5 @@ require "cust.php";
             </div>
         </nav>
     </header>
-    <div class="main">
-        <div class="container-fluid">
+
+    <div class="container-fluid">

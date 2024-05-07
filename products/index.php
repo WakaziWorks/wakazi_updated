@@ -38,15 +38,11 @@ include("../screens/headers/header.php"); // Ensure the path is correct
         }
     </style>
 </head>
-<br> 
-<br>
-<br>
-<br>
-<br>
+
 
 <div class="container-fluid" style="padding: 20px;">
 
-    <div class="row">
+    <div class="row" style="padding: 25px;"0
         <?php
         include("../config/app/config.php");
         $query = "SELECT * FROM Products";
