@@ -350,7 +350,7 @@ require "cust.php";
         </nav>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                <ul style="list-style: none; padding: 0;">
+                <ul class="navbar-nav" style="list-style: none; padding: 0;">
                     <li class="nav-item" style="display: inline;"><a class="nav-link" href="../../index.php">Home</a></li>
                     <li class="nav-item" style="display: inline;"><a class="nav-link" href="../../products/index.php">Products</a></li>
                     <li class="nav-item" style="display: inline;"><a class="nav-link" href="../../collection/index.php">Collection</a></li>
