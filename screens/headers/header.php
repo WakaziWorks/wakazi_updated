@@ -40,8 +40,10 @@ require "cust.php";
     <style>
         /* Custom styles here */
         body {
-            font-family: 'Verdana', sans-serif; /* Set Verdana as the font for the entire website */
+            font-family: 'Verdana', sans-serif;
+            /* Set Verdana as the font for the entire website */
         }
+
         .top-background {
             background-color: #C41CD0;
             padding: 2rem;
@@ -215,23 +217,33 @@ require "cust.php";
         #color a :focus {
             background-color: white !important;
         }
+
         .navbar {
-            background-color: #f8f9fa; /* Light grey background */
+            background-color: #f8f9fa;
+            /* Light grey background */
             padding: 10px 0;
             text-align: center;
         }
+
         .nav-link {
             padding: 10px 20px;
             margin: 0 10px;
-            border-radius: 20px; /* Rounded corners */
+            border-radius: 20px;
+            /* Rounded corners */
             text-decoration: none;
-            color: #6c757d; /* Link color */
-            background-color: transparent; /* Transparent background */
-            transition: background-color 0.3s; /* Smooth transition for hover effect */
+            color: #6c757d;
+            /* Link color */
+            background-color: transparent;
+            /* Transparent background */
+            transition: background-color 0.3s;
+            /* Smooth transition for hover effect */
         }
+
         .nav-link:hover {
-            background-color: #6f42c1; /* Purple background on hover */
-            color: #ffffff; /* White text on hover */
+            background-color: #6f42c1;
+            /* Purple background on hover */
+            color: #ffffff;
+            /* White text on hover */
         }
     </style>
 </head>
@@ -277,13 +289,25 @@ require "cust.php";
                 </button>
 
                 <!-- Centered Search Bar -->
-                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent" style="float: right;">
-                    <form class="d-flex" style="background-color: transparent;">
-                        <div class="input-group">
-                            <input class="form-control me-2" type="search" placeholder="Search for anything" aria-label="Search" style="border: 2px solid #000; border-radius: 33px; width: max-width;">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
+                <!-- <div class="container">
+                    <div class="row justify-content-end">
+                        <div class="col-lg-6 col-md-8 col-sm-12">
+                            <form class="d-flex" style="background-color: transparent; width: 100%;">
+                                <input class="form-control me-2" type="search" placeholder="Search for anything" aria-label="Search" style="border: 2px solid #000; border-radius: 33px; flex-grow: 1;">
+                                <button class="btn btn-outline-success" type="submit">Search</button>
+                            </form>
                         </div>
-                    </form>
+                    </div>
+                </div> -->
+                <div class="col-lg-6 col-md-8 col-sm-12">
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent" style="float: right;">
+                        <form class="d-flex" style="background-color: transparent; width: 100%;">
+                            <div class="input-group">
+                                <input class="form-control me-2" type="search" placeholder="Search for anything" aria-label="Search" style="border: 2px solid #000; border-radius: 33px; flex-grow: 1;">
+                                <button class="btn btn-outline-success" type="submit">Search</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
                 <?php if ($isLoggedIn) : ?>
                     <!-- Right Navigation Links -->
