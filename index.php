@@ -45,6 +45,7 @@ include("screens/headers/header.php")
     </div>
 </div>
 
+
 <div class="container-fluid py-3" style="background: linear-gradient(to bottom, #6c2e8e, #ffffff); padding: 15px;">
     <div class="container-fluid px-4 py-5">
         <div class="row justify-content-center">
@@ -184,7 +185,7 @@ include("screens/headers/header.php")
             </div>
         </div>
         <div class="row gx-5 align-items-center">
-        <div class="col-lg-4">
+            <div class="col-lg-4">
                 <div class="features-device-mockup">
                     <div class="device-wrapper" style="padding: 20px;">
                         <div class="device" data-device="iPhoneX" data-orientation="portrait" data-color="black">
@@ -237,7 +238,7 @@ include("screens/headers/header.php")
                     </div>
                 </div>
             </div>
-          
+
 
             <style>
                 .device .screen {

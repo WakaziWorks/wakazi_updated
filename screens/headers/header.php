@@ -245,6 +245,18 @@ require "cust.php";
             color: #ffffff;
             /* White text on hover */
         }
+
+        .card-img-top {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Smooth transitions for transform and shadow */
+        }
+
+        .card:hover .card-img-top {
+            transform: scale(1.05);
+            /* Slightly enlarge the image */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            /* Subtle shadow to create depth */
+        }
     </style>
 </head>
 
