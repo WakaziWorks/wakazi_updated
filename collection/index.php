@@ -16,7 +16,7 @@ include("../screens/headers/header.php");
                 <p class="text-center mt-2">Jewellery <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
             </div>
             <div class="col-lg-4">
-                <img src="img/clothing.jpg"  alt="Clothing" class="img-fluid rounded-circle">
+                <img src="img/clothing.jpg"  alt="Clothing" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
                 <p class="text-center mt-2">Fashion wear <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
             </div>
             <div class="col-lg-4">
@@ -26,15 +26,15 @@ include("../screens/headers/header.php");
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-4">
-                <img src="img/decor.jpg"  alt="Decor" class="img-fluid rounded-circle">
+                <img src="img/decor.jpg"  alt="Decor" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
                 <p class="text-center mt-2">Home decors <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
             </div>
             <div class="col-lg-4">
-                <img src="img/bagnpurse.jpg"  alt="Bags & Purse" class="img-fluid rounded-circle">
+                <img src="img/bagnpurse.jpg"  alt="Bags & Purse" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
                 <p class="text-center mt-2">Crafted bags <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
             </div>
             <div class="col-lg-4">
-                <img src="img/art.jpg"  alt="Art & Collectibles" class="img-fluid rounded-circle">
+                <img src="img/art.jpg"  alt="Art & Collectibles" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
                 <p class="text-center mt-2">Art & collectibles <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
             </div>
         </div>
