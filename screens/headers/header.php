@@ -244,8 +244,7 @@ require "cust.php";
                     <form class="d-flex" style="background-color: transparent;">
                         <div class="input-group">
                             <input class="form-control me-2" type="search" placeholder="Search for anything" aria-label="Search" style="border: 2px solid #000; border-radius: 33px; width: 50em;">
-                            <button class="btn btn-outline-pink" type="submit"><i class="bi bi-search"></i></button>
-                        </div>
+                            <button class="btn btn-outline-success" type="submit">Search</button>                        </div>
                     </form>
                 </div>
                 <?php if ($isLoggedIn) : ?>
