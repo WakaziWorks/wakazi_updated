@@ -22,7 +22,7 @@ include("screens/headers/header.php")
                 <div class="carousel-caption">
                     <h1 class="heading-h1">The silent Philosophers.</h1>
                     <p>Artisans are the silent philosophers of society, shaping the world with their hands and minds. </p>
-                    <button style="font-size: 1.5em; background: #c837d1; font-weight: bold; border-radius: 100px; padding: 20px;"><a href="#collection">DISCOVER MORE</a></button>
+                    <button style=" background: #c837d1; font-weight: bold; border-radius: 100px; padding: 10px;"><a href="#collection">DISCOVER MORE</a></button>
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="3000">
