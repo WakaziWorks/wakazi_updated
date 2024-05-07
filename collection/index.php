@@ -10,7 +10,7 @@ include("../screens/headers/header.php");
     </div>
     <!-- Collections section -->
     <div class="container">
-        <div class="row justify-content-center mb-3">
+        <div class="row justify-content-center mb-4">
             <div class="col-sm-4">
                 <img src="img/jewel.jpg"  alt="Jewel" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
                 <p class="text-center mt-2">Jewellery <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
