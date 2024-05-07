@@ -16,6 +16,27 @@
             border: none;
             margin-top: -5rem;
         }
+        .gradient-card {
+            background: linear-gradient(135deg, #957DAD 0%, #D291BC 100%);
+            border-radius: 15px;
+            color: white;
+            padding: 20px;
+            margin: auto;
+            width: 75%;
+        }
+
+        .input-group-custom {
+            border: 1px solid #FFFFFF; 
+            border-radius: 30px;
+        }
+
+        .form-control-custom {
+            border-radius: 30px 0 0 30px;
+        }
+
+        .btn-custom {
+            border-radius: 0 30px 30px 0;
+        }
     </style>
 </head>
 <body>
@@ -47,22 +68,32 @@
     </div>
 
     <div class="container-fluid text-center">
-        <h1>For more advanced searches...</h1>
-        <div class="input-group mx-auto my-3" style="width: 50%; border: 1px solid purple; border-radius: 30px;">
-            <input type="text" class="form-control" placeholder="Search your item here.." style="border-radius: 30px 0 0 30px;">
-            <button class="btn btn-primary" style="border-radius: 0 30px 30px 0;">Search</button>
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="gradient-card">
+                <h1>For more advanced searches...</h1>
+                <div class="input-group input-group-custom mx-auto my-3" style="width: 80%;">
+                    <input type="text" class="form-control form-control-custom" placeholder="Search your item here..">
+                    <button class="btn btn-primary btn-custom">Search</button>
+                </div>
+                <h5>Don't know where to start?</h5>
+                <button class="btn btn-primary">Explore Products</button>
+            </div>
         </div>
-        <h5>Don't know where to start?</h5>
-        <button class="btn btn-primary">Explore Products</button>
-
-        <div class="my-4">
-            <p>Send me exclusive offers, personalized tips for shopping and how to sell on Wakazi.</p>
-            <div class="input-group mx-auto" style="width: 50%; border: 1px solid purple; border-radius: 30px;">
-                <input type="email" class="form-control" placeholder="Enter your Email." style="border-radius: 30px 0 0 30px;">
-                <button class="btn btn-primary" style="border-radius: 0 30px 30px 0;">Subscribe</button>
+        <div class="col-md-12 my-4">
+            <div class="gradient-card">
+                <p>Send me exclusive offers, personalized tips for shopping and how to sell on Wakazi.</p>
+                <div class="input-group input-group-custom mx-auto" style="width: 80%;">
+                    <input type="email" class="form-control form-control-custom" placeholder="Enter your Email.">
+                    <button class="btn btn-primary btn-custom">Subscribe</button>
+                </div>
             </div>
         </div>
     </div>
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+
 </div>
 
 <?php include("../screens/footer/footer.php"); ?>
