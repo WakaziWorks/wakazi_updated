@@ -39,6 +39,9 @@ require "cust.php";
 
     <style>
         /* Custom styles here */
+        body {
+            font-family: 'Verdana', sans-serif; /* Set Verdana as the font for the entire website */
+        }
         .top-background {
             background-color: #C41CD0;
             padding: 2rem;
