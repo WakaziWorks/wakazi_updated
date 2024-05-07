@@ -172,85 +172,82 @@ include("screens/headers/header.php")
 </script>
 
 <section id="features">
-    <div class="card">
-        <div class="container px-5">
-            <div class="row gx-5 align-items-center">
-                <div class="col-lg-8 mb-5 mb-lg-0">
-                    <div class="container-fluid px-5">
-                        <div class="row gx-5">
-                            <div class="col-md-6 mb-5">
-                                <div class="text-center">
-                                    <i class="bi-phone icon-feature text-gradient d-block mb-3"></i>
-                                    <h3 class="font-alt">Product Sales</h3>
-                                    <p class="text-muted mb-0">Extreme product functionalities</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-5">
-                                <div class="text-center">
-                                    <i class="bi-camera icon-feature text-gradient d-block mb-3"></i>
-                                    <h3 class="font-alt">Vendor Flexibility</h3>
-                                    <p class="text-muted mb-0">All vendors with flexible product sales!</p>
-                                </div>
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-8 mb-5 mb-lg-0">
+                <div class="container-fluid px-5">
+                    <div class="row gx-5">
+                        <div class="col-md-6 mb-5">
+                            <div class="text-center">
+                                <i class="bi-phone icon-feature text-gradient d-block mb-3" style="font-size: 3rem;"></i>
+                                <h3 class="font-alt">Product Sales</h3>
+                                <p class="text-muted mb-0">Extreme product functionalities</p>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6 mb-5 mb-md-0">
-                                <div class="text-center">
-                                    <i class="bi-gift icon-feature text-gradient d-block mb-3"></i>
-                                    <h3 class="font-alt">Free to Use</h3>
-                                    <p class="text-muted mb-0">Flexible system</p>
-                                </div>
+                        <div class="col-md-6 mb-5">
+                            <div class="text-center">
+                                <i class="bi-camera icon-feature text-gradient d-block mb-3" style="font-size: 3rem;"></i>
+                                <h3 class="font-alt">Vendor Flexibility</h3>
+                                <p class="text-muted mb-0">All vendors with flexible product sales!</p>
                             </div>
-                            <div class="col-md-6">
-                                <div class="text-center">
-                                    <i class="bi-patch-check icon-feature text-gradient d-block mb-3"></i>
-                                    <h3 class="font-alt">Security</h3>
-                                    <p class="text-muted mb-0">Secure product checkout!</p>
-                                </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-5 mb-md-0">
+                            <div class="text-center">
+                                <i class="bi-gift icon-feature text-gradient d-block mb-3" style="font-size: 2.5rem;"></i>
+                                <h3 class="font-alt">Free to Use</h3>
+                                <p class="text-muted mb-0">Flexible system</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-center">
+                                <i class="bi-patch-check icon-feature text-gradient d-block mb-3" style="font-size: 2.5rem;"></i>
+                                <h3 class="font-alt">Security</h3>
+                                <p class="text-muted mb-0">Secure product checkout!</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="features-device-mockup">
-                        <div class="device-wrapper">
-                            <div class="device" data-device="iPhoneX" data-orientation="portrait" data-color="black">
-                                <!-- Applying a circular mask to the screen -->
-                                <div class="screen bg-black rounded-circle overflow-hidden">
-                                    <video class="rounded-circle" muted autoplay loop style="width: 100%; height: auto; display: block;">
-                                        <source src="static/images/demo-screen.mp4" type="video/mp4" />
-                                    </video>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <style>
-                    .device .screen {
-                        position: relative;
-                        width: 100%;
-                        /* Adjust the size as needed */
-                        padding-top: 100%;
-                        /* Equal to width for a perfect circle */
-                        border-radius: 50%;
-                        overflow: hidden;
-                    }
-
-                    .device video {
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        min-width: 100%;
-                        min-height: 100%;
-                    }
-                </style>
-
             </div>
+            <div class="col-lg-4">
+                <div class="features-device-mockup">
+                    <div class="device-wrapper" style="padding: 20px;">
+                        <div class="device" data-device="iPhoneX" data-orientation="portrait" data-color="black">
+                            <!-- Applying a circular mask to the screen -->
+                            <div class="screen bg-black rounded-circle overflow-hidden">
+                                <video class="rounded-circle" muted autoplay loop style="width: 100%; height: auto; display: block;">
+                                    <source src="static/images/demo-screen.mp4" type="video/mp4" />
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                .device .screen {
+                    position: relative;
+                    width: 100%; /* Adjust the size as needed */
+                    padding-top: 100%; /* Equal to width for a perfect circle */
+                    border-radius: 50%;
+                    overflow: hidden;
+                }
+
+                .device video {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    min-width: 100%;
+                    min-height: 100%;
+                }
+            </style>
+
         </div>
     </div>
 </section>
+
 
 
 <section class="bg-light">
