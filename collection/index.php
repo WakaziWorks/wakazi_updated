@@ -10,6 +10,7 @@
             width: 100%;
             border-top-left-radius: 15em;
             border-top-right-radius: 15em;
+            object-fit: contain;
         }
         .no-border {
             border: none;
@@ -20,7 +21,7 @@
 <body>
 <?php include("../screens/headers/header.php"); ?>
 
-<div class="container-fluid" style="padding: 70px;">
+<div class="container-fluid">
     <div class="top-background text-center">
         <h1>Artisan's Favorite</h1>
         <p>Home decors, Accessories, art and so much more - find well-crafted pieces for every style and budget.</p>
