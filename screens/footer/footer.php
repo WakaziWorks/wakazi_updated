@@ -1,32 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Footer Design</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .footer-col {
+            transition: background-color 0.7s ease;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .footer-col:hover {
+            background-color: white;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+
+        }
+
+        .footer-col p {
+            color: black;
+            cursor: pointer;
+        }
+
+        .footer-col p:hover {
+            color: black;
+            cursor: pointer;
+        }
+    </style>
 </head>
+
 <body>
     <section class="footer-top" id="footer-1" style="background-color: #e868f0;">
         <div class="container text-center">
             <div class="row align-items-center">
                 <div class="col">
-                    <img src="../../static/images/x-diamond-fill.svg" class="img-fluid mb-2"/>
+                    <img src="../../static/images/x-diamond-fill.svg" class="img-fluid mb-2" />
                     <h5 class="text-dark">Great Value</h5>
                     <p>We offer competitive prices on our product range.</p>
                 </div>
                 <div class="col">
-                    <img src="../../static/images/credit-card-2-front-fill.svg" class="img-fluid mb-2"/>
+                    <img src="../../static/images/credit-card-2-front-fill.svg" class="img-fluid mb-2" />
                     <h5 class="text-dark">Safe Payment</h5>
                     <p>Pay with the world’s most popular and secure payment methods.</p>
                 </div>
                 <div class="col">
-                    <img src="../../static/images/shield-lock-fill.svg" class="img-fluid mb-2"/>
+                    <img src="../../static/images/shield-lock-fill.svg" class="img-fluid mb-2" />
                     <h5 class="text-dark">Shop with Confidence</h5>
                     <p>Our Buyer Protection covers your purchase from click to delivery.</p>
                 </div>
                 <div class="col">
-                    <img src="../../static/images/question-circle-fill.svg" class="img-fluid mb-2"/>
+                    <img src="../../static/images/question-circle-fill.svg" class="img-fluid mb-2" />
                     <h5 class="text-dark">24/7 Help Center</h5>
                     <p>Round-the-clock assistance for a smooth shopping experience.</p>
                 </div>
@@ -82,4 +110,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 </body>
+
 </html>
