@@ -303,7 +303,7 @@ require "cust.php";
                     <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent" style="float: right;">
                         <form class="d-flex" style="background-color: transparent; width: 100%;">
                             <div class="input-group">
-                                <input class="form-control me-2" type="search" placeholder="Search for anything" aria-label="Search" style="border: 2px solid #000; border-radius: 70px; flex-grow: 1; width:50em;">
+                                <input class="form-control me-2" type="search" placeholder="Search for anything" aria-label="Search" style="border: 2px solid #000; border-radius: 70px; flex-grow: 1; width:30em;">
                                 <button class="btn btn-outline-success" type="submit">Search</button>
                             </div>
                         </form>
