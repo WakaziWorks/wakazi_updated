@@ -216,13 +216,21 @@ require "cust.php";
                     <!-- Dropdown for Account -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span class="navbar-toggler-icon"></span>
+                        <span style="background: #C41CD0;" class="navbar-toggler-icon"></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="../../auth/accounts/signup.php" style="text-decoration: none; color: #c837d1; padding: 5px;">Sign Up</a></li>
-                            <hr />
-                            <li><a class="dropdown-item" href="../../auth/accounts/login.php" style="text-decoration: none; color: #c837d1; padding: 5px;">Sign In</a></li>
-                            <hr />
+                            <li><a class="dropdown-item" href="">Jewellery</a></li>
+                           
+                            <li><a class="dropdown-item" href="">Crafted Bags</a></li>
+                            <li><a class="dropdown-item" href="">Home Decors</a></li>
+
+                            <li><a class="dropdown-item" href="">Fashion Wears</a></li>
+                            <li><a class="dropdown-item" href="">Art and Collectibles</a></li>
+                            <li><a class="dropdown-item" href="">Fashion Accessories</a></li>
+                            <li><a class="dropdown-item" href="">Craft Steel</a></li>
+                            <li><a class="dropdown-item" href="">Crafted Bags</a></li>
+
+                            
 
                         </ul>
                     </li>
