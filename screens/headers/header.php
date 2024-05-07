@@ -23,6 +23,45 @@ require "cust.php";
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <style>
+     
+        /* Custom styles here */
+        .top-background {
+            background-color: #C41CD0;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .collections-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            padding: 2rem;
+        }
+
+        .collection-item {
+            text-align: center;
+        }
+
+        .collection-item img {
+            border-radius: 15px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .advanced-search {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .bottom {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            text-align: center;
+        }
+
+ 
         .navbar-nav {
             margin-bottom: 0;
         }
