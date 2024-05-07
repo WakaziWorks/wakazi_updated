@@ -198,6 +198,38 @@ require "cust.php";
         .alert-dismissible .btn-close {
             color: #fff;
         }
+
+        .navbar-toggler-icon {
+            background-color: transparent !important;
+        }
+
+        #color button :hover,
+        #color :focus,
+        #color button :active {
+            background-color: transparent !important;
+        }
+
+        #color a :focus {
+            background-color: white !important;
+        }
+        .navbar {
+            background-color: #f8f9fa; /* Light grey background */
+            padding: 10px 0;
+            text-align: center;
+        }
+        .nav-link {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 20px; /* Rounded corners */
+            text-decoration: none;
+            color: #6c757d; /* Link color */
+            background-color: transparent; /* Transparent background */
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+        .nav-link:hover {
+            background-color: #6f42c1; /* Purple background on hover */
+            color: #ffffff; /* White text on hover */
+        }
     </style>
 </head>
 
@@ -215,29 +247,24 @@ require "cust.php";
                     <!-- Dropdown for Account -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span class="navbar-toggler-icon"></span>
+                            <span class="navbar-toggler-icon"></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="">Jewellery</a></li>
-                           
-                            <li><a class="dropdown-item" href="">Crafted Bags</a></li>
-                            <li><a class="dropdown-item" href="">Home Decors</a></li>
 
-                            <li><a class="dropdown-item" href="">Fashion Wears</a></li>
-                            <li><a class="dropdown-item" href="">Art and Collectibles</a></li>
-                            <li><a class="dropdown-item" href="">Fashion Accessories</a></li>
-                            <li><a class="dropdown-item" href="">Craft Steel</a></li>
-                            <li><a class="dropdown-item" href="">Crafted Bags</a></li>
+                            <li><a class="dropdown-item" href="../../products/index.php">Crafted Bags</a></li>
+                            <li><a class="dropdown-item" href="../../products/index.php">Home Decors</a></li>
 
-                            
-
+                            <li><a class="dropdown-item" href="../../products/index.php">Fashion Wears</a></li>
+                            <li><a class="dropdown-item" href="../../products/index.php">Art and Collectibles</a></li>
+                            <li><a class="dropdown-item" href="../../products/index.php">Fashion Accessories</a></li>
+                            <li><a class="dropdown-item" href="../../products/index.php">Craft Steel</a></li>
+                            <li><a class="dropdown-item" href="../../products/index.php">Crafted Bags</a></li>
                         </ul>
                     </li>
-
-
                 </ul>
                 <!-- Logo -->
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="../../index.php">
                     <img src="../../static/images/WhatsApp_Image_2024-02-28_at_15.48.15-removebg-preview.png" height="90px" width="110px" alt="Logo">
                 </a>
 
@@ -250,7 +277,7 @@ require "cust.php";
                 <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent" style="float: right;">
                     <form class="d-flex" style="background-color: transparent;">
                         <div class="input-group">
-                            <input class="form-control me-2" type="search" placeholder="Search for anything" aria-label="Search" style="border: 2px solid #000; border-radius: 33px; width: 50em;">
+                            <input class="form-control me-2" type="search" placeholder="Search for anything" aria-label="Search" style="border: 2px solid #000; border-radius: 33px; width: max-width;">
                             <button class="btn btn-outline-success" type="submit">Search</button>
                         </div>
                     </form>
@@ -323,13 +350,12 @@ require "cust.php";
         </nav>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                <ul class="navbar-nav">
-                    <!-- Dropdown for Account -->
-                    <li class="nav-item"><a class="nav-link link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="../../index.php">Home</a></li>
-                    <li class="nav-item"><a class="nav-link link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="../../products/index.php">Products</a></li>
-                    <li class="nav-item"><a class="nav-link link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="../../collection/index.php">Collection</a></li>
-                    <li class="nav-item"><a class="nav-link link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="../../features/index.php">Features</a></li>
-                    <li class="nav-item"><a class="nav-link link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="../../blog/index.php">Blog</a></li>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="display: inline;"><a class="nav-link" href="../../index.php">Home</a></li>
+                    <li style="display: inline;"><a class="nav-link" href="../../products/index.php">Products</a></li>
+                    <li style="display: inline;"><a class="nav-link" href="../../collection/index.php">Collection</a></li>
+                    <li style="display: inline;"><a class="nav-link" href="../../features/index.php">Features</a></li>
+                    <li style="display: inline;"><a class="nav-link" href="../../blog/index.php">Blog</a></li>
                 </ul>
             </div>
         </nav>
