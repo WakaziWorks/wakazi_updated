@@ -53,6 +53,7 @@ require "cust.php";
         .advanced-search {
             text-align: center;
             padding: 2rem;
+            background-color: #48003E;
         }
 
         .bottom {

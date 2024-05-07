@@ -45,7 +45,7 @@ include("../screens/headers/header.php");
         <h1>For more advanced searches...</h1>
         <div class="input-group" style="width: 70%; margin: 0 auto;">
             <input type="text" class="form-control" placeholder="Search your item here..." style="border-top-right-radius: 0; border-bottom-right-radius: 0;">
-            <button class="btn btn-primary" style="border-top-left-radius: 0; border-bottom-left-radius: 0;">
+            <button class="button btn-primary" style="border-top-left-radius: 0; border-bottom-left-radius: 0;">
                 <i class="bi bi-search"></i>
             </button>
         </div>
