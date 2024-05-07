@@ -1,36 +1,37 @@
 <?php
 include("screens/headers/header.php")
 ?>
-<div class="container-fluid py-5" style="height:300px;">
-    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+<div class="container-fluid" style="padding: 20px;">
+
+    <div id="carouselExampleCaptions" class="carousel slide">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-        <div class="carousel-inner">
+        <div class="carousel-inner ratio ratio-21x9">
             <div class="carousel-item active" data-bs-interval="3000">
-                <video src="static/images/Universe.mp4" style="object-fit: cover; width: 100%; height: 100%;" autoplay muted loop></video>
-                <div class="carousel-caption d-flex flex-column align-items-start justify-content-center" style="bottom: initial; left: 15%; right: 65%; transform: translateX(0);">
-                    <h1 class="text-start">Artisans are the Alchemists.</h1>
-                    <p class="text-start">Artisans are the alchemists of our time, turning ordinary materials into works of wonder.</p>
-                    <button class="btn text-uppercase" style="font-size: 1.5em; background: #c837d1; font-weight: bold; border-radius: 100px; padding: 20px;"><a href="#collection" class="text-white" style="text-decoration: none;">Discover More</a></button>
+                <video src="static/images/Universe.mp4" class="" autoplay muted loop></video>
+                <div class="carousel-caption justify-content-center">
+                    <h1 class="heading-h1">Artisans are the Alchemists.</h1>
+                    <p>Artisans are the alchemists of our time, turning ordinary materials into works of wonder.</p>
+                    <button style="font-size: 1.5em; background: #c837d1; font-weight: bold; border-radius: 100px; padding: 20px;"><a href="#collection">DISCOVER MORE</a></button>
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="3000">
-                <video src="static/images/Handtools.mp4" style="object-fit: cover; width: 100%; height: 100%;" autoplay muted loop></video>
-                <div class="carousel-caption d-flex flex-column align-items-start justify-content-center" style="bottom: initial; left: 15%; right: 65%; transform: translateX(0);">
-                    <h1 class="text-start">The silent Philosophers.</h1>
-                    <p class="text-start">Artisans are the silent philosophers of society, shaping the world with their hands and minds.</p>
-                    <button class="btn text-uppercase" style="background: #c837d1; font-weight: bold; border-radius: 100px; padding: 10px;"><a href="#collection" class="text-white" style="text-decoration: none;">Discover More</a></button>
+                <video src="static/images/Handtools.mp4" class="" autoplay muted loop></video>
+                <div class="carousel-caption justify-content-center">
+                    <h1 class="hero-headline">The silent Philosophers.</h1>
+                    <p>Artisans are the silent philosophers of society, shaping the world with their hands and minds. </p>
+                    <button style=" background: #c837d1; font-weight: bold; border-radius: 100px; padding: 10px;"><a href="#collection">DISCOVER MORE</a></button>
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="3000">
-                <video src="static/images/Pottery.mp4" style="object-fit: cover; width: 100%; height: 100%;" autoplay muted loop></video>
-                <div class="carousel-caption d-flex flex-column align-items-start justify-content-center" style="bottom: initial; left: 15%; right: 65%; transform: translateX(0);">
-                    <h1 class="text-start">The true Artisan.</h1>
-                    <p class="text-start">The true artisan is a seeker of beauty and truth, a philosopher of the tangible.</p>
-                    <button class="btn text-uppercase" style="font-size: 1.5em; background: #c837d1; font-weight: bold; border-radius: 100px; padding: 20px;"><a href="#collection" class="text-white" style="text-decoration: none;">Discover More</a></button>
+                <video src="static/images/Pottery.mp4" class="" autoplay muted loop></video>
+                <div class="carousel-caption justify-content-center">
+                    <h1 class="heading-h1">The true Artisan.</h1>
+                    <p style>The true artisan is a seeker of beauty and truth, a philosopher of the tangible.</p>
+                    <button style="font-size: 1.5em; background: #c837d1; font-weight: bold; border-radius: 100px; padding: 20px;"><a href="#collection">DISCOVER MORE</a></button>
                 </div>
             </div>
         </div>
@@ -44,8 +45,6 @@ include("screens/headers/header.php")
         </button>
     </div>
 </div>
-
-
 
 
 <div class="container-fluid" style="padding: 20px;">
