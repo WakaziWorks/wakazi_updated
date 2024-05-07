@@ -48,7 +48,7 @@ require "cust.php";
             border-radius: 15px;
             max-width: 100%;
             height: auto;
-        }
+        } */
 
         .advanced-search {
             text-align: center;
@@ -59,7 +59,7 @@ require "cust.php";
             background-color: #f8f9fa;
             padding: 2rem;
             text-align: center;
-        } */
+        } 
 
  
         .navbar-nav {
