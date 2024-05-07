@@ -41,7 +41,7 @@ include("../screens/headers/header.php");
     </div>
 
     <!-- Advanced search section -->
-    <div class="advanced-search">
+    <div class="top-background">
         <h1>For more advanced searches...</h1>
         <div class="input-group" style="width: 70%; margin: 0 auto;">
             <input type="text" class="form-control" placeholder="Search your item here..." style="border-top-right-radius: 0; border-bottom-right-radius: 0;">
