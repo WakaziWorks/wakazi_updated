@@ -215,7 +215,7 @@ require "cust.php";
                     <!-- Dropdown for Account -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span style="background: #C41CD0;" class="navbar-toggler-icon"></span>
+                        <span class="navbar-toggler-icon"></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="">Jewellery</a></li>

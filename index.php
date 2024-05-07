@@ -21,7 +21,7 @@ include("screens/headers/header.php")
             <div class="carousel-item" data-bs-interval="3000">
                 <video src="static/images/Handtools.mp4" class="" autoplay muted loop></video>
                 <div class="carousel-caption justify-content-center">
-                    <h1 class="heading-h1">The silent Philosophers.</h1>
+                    <h1 class="hero-headline">The silent Philosophers.</h1>
                     <p>Artisans are the silent philosophers of society, shaping the world with their hands and minds. </p>
                     <button style=" background: #c837d1; font-weight: bold; border-radius: 100px; padding: 10px;"><a href="#collection">DISCOVER MORE</a></button>
                 </div>
@@ -30,7 +30,7 @@ include("screens/headers/header.php")
                 <video src="static/images/Pottery.mp4" class="" autoplay muted loop></video>
                 <div class="carousel-caption justify-content-center">
                     <h1 class="heading-h1">The true Artisan.</h1>
-                    <p>The true artisan is a seeker of beauty and truth, a philosopher of the tangible.</p>
+                    <p style>The true artisan is a seeker of beauty and truth, a philosopher of the tangible.</p>
                     <button style="font-size: 1.5em; background: #c837d1; font-weight: bold; border-radius: 100px; padding: 20px;"><a href="#collection">DISCOVER MORE</a></button>
                 </div>
             </div>
