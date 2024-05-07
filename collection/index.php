@@ -12,7 +12,7 @@ include("../screens/headers/header.php");
     <div class="container">
         <div class="row justify-content-center mb-4">
             <div class="col-lg-4">
-                <img src="img/jewel.jpg"  alt="Jewel" class="img-fluid rounded-circle" style="width: fit-content; height:fit-content;">
+                <img src="img/jewel.jpg"  alt="Jewel" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
                 <p class="text-center mt-2">Jewellery <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
             </div>
             <div class="col-lg-4">
