@@ -290,5 +290,4 @@ require "cust.php";
         </nav>
     </header>
     <div class="main">
-        <div class="container">
             <div class="container-fluid">
