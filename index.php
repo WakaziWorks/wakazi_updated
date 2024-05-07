@@ -266,7 +266,7 @@ include("screens/headers/header.php")
 
 
 <section class="bg-light">
-    <div class="container-fluid">
+    <div class="container-fluid" style="padding: 30px;">
         <div class="container px-5">
             <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
                 <div class="col-12 col-lg-5">
