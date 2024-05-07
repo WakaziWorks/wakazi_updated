@@ -267,50 +267,49 @@ include("screens/headers/header.php")
     <div class="container px-5">
         <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
             <div class="col-12 col-lg-5">
-                <h2 class="display-4 lh-1 mb-4">Renaissance fuses Avant-Garde </h2>
-                <p class="lead fw-normal text-muted mb-5 mb-lg-0">In the vibrant tapestry of artistic expression, where the Renaissance meets the avant-garde, lies a fusion of tradition and innovation that ignites the senses. </p>
-                <p class="lead fw-normal text-muted mb-5 mb-lg-0" id="paragraph">
-
-
-                    Picture the sun-drenched landscapes of sub-Saharan Africa, where rhythms pulse through the earth and colors dance upon the canvas of existence. Here, amidst the ancient rhythms of tribal drums and the intricate beadwork of cultural heritage, emerges a new Renaissance—a rebirth of creativity that transcends boundaries.
-
-                    In this eclectic convergence, traditional motifs intertwine with modern techniques, birthing a kaleidoscope of expression that challenges the norms of convention. This is where the echoes of history harmonize with the avant-garde spirit, where every brushstroke whispers tales of resilience and every melody carries the heartbeat of a continent.
-                </p>
-                <a class="btn btn-primary mt-3" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="readMoreBtn" style="background: #ff00ff; border: none; outline: none;">Read More</a>
+                <h2 class="display-4 lh-1 mb-4">Renaissance fuses Avant-Garde</h2>
+                <p class="lead fw-normal text-muted mb-4">In the vibrant tapestry of artistic expression, where the Renaissance meets the avant-garde, lies a fusion of tradition and innovation that ignites the senses.</p>
+                <div class="collapse mb-4" id="collapseExample">
+                    <p class="lead fw-normal text-muted">
+                        Picture the sun-drenched landscapes of sub-Saharan Africa, where rhythms pulse through the earth and colors dance upon the canvas of existence. Here, amidst the ancient rhythms of tribal drums and the intricate beadwork of cultural heritage, emerges a new Renaissance—a rebirth of creativity that transcends boundaries.
+                        
+                        In this eclectic convergence, traditional motifs intertwine with modern techniques, birthing a kaleidoscope of expression that challenges the norms of convention. This is where the echoes of history harmonize with the avant-garde spirit, where every brushstroke whispers tales of resilience and every melody carries the heartbeat of a continent.
+                    </p>
+                </div>
+                <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Read More</a>
             </div>
             <div class="col-sm-8 col-md-6">
-                <div class="px-5 px-sm-0"><img class="img-fluid rounded-circle" src="" alt="..." /></div>
+                <div class="px-5 px-sm-0"><img class="img-fluid rounded-circle" src="static/images/your-image.jpg" alt="Artistic Image" /></div>
             </div>
         </div>
     </div>
 </section>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('paragraph').classList.add('collapse');
+        const readMoreBtn = document.getElementById('readMoreBtn');
+        const paragraph = document.getElementById('collapseExample');
 
-        document.getElementById('readMoreBtn').addEventListener('click', function() {
-            const paragraph = document.getElementById('paragraph');
+        readMoreBtn.addEventListener('click', function() {
             if (paragraph.classList.contains('show')) {
-                paragraph.classList.remove('show');
-                document.getElementById('readMoreBtn').innerText = 'Read More';
+                readMoreBtn.textContent = 'Read More';
             } else {
-                paragraph.classList.add('show');
-                document.getElementById('readMoreBtn').innerText = 'Read Less';
+                readMoreBtn.textContent = 'Read Less';
             }
         });
     });
 </script>
 
-<section class="" id="download">
-    <div class="container px-5">
+
+<section id="download" class="bg-light">
+    <div class="container px-5 py-5">
         <h2 class="text-center text-purple font-alt mb-4" style="color: black;">Get the app now!</h2>
         <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center">
-            <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge" src="static/images/google-play-badge.svg" alt="..." /></a>
-            <a href="#!"><img class="app-badge" src="static/images/app-store-badge.svg" alt="..." /></a>
+            <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge" src="static/images/google-play-badge.svg" alt="Download on Google Play" /></a>
+            <a href="#!"><img class="app-badge" src="static/images/app-store-badge.svg" alt="Download on App Store" /></a>
         </div>
-
     </div>
 </section>
+
 
 <?php
 include("screens/footer/footer.php");
