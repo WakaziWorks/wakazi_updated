@@ -215,8 +215,8 @@ require "cust.php";
                 <ul class="navbar-nav" style="padding: 30px;">
                     <!-- Dropdown for Account -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="../../auth/accounts/login.php" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-person"></i> Menu
+                        <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="navbar-toggler-icon"></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="../../auth/accounts/signup.php" style="text-decoration: none; color: #c837d1; padding: 5px;">Sign Up</a></li>
