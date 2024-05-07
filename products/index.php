@@ -39,8 +39,8 @@ include("../screens/headers/header.php"); // Ensure the path is correct
     </style>
 </head>
 
-<body>
-    <div class="container mt-5">
+
+    <div class="container-fluid" style="padding: 20px;">
 
         <div class="row">
             <?php
