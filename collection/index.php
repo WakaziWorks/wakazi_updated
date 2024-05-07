@@ -43,7 +43,7 @@
 <?php include("../screens/headers/header.php"); ?>
 
 <div class="container-fluid">
-    <div class="top-background text-center" style="padding:50em;">
+    <div class="top-background text-center" style="padding:50px;">
         <h1>Artisan's Favorite</h1>
         <p>Home decors, Accessories, art and so much more - find well-crafted pieces for every style and budget.</p>
     </div>
