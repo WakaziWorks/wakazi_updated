@@ -304,7 +304,7 @@ require "cust.php";
                         <form class="d-flex" style="background-color: transparent; width: 100%;">
                             <div class="input-group">
                                 <input class="form-control me-2" type="search" placeholder="Search for anything" aria-label="Search" style="border: 2px solid #000; border-radius: 70px; flex-grow: 1; width:30em;">
-                                <button class="btn btn-outline-success" type="submit">Search</button>
+                                <button class="btn " type="submit" style="background-color: #ff00ff;">Search</button>
                             </div>
                         </form>
                     </div>
