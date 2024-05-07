@@ -173,6 +173,16 @@ include("screens/headers/header.php")
 
 <section id="features">
     <div class="container px-5">
+           <!-- Gradient title -->
+           <div class="row">
+            <div class="col-12">
+                <h2 class="text-center font-weight-bold my-5" style="background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;">
+                    Explore Our Unique Features
+                </h2>
+            </div>
+        </div>
         <div class="row gx-5 align-items-center">
             <div class="col-lg-8 mb-5 mb-lg-0">
                 <div class="container-fluid px-5">
