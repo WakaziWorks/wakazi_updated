@@ -2,7 +2,7 @@
 include("../screens/headers/header.php");
 ?>
 
-<div class="container-fluid">
+<div class="container-fluid" style="padding: 70px;">
     <!-- Top background section -->
     <div class="top-background">
         <h1>Artisan's Favorite</h1>
