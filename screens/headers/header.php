@@ -192,8 +192,12 @@ require "cust.php";
                                 </ul>
                             </li>
                         </ul>
+                    </div>
 
-                    <?php else : ?>
+                <?php else : ?>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+
+
 
                         <ul class="navbar-nav">
                             <!-- Dropdown for Account -->
