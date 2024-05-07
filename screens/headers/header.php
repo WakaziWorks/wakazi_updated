@@ -212,7 +212,7 @@ require "cust.php";
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav" style="padding: 30px;">
                     <!-- Dropdown for Account -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="../../auth/accounts/login.php" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
