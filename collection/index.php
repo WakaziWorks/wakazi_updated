@@ -10,13 +10,41 @@ include("../screens/headers/header.php");
     </div>
     <!-- Collections section -->
     <div class="container">
-        <div class="row justify-content-center mb-4">
-            <div class="card">
-                <div class="col-sm-4 justify-content-center">
-                    <img src="img/jewel.jpg" alt="Jewel" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
+        <div class="row justify-content-center">
+            <div class="card" style="width: 18rem;">
+                <img src="img/jewel.jpg" alt="Jewel" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
+                <div class="card-body justify-content-center">
                     <p class="text-center">Jewellery <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
                 </div>
             </div>
+            <div class="card" style="width: 18rem;">
+                <img src="img/jewel.jpg" alt="Jewel" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
+                <div class="card-body justify-content-center">
+                    <p class="text-center">Jewellery <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="img/jewel.jpg" alt="Jewel" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
+                <div class="card-body justify-content-center">
+                    <p class="text-center">Jewellery <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="img/jewel.jpg" alt="Jewel" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
+                <div class="card-body justify-content-center">
+                    <p class="text-center">Jewellery <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="img/jewel.jpg" alt="Jewel" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
+                <div class="card-body justify-content-center">
+                    <p class="text-center">Jewellery <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+
+
             <div class="card">
                 <div class="col-lg-4 justify-content-center">
                     <img src="img/clothing.jpg" alt="Clothing" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
@@ -38,16 +66,16 @@ include("../screens/headers/header.php");
                 </div>
             </div>
             <div class="card">
-            <div class="col-lg-4 justify-content-center">
-                <img src="img/bagnpurse.jpg" alt="Bags & Purse" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
-                <p class="text-center">Crafted bags <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
-            </div>
+                <div class="col-lg-4 justify-content-center">
+                    <img src="img/bagnpurse.jpg" alt="Bags & Purse" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
+                    <p class="text-center">Crafted bags <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
+                </div>
             </div>
             <div class="card">
-            <div class="col-sm-4 justify-content-center">
-                <img src="img/art.jpg" alt="Art & Collectibles" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
-                <p class="text-center">Art & collectibles <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
-            </div>
+                <div class="col-sm-4 justify-content-center">
+                    <img src="img/art.jpg" alt="Art & Collectibles" class="img-fluid rounded-circle" style="width: 15em; height:15em;">
+                    <p class="text-center">Art & collectibles <i class="bi bi-arrow-right" style="font-size: larger;"></i></p>
+                </div>
             </div>
         </div>
     </div>
