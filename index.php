@@ -179,14 +179,15 @@ include("screens/headers/header.php")
                     <div class="row gx-5">
                         <div class="col-md-6 mb-5">
                             <div class="text-center">
-                                <i class="bi-phone icon-feature text-gradient d-block mb-3" style="font-size: 3rem;"></i>
-                                <h3 class="font-alt">Product Sales</h3>
+                            <img src="static/img/touch-screen_10605241.png" width="90px" height="90px">
+                            <br>
+                            <h3 class="font-alt">Product Sales</h3>
                                 <p class="text-muted mb-0">Extreme product functionalities</p>
                             </div>
                         </div>
                         <div class="col-md-6 mb-5">
                             <div class="text-center">
-                                <i class="bi-camera icon-feature text-gradient d-block mb-3" style="font-size: 3rem;"></i>
+                            <img src="static/img/touch-screen_10605241.png" width="90px" height="90px">
                                 <h3 class="font-alt">Vendor Flexibility</h3>
                                 <p class="text-muted mb-0">All vendors with flexible product sales!</p>
                             </div>
@@ -195,15 +196,17 @@ include("screens/headers/header.php")
                     <div class="row">
                         <div class="col-md-6 mb-5 mb-md-0">
                             <div class="text-center">
-                            <img src="static/img/touch-screen_10605241.png" width="150px" height="150px">
+                            <img src="static/img/touch-screen_10605241.png" width="90px" height="90px">
+                            <br>
                             <h3 class="font-alt">Free to Use</h3>
                                 <p class="text-muted mb-0">Flexible system</p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="text-center">
-                                <i class="bi-patch-check icon-feature text-gradient d-block mb-3" style="font-size: 2.5rem;"></i>
-                                <h3 class="font-alt">Security</h3>
+                            <img src="static/img/touch-screen_10605241.png" width="90px" height="90px">
+                            <br>
+                            <h3 class="font-alt">Security</h3>
                                 <p class="text-muted mb-0">Secure product checkout!</p>
                             </div>
                         </div>
