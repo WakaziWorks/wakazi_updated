@@ -219,7 +219,7 @@ require "cust.php";
         }
 
         .navbar {
-            background-color: #f8f9fa;
+            background-color: #D8A7DE;
             /* Light grey background */
             padding: 10px 0;
             text-align: center;
@@ -231,7 +231,7 @@ require "cust.php";
             border-radius: 20px;
             /* Rounded corners */
             text-decoration: none;
-            color: #6c757d;
+            color: #082C4B;
             /* Link color */
             background-color: transparent;
             /* Transparent background */
@@ -240,7 +240,7 @@ require "cust.php";
         }
 
         .nav-link:hover {
-            background-color: #6f42c1;
+            background-color: #BD1983;
             /* Purple background on hover */
             color: #ffffff;
             /* White text on hover */
