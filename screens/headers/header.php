@@ -208,8 +208,7 @@ require "cust.php";
     <!-- ======= Header ======= -->
 
     <!-- End Top Bar -->
-    <header class="header fixed">
-
+    <header class="header sticky-top">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <ul class="navbar-nav" style="padding: 30px;">
