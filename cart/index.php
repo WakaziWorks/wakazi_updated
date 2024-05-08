@@ -16,7 +16,8 @@ $products = $result->fetch_all(MYSQLI_ASSOC);
 
 $total_price = 0;
 ?>
-
+<div class="container-fluid" style="padding: 15px;">
+    <div class="row">
         <div class="container-fluid p-4 w-80 d-flex">
             <div class="container-fluid w-75 p-3 bg-light border me-3 rounded">
                 <h3>Cart (<?php echo count($products); ?>)</h3>
@@ -47,6 +48,7 @@ $total_price = 0;
 
                 <?php endif; ?>
             </div>
+        
 
             <!-- HTML Above Remains Unchanged -->
 
@@ -78,6 +80,8 @@ $total_price = 0;
 
         </div>
     </div>
+</div>
+</a>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         function updateQuantity(productId, change) {
