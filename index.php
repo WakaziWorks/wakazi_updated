@@ -9,7 +9,7 @@ include("screens/headers/header.php")
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner ratio ratio-21x9">
-            <div class="carousel-item active text-center p-4" data-bs-interval="3000">
+            <div class="carousel-item active">
             <img src="static/courousel/3.png" class="d-block w-100" alt="...">
 
 
@@ -20,7 +20,7 @@ include("screens/headers/header.php")
                     <button class="btn text-uppercase" style="background: #c837d1; font-weight: bold; border-radius: 100px; padding: 10px;"><a href="#collection" class="text-white" style="text-decoration: none;">Discover More</a></button>
                 </div>
             </div>
-            <div class="carousel-item text-center p-4" data-bs-interval="3000">
+            <div class="carousel-item">
             <img src="static/courousel/1.png" class="d-block w-100" alt="...">
                 <div class="carousel-caption justify-content-center">
                     <h1 class="text-start">The silent Philosophers.</h1>
@@ -28,7 +28,7 @@ include("screens/headers/header.php")
                     <button class="btn text-uppercase" style="background: #c837d1; font-weight: bold; border-radius: 100px; padding: 10px;"><a href="#collection" class="text-white" style="text-decoration: none;">Discover More</a></button>
                 </div>
             </div>
-            <div class="carousel-item text-center p-4" data-bs-interval="3000">
+            <div class="carousel-item ">
             <img src="static/courousel/2.png" class="d-block w-100" alt="...">
             <!-- <video src="static/images/Pottery.mp4" class="" autoplay muted loop></video> -->
                 <div class="carousel-caption justify-content-center">
