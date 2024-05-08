@@ -58,9 +58,8 @@ include("../screens/headers/header.php");
                             <div class="card-body">
                                 <h5 class="card-title">Checkout Form</h5>
                                 <form id="checkoutForm">
-                                <div class="col-md-7">
-                                    <div class="card">
-                                        <div class="card-body">
+                                
+                                
                                             <h5 class="card-title">Checkout Form</h5>
                                             <form id="checkoutForm">
                                                 <div class="mb-3">
@@ -84,8 +83,7 @@ include("../screens/headers/header.php");
                                                 <button type="submit" class="btn btn-primary">Submit</button>
                                             </form>
                                         </div>
-                                    </div>
-                                </div>
+                                
                                 </form>
                             </div>
                         </div>
