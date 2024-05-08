@@ -1,6 +1,6 @@
 <?php
-// session_start();
-include("../screens/headers/header.php");
+session_start();
+// include("../screens/headers/header.php");
 
 
 ?>
