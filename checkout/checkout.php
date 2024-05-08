@@ -1,12 +1,13 @@
 <?php
 // session_start();
-include("../screens/headers/header.php");
 
 // If user is already logged in, redirect to checkout directly
 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
     header('Location: checkout.php');
     exit;
 }
+include("../screens/headers/header.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -113,3 +114,6 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
 </body>
 
 </html>
+<?php
+ob_end_flush(); // Send output to browser
+?>
