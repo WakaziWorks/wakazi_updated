@@ -3,12 +3,12 @@ session_start();
 include("../screens/headers/header.php");
 require_once("../config/app/config.php");
 
-header('Content-Type: application/json');  // Ensure the response is treated as JSON
+header('Content-Type: application/json');  // Maintain JSON header for successful responses
 
 $email = $_POST['email'] ?? '';
 $password = $_POST['password'] ?? '';
 $name = $_POST['name'] ?? '';
-$phoneNumber = $_POST['phone'] ?? '';  // Assuming phone number is posted
+$phoneNumber = $_POST['phone'] ?? '';
 
 if (!empty($email) && !empty($password) && !empty($name)) {
     $mysqli->begin_transaction();
@@ -57,10 +57,14 @@ if (!empty($email) && !empty($password) && !empty($name)) {
     } catch (Exception $e) {
         $mysqli->rollback();
         error_log("Error: " . $e->getMessage());  // Log error to server's error log
-        echo json_encode(['status' => 'error', 'message' => 'Server error occurred: ' . $e->getMessage()]);
+        // Redirect to error page instead of displaying JSON error message
+        header('Location: c.php?error=' . urlencode($e->getMessage()));
+        exit;
     }
 } else {
-    echo json_encode(['status' => 'error', 'message' => 'Please fill in all required fields.']);
+    // Redirect to error page if required fields are missing
+    header('Location: c.php?error=' . urlencode('Please fill in all required fields.'));
+    exit;
 }
 
 function updateCartDetails($mysqli, $user_id, $phone) {

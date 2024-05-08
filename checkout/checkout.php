@@ -70,6 +70,10 @@ include("../screens/headers/header.php");
                                                     <label for="name" class="form-label">Full Name</label>
                                                     <input type="text" class="form-control" id="name" name="name" required>
                                                 </div>
+                                                <div class="mb-3">a
+                                                    <label for="phone" class="form-label">Phone Number</label>
+                                                    <input type="text" class="form-control" id="phone" name="phone" required>
+                                                </div>
                                                 
                                                 <div class="mb-3">
                                                     <label for="password" class="form-label">Password</label>
