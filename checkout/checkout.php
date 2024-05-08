@@ -115,27 +115,29 @@ session_start();
             });
         }
 
-        $('#checkoutForm').on('submit', function(e) {
-            e.preventDefault();
-            var formData = $(this).serialize();
-            console.log("Form data:", formData); // Check what's being sent
+        $(document).ready(function() {
+    $('#checkoutForm').on('submit', function(e) {
+        e.preventDefault();  // This stops the normal submission.
+        var formData = $(this).serialize();
 
-            $.ajax({
-                url: 'process_checkout.php',
-                type: 'POST',
-                data: formData,
-                success: function(response) {
-                    console.log("Response received:", response); // Check server response
-                    alert('Success! Proceeding to payment.');
-                    window.location.href = 'payment_page.php';
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.error("AJAX error: ", textStatus, errorThrown); // Detailed AJAX error
-                    alert('Failed to process your request.');
-                }
-            });
+        $.ajax({
+            url: 'process_checkout.php',
+            type: 'POST',
+            data: formData,
+            success: function(response) {
+                alert('Success! Proceeding to payment.');
+                window.location.href = 'payment_page.php';
+            },
+            error: function() {
+                alert('Failed to process your request.');
+            }
         });
+    });
+});
+
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </body>
 
 </html>
