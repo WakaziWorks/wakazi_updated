@@ -18,37 +18,40 @@ $total_price = 0;
 ?>
 <div class="container-fluid" style="padding: 15px;">
     <div class="row">
-        <div class="container-fluid p-4 w-80 d-flex">
-            <div class="container-fluid w-75 p-3 bg-light border me-3 rounded">
-                <h3>Cart (<?php echo count($products); ?>)</h3>
-                <hr />
-                <?php if (empty($products)) : ?>
-                    <div class="d-flex justify-content-center align-items-center" style="height: 200px;">
-                        <h4 class="text-muted">Cart is empty</h4>
-                    </div>
-                <?php else : ?>
-                    <?php foreach ($products as $product) : ?>
-                        <div class="d-flex mb-4">
-                            <div class="d-flex align-items-center">
-                                <img class="me-3" src="<?php echo 'data:image/jpeg;base64,' . base64_encode($product['image']); ?>" alt="product" style="width: 3em; height: 3em;">
-                                <p><?php echo $product['ProductName']; ?> - KES <?php echo $product['Price']; ?></p>
-                            </div>
-                            <div class="d-flex align-items-center ms-auto">
-                                <div class="btn-group me-2" role="group">
-                                    <button type="button" class="btn btn-secondary" onclick="updateQuantity(<?php echo $product['ProductID']; ?>, -1)">-</button>
-                                    <span class="btn btn-light"><?php echo $product['quantity']; ?></span>
-                                    <button type="button" class="btn btn-secondary" onclick="updateQuantity(<?php echo $product['ProductID']; ?>, 1)">+</button>
-                                </div>
-                                <h6 class="fs-3 ms-3">KES. <?php echo $product['Price'] * $product['quantity']; ?></h6>
-                                <?php $total_price += $product['Price'] * $product['quantity']; ?>
-                            </div>
+        <div class="col">
+            <div class="container-fluid p-4 w-80 d-flex">
+                <div class="container-fluid w-75 p-3 bg-light border me-3 rounded">
+                    <h3>Cart (<?php echo count($products); ?>)</h3>
+                    <hr />
+                    <?php if (empty($products)) : ?>
+                        <div class="d-flex justify-content-center align-items-center" style="height: 200px;">
+                            <h4 class="text-muted">Cart is empty</h4>
                         </div>
-                    <?php endforeach; ?>
-                    <button type="button" class="btn btn-danger" onclick="clearCart()">Remove All Items</button>
+                    <?php else : ?>
+                        <?php foreach ($products as $product) : ?>
+                            <div class="d-flex mb-4">
+                                <div class="d-flex align-items-center">
+                                    <img class="me-3" src="<?php echo 'data:image/jpeg;base64,' . base64_encode($product['image']); ?>" alt="product" style="width: 3em; height: 3em;">
+                                    <p><?php echo $product['ProductName']; ?> - KES <?php echo $product['Price']; ?></p>
+                                </div>
+                                <div class="d-flex align-items-center ms-auto">
+                                    <div class="btn-group me-2" role="group">
+                                        <button type="button" class="btn btn-secondary" onclick="updateQuantity(<?php echo $product['ProductID']; ?>, -1)">-</button>
+                                        <span class="btn btn-light"><?php echo $product['quantity']; ?></span>
+                                        <button type="button" class="btn btn-secondary" onclick="updateQuantity(<?php echo $product['ProductID']; ?>, 1)">+</button>
+                                    </div>
+                                    <h6 class="fs-3 ms-3">KES. <?php echo $product['Price'] * $product['quantity']; ?></h6>
+                                    <?php $total_price += $product['Price'] * $product['quantity']; ?>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                        <button type="button" class="btn btn-danger" onclick="clearCart()">Remove All Items</button>
 
-                <?php endif; ?>
+                    <?php endif; ?>
+                </div>
             </div>
-        
+        </div>
+        <div class="col">
 
             <!-- HTML Above Remains Unchanged -->
 
@@ -81,39 +84,40 @@ $total_price = 0;
         </div>
     </div>
 </div>
-</a>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        function updateQuantity(productId, change) {
-            $.ajax({
-                url: 'update_cart.php',
-                type: 'POST',
-                data: {
-                    product_id: productId,
-                    quantity_change: change
-                },
-                success: function(response) {
-                    // Assuming response includes the new quantity and total price
-                    $('#product_' + productId + '_qty').text(response.new_quantity);
-                    $('#total_price').text(response.new_total_price);
-                    updateCartSummary();
-                }
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function updateQuantity(productId, change) {
+        $.ajax({
+            url: 'update_cart.php',
+            type: 'POST',
+            data: {
+                product_id: productId,
+                quantity_change: change
+            },
+            success: function(response) {
+                // Assuming response includes the new quantity and total price
+                $('#product_' + productId + '_qty').text(response.new_quantity);
+                $('#total_price').text(response.new_total_price);
+                updateCartSummary();
+            }
+        });
+    }
+
+
+    function clearCart() {
+        if (confirm('Are you sure you want to remove all items from your cart?')) {
+            $.post('clear_cart.php', function(data) {
+                location.reload(); // Reload page to reflect that the cart is now empty
             });
         }
+    }
 
-
-        function clearCart() {
-            if (confirm('Are you sure you want to remove all items from your cart?')) {
-                $.post('clear_cart.php', function(data) {
-                    location.reload(); // Reload page to reflect that the cart is now empty
-                });
-            }
-        }
-
-        function proceedToCheckout() {
-            window.location.href = '../checkout/checkout.php'; // Redirect to the checkout page
-        }
-    </script>
+    function proceedToCheckout() {
+        window.location.href = '../checkout/checkout.php'; // Redirect to the checkout page
+    }
+</script>
 
 </body>
 
