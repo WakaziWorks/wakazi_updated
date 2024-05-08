@@ -89,7 +89,7 @@ include("../screens/headers/header.php");
                     `);
                 } else {
                     // User is not logged in, redirect to signup page
-                    window.location.href = '../auth/accounts/signup.php?redirect=checkout.php';
+                    window.location.href = '../auth/accounts/signup.php';
                 }
             }, 'json');
         });
