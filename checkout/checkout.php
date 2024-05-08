@@ -63,6 +63,9 @@ include("../screens/headers/header.php");
                 </div>
             </div>
         </div>
+        </div>
+        <div class="row">
+
         <div class="col-sm-6 col-md-3 mb-3">
             <div class="card text-center" style="opacity: 0.5;">
                 <div class="card-body">
@@ -75,7 +78,7 @@ include("../screens/headers/header.php");
             <div class="card text-center" style="opacity: 1;">
                 <div class="card-body">
                     <h6 class="card-title">M-Pesa</h6>
-                    <p class="card-text">Paybill: 123456</p>
+                    <p class="card-text">Paybill: 522533 <br> Account Number: 7845649 <br></p>
                     <p><button class="btn btn-primary">Pay with M-Pesa</button></p>
                 </div>
             </div>
