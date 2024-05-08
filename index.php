@@ -1,14 +1,14 @@
 <?php
 include("screens/headers/header.php")
 ?>
-<div class="container-fluid">
+<div class="container-fluid" style="padding: 5px;">
     <div id="carouselExampleCaptions" class="carousel slide">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-        <div class="carousel-inner ratio ratio-21x9">
+        <div class="carousel-inner">
             <div class="carousel-item active">
             <img src="static/courousel/3.png" class="d-block w-100" alt="...">
 
@@ -17,7 +17,7 @@ include("screens/headers/header.php")
                 <div class="carousel-caption justify-content-center">
                     <h1 class="text-start">Artisans are the Alchemists.</h1>
                     <p class="text-start">Artisans are the alchemists of our time, turning ordinary materials into works of wonder.</p>
-                    <button class="btn text-uppercase" style="background: #c837d1; font-weight: bold; border-radius: 100px; padding: 10px;"><a href="#collection" class="text-white" style="text-decoration: none;">Discover More</a></button>
+                    <button class="btn text-uppercase" style="background: #c837d1; font-weight: bold; border-radius: 100px; padding: 10px;"><a href="blog/index.php" class="text-white" style="text-decoration: none;">Discover More</a></button>
                 </div>
             </div>
             <div class="carousel-item">
@@ -25,7 +25,7 @@ include("screens/headers/header.php")
                 <div class="carousel-caption justify-content-center">
                     <h1 class="text-start">The silent Philosophers.</h1>
                     <p class="text-start">Artisans are the silent philosophers of society, shaping the world with their hands and minds.</p>
-                    <button class="btn text-uppercase" style="background: #c837d1; font-weight: bold; border-radius: 100px; padding: 10px;"><a href="#collection" class="text-white" style="text-decoration: none;">Discover More</a></button>
+                    <button class="btn text-uppercase" style="background: #c837d1; font-weight: bold; border-radius: 100px; padding: 10px;"><a href="blog/index.php" class="text-white" style="text-decoration: none;">Discover More</a></button>
                 </div>
             </div>
             <div class="carousel-item ">
@@ -34,7 +34,7 @@ include("screens/headers/header.php")
                 <div class="carousel-caption justify-content-center">
                     <h1 class="text-start">The true Artisan.</h1>
                     <p class="text-start">The true artisan is a seeker of beauty and truth, a philosopher of the tangible.</p>
-                    <button class="btn text-uppercase" style="background: #c837d1; font-weight: bold; border-radius: 100px; padding: 10px;"><a href="#collection" class="text-white" style="text-decoration: none;">Discover More</a></button>
+                    <button class="btn text-uppercase" style="background: #c837d1; font-weight: bold; border-radius: 100px; padding: 10px;"><a href="blog/index.php" class="text-white" style="text-decoration: none;">Discover More</a></button>
                 </div>
             </div>
         </div>
