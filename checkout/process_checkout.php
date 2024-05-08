@@ -62,7 +62,16 @@ if (!empty($email) && !empty($password) && !empty($name)) {
         exit;
     }
 } else {
-    // Redirect to error page if required fields are missing
+    // Redirect to error page if required fields are missingsuccess: function(response) {
+    console.log("Response received:", response);
+    if (response.status === 'success') {
+        alert('Success! Proceeding to payment.');
+        window.location.href = 'payment_page.php';
+    } else {
+        alert('Error: ' + response.message); // Display error message from server
+    }
+},
+
     header('Location: c.php?error=' . urlencode('Please fill in all required fields.'));
     exit;
 }
