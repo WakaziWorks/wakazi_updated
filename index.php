@@ -50,7 +50,7 @@ include("screens/headers/header.php")
 </div>
 
 
-<div class="container-fluid py-3" style="background: linear-gradient(to bottom, #6c2e8e, #ffffff); padding: 15px;">
+<div class="container-fluid py-3" style="background: linear-gradient(to bottom, #6c2e8e, #ffffff);">
     <div class="container-fluid px-4 py-5">
         <div class="row justify-content-center">
             <div class="col-12">
