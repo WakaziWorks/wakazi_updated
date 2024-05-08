@@ -56,7 +56,6 @@ include("../screens/headers/header.php");
                     $('#conditionalContent').html(`
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Checkout Form</h5>
                                 <form id="checkoutForm">
                                 
                                 
