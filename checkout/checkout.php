@@ -31,7 +31,7 @@ session_start();
                         <h5 class="card-title">Need Help?</h5>
                         <p class="card-text">Our customer support is here to help you with your order. Call us at <strong>----------</strong> or <a href="#">chat now</a>.</p>
                     </div>
-                </div>
+                </div>https://wakazi.co.ke/checkout/checkout.php?email=freak%40gmail.com&name=139&phone=08585858&password=13917295
             </div>
         </div>
     </div>
@@ -60,7 +60,7 @@ session_start();
                                 
                                 
                                             <h5 class="card-title">Checkout Form</h5>
-                                            <form id="checkoutForm">
+                                            <form id="checkoutForm" method="POST">
                                                 <div class="mb-3">
                                                     <label for="email" class="form-label">Email Address</label>
                                                     <input type="email" class="form-control" id="email" name="email" required onchange="checkEmail()">
