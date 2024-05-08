@@ -55,25 +55,25 @@ include("../screens/headers/header.php");
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 col-md-3 mb-3">
-            <div class="card text-center" style="opacity: 0.5;">
-                <div class="card-body">
-                    <h6 class="card-title">PayPal</h6>
-                    <p class="card-text"><i class="fa fa-paypal" aria-hidden="true"></i></p>
-                </div>
-            </div>
-        </div>
-        </div>
-        <div class="row">
+        // <div class="col-sm-6 col-md-3 mb-3">
+        //     <div class="card text-center" style="opacity: 0.5;">
+        //         <div class="card-body">
+        //             <h6 class="card-title">PayPal</h6>
+        //             <p class="card-text"><i class="fa fa-paypal" aria-hidden="true"></i></p>
+        //         </div>
+        //     </div>
+        // </div>
+        
+      
 
-        <div class="col-sm-6 col-md-3 mb-3">
-            <div class="card text-center" style="opacity: 0.5;">
-                <div class="card-body">
-                    <h6 class="card-title">Bank Transfer</h6>
-                    <p class="card-text"><i class="fa fa-bank" aria-hidden="true"></i></p>
-                </div>
-            </div>
-        </div>
+        // <div class="col-sm-6 col-md-3 mb-3">
+        //     <div class="card text-center" style="opacity: 0.5;">
+        //         <div class="card-body">
+        //             <h6 class="card-title">Bank Transfer</h6>
+        //             <p class="card-text"><i class="fa fa-bank" aria-hidden="true"></i></p>
+        //         </div>
+        //     </div>
+        // </div>
         <div class="col-sm-6 col-md-3 mb-3">
             <div class="card text-center" style="opacity: 1;">
                 <div class="card-body">
