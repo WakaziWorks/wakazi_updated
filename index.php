@@ -10,7 +10,8 @@ include("screens/headers/header.php")
         </div>
         <div class="carousel-inner ratio ratio-21x9">
             <div class="carousel-item active text-center p-4" data-bs-interval="3000">
-            <img src="courousel/1.png" class="d-block w-100" alt="...">
+            <img src="static/courousel/3.png" class="d-block w-100" alt="...">
+
 
                 <!-- <video src="static/images/Universe.mp4" class="" autoplay muted loop></video> -->
                 <div class="carousel-caption justify-content-center">
@@ -20,7 +21,7 @@ include("screens/headers/header.php")
                 </div>
             </div>
             <div class="carousel-item text-center p-4" data-bs-interval="3000">
-            <img src="courousel/2.png" class="d-block w-100" alt="...">
+            <img src="static/courousel/1.png" class="d-block w-100" alt="...">
                 <div class="carousel-caption justify-content-center">
                     <h1 class="text-start">The silent Philosophers.</h1>
                     <p class="text-start">Artisans are the silent philosophers of society, shaping the world with their hands and minds.</p>
@@ -28,7 +29,7 @@ include("screens/headers/header.php")
                 </div>
             </div>
             <div class="carousel-item text-center p-4" data-bs-interval="3000">
-            <img src="courousel/3.png" class="d-block w-100" alt="...">
+            <img src="static/courousel/2.png" class="d-block w-100" alt="...">
             <!-- <video src="static/images/Pottery.mp4" class="" autoplay muted loop></video> -->
                 <div class="carousel-caption justify-content-center">
                     <h1 class="text-start">The true Artisan.</h1>
