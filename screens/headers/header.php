@@ -392,6 +392,7 @@ require "cust.php";
                     <li class="nav-item" style="display: inline;"><a class="nav-link" href="../../collection/index.php">Collection</a></li>
                     <li class="nav-item" style="display: inline;"><a class="nav-link" href="../../features/index.php">Features</a></li>
                     <li class="nav-item" style="display: inline;"><a class="nav-link" href="../../blog/index.php">Blog</a></li>
+                    <li class="nav-item" style="display: inline;"><a class="nav-link" href="../../gallery/index.php">Gallery</a></li>
                 </ul>
             </div>
         </nav>
