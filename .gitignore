@@ -35,4 +35,4 @@ $admins = [
     ['email' => 'manager@wakazi.com', 'password' => password_hash('manager123', PASSWORD_DEFAULT), 'name' => 'Manager', 'role' => 'm']
 ];
 
-.vscode
+.vscode/
