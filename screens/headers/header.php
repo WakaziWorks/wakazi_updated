@@ -33,7 +33,7 @@ require "cust.php";
     <link href="assets/css/main.css" rel="stylesheet">
 
     <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
@@ -224,11 +224,17 @@ require "cust.php";
             padding: 10px 0;
             text-align: center;
         }
+        .nav-link-icon{
+            text-decoration: none;
+            padding: 5px 10px;
+            color: #000;
+        }
 
         .nav-link {
             padding: 10px 20px;
-            margin: 0 10px;
-            border-radius: 20px;
+            margin: 0 8px;
+            border-radius: 10px;
+            /* width: 6em; */
             /* Rounded corners */
             text-decoration: none;
             color: #082C4B;
@@ -240,7 +246,7 @@ require "cust.php";
         }
 
         .nav-link:hover {
-            background-color: #BD1983;
+            background-color: #c837d1;
             /* Purple background on hover */
             color: #ffffff;
             /* White text on hover */
@@ -270,7 +276,7 @@ require "cust.php";
     <header class="header sticky-top">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <ul class="navbar-nav" style="padding: 30px;">
+                <ul class="navbar-nav" style="padding: 20px;">
                     <!-- Dropdown for Account -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -315,8 +321,8 @@ require "cust.php";
                     <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent" style="float: right;">
                         <form class="d-flex" style="background-color: transparent; width: 100%;">
                             <div class="input-group">
-                                <input class="form-control me-2" type="search" placeholder="Search for anything" aria-label="Search" style="border: 2px solid #000; border-radius: 70px; flex-grow: 1; width:30em;">
-                                <button class="btn " type="submit" style="background-color: #ff00ff;">Search</button>
+                                <input class="form-control me-2" type="search" placeholder="Search for anything" aria-label="Search" style="border: 2px solid #000; border-radius: 10px; flex-grow: 1; width:30em;">
+                                <button class="btn " type="submit" style="background-color: #c837d1; font-weight: bolder; border-radius: 10px;">Search</button>
                             </div>
                         </form>
                     </div>
@@ -324,8 +330,6 @@ require "cust.php";
                 <?php if ($isLoggedIn) : ?>
                     <!-- Right Navigation Links -->
                     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-
-
                         <ul class="navbar-nav" style="padding: 30px;">
 
                             <li class="nav-item dropdown">
@@ -350,14 +354,13 @@ require "cust.php";
                         <ul class="navbar-nav" style="padding: 30px;">
                             <!-- Dropdown for Account -->
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="../../auth/accounts/login.php" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="bi bi-person"></i> Account
+                                <a class="nav-link-icon dropdown-toggle" href="../../auth/accounts/login.php" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person fs-3 text-dark fw-bold"></i> <span class="text-dark fw-bolder">Account</span>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="../../auth/accounts/signup.php" style="text-decoration: none; color: #c837d1; padding: 5px;">Sign Up</a></li>
+                                    <li><a class="dropdown-item" href="../../auth/accounts/signup.php"><button class="btn btn-secondary w-100" type="button">Sign up</button></a></li>
                                     <hr />
-                                    <li><a class="dropdown-item" href="../../auth/accounts/login.php" style="text-decoration: none; color: #c837d1; padding: 5px;">Sign In</a></li>
-                                    <hr />
+                                    <li><a class="dropdown-item" href="../../auth/accounts/login.php"><button class="btn btn-secondary w-100" type="button">Sign in</button></a></li>
 
                                 </ul>
                             </li>
@@ -365,34 +368,31 @@ require "cust.php";
 
                         <!-- Help Link -->
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="bi bi-question-circle"></i> Help</a>
+                            <a class="nav-link-icon" href="#"><i class="bi bi-question fs-3 fw-bolder text-dark"></i> <span class="text-dark fw-bolder">Help</span></a>
                         </li>
 
                         <!-- Cart -->
                         <li class="nav-item">
-                            <a class="nav-link" href="../../cart/index.php">
-                                <i class="fa fa-shopping-cart"></i> Cart
-                                <span class="badge bg-primary" style="background-color: #48003E;" id="cart-count">
+                            <a class="nav-link-icon" href="../../cart/index.php">
+                            <i class="bi bi-basket fs-3 text-dark fw-bolder"></i> <span class="text-dark fw-bolder"> Cart</span>
+                                <span class="badge bg-dark" style="background-color: #48003E;" id="cart-count">
                                     <?php echo count($_SESSION['cart'] ?? []); ?>
                                 </span>
                             </a>
                         </li>
                         </ul>
                     </div>
-
-
-
             </div>
         </nav>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                <ul class="navbar-nav" style="list-style: none; padding: 0;">
-                    <li class="nav-item" style="display: inline;"><a class="nav-link" href="../../index.php">Home</a></li>
-                    <li class="nav-item" style="display: inline;"><a class="nav-link" href="../../products/index.php">Products</a></li>
-                    <li class="nav-item" style="display: inline;"><a class="nav-link" href="../../collection/index.php">Collection</a></li>
-                    <li class="nav-item" style="display: inline;"><a class="nav-link" href="../../features/index.php">Features</a></li>
-                    <li class="nav-item" style="display: inline;"><a class="nav-link" href="../../blog/index.php">Blog</a></li>
-                    <li class="nav-item" style="display: inline;"><a class="nav-link" href="../../gallery/index.php">Gallery</a></li>
+                <ul class="navbar-nav">
+                    <li class="nav-item mx-4" style="display: inline;"><a class="nav-link fw-bolder text-dark" href="../../index.php">Home</a></li>
+                    <li class="nav-item mx-4" style="display: inline;"><a class="nav-link fw-bolder text-dark" href="../../products/index.php">Products</a></li>
+                    <li class="nav-item mx-4" style="display: inline;"><a class="nav-link fw-bolder text-dark" href="../../collection/index.php">Collection</a></li>
+                    <li class="nav-item mx-4" style="display: inline;"><a class="nav-link fw-bolder text-dark" href="../../features/index.php">Features</a></li>
+                    <li class="nav-item mx-4" style="display: inline;"><a class="nav-link fw-bolder text-dark" href="../../blog/index.php">Blog</a></li>
+                    <li class="nav-item mx-4" style="display: inline;"><a class="nav-link fw-bolder text-dark" href="../../gallery/index.php">Gallery</a></li>
                 </ul>
             </div>
         </nav>
