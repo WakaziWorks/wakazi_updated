@@ -36,3 +36,4 @@ $admins = [
 ];
 
 .vscode/
+/config/app/config.php
