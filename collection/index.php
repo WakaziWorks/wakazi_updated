@@ -122,39 +122,9 @@
                 ?>
             </div>
         </div>
-
-        <div class="container-fluid text-center">
-            <div class="row justify-content-center">
-                <div class="col-md-12">
-                    <div class="gradient-card">
-                        <h1>For more advanced searches...</h1>
-                        <div class="input-group input-group-custom mx-auto my-3" style="width: 80%;">
-                            <input type="text" class="form-control form-control-custom" placeholder="Search your item here..">
-                            <button class="btn btn-primary btn-custom">Search</button>
-                        </div>
-                        <h5>Don't know where to start?</h5>
-                        <button class="btn btn-primary">Explore Products</button>
-                    </div>
-                </div>
-                <div class="col-md-12 my-4">
-                    <div class="gradient-card">
-                        <p>Send me exclusive offers, personalized tips for shopping and how to sell on Wakazi.</p>
-                        <div class="input-group input-group-custom mx-auto" style="width: 80%;">
-                            <input type="email" class="form-control form-control-custom" placeholder="Enter your Email.">
-                            <button class="btn btn-primary btn-custom">Subscribe</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-
     </div>
-
-    <?php include("../screens/footer/footer.php"); ?>
-
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
+<?php include("../screens/footer/footer.php"); ?>
