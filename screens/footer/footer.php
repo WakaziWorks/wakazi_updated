@@ -1,117 +1,110 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    <style>
-        .footer-col {
-            transition: background-color 0.7s ease;
-            color: #fff;
-            cursor: pointer;
-        }
-
-        .footer-col:hover {
-            background-color: white;
-            border-radius: 5px;
-            padding: 10px;
-            cursor: pointer;
-
-        }
-
-        .footer-col p {
-            color: black;
-            cursor: pointer;
-        }
-
-        .footer-col p:hover {
-            color: black;
-            cursor: pointer;
-        }
-    </style>
-  </head>
-
-
-
-
-    
-
-    <section class="footer-top" id="footer-1" style="background-color: #e868f0; padding: 50px;">
-        <div class="container text-center">
-            <div class="row align-items-center">
-                <div class="col">
-                    <img src="../../static/images/x-diamond-fill.svg" class="img-fluid mb-2" />
-                    <h5 class="text-dark">Great Value</h5>
-                    <p>We offer competitive prices on our product range.</p>
-                </div>
-                <div class="col">
-                    <img src="../../static/images/credit-card-2-front-fill.svg" class="img-fluid mb-2" />
-                    <h5 class="text-dark">Safe Payment</h5>
-                    <p>Pay with the world’s most popular and secure payment methods.</p>
-                </div>
-                <div class="col">
-                    <img src="../../static/images/shield-lock-fill.svg" class="img-fluid mb-2" />
-                    <h5 class="text-dark">Shop with Confidence</h5>
-                    <p>Our Buyer Protection covers your purchase from click to delivery.</p>
-                </div>
-                <div class="col">
-                    <img src="../../static/images/question-circle-fill.svg" class="img-fluid mb-2" />
-                    <h5 class="text-dark">24/7 Help Center</h5>
-                    <p>Round-the-clock assistance for a smooth shopping experience.</p>
-                </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container-fluid py-5" style="background: #e9d5eb;">
+        <div class="row justify-content-center">
+            <div class="col-12 text-center mb-4">
+                <h5>Yes! Send me exclusive offers and personalized tips for shopping and selling on Wakazi.</h5>
+            </div>
+            <div class="col-12 col-md-6">
+                <form class="input-group">
+                    <input type="email" class="form-control" placeholder="Enter your email" required>
+                    <div class="input-group-append">
+                        <button class="btn" type="submit" style="background: #c837d1;">Subscribe</button>
+                    </div>
+                </form>
             </div>
         </div>
-    </section>
-
-    <section class="footer" style="background-color: #c837d1; padding: 50px;">
-        <div class="container">
-            <div class="row justify-content-center text-light text-center">
-                <div class="col-12 col-md-3">
-                    <h4>Shopping Guide</h4>
-                    <a href="_superadmin_/index.html" class="text-light">How do I pay on Wakazi?</a><br>
-                    <a href="_superadmin_/index.html" class="text-light">How long does my order arrive?</a><br>
-                    <a href="_superadmin_/index.html" class="text-light">How to shop on Wakazi?</a><br>
-                    <a href="_superadmin_/index.html" class="text-light">Forgot password?</a>
-                </div>
-                <div class="col-12 col-md-3">
-                    <h4>Customer Help</h4>
-                    <a href="_superadmin_/index.html" class="text-light">Privacy Policy</a><br>
-                    <a href="_superadmin_/index.html" class="text-light">Terms and Conditions</a><br>
-                    <a href="_superadmin_/index.html" class="text-light">Account Settings</a><br>
-                    <a href="_superadmin_/index.html" class="text-light">Delivery and Shipping</a><br>
-                    <a href="_superadmin_/index.html" class="text-light">FAQ Center</a>
-                </div>
-                <div class="col-12 col-md-3">
-                    <h4>Business</h4>
-                    <a href="_superadmin_/index.html" class="text-light">Want to be a Seller?</a><br>
-                    <a href="_superadmin_/index.html" class="text-light">Seller Center</a><br>
-                    <a href="_superadmin_/index.html" class="text-light">Wakazi Shop</a>
-                </div>
-                <div class="col-12 col-md-3">
-                    <h4>Stay Connected</h4>
-                    <a href="https://www.youtube.com/@WakaziWorks" target="_blank" class="bi bi-youtube text-light"></a><br>
-                    <a href="https://ke.linkedin.com/company/wakazi-works-platform" target="_blank" class="bi bi-linkedin text-light"></a><br>
-                    <a href="https://twitter.com/wakaziworks" target="_blank" class="bi bi-twitter text-light"></a><br>
-                    <a href="https://www.instagram.com/wakazi_works/" target="_blank" class="bi bi-instagram text-light"></a>
-                </div>
+    </div>
+    <div class="container-fluid p-5" style="background: #c837d1;">
+        <div class="row text-center">
+            <div class="col-md mb-4">
+                <img src="../../static/images/x-diamond-fill.svg" class="img-fluid mb-2" alt="Great Value">
+                <h5 class="text-black fw-bolder">Great Value</h5>
+                <p class="text-light">We offer competitive prices on our product range.</p>
+            </div>
+            <div class="col-md mb-4">
+                <img src="../../static/images/credit-card-2-front-fill.svg" class="img-fluid mb-2" alt="Safe Payment">
+                <h5 class="text-black fw-bolder">Safe Payment</h5>
+                <p class="text-light">Pay with the world’s most popular and secure payment methods.</p>
+            </div>
+            <div class="col-md mb-4">
+                <img src="../../static/images/shield-lock-fill.svg" class="img-fluid mb-2" alt="Shop with Confidence">
+                <h5 class="text-black fw-bolder">Shop with Confidence</h5>
+                <p class="text-light">Our Buyer Protection covers your purchase from click to delivery.</p>
+            </div>
+            <div class="col-md mb-4">
+                <img src="../../static/images/question-circle-fill.svg" class="img-fluid mb-2" alt="24/7 Help Center">
+                <h5 class="text-black fw-bolder">24/7 Help Center</h5>
+                <p class="text-light">Round-the-clock assistance for a smooth shopping experience.</p>
             </div>
         </div>
-    </section>
-
-    <div class="bottom-footer text-center" style="background: #7d1a86; padding: 10px;">
-        <div class="text-light">&copy; Wakazi Works 2024</div>
-        <a href="_superadmin_/index.html" class="text-light">Privacy</a>
-        <span class="mx-2 text-light">&middot;</span>
-        <a href="_superadmin_/index.html" class="text-light">Terms</a>
-        <span class="mx-2 text-light">&middot;</span>
-        <a href="_superadmin_/index.html" class="text-light">FAQ</a>
     </div>
 
-    <!-- Bootstrap and JS Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    <footer class="text-white pt-5" style="background: #800080;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-3 mb-4">
+                    <img src="../../static/images/WhatsApp_Image_2024-02-28_at_15.48.15-removebg-preview.png" alt="Logo" class="img-fluid mb-3">
+                </div>
+                <div class="col-12 col-md-2 mb-4">
+                    <h5 class="fw-bolder text-black">Shopping Guide</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">How to Shop</a></li>
+                        <li><a href="#" class="text-white">Payment Methods</a></li>
+                        <li><a href="#" class="text-white">Delivery Options</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-2 mb-4">
+                    <h5 class="fw-bolder text-black">Customer Help</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">FAQ</a></li>
+                        <li><a href="#" class="text-white">Return Policy</a></li>
+                        <li><a href="#" class="text-white">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-2 mb-4">
+                    <h5 class="fw-bolder text-black">Business</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Sell on Wakazi</a></li>
+                        <li><a href="#" class="text-white">Affiliate Program</a></li>
+                        <li><a href="#" class="text-white">Advertising</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-3 mb-4">
+                    <h5 class="fw-bolder text-black">Social Media</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://ke.linkedin.com/company/wakazi-works-platform" target="_blank" class="text-white">LinkedIn</a></li>
+                        <li><a href="https://twitter.com/wakaziworks" target="_blank" class="text-white">Twitter</a></li>
+                        <li><a href="https://www.instagram.com/wakazi_works/" target="_blank" class="text-white">Instagram</a></li>
+                        <li><a href="https://www.youtube.com/@WakaziWorks" target="_blank" class="text-white">YouTube</a></li>
+                    </ul>
+                    <div>
+                        <a href="https://ke.linkedin.com/company/wakazi-works-platform" target="_blank" class="text-white mr-2"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://twitter.com/wakaziworks" target="_blank" class="text-white mr-2"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/wakazi_works/" target="_blank" class="text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@WakaziWorks" target="_blank" class="text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <button class="btn rounded-circle" onclick="scrollToTop()" style="background: #edc4f0; position: fixed; bottom: 20px; right: 20px;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <script>
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+    </script>
 </body>
-
 </html>

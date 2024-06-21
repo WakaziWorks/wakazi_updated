@@ -1,40 +1,122 @@
 <?php
 include("screens/headers/header.php")
 ?>
-<div class="container-fluid" style="padding: 5px;">
-    <div id="carouselExampleCaptions" class="carousel slide">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Carousel</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        .carousel-item {
+            position: relative;
+            height: 75vh;
+        }
+
+        .carousel-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .carousel-caption {
+            position: absolute;
+            top: 30%;
+            left: 5%;
+            text-align: left;
+            color: #fff;
+        }
+
+        .carousel-caption h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+            animation: fadeInLeft 1s;
+        }
+
+        .carousel-caption .btn {
+            font-size: 1.5em;
+            padding: 15px 30px;
+            animation: fadeIn 2s;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .card {
+            height: 100%;
+        }
+        .card-img {
+            height: 400px;
+            object-fit: cover;
+        }
+        .card:hover .card-img {
+            opacity: 0.7;
+        }
+        .card-title {
+            transition: color 0.3s;
+        }
+        .card:hover .card-title {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
         <div class="carousel-inner">
             <div class="carousel-item active">
-            <img src="static/courousel/3.png" class="d-block w-100" alt="...">
-
-
-                <!-- <video src="static/images/Universe.mp4" class="" autoplay muted loop></video> -->
-                <div class="carousel-caption justify-content-center">
-                    <h1 class="text-start">Artisans are the Alchemists.</h1>
-                    <p class="text-start">Artisans are the alchemists of our time, turning ordinary materials into works of wonder.</p>
-                    <button class="btn text-uppercase" style="background: #c837d1; font-weight: bold; border-radius: 100px; padding: 10px;"><a href="blog/index.php" class="text-white" style="text-decoration: none;">Discover More</a></button>
+                <img src="static/courousel/1.png" class="d-block w-100 img-fluid" alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>
+                        Artisans are the silent philosophers of society, shaping the
+                        world with their hands and minds.
+                    </h1>
+                    <a href="#" class="btn" style="background: #c837d1;">Discover more</a>
                 </div>
             </div>
             <div class="carousel-item">
-            <img src="static/courousel/1.png" class="d-block w-100" alt="...">
-                <div class="carousel-caption justify-content-center">
-                    <h1 class="text-start">The silent Philosophers.</h1>
-                    <p class="text-start">Artisans are the silent philosophers of society, shaping the world with their hands and minds.</p>
-                    <button class="btn text-uppercase" style="background: #c837d1; font-weight: bold; border-radius: 100px; padding: 10px;"><a href="blog/index.php" class="text-white" style="text-decoration: none;">Discover More</a></button>
+                <img src="static/courousel/2.png" class="d-block w-100 img-fluid" alt="Second slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>
+                        Artisans are the alchemists of our time, turning ordinary materials into works of wonder.
+                    </h1>
+                    <a href="#" class="btn" style="background: #c837d1;">Discover more</a>
                 </div>
             </div>
-            <div class="carousel-item ">
-            <img src="static/courousel/2.png" class="d-block w-100" alt="...">
-            <!-- <video src="static/images/Pottery.mp4" class="" autoplay muted loop></video> -->
-                <div class="carousel-caption justify-content-center">
-                    <h1 class="text-start">The true Artisan.</h1>
-                    <p class="text-start">The true artisan is a seeker of beauty and truth, a philosopher of the tangible.</p>
-                    <button class="btn text-uppercase" style="background: #c837d1; font-weight: bold; border-radius: 100px; padding: 10px;"><a href="blog/index.php" class="text-white" style="text-decoration: none;">Discover More</a></button>
+            <div class="carousel-item">
+                <img src="https://imgs.search.brave.com/GiXO7erHMcTuWvOQpgBIKwNkyqX1o7kxoH4l3RlRMmY/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by92/aWV3LXdvcmtlci1n/cmluZGluZy1waWVj/ZS1tZXRhbF8yNjg4/MzUtNDA5Mi5qcGc_/c2l6ZT02MjYmZXh0/PWpwZw" class="d-block w-100 img-fluid" alt="Third slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>   
+                        The true artisan is a seeker of beauty and truth, a philosopher
+                        of the tangible.
+                    </h1>
+                    <a href="#" class="btn" style="background: #c837d1;">Discover more</a>
                 </div>
             </div>
         </div>
@@ -47,103 +129,117 @@ include("screens/headers/header.php")
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-</div>
-
-
-<div class="container-fluid py-3" style="background: linear-gradient(to bottom, #6c2e8e, #ffffff);">
-    <div class="container-fluid px-4 py-5">
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <h1 class="text-center mb-5">Shop by collections</h1>
-                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-                    <div class="col">
-                        <div class="card h-100 text-center">
-                            <a href="#" onclick="redirectToCategory('jewellery')">
-                                <img src="static/images/jewellery.webp" class="card-img-top" alt="Jewellery" style="object-fit: cover; height: 200px;">
-                            </a>
-                            <div class="card-body">
-                                <h4 class="card-title">Jewellery</h4>
-                            </div>
+    <div class="container">
+        <div class="row text-center p-4">
+            <div class="col-6 col-md-3 d-flex align-items-center justify-content-center py-3">
+                <i class="bi bi-shield-slash fa-2x mr-2 fw-bolder"></i>
+                <span class="fw-bold fs-5">Security.</span>
+            </div>
+            <div class="col-6 col-md-3 d-flex align-items-center justify-content-center py-3">
+                <i class="bi bi-truck fa-2x mr-2 fw-bolder"></i>
+                <span class="fw-bold fs-5">Timely Delivery.</span>
+            </div>
+            <div class="col-6 col-md-3 d-flex align-items-center justify-content-center py-3">
+                <i class="bi bi-credit-card-2-front fa-2x mr-2 fw-bolder"></i>
+                <span class="fw-bold fs-5">Safe Payment.</span>
+            </div>
+            <div class="col-6 col-md-3 d-flex align-items-center justify-content-center py-3">
+                <i class="bi bi-clock-history fa-2x mr-2 fw-bolder"></i>
+                <span class="fw-bold fs-5">24/7 support.</span>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-light py-5">
+        <div class="container p-4">
+            <h1 class="text-center fw-bold" style="color: #c837d1;"> Browse your favorite collection</h1>
+        </div>
+        <div class="container">
+            <div class="row">
+                <!-- Card 1 -->
+                <div class="col-12 col-md-3 mb-4">
+                    <div class="card rounded-0">
+                        <img src="https://imgs.search.brave.com/L28rKF7sc1pg_hocq7HWs4lOF_FSoLYMbFvZh4EB92A/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMudW5zcGxhc2gu/Y29tL3Bob3RvLTE2/MDIxNzM1NzQ3Njct/MzdhYzAxOTk0YjJh/P3E9ODAmdz0xMDAw/JmF1dG89Zm9ybWF0/JmZpdD1jcm9wJml4/bGliPXJiLTQuMC4z/Jml4aWQ9TTN3eE1q/QTNmREI4TUh4elpX/RnlZMmg4TVRKOGZH/cGxkMlZzY25sOFpX/NThNSHg4TUh4OGZE/QT0" class="card-img rounded-0" alt="Image 1">
+                        <div class="card-img-overlay d-flex align-items-end">
+                            <h2 class="card-title text-black">Jewellery</h2>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card h-100 text-center">
-                            <a href="#" onclick="redirectToCategory('home_decor')">
-                                <img src="static/images/decor.jpg" class="card-img-top" alt="Home and Decor" style="object-fit: cover; height: 200px;">
-                            </a>
-                            <div class="card-body">
-                                <h4 class="card-title">Home Decors</h4>
-                            </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-12 col-md-3 mb-4">
+                    <div class="card rounded-0">
+                        <img src="https://imgs.search.brave.com/jWK-2qMaBNNuOdJ1peGKTTIs_NF9UAWF027mPDPgNJg/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzY0L2E0/L2FmLzY0YTRhZjU3/NWQ4NmVkYjU0MGNk/M2EzYzlhZDcwNmZh/LmpwZw" class="card-img rounded-0" alt="Image 2">
+                        <div class="card-img-overlay d-flex align-items-end">
+                            <h2 class="card-title text-black">Craft Steel</h2>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card h-100 text-center">
-                            <a href="#" onclick="redirectToCategory('bags_purses')">
-                                <img src="static/images/bag.webp" class="card-img-top" alt="Bags and Purses" style="object-fit: cover; height: 200px;">
-                            </a>
-                            <div class="card-body">
-                                <h4 class="card-title">Bags and Purses</h4>
-                            </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-12 col-md-3 mb-4">
+                    <div class="card rounded-0">
+                        <img src="https://imgs.search.brave.com/h2g66YwxHOG1zumR7-DMvZnDyYgd7fMJ1rJo5IwvLkU/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/bWFraW5naG9tZWJh/c2UuY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDIyLzEwL1Bp/Y3R1cmUtSGFuZ2lu/Zy1JZGVhcy1OYWls/cy1hbmQtU2NyZXdz/LTY4M3gxMDI0Lmpw/ZWc" class="card-img rounded-0" alt="Image 3">
+                        <div class="card-img-overlay d-flex align-items-end">
+                            <h2 class="card-title text-black">Home Decors</h2>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card h-100 text-center">
-                            <a href="#" onclick="redirectToCategory('art_collectibles')">
-                                <img src="static/images/art2.jpg" class="card-img-top" alt="Art and Collectibles" style="object-fit: cover; height: 200px;">
-                            </a>
-                            <div class="card-body">
-                                <h4 class="card-title">Art and Collectibles</h4>
-                            </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="col-12 col-md-3 mb-4">
+                    <div class="card rounded-0">
+                        <img src="https://imgs.search.brave.com/MUR7WvMmZjmKeozjAJvOYTETNjE7_CBJZI70rld-54A/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/a2VqZW9kZXNpZ25z/LmNvbS9jZG4vc2hv/cC9wcm9kdWN0cy80/X2UyMjQzZjE2LTMy/ZDgtNDgwZC1hODFl/LWUzMGUxNDgyN2E2/Zl8xMDAweDEwMDAu/anBnP3Y9MTYyMzQz/NjM4Nw" class="card-img rounded-0" alt="Image 4">
+                        <div class="card-img-overlay d-flex align-items-end">
+                            <h2 class="card-title text-black">Crafted Bags</h2>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card h-100 text-center">
-                            <a href="#" onclick="redirectToCategory('books_movies_music')">
-                                <img src="static/images/books.jpg" class="card-img-top" alt="Books, Movies and Music" style="object-fit: cover; height: 200px;">
-                            </a>
-                            <div class="card-body">
-                                <h4 class="card-title">Books, Movies and Music</h4>
-                            </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="col-12 col-md-3 mb-4">
+                    <div class="card rounded-0">
+                        <img src="https://imgs.search.brave.com/DH9csZbXR-s1BCytGTluLi0kbIfQfYyK_lJtVsaXnuI/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzYyL2E2/LzlmLzYyYTY5ZmJj/NWZiMTM4MTM5M2Vh/MTI4ZTc4Mzk3ZDJj/LmpwZw" class="card-img rounded-0" alt="Image 5">
+                        <div class="card-img-overlay d-flex align-items-end">
+                            <h2 class="card-title text-black">Fashion Wears</h2>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card h-100 text-center">
-                            <a href="#" onclick="redirectToCategory('electronics')">
-                                <img src="static/images/electronics.jpg" class="card-img-top" alt="Electronics" style="object-fit: cover; height: 200px;">
-                            </a>
-                            <div class="card-body">
-                                <h4 class="card-title">Electronics</h4>
-                            </div>
+                </div>
+                <!-- Card 6 -->
+                <div class="col-12 col-md-3 mb-4">
+                    <div class="card rounded-0">
+                        <img src="https://imgs.search.brave.com/UlyZ9tB_upxEsedh2OZx_vKJ3g-OkmG2y8Z_qoXSL6I/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzgxLzhm/LzAyLzgxOGYwMjg0/YzI4YmVlOWE1Y2U4/YmNhZjRhMTJhMjY4/LmpwZw" class="card-img rounded-0" alt="Image 6">
+                        <div class="card-img-overlay d-flex align-items-end">
+                            <h2 class="card-title text-black">Fashion Accessories</h2>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card h-100 text-center">
-                            <a href="#" onclick="redirectToCategory('accessories')">
-                                <img src="static/images/accesories.jpg" class="card-img-top" alt="Accessories" style="object-fit: cover; height: 200px;">
-                            </a>
-                            <div class="card-body">
-                                <h4 class="card-title">Accessories</h4>
-                            </div>
+                </div>
+                <!-- Card 7 -->
+                <div class="col-12 col-md-3 mb-4">
+                    <div class="card rounded-0">
+                        <img src="https://imgs.search.brave.com/V7tC_5ORMMacZDQtcbzbwN2mquEYa0I-gSYJjkSvTqw/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/dGhlY29sbGVjdGlv/bnNob3AuY29tL0lt/YWdlX1Jlc2l6ZV9N/ZWRpdW0uYXNwP01p/c2NJbWFnZT1LV0FM/STYz" class="card-img rounded-0" alt="Image 7">
+                        <div class="card-img-overlay d-flex align-items-end">
+                            <h2 class="card-title text-black">Art and Collectibles</h2>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card h-100 text-center">
-                            <a href="#" onclick="redirectToCategory('craft_supplies_tools')">
-                                <img src="static/images/craft.jpg" class="card-img-top" alt="Craft supplies and Tools" style="object-fit: cover; height: 200px;">
-                            </a>
-                            <div class="card-body">
-                                <h4 the card-title">Craft supplies and Tools</h4>
-                            </div>
+                </div>
+                <!-- Card 8 -->
+                <div class="col-12 col-md-3 mb-4">
+                    <div class="card rounded-0">
+                        <img src="https://imgs.search.brave.com/ON1vurTdGh56IK5aY68znzUy-ZPIjCJ-K6x4purq71E/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tYWx3/YXJ3aWNrb25ib29r/cy5jb20vd3AtY29u/dGVudC91cGxvYWRz/LzIwMjMvMDkvUml2/ZXItU3Bpcml0LWJv/b2stY292ZXIuanBl/Zw" class="card-img rounded-0" alt="Image 8">
+                        <div class="card-img-overlay d-flex align-items-end">
+                            <h2 class="card-title text-black">Books</h2>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-
-<script>
+    <div class="container-fluid position-relative p-0" style="height: 700px;">
+    <video class="w-100 h-100" autoplay muted loop style="object-fit: cover;">
+        <source src="static/images/Handtools.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="position-absolute top-50 start-50 translate-middle text-white">
+        <h1 class="m-0 text-center">Discover the difference of African artistry blended with creativity.</h1>
+    </div>
+    </div>
+    <script>
     function redirectToCategory(category) {
         switch (category) {
             case 'jewellery':
@@ -174,11 +270,10 @@ include("screens/headers/header.php")
                 window.location.href = 'products.php';
         }
     }
-</script>
+    </script>
 
-<section id="features">
+    <!-- <section id="features">
     <div class="container px-5">
-        <!-- Gradient title -->
         <div class="row">
             <div class="col-12">
                 <h2 class="text-center font-weight-bold my-5" style="background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
@@ -193,7 +288,6 @@ include("screens/headers/header.php")
                 <div class="features-device-mockup">
                     <div class="device-wrapper" style="padding: 20px;">
                         <div class="device" data-device="iPhoneX" data-orientation="portrait" data-color="black">
-                            <!-- Applying a circular mask to the screen -->
                             <div class="screen bg-black rounded-circle overflow-hidden">
                                 <video class="rounded-circle" muted autoplay loop style="width: 100%; height: auto; display: block;">
                                     <source src="static/images/demo-screen.mp4" type="video/mp4" />
@@ -248,9 +342,7 @@ include("screens/headers/header.php")
                 .device .screen {
                     position: relative;
                     width: 100%;
-                    /* Adjust the size as needed */
                     padding-top: 100%;
-                    /* Equal to width for a perfect circle */
                     border-radius: 50%;
                     overflow: hidden;
                 }
@@ -267,11 +359,11 @@ include("screens/headers/header.php")
 
         </div>
     </div>
-</section>
+    </section> -->
 
 
 
-<section class="bg-light">
+    <section class="bg-light">
     <div class="container-fluid" style="padding: 30px;">
         <div class="container px-5">
             <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
@@ -293,8 +385,8 @@ include("screens/headers/header.php")
             </div>
         </div>
     </div>
-</section>
-<script>
+    </section>
+    <script>
     document.addEventListener('DOMContentLoaded', function() {
         const readMoreBtn = document.getElementById('readMoreBtn');
         const paragraph = document.getElementById('collapseExample');
@@ -307,10 +399,26 @@ include("screens/headers/header.php")
             }
         });
     });
-</script>
+    </script>
+    <div class="container my-5 p-5">
+        <h2 class="text-center">Why Wakazi?</h2>
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <h4>Sustaiability is the core of our brand.</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="col-12 col-md-4">
+                <h4>Premium quality without bargain.</h4>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+            <div class="col-12 col-md-4">
+                <h4>Lifetime guaranteed warranty.</h4>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            </div>
+        </div>
+    </div>
 
-
-<section id="download" class="bg-light">
+        <!-- <section id="download" class="bg-light">
     <div class="container px-5 py-5">
         <h2 class="text-center text-purple font-alt mb-4" style="color: black;">Get the app now!</h2>
         <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center">
@@ -318,7 +426,13 @@ include("screens/headers/header.php")
             <a href="#!"><img class="app-badge" src="static/images/app-store-badge.svg" alt="Download on App Store" /></a>
         </div>
     </div>
-</section>
+    </section> -->
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
 
 
 <?php
